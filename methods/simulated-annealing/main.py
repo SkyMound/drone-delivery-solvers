@@ -15,7 +15,6 @@ POIDS_DRONE = 4 #en kg
 MAX_DISTANCE=5000  #en mètres ( le drone peut parcourir 14 km avec une batterie pleine sans colis )
 
 
-
 ###################### FONCTIONS ######################
 
 #initialisation des coordonnées des colis aléatoirement dans un cercle de rayon MAX_DISTANCE
