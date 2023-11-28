@@ -1,4 +1,15 @@
-# import des librairies
+###################### DESCRIPTION ######################
+#authors : MARTIN Mickaël, BERNE Thomas
+#date : 28/11/2023
+#version : 1.0
+#description : Algorithme de recuit simulé pour le problème de livraison de colis par drone
+#              Le but est de trouver la meilleure solution pour livrer tous les colis en un minimum de temps
+#              On considère que les colis sont déposés au centre de tri et que les drones sont chargés a 100% au début de la tournée
+#              On considère que les drones peuvent charger 2kg de colis maximum
+
+
+
+###################### IMPORTS ######################
 import random
 import numpy as np
 import matplotlib.pyplot as plt
