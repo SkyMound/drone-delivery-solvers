@@ -15,7 +15,7 @@ subject to
 
 colis_livre_une_fois {i in 1..nb_c}: sum {j in 1..nb_d, k in 1..nb_m} x[i, j, k] = 1;
 colis_bien_livre {i in 1..nb_c}: sum {j in 1..nb_d} x[i, j, goal[i]] = 1;
-batterie: sum {i in 1..nb_c, j in 1..nb_d, k in 1..nb_m} (dist[k]*x[i, j, k]) >= dist_max;
+batterie {j in 1..nb_d}: sum {i in 1..nb_c, k in 1..nb_m} (dist[k]*x[i, j, k]) <= dist_max;
 
 
 
@@ -27,7 +27,6 @@ for {i in 1..nb_c, j in 1..nb_d, k in  1..nb_m} {
     for{{0}: x[i, j, k] == 1} {
         printf "Le colis %d est livre par le drone %d a la maison %d\n", i, j, k;
     }
-    printf "%d",sum {i in 1..nb_c, j in 1..nb_d, k in 1..nb_m} (dist[k]*x[i, j, k]);
 }
 
 end;
