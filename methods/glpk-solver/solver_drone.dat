@@ -5,6 +5,7 @@ param nb_d := 10;
 param nb_m := 10;
 
 param dist_max := 150;
+param time_upper_bound := 200;
 
 param dist := 1 50 
 2 20
