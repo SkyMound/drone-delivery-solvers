@@ -1,8 +1,8 @@
 data;
 
-param nb_c := 20;
+param nb_p := 20;
 param nb_d := 10;
-param nb_m := 10;
+param nb_h := 10;
 
 param dist_max := 150;
 param time_upper_bound := 200;
@@ -18,7 +18,7 @@ param dist := 1 50
 9 90
 10 100;
 
-param goal := 1 6
+param orders := 1 6
             2    5
             3    9
             4    6

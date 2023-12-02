@@ -24,8 +24,8 @@ package_well_delivered {p in 1..nb_p}: sum{d in 1..nb_d} x[p, d, goal[p]] = 1;
 compute_time_spend {d in 1..nb_d}: t[d] = sum{p in 1..nb_p, h in 1..nb_h} (dist[h]*x[p, d, h]);
 check_maximum_time {d in 1..nb_d}: time_max >= t[d];
 
-# Optimization purpore
-temps_drone_upper_bound {d in 1..nb_d}: t[d] <= time_upper_bound;
+# Optimization purpose
+drone_time_upper_bound {d in 1..nb_d}: t[d] <= time_upper_bound;
 time_max_upper_bound: time_max <= time_upper_bound;
 
 solve;
