@@ -18,7 +18,7 @@ minimize f: time_max;
 subject to
 
 package_deliverd_once {p in 1..nb_p}: sum{d in 1..nb_d, h in 1..nb_h} x[p, d, h] = 1;
-package_well_delivered {p in 1..nb_p}: sum{d in 1..nb_d} x[p, d, goal[p]] = 1;
+package_well_delivered {p in 1..nb_p}: sum{d in 1..nb_d} x[p, d, orders[p]] = 1;
 #battery {d in 1..nb_d}: sum{p in 1..nb_p, h in 1..nb_h} (dist[h]*x[p, d, h]) <= dist_max;
 
 compute_time_spend {d in 1..nb_d}: t[d] = sum{p in 1..nb_p, h in 1..nb_h} (dist[h]*x[p, d, h]);
