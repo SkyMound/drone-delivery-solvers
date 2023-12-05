@@ -4,8 +4,8 @@ param nb_p := 20;
 param nb_d := 5;
 param nb_h := 10;
 
-param dist_max := 101;
-param battery_initial := 90;
+param autonomy_max := 101;
+param autonomy_initial := 90;
 param time_upper_bound := 500;
 
 param dist := 1 50 
