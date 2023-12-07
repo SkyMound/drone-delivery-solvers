@@ -94,9 +94,9 @@ lats = []
 lons = []
 
 graph_densite()
-genereCSVVille('utils/generationColi/generationRealisticCity/dataUsed/grenoble.csv',25)
+#genereCSVVille('utils/generationColi/generationRealisticCity/dataUsed/grenoble.csv',25)
 
-data = open_csv('city1.csv')
+data = open_csv('utils/generationColi/generationRealisticCity/generateData/city1.csv')
 #Place sur une graphique les données de densité de population
 X = []
 Y = []

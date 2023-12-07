@@ -42,7 +42,7 @@ def genereCSV(nombreCommande,csvVille="utils/generationColi/generationRealisticC
         spamreader = csv.reader(csvfile, delimiter=',', quotechar='"')
         nombreMaison = sum(1 for row in spamreader) - 1
 
-    with open("utils/generationColi/generationRealisticCity/generateData/data.csv", 'w', newline='') as csvfile:
+    with open("utils/generationColi/generationRealisticCity/generateData/data2.csv", 'w', newline='') as csvfile:
         spamwriter = csv.writer(csvfile, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
         
         # Génère une heure aléatoire avec minute
@@ -86,7 +86,7 @@ def genereCSVVille(nombreMaison, rayonVille, rayonMin):
 def simulate_day():
     # Lire les données
     df_ville = pd.read_csv("utils/generationColi/generationRealisticCity/generateData/city1.csv")
-    df_commandes = pd.read_csv("utils/generationColi/generationRealisticCity/generateData/data.csv")
+    df_commandes = pd.read_csv("utils/generationColi/generationRealisticCity/generateData/data2.csv")
 
     # Convertir la colonne 'Heure' en datetime
     df_commandes['Heure'] = pd.to_datetime(df_commandes['Heure'])
@@ -149,6 +149,6 @@ def simulate_day():
     plt.show()
 
 
-#genereCSV(200)
+#genereCSV(2000)
 
 simulate_day()
