@@ -3,6 +3,11 @@ import re
 import tkinter as tk
 from math import sqrt
 import time
+from PIL import Image, ImageTk 
+
+
+
+
 class City:
     def __init__(self, name, drones, houses,packages):
         self.name = name
@@ -27,7 +32,7 @@ class House:
 
 
 class Drone:
-    def __init__(self, id, pos, canvas):
+    def __init__(self, id, pos, canvas, package):
         self.id = id
         self.pos = pos
         self.isCharging = False
@@ -37,7 +42,7 @@ class Drone:
         self.destroy = False
         self.battery = 100
         
-        self.listPackage = []
+        self.listPackage = package
         
         self.canvas = canvas
         self.canvas.create_oval(self.pos[0], self.pos[1], self.pos[0]+5, self.pos[1]+5, fill="red", tags="drone"+str(self.id))
@@ -47,8 +52,20 @@ class Drone:
         self.canvas.create_rectangle(850, int(self.id)*100 - 70, 1050, int(self.id)*100 - 50, fill="green", tags="battery"+str(self.id))
         self.canvas.create_rectangle(850, int(self.id)*100 - 70, 1050, int(self.id)*100 - 50, outline="black")
 
-        if len(self.listPackage) > 0:
-            self.canvas.create_text(830, int(self.id)*100 - 70, text="Colis "+str(len(self.listPackage)))
+        self.canvas.create_image(945, int(self.id)*100 - 60, image=im, tags="image_drone"+str(self.id))
+        
+        self.canvas.itemconfigure("image_drone"+str(self.id), state="hidden")
+
+        print(len(self.listPackage))
+        if len(self.listPackage) > 0 and len(self.listPackage) < 10:
+            for i in range(len(self.listPackage)):
+                self.canvas.create_rectangle(850 + len(self.listPackage) * 20 - i* 20, int(self.id)*100 - 30, 840 + len(self.listPackage) * 20 - i*20, int(self.id)*100 - 20, fill="orange", tags="package"+str(self.id)+str(self.listPackage[i].id))
+        elif len(self.listPackage) >= 10:
+            for i in range(len(self.listPackage)):
+                self.canvas.create_rectangle(850 + len(self.listPackage) * 20 - i* 20, int(self.id)*100 - 30, 840 + len(self.listPackage) * 20 - i*20, int(self.id)*100 - 20, fill="white",outline="white", tags="package"+str(self.id)+str(self.listPackage[i].id))
+
+            self.canvas.create_text(880, int(self.id)*100 - 30, text=str(len(self.listPackage))+" packages left", tags="text"+str(self.id))  
+    
     def __str__(self):
         return "Drone " + str(self.id) + " : " + str(self.pos)
     
@@ -61,16 +78,29 @@ class Drone:
             self.canvas.itemconfigure("drone"+str(self.id), fill="green")
         
     def removePackage(self):
+        self.canvas.delete("package"+str(self.id)+str(self.packageHolding.id))
+        if len(self.listPackage) >= 10:
+            self.canvas.itemconfigure("text"+str(self.id), text=str(len(self.listPackage)-1)+" packages left")
+        
+        if len(self.listPackage) == 10:
+            self.canvas.delete("text"+str(self.id))
+            for i in range(len(self.listPackage)):
+                self.canvas.itemconfigure("package"+str(self.id)+str(self.listPackage[i].id), fill="orange",outline="black")
+            
+
+        print("package"+str(self.id)+str(self.packageHolding.id))
         self.listPackage.remove(self.packageHolding)
         self.packageHolding = None
         self.objectif = (400,400)
         self.isDelivering = False
         self.canvas.itemconfigure("drone"+str(self.id), fill="red")
+        
 
     def charge(self):
         self.isCharging = True
         print("Drone " + str(self.id) + " en charge")
         self.canvas.itemconfigure("drone"+str(self.id), fill="yellow")
+        self.canvas.itemconfigure("image_drone"+str(self.id), state="normal")
 
     def move_drone(self, pos):
         self.canvas.move("drone"+str(self.id), pos[0], pos[1])
@@ -81,16 +111,16 @@ class Drone:
     def advance(self):
 
         if len(self.listPackage) == 0 and self.atSpawn() and not(self.destroy):
-            print("Fin de livraison pour le drone " + str(self.id))
+            print("end of delivery for drone " + str(self.id))
             self.canvas.delete("drone"+str(self.id))
             self.destroy = True
             self.canvas.itemconfigure("battery"+str(self.id), fill="grey")
+            self.canvas.itemconfigure("image_drone"+str(self.id), state="hidden")
 
         if not(self.destroy):
             self.setUpBattery()
             if not(self.isCharging):
                 self.battery -= 0.1
-                print(self.battery)
                 normVector = norm(self.objectif[0] - self.pos[0],self.objectif[1] - self.pos[1])
                 self.move_drone(((self.objectif[0] - self.pos[0])/normVector, (self.objectif[1] - self.pos[1])/normVector))
                 if self.isAtObjectif() and self.isDelivering:
@@ -106,6 +136,7 @@ class Drone:
                 self.isCharging = False
                 self.canvas.itemconfigure("drone"+str(self.id), fill="red")
                 print("Drone " + str(self.id) + " chargé")
+                self.canvas.itemconfigure("image_drone"+str(self.id), state="hidden")
 
     def coliRestant(self):
         return len(self.listPackage)
@@ -176,7 +207,7 @@ print("drones : ", drones)
 print("houses : ", houses)
 
 nombreDrone = max(drones)
-print("nombre de drone : ", nombreDrone)
+print("Numbers of drone : ", nombreDrone)
 
 city = recupCity()
 
@@ -188,9 +219,13 @@ canvas.pack()
 canvas.create_oval(400-10, 400-10, 400+10, 400+10, outline="black")
 canvas.create_rectangle(0, 0, 800, 800, outline="black")
 
+im = tk.PhotoImage(file = "utils/DataPrint/charge.png",master=window)
+
 
 listDrones = {}
 listHouses = {}
+
+
 
 
 for house in city:
@@ -198,10 +233,13 @@ for house in city:
     print(listHouses[str(int(house)+1)])
 
 for drone in range(1,int(nombreDrone) +1):
-    listDrones[drone] = Drone(str(drone),(400,400),canvas)
-    for j,i in enumerate(drones):
-        if int(i) == drone:
-            listDrones[drone].listPackage.append(Package(str(j),str(drone),listHouses[houses[j]]))
+    package = []
+    for k in range(3):
+        for j,i in enumerate(drones):
+            if int(i) == drone:
+                package.append(Package(str(j)+str(k),str(drone),listHouses[houses[j]]))
+
+    listDrones[drone] = Drone(str(drone),(400,400),canvas, package)
 
 
 globalCity = City("Grenoble",listDrones,listHouses,[])
