@@ -34,6 +34,8 @@ class Drone:
         self.isDelivering = False
         self.packageHolding = None
         self.objectif = None
+        self.destroy = False
+        self.battery = 100
         
         self.listPackage = []
         
@@ -41,42 +43,90 @@ class Drone:
         self.canvas.create_oval(self.pos[0], self.pos[1], self.pos[0]+5, self.pos[1]+5, fill="red", tags="drone"+str(self.id))
         print("Drone create")
 
+        self. canvas.create_text(830, int(self.id)*100 - 90, text="Drone "+str(self.id))
+        self.canvas.create_rectangle(850, int(self.id)*100 - 70, 1050, int(self.id)*100 - 50, fill="green", tags="battery"+str(self.id))
+        self.canvas.create_rectangle(850, int(self.id)*100 - 70, 1050, int(self.id)*100 - 50, outline="black")
+
+        if len(self.listPackage) > 0:
+            self.canvas.create_text(830, int(self.id)*100 - 70, text="Colis "+str(len(self.listPackage)))
     def __str__(self):
         return "Drone " + str(self.id) + " : " + str(self.pos)
     
     def addPackage(self):
-        if self.packageHolding == None:
+        if self.packageHolding == None and len(self.listPackage) > 0 and self.atSpawn() and not(self.isCharging):
             package = self.listPackage[0]
             self.packageHolding = package
             self.objectif = package.houseTarget.pos
             self.isDelivering = True
+            self.canvas.itemconfigure("drone"+str(self.id), fill="green")
         
     def removePackage(self):
-        self.packageHolding = None
         self.listPackage.remove(self.packageHolding)
+        self.packageHolding = None
         self.objectif = (400,400)
         self.isDelivering = False
+        self.canvas.itemconfigure("drone"+str(self.id), fill="red")
 
     def charge(self):
         self.isCharging = True
+        print("Drone " + str(self.id) + " en charge")
+        self.canvas.itemconfigure("drone"+str(self.id), fill="yellow")
 
     def move_drone(self, pos):
-        self.pos = pos
-        self.canvas.move("drone"+str(self.id), self.pos[0], self.pos[1])
+        self.canvas.move("drone"+str(self.id), pos[0], pos[1])
+        
+        self.pos = (self.pos[0] + pos[0], self.pos[1] + pos[1])
+        #self.pos = (self.pos[0]+pos[0], self.pos[1]+pos[1])
 
     def advance(self):
-        
-        if not(self.isCharging):
-            normVector = norm(self.objectif[0] - self.pos[0],self.objectif[1] - self.pos[1])*0.1
-            self.move_drone(((self.objectif[0] - self.pos[0])/normVector, (self.objectif[1] - self.pos[1])/normVector))
-        elif len(self.listPackage) == 0:
+
+        if len(self.listPackage) == 0 and self.atSpawn() and not(self.destroy):
+            print("Fin de livraison pour le drone " + str(self.id))
             self.canvas.delete("drone"+str(self.id))
+            self.destroy = True
+            self.canvas.itemconfigure("battery"+str(self.id), fill="grey")
 
-        if self.pos == self.objectif and self.isDelivering:
-            self.removePackage()
+        if not(self.destroy):
+            self.setUpBattery()
+            if not(self.isCharging):
+                self.battery -= 0.1
+                print(self.battery)
+                normVector = norm(self.objectif[0] - self.pos[0],self.objectif[1] - self.pos[1])
+                self.move_drone(((self.objectif[0] - self.pos[0])/normVector, (self.objectif[1] - self.pos[1])/normVector))
+                if self.isAtObjectif() and self.isDelivering:
+                    self.removePackage()
 
-        #print("Drone advance to " + str(self.pos))
+                if self.battery <=30 and self.atSpawn():
+                    self.charge()
+
+            if self.isCharging:
+                self.battery += 0.2
+
+            if self.battery >= 95 and self.isCharging:
+                self.isCharging = False
+                self.canvas.itemconfigure("drone"+str(self.id), fill="red")
+                print("Drone " + str(self.id) + " chargé")
+
+    def coliRestant(self):
+        return len(self.listPackage)
+    
+    def isAtObjectif(self):
+        if self.pos[0] >= self.objectif[0]-5 and self.pos[0] <= self.objectif[0]+5 and self.pos[1] >= self.objectif[1]-5 and self.pos[1] <= self.objectif[1]+5:
+            return True
+        else:
+            return False
         
+    def atSpawn(self):
+        if self.pos[0] >= 400-5 and self.pos[0] <= 400+5 and self.pos[1] >= 400-5 and self.pos[1] <= 400+5:
+            return True
+        else:
+            return False
+        
+    def setUpBattery(self):
+        x0, y0, x1, y1 = self.canvas.coords("battery"+str(self.id))
+        self.battery = max(self.battery, 0)
+        self.battery = min(self.battery, 100)
+        self.canvas.coords("battery"+str(self.id), x0, y0, x0 + (self.battery/100)*200, y1)
 
 class Package:
     def __init__(self, id, byDrone, houseTarget):
@@ -132,10 +182,12 @@ city = recupCity()
 
 window = tk.Tk()
 window.title("City")
-canvas = tk.Canvas(window, width=800, height=800, bg="white")
+canvas = tk.Canvas(window, width=1200, height=800, bg="white")
 canvas.pack()
 
-canvas.create_oval(400, 400, 405, 405, fill="green")
+canvas.create_oval(400-10, 400-10, 400+10, 400+10, outline="black")
+canvas.create_rectangle(0, 0, 800, 800, outline="black")
+
 
 listDrones = {}
 listHouses = {}
@@ -157,7 +209,7 @@ while True:
     for drone in listDrones:
         listDrones[drone].addPackage()
         listDrones[drone].advance()
-    time.sleep(0.1)
+    time.sleep(0.005)
     window.update()
 
 
