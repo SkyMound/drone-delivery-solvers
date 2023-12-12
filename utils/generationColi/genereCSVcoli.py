@@ -7,8 +7,8 @@ from matplotlib.animation import FuncAnimation
 from datetime import datetime, timedelta
 
 
-nomberPackage = 1000 #number of package to generate
-nameFile = "data3.csv" #name of the file generated
+nomberPackage = 10 #number of package to generate
+nameFile = "dataTestSA.csv" #name of the file generated
 fileCity = "city1.csv" #name of the file of the city used
 
 #parameters for the weight of the package
