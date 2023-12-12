@@ -1,10 +1,5 @@
 import csv
-import random
-import pandas as pd
-import matplotlib.pyplot as plt
-from matplotlib.patches import Circle
-from matplotlib.animation import FuncAnimation
-from datetime import datetime, timedelta
+
 
 # Données ville => lattitude, longitude, population, surface
 # Département : numéro du département.
@@ -86,16 +81,6 @@ def get_data_densite():
     data = open_csv('utils/generationColi/generationRealisticCity/dataUsed/carreaux_200m_met.csv')
     #creation d'un dictionnaire avec les données de densité de population
     return data
-    
-
-#retourne une liste de dictionnaire avec les données des villes (pas utilisé au final)
-def get_data_ville():
-    return open_csv('utils/generationColi/generationRealisticCity/dataUsed/villes_france.csv')
-
-def print_csv_headers(filename):
-    reader = csv.reader(open(filename, 'r'))
-    headers = next(reader)
-    print(headers)
 
 
 from geopy.geocoders import Nominatim

@@ -4,20 +4,33 @@ import tkinter as tk
 from math import sqrt
 import time
 from PIL import Image, ImageTk 
-
-
-
+from datetime import timedelta
 
 class City:
-    def __init__(self, name, drones, houses,packages):
+    def __init__(self, name, drones, houses,packages, canvas):
         self.name = name
         
         self.drones = drones
         self.houses = houses
         self.packages = packages
+        self.seconds = 50000
+
+        self.canvas = canvas
+
+        self.canvas.create_text(390, 50, text=timedelta(self.seconds), font=("Arial", 20), tags="time")
+
 
     def __str__(self):
         return "City " + str(self.name) + " : " + str(self.pos)
+    
+    def execution(self):
+        for drone in self.drones:
+            self.drones[drone].addPackage()
+            self.drones[drone].advance()
+            self.seconds += 0.5
+            self.canvas.itemconfigure("time", text=timedelta(seconds=int(self.seconds)))
+            time.sleep(0.0001)
+            window.update()
     
 
 class House:
@@ -242,14 +255,10 @@ for drone in range(1,int(nombreDrone) +1):
     listDrones[drone] = Drone(str(drone),(400,400),canvas, package)
 
 
-globalCity = City("Grenoble",listDrones,listHouses,[])
-while True:
-    for drone in listDrones:
-        listDrones[drone].addPackage()
-        listDrones[drone].advance()
-    time.sleep(0.005)
-    window.update()
+globalCity = City("Grenoble",listDrones,listHouses,[],canvas)
 
+while True :
+    globalCity.execution()
 
 window.mainloop()
 
