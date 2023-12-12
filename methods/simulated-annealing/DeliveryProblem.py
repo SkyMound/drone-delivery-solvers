@@ -1,6 +1,6 @@
 import numpy as np
-import Order
-import Drone
+from Order import Order
+from Drone import Drone
 
 class DeliveryProblem :
     def __init__(self, nb_drones, nb_orders, distance_max):
@@ -9,7 +9,6 @@ class DeliveryProblem :
         self.nb_orders = nb_orders
         self.distance_max = distance_max
         Order.MAX_DISTANCE = distance_max
-        
         self.orders = np.zeros(nb_orders)
         for i in range(nb_orders):
             self.orders[i] = Order()
@@ -20,7 +19,14 @@ class DeliveryProblem :
 
     
     def generate_solution(self) :
-        return np.random.randint(0,self.nb_orders,self.nb_drones)
+        new_sol = np.array([] for i in range(self.nb_drones))
+        orders = np.random.shuffle(np.arange(self.nb_orders))
+        i = 0
+        for order in orders :
+            new_sol[i%self.nb_drones].append(order)
+            i+=1
+        print(new_sol)
+        return new_sol
     
     def optimize_solution(self, solution) :
         # TODO Apply heursitics to solution
