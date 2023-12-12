@@ -71,20 +71,23 @@ def calc_energy_needed(distance,poids_colis):
 #calcul du cout de la solution
 def calc_cout(solution,list_colis,batterie_drones,coord_depot=(0,0)):
     drones_total_time=np.zeros((NOMBRE_DE_DRONES))
+    drones_theorique_time=np.zeros((NOMBRE_DE_DRONES))
     for i in range(NOMBRE_DE_COLIS):
         num_drone=solution[i]
         infos_colis=list_colis[i]
         dist_colis=cal_distance(infos_colis,coord_depot)
-
+        #calcul du temps de livraison du colis par le drone
+        drones_theorique_time[num_drone]+=dist_colis/VITESSE_DRONE+TEMPS_DECOLAGE*2
         next_travel_energy=calc_energy_needed(dist_colis,infos_colis[2])*1.1
 
         #calcul du temps d'attente du drone pour atteindre une charge suffisante pour livrer le colis ( +10% de la batterie pour la sécurité)
         if batterie_drones[num_drone]<next_travel_energy:
+            #TODO vérifier que c'est possible de charger le drone
             drones_total_time[num_drone]+=tmp_charge(next_travel_energy-batterie_drones[num_drone])
         #TODO voir si on fait un cas particulier pour le dernier colis de la tournée (on considère que les livraisons sont finis a partir du moment ou le dernier colis est livré donc on ne prend pas en compte le temps de retour au centre de tri) 
         drones_total_time[num_drone]+=dist_colis/VITESSE_DRONE+TEMPS_DECOLAGE*2
     
-    return np.max(drones_total_time)
+    return np.max(drones_total_time-drones_theorique_time)
 
 def voisinage(solution):
     #on choisit un colis au hasard et on change de drone
@@ -114,7 +117,7 @@ if __name__ == "__main__":
     iterations=1000
     batch_size=10
     T=1000
-    facteur=0.99
+    facteur=0.90
 
     #solution initiale aléatoire
     #le drone (ID) va livrer le colis (indice)
@@ -135,7 +138,10 @@ if __name__ == "__main__":
             solution_voisine=voisinage(solution)
             #on calcule le cout de la solution voisine
             cout1 = calc_cout(solution_voisine,details_colis,batterie_drones,coord_depot)
-            if cout1<cout0:
+
+            delta_cout=cout1-cout0
+
+            if delta_cout<=0:
                 cout0=cout1
                 solution=solution_voisine
                 if cout1<cout_min_sol:
@@ -143,7 +149,7 @@ if __name__ == "__main__":
                     min_sol=solution
             else:
                 x=np.random.uniform()
-                if x<np.exp((cout0-cout1)/T):
+                if x<np.exp(-(delta_cout/T)):
                     cout0=cout1
                     solution=solution_voisine
     

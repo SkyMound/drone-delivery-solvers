@@ -4,6 +4,7 @@ import Drone
 
 class DeliveryProblem :
     def __init__(self, nb_drones, nb_orders, distance_max):
+        #TODO : redo this to be able to generate a problem with different orders and drones only if the parameters filepath is not given
         self.nb_drones = nb_drones
         self.nb_orders = nb_orders
         self.distance_max = distance_max
@@ -22,14 +23,14 @@ class DeliveryProblem :
         return np.random.randint(0,self.nb_orders,self.nb_drones)
     
     def optimize_solution(self, solution) :
-        # Apply heursitics to solution
+        # TODO Apply heursitics to solution
         pass
     
     def fitness(self, solution) :
         sum = 0
         for order_index in range(self.nb_orders) :
             pass
-        # sum of (expected time for an order - real time took to realize the order)**2
+        #TODO  sum of (expected time for an order - real time took to realize the order)**2
         pass
     
     def get_neighbor(self, solution) :
