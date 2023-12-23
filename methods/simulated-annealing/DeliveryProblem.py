@@ -1,29 +1,55 @@
+### DeliveryProblem.py ###
+#authors : Tobias Fresard and Martin Mickael
+#Description : Class to represent a delivery problem
+
+
 import numpy as np
+import os
+import pandas as pd
+
 from Order import Order
 from Drone import Drone
+from Action import Action
 
 class DeliveryProblem :
-    def __init__(self, nb_drones, nb_orders, distance_max):
-        #TODO : redo this to be able to generate a problem with different orders and drones only if the parameters filepath is not given
+    def __init__(self, nb_drones=10, nb_orders=10, distance_max=5000, filepath=None ):
         self.nb_drones = nb_drones
         self.nb_orders = nb_orders
         self.distance_max = distance_max
         Order.MAX_DISTANCE = distance_max
-        self.orders = np.zeros(nb_orders)
-        for i in range(nb_orders):
-            self.orders[i] = Order()
-            
-        self.drones = np.zeros(nb_drones)
-        for i in range(nb_drones):
-            self.drones[i] = Drone(i)
+        self.orders = []
+        self.drones = []
+
+
+        if filepath is None :
+            for i in range(nb_orders):
+                self.orders.append(Order())
+                
+            for i in range(nb_drones):
+                self.drones.append(Drone(i))
+
+
+        else :
+            if os.path.exists("utils/generationColi/generationRealisticCity/generateData/" + filepath) :
+                print("Getting data from " + filepath)
+                df_ville = pd.read_csv("utils/generationColi/generationRealisticCity/generateData/city1.csv")
+                df_commandes = pd.read_csv("utils/generationColi/generationRealisticCity/generateData/" + filepath)
+                nb_orders = df_commandes.shape[0]
+                for i in range(nb_orders):
+                    # we get the house id in the command file and we get the house position in the city file
+                    x = df_ville.loc[df_commandes['idMaison'][i], 'X']
+                    y = df_ville.loc[df_commandes['idMaison'][i], 'Y']
+                    self.orders.append(Order(x,y,df_commandes['Weight'][i]))
+        print(len(self.orders))
+                
 
     
     def generate_solution(self) :
-        new_sol = np.array([] for i in range(self.nb_drones))
-        orders = np.random.shuffle(np.arange(self.nb_orders))
+        new_sol = [[] for i in range(self.nb_drones)]
         i = 0
-        for order in orders :
-            new_sol[i%self.nb_drones].append(order)
+        for order in self.orders :
+            
+            new_sol[i%self.nb_drones].append(Action(0,order))
             i+=1
         print(new_sol)
         return new_sol
