@@ -12,3 +12,6 @@ class Order():
     
     def distance(self) :
         return np.sqrt(self.x**2+self.y**2)*2
+    
+    def order_tostring(self) :
+        return "[Order : x={}, y={}, w={}]".format(self.x, self.y, self.weight)

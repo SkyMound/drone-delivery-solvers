@@ -10,6 +10,7 @@ import pandas as pd
 from Order import Order
 from Drone import Drone
 from Action import Action
+from DeliverySolution import DeliverySolution
 
 class DeliveryProblem :
     def __init__(self, nb_drones=10, nb_orders=10, distance_max=5000, filepath=None ):
@@ -45,13 +46,17 @@ class DeliveryProblem :
 
     
     def generate_solution(self) :
+
         new_sol = [[] for i in range(self.nb_drones)]
         i = 0
         for order in self.orders :
             
             new_sol[i%self.nb_drones].append(Action(0,order))
             i+=1
-        print(new_sol)
+
+        self.initial_solution = DeliverySolution(new_sol)
+        
+        self.initial_solution.print_solution()
         return new_sol
     
     def optimize_solution(self, solution) :
