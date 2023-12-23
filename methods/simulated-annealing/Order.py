@@ -11,6 +11,7 @@ class Order():
         self.weight = weight or np.random.randint(50,Order.PACKAGE_WEIGHT_MAX*1000)/1000
     
     def distance(self) :
+        #TODO check if this is the right formula it must give the distance meters
         return np.sqrt(self.x**2+self.y**2)*2
     
     def order_tostring(self) :

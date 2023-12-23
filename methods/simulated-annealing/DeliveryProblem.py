@@ -4,6 +4,7 @@
 
 
 from math import inf
+from matplotlib import pyplot as plt
 import numpy as np
 import os
 import pandas as pd
@@ -52,8 +53,6 @@ class DeliveryProblem :
 
         print(len(self.orders))
                 
-
-    
     def generate_solution(self) :
 
         new_sol = [[] for i in range(self.nb_drones)]
@@ -66,33 +65,48 @@ class DeliveryProblem :
 
         return DeliverySolution(new_sol)
     
-    def optimize_solution_localy(self, solution) :
-        # TODO locally improve the solution
-
-        pass
-    
     def calc_fitness(self, solution) :
-        sum = 0
-        for order_index in range(self.nb_orders) :
-            pass
-        #TODO  sum of (expected time for an order - real time took to realize the order)**2
-        pass
+        drone_total_time = np.zeros((self.nb_drones))
+        drone_theorique_time = np.zeros((self.nb_drones))
+
+        for i in range(self.nb_drones):
+            for action in solution.actions[i] :
+                drone_total_time[i] += action.expected_time()
+                drone_theorique_time[i] += self.expected_time(action.order_to_deliver)
+
+                #Plus utililsé car le temps de charge est géré par les actions
+                # if action.battery_to_charge > 0 :
+                #     drone_total_time[i] += Drone.charge_time(action.battery_to_charge)
+                #     drone_theorique_time[i] += Drone.charge_time(action.battery_to_charge)
+
+        return (np.max(drone_total_time-drone_theorique_time))**2
     
-    def get_neighbor(self, solution) :
-        neighbor = solution
-        order_to_change = np.random.randint(0,self.nb_orders)
-        neighbor[order_to_change] = np.random.randint(0,self.nb_drones)
-        return neighbor
         
     
     def expected_time(self, order) :
         return order.distance()/Drone.speed
     
+    def optimize_solution_localy(self, solution) :
+        # TODO locally improve the solution
+
+
+        pass
+
+    def get_neighbor(self, solution) :
+        # TODO get a neighbor solution
+        # Inverting two actions of the same drone
+        # Inverting two actions between two drones
+        # mofiying the battery charge of an action
+        # find other ideas
+        neighbor = solution
+
+        return neighbor
+    
     def optimize(self,solution,nb_iterations =1000,factor = 0.9,batch_size=10,heat=100) :
         self.fitness_history = []
         cur_fitness = self.calc_fitness(solution)
 
-        #TODO optimize the solution
+        # optimize the solution
         for i in range(nb_iterations):
             #print('la ',i,'è_me solution = ',solution,' donne le temps maximum de livraison = ',cout0,' la température actuelle =',T)
             T=T*self.factor
@@ -118,5 +132,28 @@ class DeliveryProblem :
                         cur_fitness=new_fitness
                         solution=solution_voisine
         print('la meilleure solution est ',self.best_solution,' avec un temps maximum de livraison de ',self.best_fitness,' secondes')
+
+        pass
+    
+
+    def plot_solution(self) :
+        #plot the solution
+        fig, (colis_plots, cout_plot) = plt.subplots(1, 2, sharey=False, figsize=(15, 5))
+        fig.suptitle('Simulation de livraison de colis par drone')
+        colis_plots.set_title('Position des colis')
+        cout_plot.set_title('Evolution du cout')
+
+        #affichage des colis dans le graphe
+        #récupération des coordonnées des colis (x,y) 
+        x,y = [],[]
+        for order in self.orders :
+            x.append(order.x)
+            y.append(order.y)
+        
+        colis_plots.scatter(x, y)
+
+        #TODO affichage du dépôt
+
+        #TODO affichage du coup en fonction du nombre d'itérations
 
         pass
