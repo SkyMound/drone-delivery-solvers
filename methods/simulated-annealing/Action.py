@@ -13,7 +13,5 @@ class Action:
         time += Drone.takeoff_time
         return time
 
-
-
-    def action_tostring(self):
+    def __str__(self):
         return "({} %, {})".format(self.battery_to_charge, self.order_to_deliver.order_tostring())

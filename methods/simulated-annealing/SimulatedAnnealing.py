@@ -10,7 +10,8 @@ class SimulatedAnnealing :
         T = self.T
         costs= np.zeros(iterations)
         
-        best_solution = current_solution = problem.generate_solution()
+        best_solution = problem.generate_solution()
+        best_solution = np.copy(current_solution)
         costs[0] = best_cost = current_cost = problem.fitness(current_solution)
                 
 
@@ -23,10 +24,10 @@ class SimulatedAnnealing :
             new_cost = problem.fitness(new_solution)
             if new_cost < current_cost:
                 current_cost = new_cost
-                current_solution = new_solution
+                current_solution = np.copy(new_solution)
                 if new_cost < best_cost:
                     best_cost = new_cost
-                    best_solution = new_solution
+                    best_solution = np.copy(new_solution)
             
             # Local search (explore neighbor solutions)
             for j in range(batch_size):
@@ -35,14 +36,14 @@ class SimulatedAnnealing :
                 costs[i] = new_cost
                 if new_cost < current_cost:
                     current_cost = new_cost
-                    current_solution = new_solution
+                    current_solution = np.copy(new_solution)
                     if new_cost < best_cost:
                         best_cost = new_cost
-                        best_solution = new_solution
+                        best_solution = np.copy(new_solution)
                 else:
                     x=np.random.uniform()
                     if x<np.exp((current_cost-new_cost)/T):
                         current_cost=new_cost
-                        current_solution=new_solution
+                        current_solution=np.copy(new_solution)
     
         return best_cost, best_solution,costs
