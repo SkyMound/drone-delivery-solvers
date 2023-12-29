@@ -13,6 +13,10 @@ class Drone :
         self.battery = starting_battery
         self.order = None
         
+    # charge the drone's battery by a given amount (in %) considering  0 to 100% in 1h30
+    def charge_time(self, to_charge):
+        #TODO make this function more realistic (considering the battery's charge rate)
+        return to_charge*1.5*3600/100
     
         
     

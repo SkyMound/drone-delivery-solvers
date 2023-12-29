@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="io.sarl.eclipse.debug.ApplicationLaunchConfigType">
+    <stringAttribute key="io.sarl.eclipse.ROOT_CONTEXT_ID_TYPE" value="DEFAULT_CONTEXT_ID"/>
+    <stringAttribute key="io.sarl.eclipse.SARL_RUNTIME_ENVIRONMENT" value="io.sarl.sre.janus.janus.kernel"/>
+    <booleanAttribute key="io.sarl.eclipse.USE_PROJECT_SARL_RUNTIME_ENVIRONMENT" value="false"/>
+    <booleanAttribute key="io.sarl.eclipse.USE_SYSTEM_SARL_RUNTIME_ENVIRONMENT" value="true"/>
+    <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+        <listEntry value="/io-sarl-drones-delivery-solver"/>
+    </listAttribute>
+    <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+        <listEntry value="4"/>
+    </listAttribute>
+    <stringAttribute key="org.eclipse.jdt.launching.CLASSPATH_PROVIDER" value="io.sarl.eclipse.launching.shortcuts.SarlStandardClasspathProvider"/>
+    <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="drone_delivery.solver.BoidsSimulationLauncher"/>
+    <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="io-sarl-drones-delivery-solver"/>
+</launchConfiguration>

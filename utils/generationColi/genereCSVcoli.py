@@ -7,25 +7,24 @@ from matplotlib.animation import FuncAnimation
 from datetime import datetime, timedelta
 
 
-nombreZone = 1
-nombreMaison = 100
-rayonVille = 1000
+nomberPackage = 10 #number of package to generate
+nameFile = "dataTestSA.csv" #name of the file generated
+fileCity = "city1.csv" #name of the file of the city used
 
-# Probabilités pour chaque heure
-probabilities =  [18, 10, 5, 3, 2, 2, 4, 13, 28, 43, 57, 62, 55, 59, 63, 64, 63, 67, 73, 68, 63, 70, 66, 42,18]
+#parameters for the weight of the package
+weightMin = 10
+weightMax = 100
 
+# Probability for each hour of the day
+probabilities =  [18, 10, 5, 3, 2, 2, 4, 13, 28, 43, 57, 62, 55, 59, 63, 64, 63, 67, 73, 68, 63, 70, 66, 42, 18]
 
 hours_pb =[]
 for i in range(len(probabilities)-1):
     for j in range(3600):
         hours_pb.append((j*probabilities[i+1]+(3600-j)*probabilities[i])/3600)
-
-
-
     
 total_probability = sum(hours_pb)
 normalized_probabilities = [p / total_probability for p in hours_pb]
-
 
 #liste des heures possibles
 hours_str = []  
@@ -34,59 +33,31 @@ for hours in range(24):
         for seconds in range(60):
             hours_str.append(f"{hours:02d}:{minutes:02d}:{seconds:02d}")
 
-
-
-def genereCSV(nombreCommande,csvVille="utils/generationColi/generationRealisticCity/generateData/city1.csv"):
+def genereCSV(nombreCommande,csvVille="utils/generationColi/generationRealisticCity/generateData/" + fileCity):
     # Crée le fichier CSV
     with open(csvVille, newline='') as csvfile:
         spamreader = csv.reader(csvfile, delimiter=',', quotechar='"')
         nombreMaison = sum(1 for row in spamreader) - 1
 
-    with open("utils/generationColi/generationRealisticCity/generateData/data2.csv", 'w', newline='') as csvfile:
+    with open("utils/generationColi/generationRealisticCity/generateData/"+ nameFile, 'w', newline='') as csvfile:
         spamwriter = csv.writer(csvfile, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
         
         # Génère une heure aléatoire avec minute
         
         base_hour = random.choices(hours_str, normalized_probabilities, k=nombreCommande)
-        spamwriter.writerow(["Commande", "Heure", "idMaison"])
+        spamwriter.writerow(["Commande", "Heure", "idMaison", "Weight"])
         for i in range(nombreCommande):
+            weight = random.randint(weightMin,weightMax)
             idMaisons = random.randint(0,nombreMaison-1)
-            spamwriter.writerow([f"{12634+i}", base_hour[i], idMaisons])
-
-
-#Ancienne fonction pour générer les maisons
-def genereCSVVille(nombreMaison, rayonVille, rayonMin):
-    with open('city1.csv', 'w', newline='') as csvfile:
-        spamwriter = csv.writer(csvfile, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
-        spamwriter.writerow(["Maison", "X", "Y"])
-        
-        center_density = 0.8  # Densité du centre
-        outskirts_density = 0.3  # Densité de la périphérie
-        
-        for i in range(nombreMaison):
-            while True:
-                x = random.uniform(-rayonVille, rayonVille)
-                y = random.uniform(-rayonVille, rayonVille)
-                
-                distance = (x**2 + y**2) ** 0.5
-                
-                # Vérification si la maison est à l'intérieur du cercle maximal
-                if distance <= rayonVille:
-                    # Vérification si la maison est à l'extérieur du cercle minimal
-                    if distance >= rayonMin:
-                        probability = center_density if distance <= rayonMin * 2 else outskirts_density
-                        if random.random() < probability:
-                            break
-            
-            spamwriter.writerow([f"{i}", x, y])
+            spamwriter.writerow([f"{12634+i}", base_hour[i], idMaisons, weight])
 
 
 
 #Simule l'apparation des colis via une animation
 def simulate_day():
     # Lire les données
-    df_ville = pd.read_csv("utils/generationColi/generationRealisticCity/generateData/city1.csv")
-    df_commandes = pd.read_csv("utils/generationColi/generationRealisticCity/generateData/data2.csv")
+    df_ville = pd.read_csv("utils/generationColi/generationRealisticCity/generateData/" + fileCity)
+    df_commandes = pd.read_csv("utils/generationColi/generationRealisticCity/generateData/" + nameFile)
 
     # Convertir la colonne 'Heure' en datetime
     df_commandes['Heure'] = pd.to_datetime(df_commandes['Heure'])
@@ -96,12 +67,6 @@ def simulate_day():
 
     # Tracer les maisons
     ax.scatter(df_ville['X'], df_ville['Y'])
-
-    # Tracer les limites de la ville
-    # circle = Circle((0, 0), rayonVille, fill=False)
-    # ax.add_patch(circle)
-    # circle = Circle((0, 0), 50, fill=False)
-    # ax.add_patch(circle)
 
     # Assurer que le cercle apparaisse comme un cercle
     ax.set_aspect('equal', 'box')
@@ -116,8 +81,6 @@ def simulate_day():
         # Tracer les maisons
         ax.scatter(df_ville['X'], df_ville['Y'], s=1)
 
-        # Mettre en évidence les maisons qui ont passé une commande à cette heure
-        # Convertir l'heure actuelle en secondes
         time_seconds = (time.hour * 3600) + (time.minute * 60) + time.second
 
         # Convertir l'heure des commandes en secondes
@@ -126,13 +89,6 @@ def simulate_day():
         # Sélectionner les commandes qui ont été passées dans les 8 minutes de l'heure actuelle
         commandes_time = df_commandes[(df_commandes['Heure_seconds'] >= time_seconds - 480) & (df_commandes['Heure_seconds'] <= time_seconds + 480)]       
         ax.scatter(df_ville.loc[commandes_time['idMaison'], 'X'], df_ville.loc[commandes_time['idMaison'], 'Y'], color='red', s=10)
-        
-        # Tracer les limites de la ville
-        # circle = Circle((0, 0), rayonVille, fill=False)
-        # ax.add_patch(circle)
-
-        # circle = Circle((0, 0), 50, fill=False)
-        # ax.add_patch(circle)
 
         # Assurer que le cercle apparaisse comme un cercle
         ax.set_aspect('equal', 'box')
@@ -149,6 +105,6 @@ def simulate_day():
     plt.show()
 
 
-#genereCSV(2000)
+genereCSV(nomberPackage)
 
-simulate_day()
+# simulate_day()

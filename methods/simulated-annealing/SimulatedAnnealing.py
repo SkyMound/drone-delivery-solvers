@@ -1,4 +1,4 @@
-import DeliveryProblem
+from DeliveryProblem import DeliveryProblem
 import numpy as np
 class SimulatedAnnealing :
     def __init__(self, temperature = 1000, factor = 0.95) :

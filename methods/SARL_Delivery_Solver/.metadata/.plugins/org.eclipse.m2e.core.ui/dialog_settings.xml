@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="MavenProjectWizardLocationPage">
+		<list key="location">
+			<item value="C:\Users\proma\Documents\droneIaHub\drone-delivery-solvers\methods\SARL_Delivery_Solver"/>
+			<item value="C:\Users\proma\Documents\droneIaHub\drone-delivery-solvers\methods\SARL_Delivery_Solver\Sarl_drone_delivery_solver"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="MavenProjectWizardArchetypePage">
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="Maven2ProjectWizardArchifactPage">
+		<list key="package">
+		</list>
+		<list key="groupId">
+		</list>
+		<list key="artifactId">
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+	<section name="MavenProjectWizardArtifactPage">
+		<list key="groupId">
+			<item value="dbh.team"/>
+			<item value="qsfdsq"/>
+			<item value="zqef"/>
+			<item value="gnqdfbsq"/>
+			<item value="test"/>
+			<item value="bdh.team"/>
+			<item value="io.sarl.sre.janus"/>
+			<item value="dronesolverTeam"/>
+		</list>
+		<list key="name">
+			<item value="drone-delivery-Solver"/>
+			<item value="qsdfqsdfq"/>
+			<item value="fazefazef"/>
+			<item value="qcsdqsdc"/>
+			<item value="Drone_Delivery_Solver"/>
+			<item value="Drone_delivery_solver"/>
+		</list>
+		<list key="artifactId">
+			<item value="iaaaa"/>
+			<item value="sqfdqsdf"/>
+			<item value="fzea"/>
+			<item value="qsfdvsqd"/>
+			<item value="test"/>
+			<item value="gogo.gag"/>
+			<item value="janus.kernel"/>
+			<item value="DroneSolverArtifact"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+			<item value="3.0.13.0"/>
+		</list>
+	</section>
+	<section name="org.eclipse.m2e.core.ui.internal.dialogs.MavenRepositorySearchDialog">
+		<item key="width" value="480"/>
+		<item key="height" value="531"/>
+		<item key="x" value="240"/>
+		<item key="y" value="76"/>
+	</section>
+	<section name="org.eclipse.m2e.core.pom.overview">
+	</section>
+	<section name="org.eclipse.m2e.core.pom.dependencies">
+	</section>
+</section>
