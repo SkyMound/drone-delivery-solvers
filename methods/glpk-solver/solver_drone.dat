@@ -1,0 +1,44 @@
+data;
+
+param nb_p := 20;
+param nb_d := 5;
+param nb_h := 10;
+
+param autonomy_max := 101;
+param autonomy_initial := 90;
+param recharge_time := 0;
+param time_upper_bound := 500;
+
+param delivery_time := 1 50 
+2 20
+3 30
+4 40
+5 50
+6 60
+7 70
+8 80
+9 90
+10 100;
+
+param orders := 1 6
+            2    5
+            3    9
+            4    6
+            5    2
+            6    1
+            7    6
+            8    2
+            9    5
+            10    8
+            11    7
+            12    10
+            13    9
+            14    6
+            15    8
+            16    5
+            17    8
+            18    8
+            19    1
+            20    4;
+
+end;

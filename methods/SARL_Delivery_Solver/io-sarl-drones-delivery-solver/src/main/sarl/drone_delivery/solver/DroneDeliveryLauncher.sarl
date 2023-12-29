@@ -1,0 +1,11 @@
+
+package drone_delivery.solver
+
+class DroneDeliveryLauncher {
+
+
+	static def main(args : String*) {
+		
+	}
+
+}
