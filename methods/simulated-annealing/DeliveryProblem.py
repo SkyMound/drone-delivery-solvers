@@ -16,7 +16,7 @@ from Action import Action
 from DeliverySolution import DeliverySolution
 
 class DeliveryProblem :
-    def __init__(self, nb_drones=10, nb_orders=10, distance_max=5000, filepath=None ):
+    def __init__(self, nb_drones=10, nb_orders=10, distance_max=5000, package_filepath=None, house_filepath=None):
         
         #Initialisation of the problem
         self.nb_drones = nb_drones
@@ -27,23 +27,22 @@ class DeliveryProblem :
         #Initialisation of the orders and drones lists randomly or from a file
         self.orders = []
         self.drones = []
-        if filepath is None :
+        if package_filepath is None :
             for i in range(nb_orders):
                 self.orders.append(Order(i))
                 
             for i in range(nb_drones):
                 self.drones.append(Drone(i))
         else :
-            if os.path.exists("utils/generationColi/generationRealisticCity/generateData/" + filepath) :
-                print("Getting data from " + filepath)
-                df_ville = pd.read_csv("utils/generationColi/generationRealisticCity/generateData/city1.csv")
-                df_commandes = pd.read_csv("utils/generationColi/generationRealisticCity/generateData/" + filepath)
-                nb_orders = df_commandes.shape[0]
+            if os.path.exists(package_filepath) and os.path.exists(house_filepath) :
+                print("Getting data from " + package_filepath + " and " + house_filepath)
+                df_ville = pd.read_csv(house_filepath)
+                df_commandes = pd.read_csv(package_filepath)
                 for i in range(nb_orders):
                     # we get the house id in the command file and we get the house position in the city file
-                    x = df_ville.loc[df_commandes['idMaison'][i], 'X']
-                    y = df_ville.loc[df_commandes['idMaison'][i], 'Y']
-                    self.orders.append(Order(i,x,y,df_commandes['Weight'][i]))
+                    x = df_ville.loc[df_commandes['Maison'][i], 'X']
+                    y = df_ville.loc[df_commandes['Maison'][i], 'Y']
+                    self.orders.append(Order(i,df_commandes['Maison'][i],x,y,df_commandes['Weight'][i]/1000))
             else : 
                 print("File not found")
                 exit(1)
@@ -62,18 +61,37 @@ class DeliveryProblem :
                     action.battery_to_charge = 0
                 drone.battery += action.battery_to_charge 
                 if drone.battery > 100 :
-                    drones_actions[i].battery_to_charge = drone.battery - 100
+                    drone.battery = 100
                 drone.battery -= drone.battery_needed(action.order_to_deliver)
                 if drone.battery < 0 :
                   drones_actions[i].battery_to_charge -= drone.battery
+                  drone.battery = 0
             
         return new_sol
         
     def optimize(self, solution) :
         new_sol = copy.deepcopy(solution)
+        
+        # Not overcharging the battery
         for drones_actions in new_sol:
             for i in range(len(drones_actions)) :
                 drones_actions[i].battery_to_charge = 0
+                
+        # Assigning an order of the drone taking the most time to the drone taking the least time
+        drone_delivery_time = np.zeros(self.nb_drones)
+
+        for drone_actions in new_sol :
+            for action in drone_actions :
+                drone_delivery_time += Drone.time_needed(action.order_to_deliver)
+        
+        drone_most_time_index = np.argmax(drone_delivery_time)
+        drone_least_time_index = np.argmin(drone_delivery_time)
+        
+        action_index = np.random.randint(0, len(new_sol[drone_most_time_index]))
+        
+        action = new_sol[drone_most_time_index].pop(action_index)
+        new_sol[drone_least_time_index].append(action)
+        
         return self.rectify(new_sol)
     
     def generate_solution(self) :
@@ -108,6 +126,7 @@ class DeliveryProblem :
         # Modifying the battery of an action
         neighbor = copy.deepcopy(solution)
         random = np.random.randint(0, 2)
+        random = 1
         if random == 0 : # Inverting two actions of the same drone
             drone_index = np.random.randint(0, self.nb_drones)
             while(len(neighbor[drone_index]) == 0) :
@@ -144,7 +163,30 @@ class DeliveryProblem :
             str += "\n"
         print(str)
     
-
+    def export_for_visualisation(self, solution, filename) :
+        # export using pandas dataframe to csv with the following format :
+        # drone_id, battery_to_charge, house_id
+        df = pd.DataFrame(columns=['drone_id', 'battery_to_charge', 'house_id'])
+        for i,drone_actions in enumerate(solution) :
+            for action in drone_actions :
+                df.loc[-1] = {'drone_id': i, 'battery_to_charge': action.battery_to_charge, 'house_id': action.order_to_deliver.house_id}  # adding a row
+                df.index = df.index + 1  # shifting index
+        
+        df.to_csv(filename, index=False, header=True)
+    
+    @staticmethod
+    def import_for_visualisation(filename) :
+        df = pd.read_csv(filename)
+        solution = [[]]
+        current_drone_id = 0
+        for i in range(len(df)):
+            if(current_drone_id != df['drone_id'][i]) :
+                current_drone_id = df['drone_id'][i]
+                solution.append([])
+            solution[current_drone_id].append((df['battery_to_charge'][i],df['house_id'][i]))
+        
+        return solution
+    
     def plot_solution(self) :
         #plot the solution
         fig, (colis_plots, cout_plot) = plt.subplots(1, 2, sharey=False, figsize=(15, 5))
