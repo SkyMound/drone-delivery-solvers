@@ -191,18 +191,19 @@ def norm(x,y):
     return sqrt(x**2 + y**2)
 
 
-def recupCity():
+def recupCity(filePathCity):
+    
     selected_houses = ["0","83","166","249","332","415","498","581","664","747","830","913","996","1079","1162","1245","1328","1411","1494","1577","1660","1743","1826","1909","1992","2075","2158","2241","2324","2407","2490"]
     city = {}
     x_values = []
     y_values = []
-    with open("utils/DataPrint/city1.csv", "r") as file:
+    with open(filePathCity, "r") as file:
         next(file)  # Skip the header
         for line in file:
             line = line.split(",")
-            if line[0] in selected_houses:
-                x_values.append(float(line[1]))
-                y_values.append(float(line[2].replace("\n","")))
+            #if line[0] in selected_houses:
+            x_values.append(float(line[1]))
+            y_values.append(float(line[2].replace("\n","")))
 
     min_x, max_x = min(x_values), max(x_values)
     min_y, max_y = min(y_values), max(y_values)
@@ -212,25 +213,24 @@ def recupCity():
     depot = int(((2461228 - min_x) / scale) * 800), int(((3984254 - min_y) / scale) * 800)
     
     i = 0
-    with open("utils/DataPrint/city1.csv", "r") as file:
+    with open(filePathCity, "r") as file:
         next(file)  # Skip the header
         for line in file:
             line = line.split(",")
-            if line[0] in selected_houses:
-                x = int(((float(line[1]) - min_x) / scale) * 800)
-                y = int(((float(line[2].replace("\n","")) - min_y) / scale) * 800)
-                city[i] = (x, y)
-                i += 1
+            #if line[0] in selected_houses:
+            x = int(((float(line[1]) - min_x) / scale) * 800)
+            y = int(((float(line[2].replace("\n","")) - min_y) / scale) * 800)
+            city[i] = (x, y)
+            i += 1
 
     return city, depot
 
-print(recupCity())
 
 
 
 #filePath = "methods/glpk-solver/solver_drone_cmd_output.log"
-filePath = "utils/DataPrint/cmd_output3.log"
-filePathCity = ""
+filePath = "utils/Visualisation/solver_drone_cmd_output.log"
+filePathCity = "utils/Visualisation/smallCity_30.csv"
 
 def recupData(filePath):
     with open(filePath, "r") as f:
@@ -260,7 +260,7 @@ print("houses : ", houses)
 nombreDrone = max(drones)
 print("Numbers of drone : ", nombreDrone)
 
-city,depot = recupCity()
+city,depot = recupCity(filePathCity)
 print(depot)
 window = tk.Tk()
 window.title("City")
@@ -270,7 +270,7 @@ canvas.pack()
 canvas.create_oval(depot[0]-10, depot[1]-10, depot[0]+10, depot[1]+10, outline="black")
 canvas.create_rectangle(0, 0, 800, 800, outline="black")
 
-im = tk.PhotoImage(file = "utils/DataPrint/charge.png",master=window)
+im = tk.PhotoImage(file = "utils/Visualisation/charge.png",master=window)
 
 
 listDrones = {}
