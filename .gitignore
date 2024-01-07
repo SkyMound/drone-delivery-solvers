@@ -4,3 +4,5 @@ utils/generationColi/generationRealisticCity/dataUsed/villes_france.csv
 
 # GLPK output files
 *.log
+
+__pycache__

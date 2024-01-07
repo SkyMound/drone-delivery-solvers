@@ -1,5 +1,6 @@
 from DeliveryProblem import DeliveryProblem
 import numpy as np
+import copy
 class SimulatedAnnealing :
     def __init__(self, temperature = 1000, factor = 0.95) :
         self.T = temperature
@@ -10,9 +11,9 @@ class SimulatedAnnealing :
         T = self.T
         costs= np.zeros(iterations)
         
-        best_solution = problem.generate_solution()
-        best_solution = np.copy(current_solution)
-        costs[0] = best_cost = current_cost = problem.fitness(current_solution)
+        current_solution = problem.generate_solution()
+        best_solution = copy.deepcopy(current_solution)
+        costs[0] = best_cost = current_cost = problem.cost(current_solution)
                 
 
         for i in range(iterations):
@@ -20,30 +21,32 @@ class SimulatedAnnealing :
             T=T*self.factor
             
             # Deep search (optimizing current solution)
-            new_solution = problem.optimize_solution(current_solution)
-            new_cost = problem.fitness(new_solution)
+            new_solution = problem.optimize(current_solution)
+            new_cost = problem.cost(new_solution)
             if new_cost < current_cost:
                 current_cost = new_cost
-                current_solution = np.copy(new_solution)
+                current_solution = copy.deepcopy(new_solution)
                 if new_cost < best_cost:
                     best_cost = new_cost
-                    best_solution = np.copy(new_solution)
+                    best_solution = copy.deepcopy(new_solution)
             
             # Local search (explore neighbor solutions)
             for j in range(batch_size):
                 new_solution = problem.get_neighbor(current_solution)
-                new_cost = problem.fitness(new_solution)
-                costs[i] = new_cost
+                new_cost = problem.cost(new_solution)
                 if new_cost < current_cost:
                     current_cost = new_cost
-                    current_solution = np.copy(new_solution)
+                    current_solution = copy.deepcopy(new_solution)
                     if new_cost < best_cost:
                         best_cost = new_cost
-                        best_solution = np.copy(new_solution)
-                else:
+                        best_solution = copy.deepcopy(new_solution)
+                elif new_cost != current_cost :
                     x=np.random.uniform()
                     if x<np.exp((current_cost-new_cost)/T):
+                        print(np.exp((current_cost-new_cost)/T),T,current_cost,new_cost)
                         current_cost=new_cost
-                        current_solution=np.copy(new_solution)
-    
+                        current_solution=copy.deepcopy(new_solution)
+                        
+                costs[i] = current_cost
+                
         return best_cost, best_solution,costs

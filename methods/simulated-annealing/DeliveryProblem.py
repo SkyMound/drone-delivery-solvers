@@ -5,6 +5,7 @@
 
 from math import inf
 from matplotlib import pyplot as plt
+import copy
 import numpy as np
 import os
 import pandas as pd
@@ -21,14 +22,14 @@ class DeliveryProblem :
         self.nb_drones = nb_drones
         self.nb_orders = nb_orders
         self.distance_max = distance_max
-        Order.MAX_DISTANCE = distance_max
+        Order.MAX_DISTANCE = distance_max/2
 
         #Initialisation of the orders and drones lists randomly or from a file
         self.orders = []
         self.drones = []
         if filepath is None :
             for i in range(nb_orders):
-                self.orders.append(Order())
+                self.orders.append(Order(i))
                 
             for i in range(nb_drones):
                 self.drones.append(Drone(i))
@@ -42,98 +43,106 @@ class DeliveryProblem :
                     # we get the house id in the command file and we get the house position in the city file
                     x = df_ville.loc[df_commandes['idMaison'][i], 'X']
                     y = df_ville.loc[df_commandes['idMaison'][i], 'Y']
-                    self.orders.append(Order(x,y,df_commandes['Weight'][i]))
+                    self.orders.append(Order(i,x,y,df_commandes['Weight'][i]))
             else : 
                 print("File not found")
                 exit(1)
 
-        #Initialisation of the solution and its fitness
-        self.best_solution = self.generate_solution()
-        self.best_fitness = self.calc_fitness(self.solution)
 
         print(len(self.orders))
-                
+    
+    def rectify(self, solution) :
+        new_sol = copy.deepcopy(solution)
+        for drones_actions in new_sol:
+            drone = Drone(0)
+            for i,action in enumerate(drones_actions) :
+                if action.battery_to_charge > 100 :
+                    action.battery_to_charge = 100
+                elif action.battery_to_charge < 0 :
+                    action.battery_to_charge = 0
+                drone.battery += action.battery_to_charge 
+                if drone.battery > 100 :
+                    drones_actions[i].battery_to_charge = drone.battery - 100
+                drone.battery -= drone.battery_needed(action.order_to_deliver)
+                if drone.battery < 0 :
+                  drones_actions[i].battery_to_charge -= drone.battery
+            
+        return new_sol
+        
+    def optimize(self, solution) :
+        new_sol = copy.deepcopy(solution)
+        for drones_actions in new_sol:
+            for i in range(len(drones_actions)) :
+                drones_actions[i].battery_to_charge = 0
+        return self.rectify(new_sol)
+    
     def generate_solution(self) :
 
-        new_sol = [[] for i in range(self.nb_drones)]
-        i = 0
-        for order in self.orders :
-            new_sol[i%self.nb_drones].append(Action(0,order))
-            i+=1
-        # print initial solution
-        self.initial_solution.print_solution()
-
-        return DeliverySolution(new_sol)
-    
-    def calc_fitness(self, solution) :
-        drone_total_time = np.zeros((self.nb_drones))
-        drone_theorique_time = np.zeros((self.nb_drones))
-
-        for i in range(self.nb_drones):
-            for action in solution.actions[i] :
-                drone_total_time[i] += action.expected_time()
-                drone_theorique_time[i] += self.expected_time(action.order_to_deliver)
-
-                #Plus utililsé car le temps de charge est géré par les actions
-                # if action.battery_to_charge > 0 :
-                #     drone_total_time[i] += Drone.charge_time(action.battery_to_charge)
-                #     drone_theorique_time[i] += Drone.charge_time(action.battery_to_charge)
-
-        return (np.max(drone_total_time-drone_theorique_time))**2
-    
+        new_sol = [list() for i in range(self.nb_drones)]
         
-    
-    def expected_time(self, order) :
-        return order.distance()/Drone.speed
-    
-    def optimize_solution_localy(self, solution) :
-        # TODO locally improve the solution
+        for i,order in enumerate(self.orders) :
+            new_sol[i%self.nb_drones].append(Action(0,order))
+            
+        new_sol = self.rectify(new_sol)
 
+        return new_sol
+    
+    def cost(self, solution) :
+        orders_theoric_time = np.array([Drone.time_needed(order) for order in self.orders])
+        orders_real_time = np.zeros(len(self.orders))
 
-        pass
+        for drone_actions in solution :
+            current_time = 0
+            drone = Drone(0)
+            for action in drone_actions :
+                current_time += drone.do_action(action)
+                orders_real_time[action.order_to_deliver.ID] = current_time
+
+        return np.max(orders_real_time-orders_theoric_time)
+    
 
     def get_neighbor(self, solution) :
         # TODO get a neighbor solution
         # Inverting two actions of the same drone
-        # Inverting two actions between two drones
-        # mofiying the battery charge of an action
-        # find other ideas
-        neighbor = solution
-
-        return neighbor
+        # Assigning an action to another drone
+        # Modifying the battery of an action
+        neighbor = copy.deepcopy(solution)
+        random = np.random.randint(0, 2)
+        if random == 0 : # Inverting two actions of the same drone
+            drone_index = np.random.randint(0, self.nb_drones)
+            while(len(neighbor[drone_index]) == 0) :
+                drone_index = np.random.randint(0, self.nb_drones)
+            action_index_1 = np.random.randint(0, len(neighbor[drone_index]))
+            action_index_2 = np.random.randint(0, len(neighbor[drone_index]))
+            (neighbor[drone_index][action_index_1], neighbor[drone_index][action_index_2]) = (neighbor[drone_index][action_index_2], neighbor[drone_index][action_index_1])
+        
+        elif random == 1 : # Assigning an action to another drone
+            
+            drone_index_1 = np.random.randint(0, self.nb_drones)
+            drone_index_2 = np.random.randint(0, self.nb_drones)
+            while(len(neighbor[drone_index_1]) == 0) :
+                drone_index_1 = np.random.randint(0, self.nb_drones)
+            action_index = np.random.randint(0, len(neighbor[drone_index_1]))
+            action = neighbor[drone_index_1].pop(action_index)
+            neighbor[drone_index_2].append(action)
+            
+        else : # Modifying battery of an action
+            drone_index = np.random.randint(0, self.nb_drones)
+            while(len(neighbor[drone_index]) == 0) :
+                drone_index = np.random.randint(0, self.nb_drones)
+            action_index = np.random.randint(0, len(neighbor[drone_index]))
+            neighbor[drone_index][action_index].battery_to_charge += np.random.randint(-10,0)
+            
+        return self.rectify(neighbor)
     
-    def optimize(self,solution,nb_iterations =1000,factor = 0.9,batch_size=10,heat=100) :
-        self.fitness_history = []
-        cur_fitness = self.calc_fitness(solution)
-
-        # optimize the solution
-        for i in range(nb_iterations):
-            #print('la ',i,'è_me solution = ',solution,' donne le temps maximum de livraison = ',cout0,' la température actuelle =',T)
-            T=T*self.factor
-
-            self.fitness_history.append(cur_fitness)
-            for j in range(batch_size):
-                #on génère une solution voisine
-                solution_voisine=self.get_neighbor(solution)
-                #on calcule le cout de la solution voisine
-                new_fitness = self.calc_fitness(solution_voisine)
-
-                delta_cout=new_fitness-cur_fitness
-
-                if delta_cout<=0:
-                    cur_fitness=new_fitness
-                    solution=solution_voisine
-                    if new_fitness<self.best_fitness:
-                        self.best_fitness=new_fitness
-                        self.best_solution=solution
-                else:
-                    x=np.random.uniform()
-                    if x<np.exp(-(delta_cout/T)):
-                        cur_fitness=new_fitness
-                        solution=solution_voisine
-        print('la meilleure solution est ',self.best_solution,' avec un temps maximum de livraison de ',self.best_fitness,' secondes')
-
-        pass
+    def print_solution(self, solution) :
+        str = ""
+        for i,drone_actions in enumerate(solution) :
+            str += "Drone {} : ".format(i)
+            for action in drone_actions :
+                str += "{} ".format(action)
+            str += "\n"
+        print(str)
     
 
     def plot_solution(self) :
