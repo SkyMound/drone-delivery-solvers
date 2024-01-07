@@ -19,7 +19,6 @@ class Drone :
         
     # charge the drone's battery by a given amount (in %) considering  0 to 100% in 1h30
     def charge(self, to_charge):
-        #TODO make this function more realistic (considering the battery's charge rate)
         self.battery += to_charge
         return to_charge*Drone.charging_ratio*3600/100
 

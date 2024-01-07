@@ -4,7 +4,7 @@ from Drone import Drone
 from Order import Order
 from matplotlib import pyplot as plt
 def test() :
-    a = DeliveryProblem.import_for_visualisation("test.csv")
+    a = DeliveryProblem.import_for_visualisation("methods/simulated-annealing/solutions/test.csv")
     print(a)
     # dp = DeliveryProblem(5, 40,filepath="dataDelivery100.csv")
     # sa = SimulatedAnnealing(1000, 0.95)
