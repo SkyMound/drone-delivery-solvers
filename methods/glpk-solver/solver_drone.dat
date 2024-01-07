@@ -7,7 +7,6 @@ param nb_h := 10;
 param autonomy_max := 101;
 param autonomy_initial := 90;
 param recharge_time := 0;
-param time_upper_bound := 500;
 
 param delivery_time := 1 50 
 2 20

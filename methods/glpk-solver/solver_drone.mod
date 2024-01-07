@@ -5,7 +5,6 @@ param nb_h; # Number of houses
 param autonomy_max;         # Maximum autonomy time during which a drone can fly
 param autonomy_initial;     # Starting autonomy time
 param recharge_time;
-param time_upper_bound;     # Maximum time to deliver all packages (At most 1 day)
 
 param delivery_time{i in 1..nb_h};  # List of the times it takes for the drone to deliver a specific house
 param orders{i in 1..nb_p};         # List of the orders
