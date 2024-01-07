@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 
-nb_voulu = 30
+nb_voulu = 50
 
 fileGenerated = "solver_drone_data_"+str(nb_voulu)+".dat" #name of the file generated
 cityFile = "smallCity_"+str(nb_voulu)+".csv" #name of the file of the city used
@@ -11,7 +11,7 @@ houses = pd.read_csv("utils/generationColi/generationRealisticCity/generateData/
 packages = pd.read_csv("utils/generationColi/generationRealisticCity/generateData/" + packageFile)
 
 # Manual parameters
-nb_drones = 10
+nb_drones = 20
 nb_houses = len(houses['Maison'])
 nb_packages = len(packages['idMaisonReel'])
 autonomy_max = 1764
