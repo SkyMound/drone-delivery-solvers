@@ -16,7 +16,7 @@ from Action import Action
 from DeliverySolution import DeliverySolution
 
 class DeliveryProblem :
-    def __init__(self, nb_drones=10, nb_orders=10, distance_max=5000, filepath=None):
+    def __init__(self, nb_drones=10, nb_orders=10, distance_max=5000, package_filepath=None, house_filepath=None):
         
         #Initialisation of the problem
         self.nb_drones = nb_drones
@@ -27,22 +27,22 @@ class DeliveryProblem :
         #Initialisation of the orders and drones lists randomly or from a file
         self.orders = []
         self.drones = []
-        if filepath is None :
+        if package_filepath is None :
             for i in range(nb_orders):
                 self.orders.append(Order(i))
                 
             for i in range(nb_drones):
                 self.drones.append(Drone(i))
         else :
-            if os.path.exists("utils/Comparison/DataDelivery/" + filepath) :
-                print("Getting data from " + filepath)
-                df_ville = pd.read_csv("utils/generationColi/generationRealisticCity/generateData/city1.csv")
-                df_commandes = pd.read_csv("utils/Comparison/DataDelivery/" + filepath)
+            if os.path.exists(package_filepath) and os.path.exists(house_filepath) :
+                print("Getting data from " + package_filepath + " and " + house_filepath)
+                df_ville = pd.read_csv(house_filepath)
+                df_commandes = pd.read_csv(package_filepath)
                 for i in range(nb_orders):
                     # we get the house id in the command file and we get the house position in the city file
-                    x = df_ville.loc[df_commandes['idMaison'][i], 'X']
-                    y = df_ville.loc[df_commandes['idMaison'][i], 'Y']
-                    self.orders.append(Order(i,df_commandes['idMaison'][i],x,y,df_commandes['Weight'][i]/1000))
+                    x = df_ville.loc[df_commandes['Maison'][i], 'X']
+                    y = df_ville.loc[df_commandes['Maison'][i], 'Y']
+                    self.orders.append(Order(i,df_commandes['Maison'][i],x,y,df_commandes['Weight'][i]/1000))
             else : 
                 print("File not found")
                 exit(1)
