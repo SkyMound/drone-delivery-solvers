@@ -3,8 +3,7 @@ param nb_d; # Number of drones
 param nb_h; # Number of houses
 
 param autonomy_max;         # Maximum autonomy time during which a drone can fly
-param autonomy_initial;     # Starting autonomy time
-param recharge_time;
+param recharge_time;        # Time it takes to recharge the drone
 
 param delivery_time{i in 1..nb_h};  # List of the times it takes for the drone to deliver a specific house
 param orders{i in 1..nb_p};         # List of the orders
@@ -25,9 +24,9 @@ package_deliverd_once {p in 1..nb_p}: sum{d in 1..nb_d, h in 1..nb_h} x[p, d, h]
 package_well_delivered {p in 1..nb_p}: sum{d in 1..nb_d} x[p, d, orders[p]] = 1;        # Check if the order is respected
 
 # Autonomy constraints
-time_spent_flying {d in 1..nb_d}: t[d] = sum{p in 1..nb_p, h in 1..nb_h} (delivery_time[h]*x[p, d, h]) ;        # Compute time spent flying for each drone
+time_spent_flying {d in 1..nb_d}: t[d] = sum{p in 1..nb_p, h in 1..nb_h} (delivery_time[h]*x[p, d, h])*(1+recharge_time) ;    # Compute time spent flying and recharging for each drone
 autonomy_not_exceeded {d in 1..nb_d, p in 1..nb_p, h in 1..nb_h}: (delivery_time[h]*x[p, d, h]) <= autonomy_max;# Check if delivery is possible
-check_autonomy {d in 1..nb_d}: t[d] <= (autonomy_initial + time_max)/2;
+check_time_max {d in 1..nb_d}: time_max >= t[d] ; # time_max = max(t)
 
 solve;
 
