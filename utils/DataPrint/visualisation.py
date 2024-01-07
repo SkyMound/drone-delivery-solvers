@@ -5,9 +5,12 @@ from math import sqrt
 import time
 from PIL import Image, ImageTk 
 from datetime import timedelta
+import itertools
+
+depot = (2461228,3984254)
 
 class City:
-    def __init__(self, name, drones, houses,packages, canvas):
+    def __init__(self, name, drones, houses,packages, canvas, depot):
         self.name = name
         
         self.drones = drones
@@ -27,11 +30,11 @@ class City:
         for drone in self.drones:
             self.drones[drone].addPackage()
             self.drones[drone].advance()
-            self.seconds += 0.5
-            self.canvas.itemconfigure("time", text=timedelta(seconds=int(self.seconds)))
-            time.sleep(0.0001)
+
             window.update()
-    
+        time.sleep(0.0001)
+        self.seconds += 0.5
+        self.canvas.itemconfigure("time", text=timedelta(seconds=int(self.seconds)))
 
 class House:
     def __init__(self, id, pos, canvas):
@@ -45,7 +48,7 @@ class House:
 
 
 class Drone:
-    def __init__(self, id, pos, canvas, package):
+    def __init__(self, id, pos, canvas, package,depot):
         self.id = id
         self.pos = pos
         self.isCharging = False
@@ -54,6 +57,8 @@ class Drone:
         self.objectif = None
         self.destroy = False
         self.battery = 100
+        self.depot = depot
+        print(self.depot)
         
         self.listPackage = package
         
@@ -104,7 +109,7 @@ class Drone:
         print("package"+str(self.id)+str(self.packageHolding.id))
         self.listPackage.remove(self.packageHolding)
         self.packageHolding = None
-        self.objectif = (400,400)
+        self.objectif = self.depot
         self.isDelivering = False
         self.canvas.itemconfigure("drone"+str(self.id), fill="red")
         
@@ -133,19 +138,19 @@ class Drone:
         if not(self.destroy):
             self.setUpBattery()
             if not(self.isCharging):
-                self.battery -= 0.1
-                normVector = norm(self.objectif[0] - self.pos[0],self.objectif[1] - self.pos[1])
+                self.battery -= 0.5/17.64
+                normVector = norm(self.objectif[0] - self.pos[0],self.objectif[1] - self.pos[1])*0.85
                 self.move_drone(((self.objectif[0] - self.pos[0])/normVector, (self.objectif[1] - self.pos[1])/normVector))
                 if self.isAtObjectif() and self.isDelivering:
                     self.removePackage()
 
-                if self.battery <=30 and self.atSpawn():
+                if self.battery <=98 and self.atSpawn():
                     self.charge()
 
             if self.isCharging:
-                self.battery += 0.2
+                self.battery += 0.5/52.92 #charging is 3 times slower than decharging
 
-            if self.battery >= 95 and self.isCharging:
+            if self.battery >= 100 and self.isCharging:
                 self.isCharging = False
                 self.canvas.itemconfigure("drone"+str(self.id), fill="red")
                 print("Drone " + str(self.id) + " chargé")
@@ -161,7 +166,7 @@ class Drone:
             return False
         
     def atSpawn(self):
-        if self.pos[0] >= 400-5 and self.pos[0] <= 400+5 and self.pos[1] >= 400-5 and self.pos[1] <= 400+5:
+        if self.pos[0] >= depot[0]-5 and self.pos[0] <= depot[0]+5 and self.pos[1] >= depot[1]-5 and self.pos[1] <= depot[1]+5:
             return True
         else:
             return False
@@ -185,13 +190,46 @@ class Package:
 def norm(x,y):
     return sqrt(x**2 + y**2)
 
-def recupCity():
-    city = {}
-    for i in range(10):
-        city[str(i)] = (random.randint(0, 800), random.randint(0, 800))
-    return city
 
-filePath = "methods/glpk-solver/solver_drone_cmd_output.log"
+def recupCity():
+    selected_houses = ["0","83","166","249","332","415","498","581","664","747","830","913","996","1079","1162","1245","1328","1411","1494","1577","1660","1743","1826","1909","1992","2075","2158","2241","2324","2407","2490"]
+    city = {}
+    x_values = []
+    y_values = []
+    with open("utils/DataPrint/city1.csv", "r") as file:
+        next(file)  # Skip the header
+        for line in file:
+            line = line.split(",")
+            if line[0] in selected_houses:
+                x_values.append(float(line[1]))
+                y_values.append(float(line[2].replace("\n","")))
+
+    min_x, max_x = min(x_values), max(x_values)
+    min_y, max_y = min(y_values), max(y_values)
+
+    scale = max(max_x - min_x, max_y - min_y)
+
+    depot = int(((2461228 - min_x) / scale) * 800), int(((3984254 - min_y) / scale) * 800)
+    
+    i = 0
+    with open("utils/DataPrint/city1.csv", "r") as file:
+        next(file)  # Skip the header
+        for line in file:
+            line = line.split(",")
+            if line[0] in selected_houses:
+                x = int(((float(line[1]) - min_x) / scale) * 800)
+                y = int(((float(line[2].replace("\n","")) - min_y) / scale) * 800)
+                city[i] = (x, y)
+                i += 1
+
+    return city, depot
+
+print(recupCity())
+
+
+
+#filePath = "methods/glpk-solver/solver_drone_cmd_output.log"
+filePath = "utils/DataPrint/cmd_output3.log"
 filePathCity = ""
 
 def recupData(filePath):
@@ -222,14 +260,14 @@ print("houses : ", houses)
 nombreDrone = max(drones)
 print("Numbers of drone : ", nombreDrone)
 
-city = recupCity()
-
+city,depot = recupCity()
+print(depot)
 window = tk.Tk()
 window.title("City")
 canvas = tk.Canvas(window, width=1200, height=800, bg="white")
 canvas.pack()
 
-canvas.create_oval(400-10, 400-10, 400+10, 400+10, outline="black")
+canvas.create_oval(depot[0]-10, depot[1]-10, depot[0]+10, depot[1]+10, outline="black")
 canvas.create_rectangle(0, 0, 800, 800, outline="black")
 
 im = tk.PhotoImage(file = "utils/DataPrint/charge.png",master=window)
@@ -247,15 +285,15 @@ for house in city:
 
 for drone in range(1,int(nombreDrone) +1):
     package = []
-    for k in range(3):
+    for k in range(1):
         for j,i in enumerate(drones):
             if int(i) == drone:
                 package.append(Package(str(j)+str(k),str(drone),listHouses[houses[j]]))
 
-    listDrones[drone] = Drone(str(drone),(400,400),canvas, package)
+    listDrones[drone] = Drone(str(drone),depot,canvas, package,depot)
 
 
-globalCity = City("Grenoble",listDrones,listHouses,[],canvas)
+globalCity = City("Grenoble",listDrones,listHouses,[],canvas,depot)
 
 while True :
     globalCity.execution()
