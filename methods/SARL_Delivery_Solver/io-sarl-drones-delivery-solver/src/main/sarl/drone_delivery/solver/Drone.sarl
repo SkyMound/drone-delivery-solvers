@@ -9,6 +9,7 @@ import java.util.Collection
 import java.util.UUID
 import org.arakhne.afc.math.geometry.d2.d.Vector2d
 import java.util.Vector
+import org.eclipse.xtend.lib.annotations.Accessors
 
 enum Objectiv {
 	GoLiv,
@@ -26,10 +27,12 @@ agent Drone {
 	// ID of the environmental agent
 	var environment : UUID
 
+	@Accessors
 	var position : Vector2d
 
 	var speed : Vector2d
 	var battery : float 
+	@Accessors
 	var weight : float
 	
 	var targetPos : Vector2d
@@ -85,6 +88,7 @@ agent Drone {
 			// Update drones' speed and position according to the new environmental data
 			this.position = myBody.position
 			this.speed = myBody.vitesse
+			info("Le drone = " + ID + "est en " + position + " avec un vitesse de "+ speed)
 		}
 
 		in(Settings::pause) [
@@ -140,6 +144,7 @@ agent Drone {
 		 * v e c t o r
 		 */
 		vector.length = 2
-
+		
+		return vector
 	}
 }

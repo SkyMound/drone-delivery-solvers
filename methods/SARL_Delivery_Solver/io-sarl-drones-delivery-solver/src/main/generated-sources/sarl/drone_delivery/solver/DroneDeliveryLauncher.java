@@ -31,6 +31,7 @@ public class DroneDeliveryLauncher {
     String cityfilePath = DroneDeliveryLauncher.getResourcePath("src\\main\\resources\\smallCity_100.csv");
     String parcelfilePath = DroneDeliveryLauncher.getResourcePath("src\\main\\resources\\packagesSmallCity_100.csv");
     DroneSimulation simu = new DroneSimulation(nbDrones, nbParcel, cityfilePath, parcelfilePath);
+    simu.start();
   }
 
   @SyntheticMember

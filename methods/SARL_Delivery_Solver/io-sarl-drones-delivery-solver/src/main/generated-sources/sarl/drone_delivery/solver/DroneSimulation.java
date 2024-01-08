@@ -13,6 +13,8 @@ import io.sarl.lang.core.annotation.SarlSpecification;
 import io.sarl.lang.core.annotation.SyntheticMember;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
@@ -128,7 +130,7 @@ public class DroneSimulation implements EventListener {
     try {
       Vector2d initialPosition = Settings.DepotPos;
       UUID de = UUID.randomUUID();
-      this.kernel.startAgentWithID(Depot.class, de, this.environment, initialPosition, "Depot", this.parcelToCreate);
+      this.kernel.startAgentWithID(Depot.class, de, this.environment, initialPosition, "Depot", this.parcelToCreate, this.droneBodies);
       if (Settings.isLogActivated) {
         System.out.println(("Lancement du dépot à la position " + initialPosition));
       }
@@ -151,8 +153,9 @@ public class DroneSimulation implements EventListener {
       Object targetPos = null;
       float battery = 100.0f;
       UUID d = UUID.randomUUID();
+      int weight = 4;
       this.kernel.startAgentWithID(Drone.class, d, this.environment, initialPosition, initSpeed, objectiv, targetPos, Float.valueOf(battery), droneName);
-      PerceivedDroneBody _perceivedDroneBody = new PerceivedDroneBody(d, initialPosition, initSpeed, objectiv, ((Vector2d)targetPos), battery);
+      PerceivedDroneBody _perceivedDroneBody = new PerceivedDroneBody(d, initialPosition, initSpeed, objectiv, ((Vector2d)targetPos), battery, weight);
       this.droneBodies.put(d, _perceivedDroneBody);
       if (Settings.isLogActivated) {
         System.out.println(("Création d\'un drone à la position " + initialPosition));
@@ -166,7 +169,19 @@ public class DroneSimulation implements EventListener {
   }
 
   public ArrayList<Parcel> createParcelsList(final String cityfilePath, final String parcelfilePath) {
-    return CustomCSVReader.getparcelsFromCSV(cityfilePath, parcelfilePath, this.nbParcelinSim);
+    abstract class __DroneSimulation_0 implements Comparator<Parcel> {
+      public abstract int compare(final Parcel p1, final Parcel p2);
+    }
+
+    ArrayList<Parcel> parcelList = CustomCSVReader.getparcelsFromCSV(cityfilePath, parcelfilePath, this.nbParcelinSim);
+    __DroneSimulation_0 ___DroneSimulation_0 = new __DroneSimulation_0() {
+      @Override
+      public int compare(final Parcel p1, final Parcel p2) {
+        return Integer.valueOf(p1.getOrdertime()).compareTo(Integer.valueOf(p2.getOrdertime()));
+      }
+    };
+    Collections.<Parcel>sort(parcelList, ___DroneSimulation_0);
+    return parcelList;
   }
 
   public Collection<Vector2d> createHousePosList(final String cityfilePath) {

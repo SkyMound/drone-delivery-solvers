@@ -26,6 +26,8 @@ class DroneDeliveryLauncher {
 		var parcelfilePath = getResourcePath("src\\main\\resources\\packagesSmallCity_100.csv")
 	
 		var simu = new DroneSimulation(nbDrones, nbParcel, cityfilePath, parcelfilePath)
+		
+		simu.start
 	}
 
 }

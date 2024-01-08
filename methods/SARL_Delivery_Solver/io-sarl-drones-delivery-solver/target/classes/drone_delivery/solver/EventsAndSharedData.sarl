@@ -91,10 +91,13 @@ class PerceivedDroneBody {
 	@Accessors	
 	var targetPos : Vector2d
 
+	@Accessors
+	var weight : float
+
 	
 
 	new (iowner : UUID, iposition : Vector2d, ispeed : Vector2d, iobjectiv : Objectiv, itargetPos : Vector2d,
-		ibattery : float) {
+		ibattery : float, iweight:float) {
 		position = iposition
 		owner = iowner
 		vitesse = ispeed
@@ -102,6 +105,8 @@ class PerceivedDroneBody {
 		objectiv = iobjectiv
 		targetPos = itargetPos
 		battery = ibattery
+		weight= iweight
+		
 		
 	}
 

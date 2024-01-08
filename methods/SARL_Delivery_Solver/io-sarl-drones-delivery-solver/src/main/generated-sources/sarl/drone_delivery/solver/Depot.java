@@ -49,7 +49,7 @@ public class Depot extends Agent {
 
   private void $behaviorUnit$Initialize$0(final Initialize occurrence) {
     int _size = ((List<Object>)Conversions.doWrapArray(occurrence.parameters)).size();
-    if ((_size > 3)) {
+    if ((_size > 4)) {
       Object _get = occurrence.parameters[0];
       if ((_get instanceof UUID)) {
         Object _get_1 = occurrence.parameters[0];
@@ -71,60 +71,66 @@ public class Depot extends Agent {
         Object _get_7 = occurrence.parameters[3];
         this.parcelToCreate = ((List<Parcel>) _get_7);
       }
+      Object _get_8 = occurrence.parameters[4];
+      if ((_get_8 instanceof ConcurrentHashMap)) {
+        Object _get_9 = occurrence.parameters[4];
+        this.drones = ((ConcurrentHashMap<UUID, PerceivedDroneBody>) _get_9);
+      }
     }
-    this.drones = null;
     this.todeliver = CollectionLiterals.<Parcel>newArrayList();
   }
 
   private void $behaviorUnit$Perception$1(final Perception occurrence) {
-    ConcurrentHashMap<UUID, PerceivedDroneBody> drones = occurrence.perceivedAgentBody;
-    while ((this.parcelToCreate.get(0).getOrderTime() < occurrence.time)) {
-      this.todeliver.add(this.parcelToCreate.remove(0));
-    }
-    boolean _isEmpty = this.todeliver.isEmpty();
-    if ((!_isEmpty)) {
-      for (final Parcel p : this.todeliver) {
-        {
-          UUID droneToAffect = this.affecterDrone(p);
-          if ((droneToAffect != null)) {
-            DefaultContextInteractions _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER = this.$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER();
-            AffectOrder _affectOrder = new AffectOrder(p);
-            class $SerializableClosureProxy implements Scope<Address> {
-              
-              private final UUID droneToAffect;
-              
-              public $SerializableClosureProxy(final UUID droneToAffect) {
-                this.droneToAffect = droneToAffect;
+    synchronized (this.drones) {
+      this.drones = occurrence.perceivedAgentBody;
+      while ((this.parcelToCreate.get(0).getOrdertime() < occurrence.time)) {
+        this.todeliver.add(this.parcelToCreate.remove(0));
+      }
+      boolean _isEmpty = this.todeliver.isEmpty();
+      if ((!_isEmpty)) {
+        for (final Parcel p : this.todeliver) {
+          {
+            UUID droneToAffect = this.affecterDrone(p);
+            if ((droneToAffect != null)) {
+              DefaultContextInteractions _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER = this.$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER();
+              AffectOrder _affectOrder = new AffectOrder(p);
+              class $SerializableClosureProxy implements Scope<Address> {
+                
+                private final UUID droneToAffect;
+                
+                public $SerializableClosureProxy(final UUID droneToAffect) {
+                  this.droneToAffect = droneToAffect;
+                }
+                
+                @Override
+                public boolean matches(final Address it) {
+                  UUID _iD = it.getID();
+                  return Objects.equal(_iD, droneToAffect);
+                }
               }
-              
-              @Override
-              public boolean matches(final Address it) {
-                UUID _iD = it.getID();
-                return Objects.equal(_iD, droneToAffect);
-              }
+              final Scope<Address> _function = new Scope<Address>() {
+                @Override
+                public boolean matches(final Address it) {
+                  UUID _iD = it.getID();
+                  return Objects.equal(_iD, droneToAffect);
+                }
+                private Object writeReplace() throws ObjectStreamException {
+                  return new SerializableProxy($SerializableClosureProxy.class, droneToAffect);
+                }
+              };
+              _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER.emit(_affectOrder, _function);
             }
-            final Scope<Address> _function = new Scope<Address>() {
-              @Override
-              public boolean matches(final Address it) {
-                UUID _iD = it.getID();
-                return Objects.equal(_iD, droneToAffect);
-              }
-              private Object writeReplace() throws ObjectStreamException {
-                return new SerializableProxy($SerializableClosureProxy.class, droneToAffect);
-              }
-            };
-            _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER.emit(_affectOrder, _function);
           }
         }
       }
+      Schedules _$CAPACITY_USE$IO_SARL_API_CORE_SCHEDULES$CALLER = this.$CAPACITY_USE$IO_SARL_API_CORE_SCHEDULES$CALLER();
+      final Procedure1<Agent> _function = (Agent it) -> {
+        DefaultContextInteractions _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER = this.$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER();
+        UpdateAction _updateAction = new UpdateAction(this.drones);
+        _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER.emit(_updateAction);
+      };
+      _$CAPACITY_USE$IO_SARL_API_CORE_SCHEDULES$CALLER.in(50, _function);
     }
-    Schedules _$CAPACITY_USE$IO_SARL_API_CORE_SCHEDULES$CALLER = this.$CAPACITY_USE$IO_SARL_API_CORE_SCHEDULES$CALLER();
-    final Procedure1<Agent> _function = (Agent it) -> {
-      DefaultContextInteractions _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER = this.$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER();
-      UpdateAction _updateAction = new UpdateAction(this.drones);
-      _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER.emit(_updateAction);
-    };
-    _$CAPACITY_USE$IO_SARL_API_CORE_SCHEDULES$CALLER.in(50, _function);
   }
 
   private void $behaviorUnit$ValidateOrderReception$2(final ValidateOrderReception occurrence) {
@@ -138,9 +144,9 @@ public class Depot extends Agent {
       Objectiv _objectiv = drone.getObjectiv();
       boolean _equals = Objects.equal(_objectiv, Objectiv.Charge);
       if (_equals) {
+        int energyneed = this.energyneeded(parcel, drone);
         float _battery = drone.getBattery();
-        double _energyneeded = this.energyneeded(parcel, drone.getPosition());
-        if ((_battery > _energyneeded)) {
+        if ((_battery > energyneed)) {
           if (isreallyBest) {
             float _battery_1 = drone.getBattery();
             float _battery_2 = bestDrone.getBattery();
@@ -158,19 +164,25 @@ public class Depot extends Agent {
   }
 
   @Pure
-  protected double energyneeded(final Parcel p, final Vector2d dronePosition) {
-    float _weight = p.getWeight();
-    float d_max_charge = ((15 * 4) / (4 + _weight));
+  protected int energyneeded(final Parcel p, final PerceivedDroneBody drone) {
+    float _weight = drone.getWeight();
+    float _weight_1 = p.getWeight();
+    float _weight_2 = drone.getWeight();
+    float distance_max_with_package = ((Settings.DistMaxDrone * (_weight + _weight_1)) / _weight_2);
     double _x = p.getHousePos().getX();
-    double _x_1 = dronePosition.getX();
+    double _x_1 = drone.getPosition().getX();
     double _pow = Math.pow((_x - _x_1), 2);
     double _y = p.getHousePos().getY();
-    double _y_1 = dronePosition.getY();
+    double _y_1 = drone.getPosition().getY();
     double _pow_1 = Math.pow((_y - _y_1), 2);
     double distance = Math.sqrt((_pow + _pow_1));
-    double perte_energie = (((distance * 100) / d_max_charge) + ((distance * 100) / 15));
-    float _weight_1 = p.getWeight();
-    return ((perte_energie + (((4 + _weight_1) * 2) / 4)) + 2);
+    double percentage_battery_needed = (((distance * 100) / distance_max_with_package) + 
+      ((distance * 100) / Settings.DistMaxDrone));
+    float _weight_3 = drone.getWeight();
+    float _weight_4 = p.getWeight();
+    percentage_battery_needed = (percentage_battery_needed + 
+      (((_weight_3 + _weight_4) * Settings.DroneTakeoffRatio) + Settings.DroneTakeoffBatteryLoss));
+    return ((int) (percentage_battery_needed + 0.99));
   }
 
   @Extension

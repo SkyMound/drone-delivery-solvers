@@ -10,6 +10,8 @@ import org.arakhne.afc.math.geometry.d2.d.Vector2d
 import java.util.HashMap
 import java.io.FileReader
 import au.com.bytecode.opencsv.CSVReader
+import java.util.Date
+import java.text.DateFormat
 
 /** 
  * Simple Java program to read CSV file in Java. In this program we will read
@@ -31,11 +33,8 @@ class CustomCSVReader {
             while (cityline !== null){
 				var cityattributes = cityline
 				var x = Float.parseFloat(cityattributes.get(1));
-				println(x)
 				var y = Float.parseFloat(cityattributes.get(2));
-				println(y)
 				var numMaison = cityattributes.get(3);
-				println(numMaison)
 
 				mapInfoMaison.put(numMaison, new Vector2d(x, y))
 				cityline = br.readNext();
@@ -87,12 +86,14 @@ class CustomCSVReader {
 		var idMaisonReel = metadaparcel.get(3);
 		var position = mapMaison.get(idMaisonReel)
 		
-		var heure = Time.valueOf(metadaparcel.get(2));
+		var ordertime = (metadaparcel.get(2)).split(":")
 		
+		var secFrommidnight = Integer.valueOf(ordertime.get(0)) * 3600 + Integer.valueOf(ordertime.get(1)) * 60 +
+			Integer.valueOf(ordertime.get(2))
 		var weight = Float.parseFloat(metadaparcel.get(4));
 		
 		// create and return parcel of this metadata
-		return new Parcel(position, weight, heure.toInteger,commande);
+		return new Parcel(position, weight, secFrommidnight, commande);
     }
 
 }

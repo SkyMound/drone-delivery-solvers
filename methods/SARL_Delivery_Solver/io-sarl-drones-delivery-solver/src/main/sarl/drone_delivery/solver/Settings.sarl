@@ -35,5 +35,10 @@ interface Settings {
 	public static val distMinLiv = 20
 	
 	public static val DepotPos = new Vector2d(2461228,3984254)
-
+	
+	public static val DeliveryStartingHour  = 8
+	public static val DistMaxDrone = 15000 //m
+	public static val DroneTakeoffRatio = 1 //%
+	public static val DroneTakeoffBatteryLoss = 1 / 4
+	
 }

@@ -6,16 +6,13 @@ import io.sarl.lang.core.Event
 import io.sarl.lang.core.EventListener
 import io.sarl.lang.core.SRE
 import io.sarl.lang.core.SREBootstrap
-import java.util.Map
 import java.util.List
 import java.util.UUID
 import java.util.concurrent.ConcurrentHashMap
 import org.arakhne.afc.math.geometry.d2.d.Vector2d
 import drone_delivery.solver.gui.EnvironmentGui
-import java.lang.reflect.Array
-import java.util.ArrayList
-import java.net.URL
-import java.io.FileReader
+import java.util.Comparator
+import java.util.Collections
 
 class DroneSimulation implements EventListener {
 	public static val id = UUID::randomUUID
@@ -127,7 +124,7 @@ class DroneSimulation implements EventListener {
 		var initialPosition = Settings::DepotPos
 		
 		var de = UUID::randomUUID
-		kernel.startAgentWithID(typeof(Depot), de, environment, initialPosition, "Depot", this.parcelToCreate)
+		kernel.startAgentWithID(typeof(Depot), de, environment, initialPosition, "Depot", this.parcelToCreate,this.droneBodies)
 
 		if (Settings::isLogActivated) {
 			System.out.println("Lancement du dépot à la position " + initialPosition)
@@ -147,9 +144,10 @@ class DroneSimulation implements EventListener {
 		var targetPos = null
 		var battery =100.0f
 		var d = UUID::randomUUID
+		var weight = 4 //kg
 		kernel.startAgentWithID(typeof(Drone), d, environment, initialPosition, initSpeed, objectiv, targetPos, battery,
 			droneName)
-		this.droneBodies.put(d, new PerceivedDroneBody(d, initialPosition, initSpeed, objectiv, targetPos, battery))
+		this.droneBodies.put(d, new PerceivedDroneBody(d, initialPosition, initSpeed, objectiv, targetPos, battery,weight))
 		
 		
 		if (Settings::isLogActivated) {
@@ -164,7 +162,14 @@ class DroneSimulation implements EventListener {
 	
 	
 	def createParcelsList(cityfilePath : String, parcelfilePath : String) {
-		return CustomCSVReader.getparcelsFromCSV(cityfilePath, parcelfilePath, nbParcelinSim) 		
+		var parcelList = CustomCSVReader.getparcelsFromCSV(cityfilePath, parcelfilePath, nbParcelinSim)
+		
+		Collections.sort(parcelList, new Comparator<Parcel>() {
+		    @Override
+			def compare(p1 : Parcel, p2 : Parcel) : int {
+		        return p1.ordertime.compareTo(p2.ordertime)		}
+		});
+		return parcelList
 	}
 	
 	def createHousePosList(cityfilePath : String) {

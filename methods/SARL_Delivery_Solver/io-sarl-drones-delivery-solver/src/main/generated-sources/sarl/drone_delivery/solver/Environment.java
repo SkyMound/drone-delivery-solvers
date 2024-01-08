@@ -73,7 +73,7 @@ public class Environment extends Agent {
       }
     }
     this.drones = null;
-    this.time = 0;
+    this.time = (Settings.DeliveryStartingHour * 3600);
     this.depot = null;
     ConcurrentSkipListSet<UUID> _concurrentSkipListSet = new ConcurrentSkipListSet<UUID>();
     this.influences = _concurrentSkipListSet;
@@ -107,6 +107,8 @@ public class Environment extends Agent {
           final Procedure1<Agent> _function = (Agent it) -> {
             int _time = this.time;
             this.time = (_time + Settings.SecondsPerCycle);
+            Logging _$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER = this.$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER();
+            _$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER.info(Integer.valueOf(this.time));
             DefaultContextInteractions _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER = this.$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER();
             class $SerializableClosureProxy implements Scope<Address> {
               

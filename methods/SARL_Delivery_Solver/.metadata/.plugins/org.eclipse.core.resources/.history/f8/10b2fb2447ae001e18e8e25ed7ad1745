@@ -1,0 +1,132 @@
+package drone_delivery.solver
+
+import io.sarl.api.core.Logging
+import io.sarl.api.core.Schedules
+import io.sarl.api.core.DefaultContextInteractions
+import io.sarl.api.core.Lifecycle
+import java.util.concurrent.ConcurrentHashMap
+import java.util.UUID
+import io.sarl.api.core.Initialize
+import org.arakhne.afc.math.geometry.d2.d.Vector2d
+import java.util.concurrent.ConcurrentSkipListSet
+import org.eclipse.xtend.lib.annotations.Accessors
+
+agent Environment{
+	uses Logging, Schedules, DefaultContextInteractions, Lifecycle
+
+	@Accessors
+	var width : int
+	@Accessors
+	var height : int
+
+	@Accessors
+	var drones : ConcurrentHashMap<UUID, PerceivedDroneBody>
+	@Accessors
+	var depot : Depot
+
+	@Accessors
+	var influences : ConcurrentSkipListSet<UUID>
+
+	@Accessors
+	var time : int
+	
+	on Initialize {
+		loggingName = "Environment"
+	if (occurrence.parameters.size > 1) {
+		if (occurrence.parameters.get(0) instanceof Integer) {
+			height = occurrence.parameters.get(0) as Integer
+		}
+
+		if (occurrence.parameters.get(1) instanceof Integer) {
+			width = occurrence.parameters.get(1) as Integer
+			}
+		}
+		drones = null
+		time = 0
+		depot=null
+		influences = new ConcurrentSkipListSet
+	}
+	
+	on Start{
+		this.drones = occurrence.perceivedAgentBody
+		new GuiRepaint(drones).emit
+		new Perception(drones,time).emit
+	}
+
+	on Die {
+		killMe
+	}
+
+	on Action {
+		synchronized (drones) {
+			synchronized (influences) {
+				if (drones.containsKey(occurrence.source.ID)) {
+					influences.add(occurrence.source.ID)
+					applyForce(occurrence.influence, drones.get(occurrence.source.ID))
+				}
+				if (influences.size == this.drones.size) {
+					in(Settings::pause) [
+						time+=Settings::SecondsPerCycle
+						new GuiRepaint(drones).emit[it.ID == DroneSimulation.id]
+						new Perception(drones,time).emit
+					]
+					this.influences.clear
+				}
+			}
+		}
+		
+	}
+
+
+	def applyForce(force : Vector2d, d : PerceivedDroneBody) {
+		//TODO ralentir à l'approche de la cible 
+		// contribution of the mass.
+		// force * (1 / b.getGroupe().masse);
+		// updating acceleration and speed.
+		var acceleration = d.acceleration
+		acceleration.set(force)
+		var vitesse = d.vitesse
+		vitesse += acceleration
+
+		// updating speed
+		if (vitesse.length > Settings::DroneMaxSpeed) {
+			vitesse.length = Settings::DroneMaxSpeed
+		}
+
+		// updating the position
+		var position = d.position
+		position += vitesse
+
+		var dd = drones.get(d.owner)
+		dd.acceleration = acceleration
+		dd.vitesse = vitesse
+		dd.position = position
+
+		// we adjust it according to the dimensions of the World.
+		d.clampToWorld
+	}
+
+	/** 
+	 * The world is circular, this function clamps coordinates to stay within the frame
+	 */
+	def clampToWorld(b : PerceivedDroneBody) {
+		var posX = b.position.x
+		var posY = b.position.y
+
+		if (posX > width / 2) {
+			posX -= width
+		}
+		if (posX < ( -1 * width / 2 )) {
+			posX += width
+		}
+		if (posY > height / 2) {
+			posY -= height
+		}
+		if (posY < ( -1 * height / 2 )) {
+			posY += height
+		}
+
+		drones.get(b.owner).position = new Vector2d(posX, posY)
+	}
+
+}

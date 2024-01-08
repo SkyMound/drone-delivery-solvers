@@ -42,7 +42,7 @@ agent Environment{
 			}
 		}
 		drones = null
-		time = 0
+		time = Settings::DeliveryStartingHour *3600
 		depot=null
 		influences = new ConcurrentSkipListSet
 	}
@@ -67,6 +67,7 @@ agent Environment{
 				if (influences.size == this.drones.size) {
 					in(Settings::pause) [
 						time+=Settings::SecondsPerCycle
+						info(time)
 						new GuiRepaint(drones).emit[it.ID == DroneSimulation.id]
 						new Perception(drones,time).emit
 					]

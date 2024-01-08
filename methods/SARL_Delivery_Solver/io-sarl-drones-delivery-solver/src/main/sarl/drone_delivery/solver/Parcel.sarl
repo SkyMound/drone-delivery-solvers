@@ -8,9 +8,10 @@ class Parcel {
 	var housPos : Vector2d
 	@Accessors
 	var weight : float
+	@Accessors
 	var ordertime : int 
 	var idOrder : int
-	
+		
 	
 	new(other : Parcel) {
 		this.housPos = other.housPos
@@ -30,7 +31,5 @@ class Parcel {
 		return this.housPos
 	}
 	
-	def getOrderTime(){
-		return this.ordertime
-	}
+	
 }

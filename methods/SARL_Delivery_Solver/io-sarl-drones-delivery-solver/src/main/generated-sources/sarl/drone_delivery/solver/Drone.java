@@ -26,8 +26,11 @@ import java.util.Set;
 import java.util.UUID;
 import javax.inject.Inject;
 import org.arakhne.afc.math.geometry.d2.d.Vector2d;
+import org.eclipse.xtend.lib.annotations.Accessors;
 import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.Extension;
+import org.eclipse.xtext.xbase.lib.ObjectExtensions;
+import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.eclipse.xtext.xbase.lib.Pure;
 
 @SarlSpecification("0.13")
@@ -36,12 +39,14 @@ import org.eclipse.xtext.xbase.lib.Pure;
 public class Drone extends Agent {
   private UUID environment;
 
+  @Accessors
   private Vector2d position;
 
   private Vector2d speed;
 
   private float battery;
 
+  @Accessors
   private float weight;
 
   private Vector2d targetPos;
@@ -111,10 +116,207 @@ public class Drone extends Agent {
   }
 
   private void $behaviorUnit$UpdateAction$1(final UpdateAction occurrence) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nType mismatch: cannot convert from void to Vector2d"
-      + "\nType mismatch: cannot convert from void to Vector2d"
-      + "\nType mismatch: cannot convert from void to Vector2d");
+    PerceivedDroneBody myBody = occurrence.perceivedAgentBody.get(this.getID());
+    if (((myBody != null) && Objects.equal(myBody.getOwner(), this.getID()))) {
+      this.position = myBody.getPosition();
+      this.speed = myBody.getVitesse();
+      Logging _$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER = this.$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER();
+      UUID _iD = this.getID();
+      _$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER.info(((((("Le drone = " + _iD) + "est en ") + this.position) + " avec un vitesse de ") + this.speed));
+    }
+    Schedules _$CAPACITY_USE$IO_SARL_API_CORE_SCHEDULES$CALLER = this.$CAPACITY_USE$IO_SARL_API_CORE_SCHEDULES$CALLER();
+    final Procedure1<Agent> _function = (Agent it) -> {
+      boolean _equals = Objects.equal(this.objectiv, Objectiv.Charge);
+      if (_equals) {
+        if ((this.battery <= (100 - (Settings.SecondsPerCycle * Settings.ChargePerSec)))) {
+          float _battery = this.battery;
+          this.battery = (_battery + (Settings.SecondsPerCycle * Settings.ChargePerSec));
+        }
+        DefaultContextInteractions _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER = this.$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER();
+        Action _action = new Action();
+        final Procedure1<Action> _function_1 = (Action it_1) -> {
+          Vector2d _vector2d = new Vector2d();
+          it_1.influence = _vector2d;
+        };
+        Action _doubleArrow = ObjectExtensions.<Action>operator_doubleArrow(_action, _function_1);
+        class $SerializableClosureProxy implements Scope<Address> {
+          
+          private final UUID $_environment;
+          
+          public $SerializableClosureProxy(final UUID $_environment) {
+            this.$_environment = $_environment;
+          }
+          
+          @Override
+          public boolean matches(final Address it_1) {
+            UUID _iD = it_1.getID();
+            return Objects.equal(_iD, $_environment);
+          }
+        }
+        final Scope<Address> _function_2 = new Scope<Address>() {
+          @Override
+          public boolean matches(final Address it_1) {
+            UUID _iD = it_1.getID();
+            return Objects.equal(_iD, Drone.this.environment);
+          }
+          private Object writeReplace() throws ObjectStreamException {
+            return new SerializableProxy($SerializableClosureProxy.class, Drone.this.environment);
+          }
+        };
+        _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER.emit(_doubleArrow, _function_2);
+      } else {
+        boolean _equals_1 = Objects.equal(this.objectiv, Objectiv.BackLiv);
+        if (_equals_1) {
+          float _battery_1 = this.battery;
+          this.battery = (_battery_1 - (Settings.SecondsPerCycle * Settings.BatteryLostPerSec));
+          boolean _closeEnoughToTarget = this.closeEnoughToTarget(this.position, this.targetPos);
+          if (_closeEnoughToTarget) {
+            this.objectiv = Objectiv.Charge;
+            this.targetPos = null;
+            DefaultContextInteractions _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_1 = this.$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER();
+            Action _action_1 = new Action();
+            final Procedure1<Action> _function_3 = (Action it_1) -> {
+              Vector2d _vector2d = new Vector2d();
+              it_1.influence = _vector2d;
+            };
+            Action _doubleArrow_1 = ObjectExtensions.<Action>operator_doubleArrow(_action_1, _function_3);
+            class $SerializableClosureProxy_1 implements Scope<Address> {
+              
+              private final UUID $_environment;
+              
+              public $SerializableClosureProxy_1(final UUID $_environment) {
+                this.$_environment = $_environment;
+              }
+              
+              @Override
+              public boolean matches(final Address it_1) {
+                UUID _iD = it_1.getID();
+                return Objects.equal(_iD, $_environment);
+              }
+            }
+            final Scope<Address> _function_4 = new Scope<Address>() {
+              @Override
+              public boolean matches(final Address it_1) {
+                UUID _iD = it_1.getID();
+                return Objects.equal(_iD, Drone.this.environment);
+              }
+              private Object writeReplace() throws ObjectStreamException {
+                return new SerializableProxy($SerializableClosureProxy_1.class, Drone.this.environment);
+              }
+            };
+            _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_1.emit(_doubleArrow_1, _function_4);
+          } else {
+            DefaultContextInteractions _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_2 = this.$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER();
+            Action _action_2 = new Action();
+            final Procedure1<Action> _function_5 = (Action it_1) -> {
+              it_1.influence = this.moveTo(this.targetPos);
+            };
+            Action _doubleArrow_2 = ObjectExtensions.<Action>operator_doubleArrow(_action_2, _function_5);
+            class $SerializableClosureProxy_2 implements Scope<Address> {
+              
+              private final UUID $_environment;
+              
+              public $SerializableClosureProxy_2(final UUID $_environment) {
+                this.$_environment = $_environment;
+              }
+              
+              @Override
+              public boolean matches(final Address it_1) {
+                UUID _iD = it_1.getID();
+                return Objects.equal(_iD, $_environment);
+              }
+            }
+            final Scope<Address> _function_6 = new Scope<Address>() {
+              @Override
+              public boolean matches(final Address it_1) {
+                UUID _iD = it_1.getID();
+                return Objects.equal(_iD, Drone.this.environment);
+              }
+              private Object writeReplace() throws ObjectStreamException {
+                return new SerializableProxy($SerializableClosureProxy_2.class, Drone.this.environment);
+              }
+            };
+            _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_2.emit(_doubleArrow_2, _function_6);
+          }
+        } else {
+          boolean _equals_2 = Objects.equal(this.objectiv, Objectiv.GoLiv);
+          if (_equals_2) {
+            float _battery_2 = this.battery;
+            this.battery = (_battery_2 - (Settings.SecondsPerCycle * Settings.BatteryLostPerSec));
+            boolean _closeEnoughToTarget_1 = this.closeEnoughToTarget(this.position, this.targetPos);
+            if (_closeEnoughToTarget_1) {
+              this.objectiv = Objectiv.BackLiv;
+              this.targetPos = Settings.DepotPos;
+              this.parcel = null;
+              DefaultContextInteractions _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_3 = this.$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER();
+              Action _action_3 = new Action();
+              final Procedure1<Action> _function_7 = (Action it_1) -> {
+                it_1.influence = this.moveTo(this.targetPos);
+              };
+              Action _doubleArrow_3 = ObjectExtensions.<Action>operator_doubleArrow(_action_3, _function_7);
+              class $SerializableClosureProxy_3 implements Scope<Address> {
+                
+                private final UUID $_environment;
+                
+                public $SerializableClosureProxy_3(final UUID $_environment) {
+                  this.$_environment = $_environment;
+                }
+                
+                @Override
+                public boolean matches(final Address it_1) {
+                  UUID _iD = it_1.getID();
+                  return Objects.equal(_iD, $_environment);
+                }
+              }
+              final Scope<Address> _function_8 = new Scope<Address>() {
+                @Override
+                public boolean matches(final Address it_1) {
+                  UUID _iD = it_1.getID();
+                  return Objects.equal(_iD, Drone.this.environment);
+                }
+                private Object writeReplace() throws ObjectStreamException {
+                  return new SerializableProxy($SerializableClosureProxy_3.class, Drone.this.environment);
+                }
+              };
+              _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_3.emit(_doubleArrow_3, _function_8);
+            } else {
+              DefaultContextInteractions _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_4 = this.$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER();
+              Action _action_4 = new Action();
+              final Procedure1<Action> _function_9 = (Action it_1) -> {
+                it_1.influence = this.moveTo(this.targetPos);
+              };
+              Action _doubleArrow_4 = ObjectExtensions.<Action>operator_doubleArrow(_action_4, _function_9);
+              class $SerializableClosureProxy_4 implements Scope<Address> {
+                
+                private final UUID $_environment;
+                
+                public $SerializableClosureProxy_4(final UUID $_environment) {
+                  this.$_environment = $_environment;
+                }
+                
+                @Override
+                public boolean matches(final Address it_1) {
+                  UUID _iD = it_1.getID();
+                  return Objects.equal(_iD, $_environment);
+                }
+              }
+              final Scope<Address> _function_10 = new Scope<Address>() {
+                @Override
+                public boolean matches(final Address it_1) {
+                  UUID _iD = it_1.getID();
+                  return Objects.equal(_iD, Drone.this.environment);
+                }
+                private Object writeReplace() throws ObjectStreamException {
+                  return new SerializableProxy($SerializableClosureProxy_4.class, Drone.this.environment);
+                }
+              };
+              _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_4.emit(_doubleArrow_4, _function_10);
+            }
+          }
+        }
+      }
+    };
+    _$CAPACITY_USE$IO_SARL_API_CORE_SCHEDULES$CALLER.in(Settings.pause, _function);
   }
 
   private void $behaviorUnit$AffectOrder$2(final AffectOrder occurrence) {
@@ -151,9 +353,10 @@ public class Drone extends Agent {
     _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER.emit(_validateOrderReception, _function);
   }
 
-  protected void moveTo(final Vector2d targetPos) {
+  protected Vector2d moveTo(final Vector2d targetPos) {
     final Vector2d vector = targetPos.operator_minus(this.position);
     vector.setLength(2);
+    return vector;
   }
 
   @Extension
@@ -319,5 +522,23 @@ public class Drone extends Agent {
   @Inject
   public Drone(final UUID parentID, final UUID agentID, final DynamicSkillProvider skillProvider) {
     super(parentID, agentID, skillProvider);
+  }
+
+  @Pure
+  protected Vector2d getPosition() {
+    return this.position;
+  }
+
+  protected void setPosition(final Vector2d position) {
+    this.position = position;
+  }
+
+  @Pure
+  protected float getWeight() {
+    return this.weight;
+  }
+
+  protected void setWeight(final float weight) {
+    this.weight = weight;
   }
 }

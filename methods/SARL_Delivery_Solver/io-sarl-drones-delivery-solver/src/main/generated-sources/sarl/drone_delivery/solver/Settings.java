@@ -39,4 +39,12 @@ public interface Settings {
   static final int distMinLiv = 20;
 
   static final Vector2d DepotPos = new Vector2d(2461228, 3984254);
+
+  static final int DeliveryStartingHour = 8;
+
+  static final int DistMaxDrone = 15000;
+
+  static final int DroneTakeoffRatio = 1;
+
+  static final int DroneTakeoffBatteryLoss = (1 / 4);
 }

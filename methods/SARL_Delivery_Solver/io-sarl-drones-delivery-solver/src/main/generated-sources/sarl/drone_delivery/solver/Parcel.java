@@ -17,6 +17,7 @@ public class Parcel {
   @Accessors
   private float weight;
 
+  @Accessors
   private int ordertime;
 
   private int idOrder;
@@ -38,11 +39,6 @@ public class Parcel {
   @Pure
   public Vector2d getHousePos() {
     return this.housPos;
-  }
-
-  @Pure
-  public int getOrderTime() {
-    return this.ordertime;
   }
 
   @Override
@@ -93,5 +89,14 @@ public class Parcel {
 
   public void setWeight(final float weight) {
     this.weight = weight;
+  }
+
+  @Pure
+  public int getOrdertime() {
+    return this.ordertime;
+  }
+
+  public void setOrdertime(final int ordertime) {
+    this.ordertime = ordertime;
   }
 }

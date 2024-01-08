@@ -34,7 +34,10 @@ public class PerceivedDroneBody {
   @Accessors
   private Vector2d targetPos;
 
-  public PerceivedDroneBody(final UUID iowner, final Vector2d iposition, final Vector2d ispeed, final Objectiv iobjectiv, final Vector2d itargetPos, final float ibattery) {
+  @Accessors
+  private float weight;
+
+  public PerceivedDroneBody(final UUID iowner, final Vector2d iposition, final Vector2d ispeed, final Objectiv iobjectiv, final Vector2d itargetPos, final float ibattery, final float iweight) {
     this.position = iposition;
     this.owner = iowner;
     this.vitesse = ispeed;
@@ -43,6 +46,7 @@ public class PerceivedDroneBody {
     this.objectiv = iobjectiv;
     this.targetPos = itargetPos;
     this.battery = ibattery;
+    this.weight = iweight;
   }
 
   @Override
@@ -60,6 +64,8 @@ public class PerceivedDroneBody {
       return false;
     if (Float.floatToIntBits(other.battery) != Float.floatToIntBits(this.battery))
       return false;
+    if (Float.floatToIntBits(other.weight) != Float.floatToIntBits(this.weight))
+      return false;
     return super.equals(obj);
   }
 
@@ -71,6 +77,7 @@ public class PerceivedDroneBody {
     final int prime = 31;
     result = prime * result + Objects.hashCode(this.owner);
     result = prime * result + Float.hashCode(this.battery);
+    result = prime * result + Float.hashCode(this.weight);
     return result;
   }
 
@@ -135,5 +142,14 @@ public class PerceivedDroneBody {
 
   public void setTargetPos(final Vector2d targetPos) {
     this.targetPos = targetPos;
+  }
+
+  @Pure
+  public float getWeight() {
+    return this.weight;
+  }
+
+  public void setWeight(final float weight) {
+    this.weight = weight;
   }
 }
