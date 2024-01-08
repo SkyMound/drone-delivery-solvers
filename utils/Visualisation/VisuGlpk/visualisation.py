@@ -66,7 +66,7 @@ class Drone:
         self.canvas.create_oval(self.pos[0], self.pos[1], self.pos[0]+5, self.pos[1]+5, fill="red", tags="drone"+str(self.id))
         print("Drone create")
 
-        self. canvas.create_text(830, int(self.id)*100 - 90, text="Drone "+str(self.id))
+        self.canvas.create_text(850, int(self.id)*100 - 90, text="Drone "+str(self.id), font=("Arial", 17))
         self.canvas.create_rectangle(850, int(self.id)*100 - 70, 1050, int(self.id)*100 - 50, fill="green", tags="battery"+str(self.id))
         self.canvas.create_rectangle(850, int(self.id)*100 - 70, 1050, int(self.id)*100 - 50, outline="black")
 
@@ -229,8 +229,8 @@ def recupCity(filePathCity):
 
 
 #filePath = "methods/glpk-solver/solver_drone_cmd_output.log"
-filePath = "utils/Visualisation/solver_drone_cmd_output.log"
-filePathCity = "utils/Visualisation/smallCity_30.csv"
+filePath = "utils/Visualisation/VisuGlpk/solver_drone_cmd_output.log"
+filePathCity = "utils/Visualisation/VisuGlpk/smallCity_30.csv"
 
 def recupData(filePath):
     with open(filePath, "r") as f:
@@ -247,6 +247,7 @@ def recupData(filePath):
         house = re.findall(r'house\s\d+', line)
         if drone:
             drones.append(drone[0].split(' ')[1])
+            
         if house:
             houses.append(house[0].split(' ')[1])
 
@@ -257,7 +258,7 @@ drones, houses = recupData(filePath)
 print("drones : ", drones) 
 print("houses : ", houses)
 
-nombreDrone = max(drones)
+nombreDrone = len(drones)
 print("Numbers of drone : ", nombreDrone)
 
 city,depot = recupCity(filePathCity)
@@ -270,14 +271,17 @@ canvas.pack()
 canvas.create_oval(depot[0]-10, depot[1]-10, depot[0]+10, depot[1]+10, outline="black")
 canvas.create_rectangle(0, 0, 800, 800, outline="black")
 
-im = tk.PhotoImage(file = "utils/Visualisation/charge.png",master=window)
+im = tk.PhotoImage(file = "utils/Visualisation/VisuGlpk/charge.png",master=window)
 
 
 listDrones = {}
 listHouses = {}
 
+from PIL import Image, ImageSequence
+import io
+import time
 
-
+image = []
 
 for house in city:
     listHouses[str(int(house)+1)] = House(str(int(house)+1),city[house],canvas)
@@ -289,14 +293,29 @@ for drone in range(1,int(nombreDrone) +1):
         for j,i in enumerate(drones):
             if int(i) == drone:
                 package.append(Package(str(j)+str(k),str(drone),listHouses[houses[j]]))
-
+    
     listDrones[drone] = Drone(str(drone),depot,canvas, package,depot)
 
 
 globalCity = City("Grenoble",listDrones,listHouses,[],canvas,depot)
-
-while True :
+time0 = time.time()
+i = 0
+while time.time() - time0 < 5 :
     globalCity.execution()
+    if i%5 == 0:
+        ps = canvas.postscript(colormode='color')
+        im_ = Image.open(io.BytesIO(ps.encode('utf-8')))
+        image.append(im_)
+    i+=1
+canvas_width = canvas.winfo_width()
+canvas_height = canvas.winfo_height()
+window.destroy()
+import numpy as np
 
-window.mainloop()
+# Create a gif from the list of images
+image[0].save('utils/Visualisation/VisuGlpk/animation.gif',
+               save_all=True,
+               append_images=image[1:],
+               duration=100,
+               loop=0)
 
