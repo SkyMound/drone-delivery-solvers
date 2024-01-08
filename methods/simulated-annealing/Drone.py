@@ -41,4 +41,5 @@ class Drone :
     def do_action(self, action : Action) :
         time_taken = self.charge(action.battery_to_charge)
         time_taken += Drone.time_needed(action.order_to_deliver)
+        self.battery -= self.battery_needed(action.order_to_deliver)
         return time_taken
