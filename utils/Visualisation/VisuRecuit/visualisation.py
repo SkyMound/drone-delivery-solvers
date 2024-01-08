@@ -16,7 +16,7 @@ class City:
         self.drones = drones
         self.houses = houses
         self.packages = packages
-        self.seconds = 50000
+        self.seconds = 28800
 
         self.canvas = canvas
 
@@ -227,11 +227,11 @@ def recupCity(filePathCity):
     return city, depot
 
 
-sol = [[(100, 1), (98, 3), (57, 7), (40, 11), (34, 15), (17, 23), (28, 27), (50, 19)], [(100, 1), (79, 4), (64, 8), (47, 11), (41, 15), (19, 20), (23, 24), (27, 28)], [(100, 1), (80, 4), (65, 8), (48, 12), (24, 16), (20, 20), (23, 24), (27, 28)], [(100, 2), (83, 5), (71, 10), (47, 12), (22, 17), (16, 21), (23, 24), (27, 28)], [(100, 2), (82, 10), (57, 12), (32, 17), (19, 21), (23, 25), (30, 29)], [(100, 2), (82, 6), (67, 10), (45, 14), (36, 19), (22, 21), (23, 25), (30, 29)], [(100, 3), (78, 6), (63, 11), (57, 14), (47, 19), (32, 23), (22, 26), (31, 29), (90, 5)]]
+sol = [[(100, 1)], [(100, 1)], [(100, 1)], [(100, 2)], [(100, 2)], [(100, 2)], [(100, 3)], [(100, 4)], [(100, 6)], [(100, 7)]]
 
 #filePath = "methods/glpk-solver/solver_drone_cmd_output.log"
 #filePath = "utils/Visualisation/solver_drone_cmd_output.log"
-filePathCity = "utils/Visualisation/VisuRecuit/smallCity_30.csv"
+filePathCity = "utils/generationColi/generationRealisticCity/generateData/smallCity_10.csv"
 
 
 def recupData2(solution):

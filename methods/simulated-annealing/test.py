@@ -8,6 +8,9 @@ import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 
 if __name__ == "__main__":
+    # a = DeliveryProblem.import_for_visualisation("methods/simulated-annealing/solutions/solution_10_10.csv")
+    # print(a)
+    # exit()
     directory = 'methods/simulated-annealing/solutions/'
 
     numberOfDrones = []
@@ -58,12 +61,22 @@ if __name__ == "__main__":
     # Interpolate data on the grid
     time_grid = griddata((numberOfDrones, numberOfPackages), TimeProcessing, (drone_grid, package_grid), method='cubic')
 
+    import numpy as np
+    from matplotlib.ticker import FuncFormatter
+
+    # Prendre le logarithme des données
+    log_time_grid = np.log10(time_grid)
+
     # Plot the results 3D
     fig = plt.figure()
     ax = plt.axes(projection='3d')
-    #ax.plot_surface(drone_grid, package_grid, time_grid, cmap='Reds', edgecolor='none')~
-    ax.plot_surface(drone_grid, package_grid, time_grid, cmap='rainbow', edgecolor='none')
+    ax.plot_surface(drone_grid, package_grid, log_time_grid, cmap='rainbow', edgecolor='none')
+
+    # Définir les labels de l'axe z pour afficher les valeurs d'origine
+    formatter = FuncFormatter(lambda x, pos: "{:.0f}".format(10**x))
+    ax.zaxis.set_major_formatter(formatter)
+
     ax.set_xlabel('Number of drones')
     ax.set_ylabel('Number of packages')
-    ax.set_zlabel('Delivery Time')
+    ax.set_zlabel('Delivery Time (log scale)')
     plt.show()
