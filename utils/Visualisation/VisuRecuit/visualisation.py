@@ -227,11 +227,12 @@ def recupCity(filePathCity):
     return city, depot
 
 
-sol = [[(100, 1), (75, 2), (61, 3), (54, 7)], [(100, 1), (75, 2), (60, 4)], [(100, 1), (76, 2), (62, 6)]]
+sol = [[(100, 2), (78, 15), (60, 5), (51, 9)], [(100, 2), (77, 16), (56, 6), (51, 9)], [(100, 4), (85, 10), (58, 4)], [(100, 8), (72, 
+10), (48, 6)], [(100, 4), (85, 11), (75, 8), (46, 6)], [(100, 8), (70, 12)]]
 
 #filePath = "methods/glpk-solver/solver_drone_cmd_output.log"
 #filePath = "utils/Visualisation/solver_drone_cmd_output.log"
-filePathCity = "utils/generationColi/generationRealisticCity/generateData/smallCity_10.csv"
+filePathCity = "utils/generationColi/generationRealisticCity/generateData/smallCity_20.csv"
 
 
 def recupData2(solution):
@@ -241,7 +242,7 @@ def recupData2(solution):
     for n,i in enumerate(solution):
         bat = []
         for j in i:
-            drones.append(str(n))
+            drones.append(str(n+1))
             houses.append(str(j[1]))
             bat.append(j[0])
         battery.append(bat)
@@ -275,7 +276,7 @@ listDrones = {}
 listHouses = {}
 
 
-
+import io
 
 for house in city:
     listHouses[str(int(house)+1)] = House(str(int(house)+1),city[house],canvas)
@@ -293,8 +294,24 @@ for drone in range(1,int(nombreDrone) +1):
 
 globalCity = City("Grenoble",listDrones,listHouses,[],canvas,depot)
 
-while True :
+image = []
+time0 = time.time()
+i = 0
+while time.time() - time0 < 20 :
     globalCity.execution()
+    if i%5 == 0:
+        ps = canvas.postscript(colormode='color')
+        im_ = Image.open(io.BytesIO(ps.encode('utf-8')))
+        image.append(im_)
+    i+=1
+canvas_width = canvas.winfo_width()
+canvas_height = canvas.winfo_height()
+window.destroy()
+import numpy as np
 
-window.mainloop()
-
+# Create a gif from the list of images
+image[0].save('utils/Visualisation/VisuRecuit/animation.gif',
+               save_all=True,
+               append_images=image[1:],
+               duration=100,
+               loop=0)

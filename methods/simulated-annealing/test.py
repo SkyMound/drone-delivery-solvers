@@ -8,9 +8,9 @@ import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 
 if __name__ == "__main__":
-    # a = DeliveryProblem.import_for_visualisation("methods/simulated-annealing/solutions/solution_10_10.csv")
-    # print(a)
-    # exit()
+    a = DeliveryProblem.import_for_visualisation("methods/simulated-annealing/solutions/solution_6_20.csv")
+    print(a)
+    exit()
     directory = 'methods/simulated-annealing/solutions/'
 
     numberOfDrones = []
