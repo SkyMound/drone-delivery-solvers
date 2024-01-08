@@ -227,7 +227,7 @@ def recupCity(filePathCity):
     return city, depot
 
 
-sol = [[(100, 1)], [(100, 1)], [(100, 1)], [(100, 2)], [(100, 2)], [(100, 2)], [(100, 3)], [(100, 4)], [(100, 6)], [(100, 7)]]
+sol = [[(100, 1), (75, 2), (61, 3), (54, 7)], [(100, 1), (75, 2), (60, 4)], [(100, 1), (76, 2), (62, 6)]]
 
 #filePath = "methods/glpk-solver/solver_drone_cmd_output.log"
 #filePath = "utils/Visualisation/solver_drone_cmd_output.log"

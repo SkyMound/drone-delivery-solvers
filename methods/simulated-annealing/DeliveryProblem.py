@@ -106,15 +106,16 @@ class DeliveryProblem :
     def cost(self, solution) :
         orders_theoric_time = np.array([Drone.time_needed(order) for order in self.orders])
         orders_real_time = np.zeros(len(self.orders))
-
-        for drone_actions in solution :
-            current_time = 0
+        drone_delivery_time = np.zeros(self.nb_drones)
+        
+        for i, drone_actions in enumerate(solution) :
             drone = Drone(0)
             for action in drone_actions :
-                current_time += drone.do_action(action)
-                orders_real_time[action.order_to_deliver.ID] = current_time
+                drone_delivery_time[i] += drone.do_action(action)
+                orders_real_time[action.order_to_deliver.ID] = drone_delivery_time[i] 
 
-        return np.max(orders_real_time-orders_theoric_time)
+        # return np.max(orders_real_time-orders_theoric_time)
+        return np.max(drone_delivery_time)
     
 
     def get_neighbor(self, solution) :
