@@ -1,0 +1,15 @@
+
+package drone_delivery.solver
+
+class DroneDeliveryLauncher {
+
+	static def main(args : String*) {
+		var nbDrones = 20
+		var nbPackages = 20
+		
+		
+		var cityfilePath = ""
+
+	}
+
+}

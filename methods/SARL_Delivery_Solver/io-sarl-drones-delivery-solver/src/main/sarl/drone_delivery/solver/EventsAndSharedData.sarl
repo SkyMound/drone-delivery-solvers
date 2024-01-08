@@ -5,6 +5,7 @@ import java.util.UUID
 import java.util.concurrent.ConcurrentHashMap
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.arakhne.afc.math.geometry.d2.d.Vector2d
+import org.arakhne.afc.math.geometry.d3.d.Vector3d
 
 /**
  * Event from the GUI to kill each agent to end the simulation before closing the main window
@@ -23,26 +24,25 @@ event Perception {
 
 
 event Start {
-	val perceivedAgentBody : ConcurrentHashMap<UUID, PerceivedBoidBody>
+	val perceivedAgentBody : ConcurrentHashMap<UUID, PerceivedDroneBody>
 
-	new (bodies : ConcurrentHashMap<UUID, PerceivedBoidBody>) {
-		perceivedAgentBody = new ConcurrentHashMap<UUID, PerceivedBoidBody>(bodies);
+	new (bodies : ConcurrentHashMap<UUID, PerceivedDroneBody>) {
+		perceivedAgentBody = new ConcurrentHashMap<UUID, PerceivedDroneBody>(bodies);
 	}
 	
 }
 
-//TODO vérifier l'utilistée
 event GuiRepaint {
-	val perceivedAgentBody : ConcurrentHashMap<UUID, PerceivedBoidBody>
+	val perceivedAgentBody : ConcurrentHashMap<UUID, PerceivedDroneBody>
 
-	new (bodies : ConcurrentHashMap<UUID, PerceivedBoidBody>) {
-		perceivedAgentBody = new ConcurrentHashMap<UUID, PerceivedBoidBody>(bodies);
+	new (bodies : ConcurrentHashMap<UUID, PerceivedDroneBody>) {
+		perceivedAgentBody = new ConcurrentHashMap<UUID, PerceivedDroneBody>(bodies);
 	}
 
 }
 
 
-class PerceivedBoidBody {
+class PerceivedDroneBody {
 
 	// Position of the body
 	@Accessors
@@ -60,16 +60,12 @@ class PerceivedBoidBody {
 	@Accessors
 	var acceleration : Vector2d
 
-	// Population of the agent
-	@Accessors
-	var group : Population
 
-	new (igroup : Population, iowner : UUID, iposition : Vector2d, ispeed : Vector2d) {
+	new (iowner : UUID, iposition : Vector2d, ispeed : Vector2d) {
 		position = iposition
 		owner = iowner
 		vitesse = ispeed
 		acceleration = new Vector2d
-		group = igroup
 	}
 
 }

@@ -1,0 +1,44 @@
+package drone_delivery.solver
+
+import java.util.EventListener
+
+class DroneSimulation implements EventListener {
+	public static val id = UUID::randomUUID
+
+	/** 
+	 * SRE Kernel instance
+	 */
+	var kernel : SREBootstrap
+
+	/** 
+	 * The default SARL context where environment and boids are spawned
+	 */
+	var defaultSARLContext : AgentContext
+
+	/** 
+	 * Identifier of the environment
+	 */
+	var environment : UUID
+
+	var width = Settings::EnvtWidth
+
+	var height = Settings::EnvtHeight
+
+	/** 
+	 * Map buffering boids before launch/start
+	 */
+	var boidsToLaunch : Map<Population, Integer>
+
+	/** 
+	 * Map buffering boids' bodies before launch/start
+	 */
+	var boidBodies : ConcurrentHashMap<UUID, PerceivedBoidBody>
+
+	var boidsCount : int
+
+	/** 
+	 * Boolean specifying id the simulation is started or not.
+	 */
+	var isSimulationStarted = false
+
+}

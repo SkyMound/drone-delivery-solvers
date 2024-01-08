@@ -1,6 +1,6 @@
 package drone_delivery.solver.gui;
 
-import drone_delivery.solver.PerceivedBoidBody;
+import drone_delivery.solver.PerceivedDroneBody;
 import io.sarl.lang.core.annotation.SarlElementType;
 import io.sarl.lang.core.annotation.SarlSpecification;
 import io.sarl.lang.core.annotation.SyntheticMember;
@@ -9,6 +9,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Panel;
 import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import org.arakhne.afc.math.geometry.d2.d.Vector2d;
@@ -42,17 +43,31 @@ class EnvironmentGuiPanel extends Panel {
 
   private int height;
 
-  private Map<UUID, PerceivedBoidBody> boids;
+  private Map<UUID, PerceivedDroneBody> drones;
 
-  public void setBoids(final Map<UUID, PerceivedBoidBody> boids) {
-    this.boids = boids;
+  private Vector2d depotPos;
+
+  private List<Vector2d> housesPos;
+
+  public void setDrones(final Map<UUID, PerceivedDroneBody> drones) {
+    this.drones = drones;
   }
 
-  public EnvironmentGuiPanel(final int iheight, final int iwidth, final Map<UUID, PerceivedBoidBody> iboids) {
+  public void setDepotPos(final Vector2d depotPos) {
+    this.depotPos = depotPos;
+  }
+
+  public void setHousesPos(final List<Vector2d> housesPos) {
+    this.housesPos = housesPos;
+  }
+
+  public EnvironmentGuiPanel(final int iheight, final int iwidth, final Map<UUID, PerceivedDroneBody> idrones, final Vector2d idepotPos, final List<Vector2d> ihousesPos) {
     super();
     this.width = iwidth;
     this.height = iheight;
-    this.boids = iboids;
+    this.drones = idrones;
+    this.depotPos = idepotPos;
+    this.housesPos = ihousesPos;
   }
 
   @Override
@@ -63,9 +78,13 @@ class EnvironmentGuiPanel extends Panel {
       this.myCanvas.fillRect(0, 0, ((this.width * 2) - 1), ((this.height * 2) - 1));
       this.myCanvas.setColor(Color.BLACK);
       this.myCanvas.drawRect(0, 0, ((this.width * 2) - 1), ((this.height * 2) - 1));
-      Collection<PerceivedBoidBody> _values = this.boids.values();
-      for (final PerceivedBoidBody boid : _values) {
-        this.paintBoid(this.myCanvas, boid);
+      this.paintDepot(this.myCanvas, this.depotPos);
+      for (final Vector2d housePos : this.housesPos) {
+        this.paintHouse(this.myCanvas, housePos);
+      }
+      Collection<PerceivedDroneBody> _values = this.drones.values();
+      for (final PerceivedDroneBody drone : _values) {
+        this.paintDrone(this.myCanvas, drone);
       }
       this.myGraphics.drawImage(this.myImage, 0, 0, this);
     }
@@ -85,15 +104,15 @@ class EnvironmentGuiPanel extends Panel {
     this.myGraphics = this.getGraphics();
   }
 
-  public void paintBoid(final Graphics g, final PerceivedBoidBody boid) {
-    double _x = boid.getPosition().getX();
+  public void paintDrone(final Graphics g, final PerceivedDroneBody drone) {
+    double _x = drone.getPosition().getX();
     int posX = (this.width + ((int) _x));
-    double _y = boid.getPosition().getY();
+    double _y = drone.getPosition().getY();
     int posY = (this.height + ((int) _y));
-    double direction = EnvironmentGuiPanel.getAngle(boid.getVitesse());
+    double direction = EnvironmentGuiPanel.getAngle(drone.getVitesse());
     double cos = Math.cos(direction);
     double sin = Math.sin(direction);
-    g.setColor(boid.getGroup().color);
+    g.setColor(Color.GREEN);
     g.drawLine((posX + ((int) (5 * cos))), (posY + ((int) (5 * sin))), (posX - ((int) ((2 * cos) + (2 * sin)))), 
       (posY - ((int) ((2 * sin) - (2 * cos)))));
     g.drawLine((posX + ((int) (5 * cos))), (posY + ((int) (5 * sin))), (posX - ((int) ((2 * cos) - (2 * sin)))), 
@@ -133,6 +152,37 @@ class EnvironmentGuiPanel extends Panel {
     return (_atan_1 - Math.PI);
   }
 
+  public void paintDepot(final Graphics g, final Vector2d depotPos) {
+    int len = 3;
+    double _x = depotPos.getX();
+    int posX = ((int) _x);
+    double _y = depotPos.getY();
+    int posY = ((int) _y);
+    int x1 = (posX - (len / 2));
+    int y1 = (posY - (len / 2));
+    int x2 = (posX + (len / 2));
+    int y2 = (posY - (len / 2));
+    int x3 = (posX + (len / 2));
+    int y3 = (posY + (len / 2));
+    int x4 = (posX - (len / 2));
+    int y4 = (posY + (len / 2));
+    g.setColor(Color.BLUE);
+    g.drawLine(x1, y1, x2, y2);
+    g.drawLine(x2, y2, x3, y3);
+    g.drawLine(x3, y3, x4, y4);
+    g.drawLine(x4, y4, x1, y1);
+  }
+
+  public void paintHouse(final Graphics g, final Vector2d housePos) {
+    int radius = 3;
+    double _x = this.depotPos.getX();
+    int posX = ((int) _x);
+    double _y = this.depotPos.getY();
+    int posY = ((int) _y);
+    g.setColor(Color.RED);
+    g.drawOval((posX - radius), (posY - radius), (radius * 2), (radius * 2));
+  }
+
   @Override
   @Pure
   @SyntheticMember
@@ -163,5 +213,5 @@ class EnvironmentGuiPanel extends Panel {
   }
 
   @SyntheticMember
-  private static final long serialVersionUID = 334567416L;
+  private static final long serialVersionUID = 953062518L;
 }

@@ -1,0 +1,20 @@
+
+package drone_delivery.solver
+
+import au.com.bytecode.opencsv.CSVReader
+import java.io.FileReader
+
+class DroneDeliveryLauncher {
+
+	static def main(args : String*) {
+		var nbDrones = 20
+		var nbPackages = 20
+		
+		
+		var cityfilePath = "../../src/main/resources/packagesSmallCity_100.csv"
+		
+		try(var reader = new FileReader(cityfilePath)))
+
+	}
+
+}

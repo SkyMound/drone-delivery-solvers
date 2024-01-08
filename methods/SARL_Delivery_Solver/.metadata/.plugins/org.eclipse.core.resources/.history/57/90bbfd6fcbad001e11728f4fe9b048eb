@@ -1,0 +1,15 @@
+
+package drone_delivery.solver
+
+import java.util.List
+
+class DroneDeliveryLauncher {
+
+	static def main(args : String*) {
+		var words = args.map[newArrayList(it.split("\s*,\ss*"))].reduce [ accumulator : List<String>, current : List<String> |
+			(accumulator + current) as List<String>
+		]
+		println(words)
+	}
+
+}

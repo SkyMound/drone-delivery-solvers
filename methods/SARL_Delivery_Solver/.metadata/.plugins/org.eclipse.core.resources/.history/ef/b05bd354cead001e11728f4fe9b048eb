@@ -1,0 +1,20 @@
+
+package drone_delivery.solver
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+class DroneDeliveryLauncher {
+
+	static def main(args : String*) {
+		var nbDrones = 20
+		var nbPackages = 20
+		
+		
+		var cityfilePath = "../../src/main/resources/packagesSmallCity_100.csv"
+			
+
+	}
+
+}
