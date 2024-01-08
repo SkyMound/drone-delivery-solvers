@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 
-nb_voulu = 50
+nb_voulu = 100
 
 fileGenerated = "solver_drone_data_"+str(nb_voulu)+".dat" #name of the file generated
 cityFile = "smallCity_"+str(nb_voulu)+".csv" #name of the file of the city used

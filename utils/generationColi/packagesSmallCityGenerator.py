@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import random
 
-nb_voulu = 50
+nb_voulu = 100
 
 cityFile = "smallCity_"+str(nb_voulu)+".csv" #name of the file of the city used
 houses = pd.read_csv("utils/generationColi/generationRealisticCity/generateData/" + cityFile)
