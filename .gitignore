@@ -3,3 +3,5 @@ utils/generationColi/generationRealisticCity/dataUsed/carreaux_200m_met.csv
 utils/generationColi/generationRealisticCity/dataUsed/villes_france.csv
 
 __pycache__
+output.avi
+utils/Visualisation/VisuGlpk/video.avi
