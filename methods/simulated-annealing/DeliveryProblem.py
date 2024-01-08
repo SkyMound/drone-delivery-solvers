@@ -72,6 +72,7 @@ class DeliveryProblem :
     def optimize(self, solution) :
         new_sol = copy.deepcopy(solution)
         
+        
         # Not overcharging the battery
         for drones_actions in new_sol:
             for i in range(len(drones_actions)) :
@@ -80,18 +81,15 @@ class DeliveryProblem :
         # Assigning an order of the drone taking the most time to the drone taking the least time
         drone_delivery_time = np.zeros(self.nb_drones)
 
-        for drone_actions in new_sol :
+        for i, drone_actions in enumerate(new_sol) :
             for action in drone_actions :
-                drone_delivery_time += Drone.time_needed(action.order_to_deliver)
-        
+                drone_delivery_time[i] += Drone.time_needed(action.order_to_deliver)
         drone_most_time_index = np.argmax(drone_delivery_time)
         drone_least_time_index = np.argmin(drone_delivery_time)
-        
         action_index = np.random.randint(0, len(new_sol[drone_most_time_index]))
         
         action = new_sol[drone_most_time_index].pop(action_index)
         new_sol[drone_least_time_index].append(action)
-        
         return self.rectify(new_sol)
     
     def generate_solution(self) :

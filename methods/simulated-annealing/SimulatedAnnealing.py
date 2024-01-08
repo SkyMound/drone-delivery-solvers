@@ -56,7 +56,7 @@ class SimulatedAnnealing :
             elif potential_cost > current_cost :
                 x=np.random.uniform()
                 if x<np.exp((current_cost-potential_cost)/T):
-                    print("yess")
+                    # print("yess")
                     
                     current_cost=potential_cost
                     current_solution=copy.deepcopy(potential_solution)
