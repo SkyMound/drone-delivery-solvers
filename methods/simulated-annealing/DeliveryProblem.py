@@ -42,7 +42,7 @@ class DeliveryProblem :
                     # we get the house id in the command file and we get the house position in the city file
                     x = df_ville.loc[df_commandes['Maison'][i], 'X']
                     y = df_ville.loc[df_commandes['Maison'][i], 'Y']
-                    self.orders.append(Order(i,df_commandes['Maison'][i],x,y,df_commandes['Weight'][i]/1000))
+                    self.orders.append(Order(i,df_commandes['Maison'][i],x,y,df_commandes['Weight'][i]))
             else : 
                 print("File not found")
                 exit(1)
@@ -166,10 +166,13 @@ class DeliveryProblem :
     def export_for_visualisation(self, solution, filename) :
         # export using pandas dataframe to csv with the following format :
         # drone_id, battery_to_charge, house_id
-        df = pd.DataFrame(columns=['drone_id', 'battery_to_charge', 'house_id'])
+        df = pd.DataFrame(columns=['drone_id', 'battery_to_continue', 'house_id'])
         for i,drone_actions in enumerate(solution) :
+            drone = Drone(i)
             for action in drone_actions :
-                df.loc[-1] = {'drone_id': i, 'battery_to_charge': action.battery_to_charge, 'house_id': action.order_to_deliver.house_id}  # adding a row
+                drone.charge(action.battery_to_charge)
+                df.loc[-1] = {'drone_id': i, 'battery_to_continue': drone.battery, 'house_id': action.order_to_deliver.house_id}  # adding a row
+                drone.battery -= drone.battery_needed(action.order_to_deliver)
                 df.index = df.index + 1  # shifting index
         
         df.to_csv(filename, index=False, header=True)
@@ -183,7 +186,7 @@ class DeliveryProblem :
             if(current_drone_id != df['drone_id'][i]) :
                 current_drone_id = df['drone_id'][i]
                 solution.append([])
-            solution[current_drone_id].append((df['battery_to_charge'][i],df['house_id'][i]))
+            solution[current_drone_id].append((df['battery_to_continue'][i],df['house_id'][i]))
         
         return solution
     
