@@ -169,7 +169,7 @@ class Drone:
 
             if self.battery >= batteryNeeded and self.isCharging:
                 self.isCharging = False
-                self.canvas.itemconfigure("drone"+str(self.id), fill="red")
+                #self.canvas.itemconfigure("drone"+str(self.id), fill="green")
                 print("Drone " + str(self.id) + " chargé")
                 self.canvas.itemconfigure("image_drone"+str(self.id), state="hidden")
 
@@ -256,7 +256,7 @@ def recupCity(filePathCity):
 
 
 #filePath = "methods/glpk-solver/solver_drone_cmd_output.log"
-filePath = "methods/glpk-solver/cmd_output/solver_drone_cmd_output_20_1.log"
+filePath = "methods/glpk-solver/cmd_output/solver_drone_cmd_output_20_6.log"
 filePathCity = "utils/generationColi/generationRealisticCity/generateData/smallCity_20.csv"
 
 def recupData(filePath):
@@ -325,7 +325,7 @@ for drone in range(1,int(nombreDrone) +1):
 globalCity = City("Grenoble",listDrones,listHouses,[],canvas,depot)
 time0 = time.time()
 i = 0
-while time.time() - time0 < 700 :
+while time.time() - time0 < 45 :
     globalCity.execution()
     if i%5 == 0:
         ps = canvas.postscript(colormode='color')
@@ -341,6 +341,6 @@ import numpy as np
 image[0].save('utils/Visualisation/VisuGlpk/animation.gif',
                save_all=True,
                append_images=image[1:],
-               duration=100,
+               duration=60,
                loop=0)
 
