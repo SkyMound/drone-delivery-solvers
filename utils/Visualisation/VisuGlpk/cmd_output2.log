@@ -1,0 +1,81 @@
+GLPSOL: GLPK LP/MIP Solver, v4.65
+Parameter(s) specified in the command line:
+ --model solver_drone_test.mod --data solver_drone_100.dat --output solution.log
+ --log cmd_output.log --tmlim 10
+Reading model section from solver_drone_test.mod...
+41 lines were read
+Reading data section from solver_drone_100.dat...
+71 lines were read
+Generating f...
+Generating package_deliverd_once...
+Generating package_well_delivered...
+Generating time_spent_flying...
+Generating autonomy_not_exceeded...
+Generating check_time_max...
+Model has been successfully generated
+GLPK Integer Optimizer, v4.65
+9081 rows, 9011 columns, 27331 non-zeros
+9011 integer variables, 9000 of which are binary
+Preprocessing...
+80 rows, 9011 columns, 18330 non-zeros
+9011 integer variables, 9000 of which are binary
+Scaling...
+ A: min|aij| =  1.000e+00  max|aij| =  8.800e+02  ratio =  8.800e+02
+GM: min|aij| =  6.944e-01  max|aij| =  1.440e+00  ratio =  2.074e+00
+EQ: min|aij| =  4.982e-01  max|aij| =  1.000e+00  ratio =  2.007e+00
+2N: min|aij| =  4.297e-01  max|aij| =  1.484e+00  ratio =  3.455e+00
+Constructing initial basis...
+Size of triangular part is 80
+Solving LP relaxation...
+GLPK Simplex Optimizer, v4.65
+80 rows, 9011 columns, 18330 non-zeros
+      0: obj =   0.000000000e+00 inf =   1.148e+03 (1)
+    101: obj =   1.836000000e+03 inf =   6.155e-13 (0)
+OPTIMAL LP SOLUTION FOUND
+Integer optimization begins...
+Long-step dual simplex will be used
++   101: mip =     not found yet >=              -inf        (1; 0)
++   999: >>>>>   2.268000000e+03 >=   1.836000000e+03  19.0% (131; 0)
++  1358: >>>>>   2.136000000e+03 >=   1.836000000e+03  14.0% (122; 69)
++  1648: >>>>>   2.044000000e+03 >=   1.836000000e+03  10.2% (130; 179)
++  2203: >>>>>   2.016000000e+03 >=   1.836000000e+03   8.9% (87; 341)
++  2653: >>>>>   1.992000000e+03 >=   1.836000000e+03   7.8% (156; 372)
++  4271: >>>>>   1.984000000e+03 >=   1.836000000e+03   7.5% (258; 460)
++  7682: >>>>>   1.980000000e+03 >=   1.836000000e+03   7.3% (661; 479)
++ 10629: >>>>>   1.976000000e+03 >=   1.836000000e+03   7.1% (914; 545)
++ 14191: mip =   1.976000000e+03 >=   1.836000000e+03   7.1% (1232; 623)
+TIME LIMIT EXCEEDED; SEARCH TERMINATED
+Time used:   10.0 secs
+Memory used: 25.0 Mb (26196115 bytes)
+The package 1 is delivered by the drone 10 to the house 15
+The package 2 is delivered by the drone 9 to the house 1
+The package 3 is delivered by the drone 10 to the house 11
+The package 4 is delivered by the drone 3 to the house 12
+The package 5 is delivered by the drone 8 to the house 29
+The package 6 is delivered by the drone 4 to the house 17
+The package 7 is delivered by the drone 9 to the house 13
+The package 8 is delivered by the drone 7 to the house 16
+The package 9 is delivered by the drone 6 to the house 14
+The package 10 is delivered by the drone 1 to the house 1
+The package 11 is delivered by the drone 5 to the house 25
+The package 12 is delivered by the drone 5 to the house 1
+The package 13 is delivered by the drone 2 to the house 3
+The package 14 is delivered by the drone 7 to the house 23
+The package 15 is delivered by the drone 8 to the house 8
+The package 16 is delivered by the drone 10 to the house 23
+The package 17 is delivered by the drone 4 to the house 12
+The package 18 is delivered by the drone 8 to the house 29
+The package 19 is delivered by the drone 2 to the house 13
+The package 20 is delivered by the drone 6 to the house 1
+The package 21 is delivered by the drone 9 to the house 12
+The package 22 is delivered by the drone 8 to the house 13
+The package 23 is delivered by the drone 5 to the house 21
+The package 24 is delivered by the drone 7 to the house 10
+The package 25 is delivered by the drone 3 to the house 29
+The package 26 is delivered by the drone 1 to the house 16
+The package 27 is delivered by the drone 6 to the house 26
+The package 28 is delivered by the drone 2 to the house 25
+The package 29 is delivered by the drone 3 to the house 3
+The package 30 is delivered by the drone 4 to the house 13
+Model has been successfully processed
+Writing MIP solution to 'solution.log'...
