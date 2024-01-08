@@ -1,23 +1,3 @@
-/**
- * $Id$
- * 
- * SARL is an general-purpose agent programming language.
- * More details on http://www.sarl.io
- * 
- * Copyright (C) 2014-2023 SARL.io, the Original Authors and Main Authors
- * 
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- * http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package drone_delivery.solver;
 
 import com.google.common.base.Objects;
@@ -54,10 +34,6 @@ import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.eclipse.xtext.xbase.lib.Pure;
 
-/**
- * The environmental agent in charge of collecting boids influences and computing the new state of the virtual world
- * @author <a href="http://www.ciad-lab.fr/nicolas_gaud">Nicolas Gaud</a>
- */
 @SarlSpecification("0.13")
 @SarlElementType(19)
 @SuppressWarnings("all")
@@ -69,10 +45,16 @@ public class Environment extends Agent {
   private int height;
 
   @Accessors
-  private ConcurrentHashMap<UUID, PerceivedBoidBody> boids;
+  private ConcurrentHashMap<UUID, PerceivedDroneBody> drones;
+
+  @Accessors
+  private Depot depot;
 
   @Accessors
   private ConcurrentSkipListSet<UUID> influences;
+
+  @Accessors
+  private int time;
 
   private void $behaviorUnit$Initialize$0(final Initialize occurrence) {
     Logging _$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER = this.$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER();
@@ -89,33 +71,42 @@ public class Environment extends Agent {
         Object _get_3 = occurrence.parameters[1];
         this.width = (((_get_3 == null ? null : PrimitiveCastExtensions.toInteger(_get_3))) == null ? 0 : ((_get_3 == null ? null : PrimitiveCastExtensions.toInteger(_get_3))).intValue());
       }
-      this.boids = null;
-      ConcurrentSkipListSet<UUID> _concurrentSkipListSet = new ConcurrentSkipListSet<UUID>();
-      this.influences = _concurrentSkipListSet;
     }
+    this.drones = null;
+    this.time = 0;
+    this.depot = null;
+    ConcurrentSkipListSet<UUID> _concurrentSkipListSet = new ConcurrentSkipListSet<UUID>();
+    this.influences = _concurrentSkipListSet;
   }
 
   private void $behaviorUnit$Start$1(final Start occurrence) {
-    this.boids = occurrence.perceivedAgentBody;
+    this.drones = occurrence.perceivedAgentBody;
     DefaultContextInteractions _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER = this.$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER();
-    _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER.emit(new GuiRepaint(this.boids));
+    _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER.emit(new GuiRepaint(this.drones));
     DefaultContextInteractions _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_1 = this.$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER();
-    _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_1.emit(new Perception(this.boids));
+    _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_1.emit(new Perception(this.drones, this.time));
   }
 
-  private void $behaviorUnit$Action$2(final Action occurrence) {
-    synchronized (this.boids) {
+  private void $behaviorUnit$Die$2(final Die occurrence) {
+    Lifecycle _$CAPACITY_USE$IO_SARL_API_CORE_LIFECYCLE$CALLER = this.$CAPACITY_USE$IO_SARL_API_CORE_LIFECYCLE$CALLER();
+    _$CAPACITY_USE$IO_SARL_API_CORE_LIFECYCLE$CALLER.killMe();
+  }
+
+  private void $behaviorUnit$Action$3(final Action occurrence) {
+    synchronized (this.drones) {
       synchronized (this.influences) {
-        boolean _containsKey = this.boids.containsKey(occurrence.getSource().getID());
+        boolean _containsKey = this.drones.containsKey(occurrence.getSource().getID());
         if (_containsKey) {
           this.influences.add(occurrence.getSource().getID());
-          this.applyForce(occurrence.influence, this.boids.get(occurrence.getSource().getID()));
+          this.applyForce(occurrence.influence, this.drones.get(occurrence.getSource().getID()));
         }
         int _size = this.influences.size();
-        int _size_1 = this.boids.size();
+        int _size_1 = this.drones.size();
         if ((_size == _size_1)) {
           Schedules _$CAPACITY_USE$IO_SARL_API_CORE_SCHEDULES$CALLER = this.$CAPACITY_USE$IO_SARL_API_CORE_SCHEDULES$CALLER();
           final Procedure1<Agent> _function = (Agent it) -> {
+            int _time = this.time;
+            this.time = (_time + Settings.SecondsPerCycle);
             DefaultContextInteractions _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER = this.$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER();
             class $SerializableClosureProxy implements Scope<Address> {
               
@@ -135,19 +126,15 @@ public class Environment extends Agent {
               @Override
               public boolean matches(final Address it_1) {
                 UUID _iD = it_1.getID();
-                return Objects.equal(_iD, BoidsSimulation.id);
+                return Objects.equal(_iD, DroneSimulation.id);
               }
               private Object writeReplace() throws ObjectStreamException {
-                return new SerializableProxy($SerializableClosureProxy.class, BoidsSimulation.id);
+                return new SerializableProxy($SerializableClosureProxy.class, DroneSimulation.id);
               }
             };
-            _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER.emit(new GuiRepaint(this.boids), _function_1);
+            _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER.emit(new GuiRepaint(this.drones), _function_1);
             DefaultContextInteractions _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_1 = this.$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER();
-            _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_1.emit(new Perception(this.boids));
-            if (Settings.isLogActivated) {
-              Logging _$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER = this.$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER();
-              _$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER.info("New Simulation Step.");
-            }
+            _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_1.emit(new Perception(this.drones, this.time));
           };
           _$CAPACITY_USE$IO_SARL_API_CORE_SCHEDULES$CALLER.in(Settings.pause, _function);
           this.influences.clear();
@@ -156,37 +143,28 @@ public class Environment extends Agent {
     }
   }
 
-  private void $behaviorUnit$Die$3(final Die occurrence) {
-    Lifecycle _$CAPACITY_USE$IO_SARL_API_CORE_LIFECYCLE$CALLER = this.$CAPACITY_USE$IO_SARL_API_CORE_LIFECYCLE$CALLER();
-    _$CAPACITY_USE$IO_SARL_API_CORE_LIFECYCLE$CALLER.killMe();
-  }
-
-  protected void applyForce(final Vector2d force, final PerceivedBoidBody b) {
-    double _length = force.getLength();
-    if ((_length > b.getGroup().maxForce)) {
-      force.setLength(b.getGroup().maxForce);
-    }
-    Vector2d acceleration = b.getAcceleration();
+  protected void applyForce(final Vector2d force, final PerceivedDroneBody d) {
+    Vector2d acceleration = d.getAcceleration();
     acceleration.set(force);
-    Vector2d vitesse = b.getVitesse();
+    Vector2d vitesse = d.getVitesse();
     vitesse.operator_add(acceleration);
-    double _length_1 = vitesse.getLength();
-    if ((_length_1 > b.getGroup().maxSpeed)) {
-      vitesse.setLength(b.getGroup().maxSpeed);
+    double _length = vitesse.getLength();
+    if ((_length > Settings.DroneMaxSpeed)) {
+      vitesse.setLength(Settings.DroneMaxSpeed);
     }
-    Vector2d position = b.getPosition();
+    Vector2d position = d.getPosition();
     position.operator_add(vitesse);
-    PerceivedBoidBody bb = this.boids.get(b.getOwner());
-    bb.setAcceleration(acceleration);
-    bb.setVitesse(vitesse);
-    bb.setPosition(position);
-    this.clampToWorld(b);
+    PerceivedDroneBody dd = this.drones.get(d.getOwner());
+    dd.setAcceleration(acceleration);
+    dd.setVitesse(vitesse);
+    dd.setPosition(position);
+    this.clampToWorld(d);
   }
 
   /**
    * The world is circular, this function clamps coordinates to stay within the frame
    */
-  protected void clampToWorld(final PerceivedBoidBody b) {
+  protected void clampToWorld(final PerceivedDroneBody b) {
     double posX = b.getPosition().getX();
     double posY = b.getPosition().getY();
     if ((posX > (this.width / 2))) {
@@ -201,7 +179,7 @@ public class Environment extends Agent {
     if ((posY < (((-1) * this.height) / 2))) {
       posY = (posY + this.height);
     }
-    PerceivedBoidBody _get = this.boids.get(b.getOwner());
+    PerceivedDroneBody _get = this.drones.get(b.getOwner());
     Vector2d _vector2d = new Vector2d(posX, posY);
     _get.setPosition(_vector2d);
   }
@@ -221,20 +199,6 @@ public class Environment extends Agent {
   }
 
   @Extension
-  @ImportedCapacityFeature(DefaultContextInteractions.class)
-  @SyntheticMember
-  private transient AtomicSkillReference $CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS;
-
-  @SyntheticMember
-  @Pure
-  private DefaultContextInteractions $CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER() {
-    if (this.$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS == null || this.$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS.get() == null) {
-      this.$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS = $getSkill(DefaultContextInteractions.class);
-    }
-    return $castSkill(DefaultContextInteractions.class, this.$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS);
-  }
-
-  @Extension
   @ImportedCapacityFeature(Schedules.class)
   @SyntheticMember
   private transient AtomicSkillReference $CAPACITY_USE$IO_SARL_API_CORE_SCHEDULES;
@@ -246,6 +210,20 @@ public class Environment extends Agent {
       this.$CAPACITY_USE$IO_SARL_API_CORE_SCHEDULES = $getSkill(Schedules.class);
     }
     return $castSkill(Schedules.class, this.$CAPACITY_USE$IO_SARL_API_CORE_SCHEDULES);
+  }
+
+  @Extension
+  @ImportedCapacityFeature(DefaultContextInteractions.class)
+  @SyntheticMember
+  private transient AtomicSkillReference $CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS;
+
+  @SyntheticMember
+  @Pure
+  private DefaultContextInteractions $CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER() {
+    if (this.$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS == null || this.$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS.get() == null) {
+      this.$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS = $getSkill(DefaultContextInteractions.class);
+    }
+    return $castSkill(DefaultContextInteractions.class, this.$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS);
   }
 
   @Extension
@@ -283,7 +261,7 @@ public class Environment extends Agent {
   private void $guardEvaluator$Action(final Action occurrence, final Collection<Runnable> ___SARLlocal_runnableCollection) {
     assert occurrence != null;
     assert ___SARLlocal_runnableCollection != null;
-    ___SARLlocal_runnableCollection.add(() -> $behaviorUnit$Action$2(occurrence));
+    ___SARLlocal_runnableCollection.add(() -> $behaviorUnit$Action$3(occurrence));
   }
 
   @SyntheticMember
@@ -291,7 +269,7 @@ public class Environment extends Agent {
   private void $guardEvaluator$Die(final Die occurrence, final Collection<Runnable> ___SARLlocal_runnableCollection) {
     assert occurrence != null;
     assert ___SARLlocal_runnableCollection != null;
-    ___SARLlocal_runnableCollection.add(() -> $behaviorUnit$Die$3(occurrence));
+    ___SARLlocal_runnableCollection.add(() -> $behaviorUnit$Die$2(occurrence));
   }
 
   @SyntheticMember
@@ -359,6 +337,8 @@ public class Environment extends Agent {
       return false;
     if (other.height != this.height)
       return false;
+    if (other.time != this.time)
+      return false;
     return super.equals(obj);
   }
 
@@ -370,6 +350,7 @@ public class Environment extends Agent {
     final int prime = 31;
     result = prime * result + Integer.hashCode(this.width);
     result = prime * result + Integer.hashCode(this.height);
+    result = prime * result + Integer.hashCode(this.time);
     return result;
   }
 
@@ -403,12 +384,21 @@ public class Environment extends Agent {
   }
 
   @Pure
-  protected ConcurrentHashMap<UUID, PerceivedBoidBody> getBoids() {
-    return this.boids;
+  protected ConcurrentHashMap<UUID, PerceivedDroneBody> getDrones() {
+    return this.drones;
   }
 
-  protected void setBoids(final ConcurrentHashMap<UUID, PerceivedBoidBody> boids) {
-    this.boids = boids;
+  protected void setDrones(final ConcurrentHashMap<UUID, PerceivedDroneBody> drones) {
+    this.drones = drones;
+  }
+
+  @Pure
+  protected Depot getDepot() {
+    return this.depot;
+  }
+
+  protected void setDepot(final Depot depot) {
+    this.depot = depot;
   }
 
   @Pure
@@ -418,5 +408,14 @@ public class Environment extends Agent {
 
   protected void setInfluences(final ConcurrentSkipListSet<UUID> influences) {
     this.influences = influences;
+  }
+
+  @Pure
+  protected int getTime() {
+    return this.time;
+  }
+
+  protected void setTime(final int time) {
+    this.time = time;
   }
 }

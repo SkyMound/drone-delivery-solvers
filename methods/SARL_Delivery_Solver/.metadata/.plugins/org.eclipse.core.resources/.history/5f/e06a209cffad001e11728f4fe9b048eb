@@ -1,0 +1,171 @@
+package drone_delivery.solver
+
+import io.sarl.api.core.OpenEventSpace
+import io.sarl.lang.core.AgentContext
+import io.sarl.lang.core.Event
+import io.sarl.lang.core.EventListener
+import io.sarl.lang.core.SRE
+import io.sarl.lang.core.SREBootstrap
+import java.util.Map
+import java.util.List
+import java.util.UUID
+import java.util.concurrent.ConcurrentHashMap
+import org.arakhne.afc.math.geometry.d2.d.Vector2d
+import drone_delivery.solver.gui.EnvironmentGui
+import java.lang.reflect.Array
+import java.util.ArrayList
+import java.net.URL
+import java.io.FileReader
+
+class DroneSimulation implements EventListener {
+	public static val id = UUID::randomUUID
+
+	/** 
+	 * SRE Kernel instance
+	 */
+	var kernel : SREBootstrap
+
+	/** 
+	 * The default SARL context where environment and drones are spawned
+	 */
+	var defaultSARLContext : AgentContext
+
+	/** 
+	 * Identifier of the environment
+	 */
+	var environment : UUID
+
+	var width = Settings::EnvtWidth
+
+	var height = Settings::EnvtHeight
+
+	/** 
+	 * Map buffering drones before launch/start
+	 */
+	var dronesToLaunch : int
+	
+	var nbParcelinSim : int
+	
+	var parcelToCreate : List<Parcel>
+	
+	
+	/** 
+	 * Map buffering drones' bodies before launch/start
+	 */
+	var droneBodies : ConcurrentHashMap<UUID, PerceivedDroneBody>
+
+	var dronesCount : int
+
+	var depotPos : Vector2d
+	
+	var housesPos : List<Vector2d>
+
+
+	/** 
+	 * Boolean specifying id the simulation is started or not.
+	 */
+	var isSimulationStarted = false
+
+	/** 
+	 * the vent space used to establish communication between GUI and agents,
+	 * Especially enabling GUI to forward start event to the environment, 
+	 * respectively the environment to send GUIRepain at each simulation step to the GUI
+	 */
+	var ^space : OpenEventSpace
+
+	/** 
+	 * The Graphical user interface
+	 */
+	var myGUI : EnvironmentGui
+
+	new (nbDrones : int, nbParcel : int, cityfilePath : String, parcelfilePath : String) {
+		dronesCount = 0
+
+		this.droneBodies = new ConcurrentHashMap
+
+		dronesToLaunch = nbDrones
+		nbParcelinSim = nbParcel
+		housesPos = createHousePosList(cityfilePath).toList
+		parcelToCreate = createParcelsList(cityfilePath, parcelfilePath)
+		
+	}
+	
+	def start : void {
+		launchAllAgents
+		isSimulationStarted = true
+	}
+
+	def stop : void {
+		killAllAgents
+		isSimulationStarted = false
+	}
+
+	private def launchAllAgents : void {
+
+		kernel = SRE::getBootstrap
+
+		defaultSARLContext = kernel.startWithoutAgent
+
+		environment = UUID::randomUUID
+		kernel.startAgentWithID(typeof(Environment), environment, height, width)
+
+		launchAllDrones
+		
+		launchDepot
+		
+		^space = defaultSARLContext.defaultSpace as OpenEventSpace
+
+		this.myGUI = new EnvironmentGui(^space, height, width, this.droneBodies,this.depotPos,this.housesPos)
+
+		// Registering to receive GUIRepaint events
+		^space.registerWeakParticipant(this)
+		// Sending start to Environment
+		^space.emit(id, new Start(this.droneBodies))
+	}
+	
+	private def launchDepot : void {
+		var initialPosition = Settings::DepotPos
+		
+		var de = UUID::randomUUID
+		kernel.startAgentWithID(typeof(Depot),de,environment,initialPosition,"Depot",)
+	}
+	
+	private def launchAllDrones : void {
+		for( var i =0; i< dronesToLaunch;i++){
+			launchDrone("Drone"+i)
+		}
+	}
+	
+	private def launchDrone(droneName:String){
+		var initialPosition : Vector2d = new Vector2d()
+		//TODO
+	}
+
+	private def killAllAgents : void {
+		// do something if you want to
+		//TODO
+	}
+	
+	
+	def createParcelsList(cityfilePath : String, parcelfilePath : String) {
+		return CSVReader.getparcelsFromCSV(cityfilePath, parcelfilePath, nbParcelinSim) 		
+	}
+	
+	def createHousePosList(cityfilePath : String) {
+		return CSVReader.getHousesFromCSV(cityfilePath).values
+	}
+	
+	override getID : UUID {
+		id
+	}
+
+	/** 
+	 * Methods managing event coming from agents 
+	 */
+	override receiveEvent(^event : Event) {
+		if (^event instanceof GuiRepaint) { // event from the environment, GUI must be refreshed
+			this.myGUI.drones = ^event.perceivedAgentBody
+			this.myGUI.repaint
+		}
+	}
+}

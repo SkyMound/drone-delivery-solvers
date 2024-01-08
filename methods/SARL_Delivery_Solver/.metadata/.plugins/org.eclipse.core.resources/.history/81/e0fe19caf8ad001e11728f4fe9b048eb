@@ -1,0 +1,116 @@
+package drone_delivery.solver
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
+
+/** 
+ * Simple Java program to read CSV file in Java. In this program we will read
+ * list of books stored in CSV file as comma separated values.
+ * @author https://www.java67.com/2015/08/how-to-load-data-from-csv-file-in-java.html
+ */
+class CSVReader {
+
+    def static readBooksFromCSV(cityfileName : String, parcelfileName : String, nbParcel:int) {
+        var parcelsList = new ArrayList<Parcel>();
+        var pathTocityFile = Paths.get(cityfileName);
+		var pathToparcelFile = Paths.get(parcelfileName);
+
+        // create an instance of BufferedReader
+        // using try with resource, Java 7 feature to close resources
+		try (var br = Files.newBufferedReader(pathTocityFile,
+                StandardCharsets.US_ASCII)) {
+			try (var pr = Files.newBufferedReader(pathToparcelFile,
+                	StandardCharsets.US_ASCII)) {
+                		
+                		
+            // read the first line from the text file
+			var cityline = br.readLine();
+			var parcelline = pr.readLine();
+
+            // loop until all lines are read
+				while (cityline !== null && parcelline !== null && nbParcel > 1) {
+					
+                // use string.split to load a string array with the values from
+                // each line of
+                // the file, using a comma as the delimiter
+					var attributes = cityline.split(",");
+
+                var parcel = createParcel(attributes);
+
+                // adding parcel into ArrayList
+				parcelsList.add(parcel);
+
+                // read next line before looping
+				// if end of file reached, line would be null
+                cityline = br.readLine();
+            	}
+			} catch (ioe : IOException) {
+				ioe.printStackTrace();
+			}
+
+        } catch (ioe : IOException) {
+            ioe.printStackTrace();
+        }
+
+        return parcelsList;
+    }
+
+    def static createParcel(metadata : String[]) {
+        var name = metadata[0];
+        var price = Integer.parseInt(metadata[1]);
+        var author = metadata[2];
+
+        // create and return parcel of this metadata
+        return new Parcel(name, price, author);
+    }
+
+}
+
+class Book {
+    private String name;
+    private int price;
+    private String author;
+
+    public Book(String name, int price, String author) {
+        this.name = name;
+        this.price = price;
+        this.author = author;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    @Override
+    public String toString() {
+        return "Book [name=" + name + ", price=" + price + ", author=" + author
+                + "]";
+    }
+
+}

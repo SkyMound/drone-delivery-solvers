@@ -1,0 +1,6 @@
+package drone_delivery.solver
+
+
+class Parcel {
+	
+}

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="io.sarl.eclipse.debug.ApplicationLaunchConfigType">
+    <booleanAttribute key="io.sarl.eclipse.EMBEDDED_SRE" value="false"/>
+    <booleanAttribute key="io.sarl.eclipse.ENABLE_ASSERTIONS_DEBUG" value="true"/>
+    <booleanAttribute key="io.sarl.eclipse.ENABLE_ASSERTIONS_RUN" value="false"/>
+    <booleanAttribute key="io.sarl.eclipse.ENABLE_LAUNCHING_PARAMETERS_PRINT_OUT" value="false"/>
+    <stringAttribute key="io.sarl.eclipse.SARL_RUNTIME_ENVIRONMENT" value="io.sarl.sre.janus.janus.kernel"/>
+    <booleanAttribute key="io.sarl.eclipse.USE_PROJECT_SARL_RUNTIME_ENVIRONMENT" value="false"/>
+    <booleanAttribute key="io.sarl.eclipse.USE_SYSTEM_SARL_RUNTIME_ENVIRONMENT" value="true"/>
+    <booleanAttribute key="org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING" value="false"/>
+    <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+        <listEntry value="/io-sarl-drones-delivery-solver/src/main/generated-sources/sarl/drone_delivery/solver/DroneDeliveryLauncher.java"/>
+    </listAttribute>
+    <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+        <listEntry value="1"/>
+    </listAttribute>
+    <booleanAttribute key="org.eclipse.jdt.launching.ATTR_ATTR_USE_ARGFILE" value="false"/>
+    <booleanAttribute key="org.eclipse.jdt.launching.ATTR_SHOW_CODEDETAILS_IN_EXCEPTION_MESSAGES" value="true"/>
+    <booleanAttribute key="org.eclipse.jdt.launching.ATTR_USE_CLASSPATH_ONLY_JAR" value="false"/>
+    <booleanAttribute key="org.eclipse.jdt.launching.ATTR_USE_START_ON_FIRST_THREAD" value="true"/>
+    <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="drone_delivery.solver.DroneDeliveryLauncher"/>
+    <stringAttribute key="org.eclipse.jdt.launching.MODULE_NAME" value="io-sarl-drones-delivery-solver"/>
+    <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="io-sarl-drones-delivery-solver"/>
+</launchConfiguration>

@@ -1,0 +1,32 @@
+
+package drone_delivery.solver
+
+import java.io.File
+import java.io.FileReader
+import java.util.Arrays
+
+class DroneDeliveryLauncher {
+
+	 def static getResourcePath(fileName : String) {
+       var f = new File("")
+       var dossierPath = f.getAbsolutePath() + File.separator + fileName
+       return dossierPath
+   }
+
+    def static getResource(fileName : String) {
+       var completeFileName = getResourcePath(fileName);
+       var file = new File(completeFileName);
+       return file;
+
+	}
+	
+	static def main(args : String*) {
+		var nbDrones = 20
+		var nbPackages = 20
+		var cityfilePath = getResourcePath("src/main/resources/packagesSmallCity_100.csv")
+		var packagefilePath = getResourcePath("src/main/resources/smallCity_100.csv")
+		
+		
+	}
+
+}

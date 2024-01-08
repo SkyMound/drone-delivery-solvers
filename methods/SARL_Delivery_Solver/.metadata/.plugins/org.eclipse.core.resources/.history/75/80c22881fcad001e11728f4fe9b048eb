@@ -1,0 +1,139 @@
+package drone_delivery.solver
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
+import java.sql.Time
+import org.arakhne.afc.math.geometry.d2.d.Vector2d
+import java.util.Map
+import java.util.HashMap
+
+/** 
+ * Simple Java program to read CSV file in Java. In this program we will read
+ * list of books stored in CSV file as comma separated values.
+ * @author https://www.java67.com/2015/08/how-to-load-data-from-csv-file-in-java.html
+ */
+class CSVReader {
+
+    def static readCSV(cityfileName : String, parcelfileName : String, nbParcel:int) {
+        var parcelsList = new ArrayList<Parcel>();
+        var pathTocityFile = Paths.get(cityfileName);
+		var pathToparcelFile = Paths.get(parcelfileName);
+
+	
+		var MapInfoMaison = newHashMap
+        // create an instance of BufferedReader
+        // using try with resource, Java 7 feature to close resources
+		try (var br = Files.newBufferedReader(pathTocityFile,
+                StandardCharsets.US_ASCII)) {
+                	
+			var cityline = br.readLine();
+            while (cityline !== null){
+				var cityattributes = cityline.split(",");
+				var x = Float.parseFloat(cityattributes.get(1));
+				var y = Float.parseFloat(cityattributes.get(2));
+				var numMaison = cityattributes.get(3);
+
+				MapInfoMaison.put(numMaison, new Vector2d(x, y))
+				cityline = br.readLine();
+            }
+                	
+                	
+                	
+			try (var pr = Files.newBufferedReader(pathToparcelFile,
+                	StandardCharsets.US_ASCII)) {	
+	            // read the first line from the text file
+				var parcelline = pr.readLine();
+	
+	            // loop until all lines are read
+				while (parcelline !== null && nbParcel >= 1) {
+	                // use string.split to load a string array with the values from
+	                // each line of
+	                // the file, using a comma as the delimiter
+					var parcelattributes = cityline.split(",");
+
+	                var parcel = createParcel(parcelattributes, MapInfoMaison);
+	
+	                // adding parcel into ArrayList
+					parcelsList.add(parcel);
+	
+	                // read next line before looping
+					// if end of file reached, line would be null
+					parcelline = pr.readLine();
+            	}
+			} catch (ioe : IOException) {
+				ioe.printStackTrace();
+			}
+
+        } catch (ioe : IOException) {
+            ioe.printStackTrace();
+        }
+
+        return parcelsList;
+    }
+
+    def static createParcel(metadaparcel : String[], mapMaison : HashMap<String, Vector2d>) {
+
+		
+		var commande = Integer.parseInt(metadaparcel.get(0));
+		var maison = Integer.parseInt(metadaparcel.get(1));
+		var idMaisonReel = metadaparcel.get(3);
+		var position = mapMaison.get(idMaisonReel)
+		
+		var heure = Time.valueOf(metadaparcel.get(2));
+		
+		var weight = Float.parseFloat(metadaparcel.get(4));
+		
+		// create and return parcel of this metadata
+		return new Parcel(position, weight, heure.toInteger,commande);
+    }
+
+}
+
+class Book {
+    private String name;
+    private int price;
+    private String author;
+
+    public Book(String name, int price, String author) {
+        this.name = name;
+        this.price = price;
+        this.author = author;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    @Override
+    public String toString() {
+        return "Book [name=" + name + ", price=" + price + ", author=" + author
+                + "]";
+    }
+
+}

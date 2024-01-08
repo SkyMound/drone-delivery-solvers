@@ -1,0 +1,42 @@
+package drone_delivery.solver
+
+import io.sarl.api.core.Logging
+import io.sarl.api.core.Schedules
+import io.sarl.api.core.DefaultContextInteractions
+import io.sarl.api.core.Lifecycle
+import java.util.concurrent.ConcurrentHashMap
+import java.util.UUID
+import io.sarl.api.core.Initialize
+import org.arakhne.afc.math.geometry.d2.d.Vector2d
+
+
+agent Environment{
+	uses Logging,Schedules, DefaultContextInteractions, Lifecycle
+	
+	var width : int 
+	var height : int 
+	
+	var drones : ConcurrentHashMap<UUID,PerceivedDroneBody>
+	
+	
+	on Initialize {
+		loggingName = "Environment"
+	if (occurrence.parameters.size > 1) {
+		if (occurrence.parameters.get(0) instanceof Integer) {
+			height = occurrence.parameters.get(0) as Integer
+		}
+
+		if (occurrence.parameters.get(1) instanceof Integer) {
+			width = occurrence.parameters.get(1) as Integer
+			}
+		}
+		drones=null
+		
+	}
+	
+	on Start{
+		this.drones = occurrence.perceivedAgentBody
+		new GuiRepaint(drones).emit
+		new Perception(drones).emit
+	}
+}

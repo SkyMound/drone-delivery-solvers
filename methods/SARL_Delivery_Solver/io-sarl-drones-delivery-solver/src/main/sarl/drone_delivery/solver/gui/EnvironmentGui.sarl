@@ -3,7 +3,6 @@ package drone_delivery.solver.gui
 
 import io.sarl.api.core.OpenEventSpace
 import drone_delivery.solver.Die
-import drone_delivery.solver.PerceivedBoidBody
 import java.awt.Color
 import java.awt.Frame
 import java.awt.Graphics
@@ -14,26 +13,23 @@ import java.awt.^event.WindowEvent
 import java.util.Map
 import java.util.UUID
 import org.arakhne.afc.math.geometry.d2.d.Vector2d
+import drone_delivery.solver.PerceivedDroneBody
 
 import static extension java.lang.Math.*
+import java.util.List
 
-/** 
- * Graphical user interface for boids.
- * 
- * @author <a href="http://www.ciad-lab.fr/nicolas_gaud">Nicolas Gaud</a>
- */
 class EnvironmentGui extends Frame {
 
 	var handler : Closer
 
 	var panel : EnvironmentGuiPanel
 
-	new (comspace : OpenEventSpace, iheight : int, iwidth : int, iboids : Map<UUID, PerceivedBoidBody>) {
+	new (comspace : OpenEventSpace, iheight : int, iwidth : int, idrones : Map<UUID, PerceivedDroneBody>,idepotPos:Vector2d, ihousesPos : List<Vector2d>) {
 		super()
 		handler = new Closer(this, comspace)
-		panel = new EnvironmentGuiPanel(iheight, iwidth, iboids)
+		panel = new EnvironmentGuiPanel(iheight, iwidth, idrones, idepotPos, ihousesPos)
 
-		this.title = "Boids Simulation"
+		this.title = "Drone Delivery Simulation"
 		this.setSize(iwidth, iheight)
 		addWindowListener(handler)
 
@@ -41,8 +37,15 @@ class EnvironmentGui extends Frame {
 		this.visible = true
 	}
 
-	def setBoids(boids : Map<UUID, PerceivedBoidBody>) {
-		this.panel.boids = boids
+	def setDrones(drones : Map<UUID, PerceivedDroneBody>){
+		this.panel.drones = drones
+	}
+	
+	def setDepotPos(depotpos : Vector2d) {
+		this.panel.depotPos = depotpos
+	}
+	def setHousesPos(housesPos : List<Vector2d>){
+		this.panel.housesPos = housesPos
 	}
 
 	override paint(g : Graphics) {
@@ -97,17 +100,31 @@ package class EnvironmentGuiPanel extends Panel {
 
 	var height : int
 
-	var boids : Map<UUID, PerceivedBoidBody>
+	var drones : Map<UUID, PerceivedDroneBody>
+	
+	var depotPos : Vector2d
+	
+	var housesPos : List<Vector2d>
 
-	def setBoids(boids : Map<UUID, PerceivedBoidBody>) {
-		this.boids = boids
+	def setDrones(drones : Map<UUID, PerceivedDroneBody>) {
+		this.drones = drones
+	}
+	
+	def setDepotPos(depotPos : Vector2d) {
+		this.depotPos = depotPos
+	}
+	
+	def setHousesPos(housesPos : List<Vector2d>) {
+		this.housesPos= housesPos
 	}
 
-	new (iheight : int, iwidth : int, iboids : Map<UUID, PerceivedBoidBody>) {
+	new (iheight : int, iwidth : int, idrones : Map<UUID, PerceivedDroneBody>, idepotPos : Vector2d, ihousesPos : List<Vector2d>) {
 		super()
 		width = iwidth
 		height = iheight
-		boids = iboids
+		drones = idrones
+		depotPos = idepotPos
+		housesPos = ihousesPos
 	}
 
 	override paint(g : Graphics) {
@@ -118,10 +135,16 @@ package class EnvironmentGuiPanel extends Panel {
 			myCanvas.setColor(Color::BLACK)
 			myCanvas.drawRect(0, 0, width * 2 - 1, height * 2 - 1)
 
-			for (boid : boids.values) {
-				paintBoid(myCanvas, boid)
+			paintDepot(myCanvas, depotPos)
+			
+			for (housePos : housesPos){
+				paintHouse(myCanvas,housePos)
 			}
 
+			for (drone : drones.values) {
+				paintDrone(myCanvas, drone)
+			}
+			
 			myGraphics.drawImage(myImage, 0, 0, this)
 		}
 	}
@@ -141,14 +164,14 @@ package class EnvironmentGuiPanel extends Panel {
 		myGraphics = this.graphics
 	}
 
-	def paintBoid(g : Graphics, boid : PerceivedBoidBody) {
-		var posX = width + boid.position.x as int
-		var posY = height + boid.position.y as int
-		var direction = boid.vitesse.angle
+	def paintDrone(g : Graphics, drone : PerceivedDroneBody) {
+		var posX = width + drone.position.x as int
+		var posY = height + drone.position.y as int
+		var direction = drone.vitesse.angle
 		var cos = direction.cos
 		var sin = direction.sin
 
-		g.color = boid.group.color
+		g.color =  Color.GREEN
 
 		g.drawLine(posX + ( 5 * cos ) as int, posY + ( 5 * sin ) as int, posX - ( 2 * cos + 2 * sin ) as int,
 			posY - ( 2 * sin - 2 * cos ) as int)
@@ -167,6 +190,44 @@ package class EnvironmentGuiPanel extends Panel {
 		if(v.x >= 0) return (v.y / v.x).atan
 		if(v.y >= 0) return ( PI + (v.y / v.x).atan )
 		return ( (v.y / v.x).atan - PI )
+	}
+	
+	def paintDepot(g : Graphics, depotPos : Vector2d) {
+		var len = 3
+		var posX = depotPos.x as int
+		var posY = depotPos.y as int
+
+		// Calcul des coordonnées des coins du carré
+		var x1 = posX - len / 2
+		var y1 = posY - len / 2
+		var x2 = posX + len / 2
+		var y2 = posY - len / 2
+		var x3 = posX + len / 2
+		var y3 = posY + len / 2
+		var x4 = posX - len / 2
+		var y4 = posY + len / 2
+
+		// Dessin du carré
+    	g.color = Color.BLUE
+		g.drawLine(x1, y1, x2, y2)
+		g.drawLine(x2, y2, x3, y3)
+		g.drawLine(x3, y3, x4, y4)
+		g.drawLine(x4, y4, x1, y1)
+	}
+
+
+	
+	
+	def paintHouse(g:Graphics,housePos : Vector2d){
+		var radius = 3
+		var posX = depotPos.x as int
+		var posY = depotPos.y as int
+		
+		
+	    // Dessin du cercle
+	    g.color = Color.RED
+	    g.drawOval(posX - radius, posY - radius, radius * 2, radius * 2)
+	
 	}
 
 }

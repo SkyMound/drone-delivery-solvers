@@ -1,0 +1,25 @@
+package drone_delivery.solver
+
+import io.sarl.api.core.Logging
+import io.sarl.api.core.Schedules
+import io.sarl.api.core.DefaultContextInteractions
+import io.sarl.api.core.Lifecycle
+import java.util.concurrent.ConcurrentHashMap
+import java.util.UUID
+import io.sarl.api.core.Initialize
+import org.arakhne.afc.math.geometry.d2.d.Vector2d
+
+
+agent Environement{
+	uses Logging,Schedules, DefaultContextInteractions, Lifecycle
+	
+	var width : int 
+	var height : int 
+	
+	var drones : ConcurrentHashMap<UUID,PerceivedDroneBody>
+	
+	
+	on Initialize {
+		
+	}
+}

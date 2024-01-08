@@ -1,0 +1,31 @@
+package drone_delivery.solver
+
+import org.arakhne.afc.math.geometry.d2.d.Vector2d
+
+class Parcel {
+	
+	var housPos : Vector2d
+	var weight : float
+	var ordertime : int 
+	var idOrder : int
+	
+	
+	new(other : Parcel) {
+		this.housPos = other.housPos
+		this.weight = other.weight
+		this.ordertime = other.ordertime
+		this.idOrder = other.idOrder
+	}
+
+	new(ihousPos : Vector2d, iweight : float, iordertime : int, iidOrder : int) {
+		this.housPos = ihousPos
+		this.weight = iweight
+		this.ordertime = iordertime
+		this.idOrder = iidOrder
+	}
+	
+	def getHousePos {
+		return this.housPos
+	}
+	
+}

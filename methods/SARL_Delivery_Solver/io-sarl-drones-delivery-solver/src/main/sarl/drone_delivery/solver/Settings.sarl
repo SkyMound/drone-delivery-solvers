@@ -1,6 +1,8 @@
 
 package drone_delivery.solver
 
+import org.arakhne.afc.math.geometry.d2.d.Vector2d
+
 interface Settings {
 
     
@@ -23,5 +25,15 @@ interface Settings {
      * Specify a pause delay before each drone sends his influence to the environment, and respectively before the environment sends perceptions to drones
      */
     public static val pause = 0
+    
+    
+    public static val DroneMaxSpeed = 7.5
+
+	public static val SecondsPerCycle = 1
+	public static val ChargePerSec = 0.01f
+	public static val BatteryLostPerSec = 0.03f
+	public static val distMinLiv = 20
+	
+	public static val DepotPos = new Vector2d(2461228,3984254)
 
 }

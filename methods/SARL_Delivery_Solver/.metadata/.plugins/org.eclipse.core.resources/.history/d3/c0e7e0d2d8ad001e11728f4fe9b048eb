@@ -1,0 +1,133 @@
+package drone_delivery.solver
+
+import io.sarl.api.core.OpenEventSpace
+import io.sarl.lang.core.AgentContext
+import io.sarl.lang.core.Event
+import io.sarl.lang.core.EventListener
+import io.sarl.lang.core.SRE
+import io.sarl.lang.core.SREBootstrap
+import java.util.Map
+import java.util.List
+import java.util.UUID
+import java.util.concurrent.ConcurrentHashMap
+import org.arakhne.afc.math.geometry.d2.d.Vector2d
+import drone_delivery.solver.gui.EnvironmentGui
+
+class DroneSimulation implements EventListener {
+	public static val id = UUID::randomUUID
+
+	/** 
+	 * SRE Kernel instance
+	 */
+	var kernel : SREBootstrap
+
+	/** 
+	 * The default SARL context where environment and boids are spawned
+	 */
+	var defaultSARLContext : AgentContext
+
+	/** 
+	 * Identifier of the environment
+	 */
+	var environment : UUID
+
+	var width = Settings::EnvtWidth
+
+	var height = Settings::EnvtHeight
+
+	/** 
+	 * Map buffering boids before launch/start
+	 */
+	var dronesToLaunch : int
+
+	/** 
+	 * Map buffering boids' bodies before launch/start
+	 */
+	var droneBodies : ConcurrentHashMap<UUID, PerceivedDroneBody>
+
+	var dronesCount : int
+
+	/** 
+	 * Boolean specifying id the simulation is started or not.
+	 */
+	var isSimulationStarted = false
+
+	/** 
+	 * the vent space used to establish communication between GUI and agents,
+	 * Especially enabling GUI to forward start event to the environment, 
+	 * respectively the environment to send GUIRepain at each simulation step to the GUI
+	 */
+	var ^space : OpenEventSpace
+
+	/** 
+	 * The Graphical user interface
+	 */
+	var myGUI : EnvironmentGui
+
+	new {
+		dronesCount = 0
+
+		this.droneBodies = new ConcurrentHashMap
+
+		dronesToLaunch = 0
+	}
+	
+	def start : void {
+		launchAllAgents
+		isSimulationStarted = true
+	}
+
+	def stop : void {
+		killAllAgents
+		isSimulationStarted = false
+	}
+
+	private def launchAllAgents : void {
+
+		kernel = SRE::getBootstrap
+
+		defaultSARLContext = kernel.startWithoutAgent
+
+		environment = UUID::randomUUID
+		kernel.startAgentWithID(typeof(Environment), environment, height, width)
+
+		launchAllBoids
+		^space = defaultSARLContext.defaultSpace as OpenEventSpace
+
+		this.myGUI = new EnvironmentGui(^space, height, width, this.boidBodies)
+
+		// Registering to receive GUIRepaint events
+		^space.registerWeakParticipant(this)
+		// Sending start to Environment
+		^space.emit(id, new Start(this.boidBodies))
+	}
+	
+	
+	private def launchAllDrones : void {
+		for( var i =0; i< dronesToLaunch;i++){
+			launchDrone("Drone"+i)
+		}
+	}
+	
+	private def launchDrone(droneName:String){
+		var initialPosition : Vector2d = new Vector2d()
+	}
+
+	private def killAllAgents : void {
+		// do something if you want to
+	}
+
+	override getID : UUID {
+		id
+	}
+
+	/** 
+	 * Methods managing event coming from agents 
+	 */
+	override receiveEvent(^event : Event) {
+		if (^event instanceof GuiRepaint) { // event from the environment, GUI must be refreshed
+			this.myGUI.drones = ^event.perceivedAgentBody
+			this.myGUI.repaint
+		}
+	}
+}

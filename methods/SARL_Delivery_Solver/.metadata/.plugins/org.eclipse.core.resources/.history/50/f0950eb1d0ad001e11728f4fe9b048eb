@@ -1,0 +1,36 @@
+
+package drone_delivery.solver
+
+import au.com.bytecode.opencsv.CSVReader 
+import java.io.File
+import java.io.FileReader
+import java.util.Arrays
+
+class DroneDeliveryLauncher {
+
+	static def main(args : String*) {
+		var nbDrones = 20
+		var nbPackages = 20
+		
+		
+		var cityfilePath = "../../../resources/packagesSmallCity_100.csv"
+		
+		var file = new File(cityfilePath)
+
+		var nomRepertoire = file.getParent();
+		
+		
+		System.out.println("Le fichier se trouve dans le répertoire : " + nomRepertoire);
+		try(var reader = new CSVReader(new FileReader(cityfilePath))) {
+		var  nextLine : String []
+
+		  //Read one line at a time
+		  while ((nextLine = reader.readNext()) !== null)
+		  {
+		    //Use the tokens as required
+		    System.out.println(Arrays.toString(nextLine))
+		  }
+		}
+	}
+
+}

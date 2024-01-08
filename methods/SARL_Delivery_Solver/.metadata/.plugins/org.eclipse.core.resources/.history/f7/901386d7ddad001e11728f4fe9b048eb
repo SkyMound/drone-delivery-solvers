@@ -1,0 +1,17 @@
+package drone_delivery.solver
+
+import org.arakhne.afc.math.geometry.d2.d.Vector2d
+
+class Parcel {
+	
+	var housPos : Vector2d
+	var weight : float
+	var ordertime : int 
+	var idOrder : int
+	
+	
+	new(other : Parcel) {
+		this.housPos = other.housPos
+	}
+	
+}

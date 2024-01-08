@@ -1,0 +1,83 @@
+
+package drone_delivery.solver
+
+import java.util.UUID
+import java.util.concurrent.ConcurrentHashMap
+import org.eclipse.xtend.lib.annotations.Accessors
+import org.arakhne.afc.math.geometry.d2.d.Vector2d
+import org.arakhne.afc.math.geometry.d3.d.Vector3d
+
+/**
+ * Event from the GUI to kill each agent to end the simulation before closing the main window
+ */
+event Die
+
+
+event Action {
+	var influence : Vector2d
+}
+
+
+event Perception {
+	
+}
+
+event UpdateAction{
+	 
+}
+
+event AffectOrder{
+	val affectedparcel : Parcel
+	
+	//TODO vérifier si ça pose pas de problème
+	new (parcel : Parcel){
+		affectedparcel = parcel
+	}
+}
+
+event Start {
+	val perceivedAgentBody : ConcurrentHashMap<UUID, PerceivedDroneBody>
+
+	new (bodies : ConcurrentHashMap<UUID, PerceivedDroneBody>) {
+		perceivedAgentBody = new ConcurrentHashMap<UUID, PerceivedDroneBody>(bodies);
+	}
+	
+}
+
+event GuiRepaint {
+	val perceivedAgentBody : ConcurrentHashMap<UUID, PerceivedDroneBody>
+
+	new (bodies : ConcurrentHashMap<UUID, PerceivedDroneBody>) {
+		perceivedAgentBody = new ConcurrentHashMap<UUID, PerceivedDroneBody>(bodies);
+	}
+
+}
+
+
+class PerceivedDroneBody {
+
+	// Position of the body
+	@Accessors
+	var position : Vector2d
+
+	// Address of the body's owner
+	@Accessors
+	var owner : UUID
+
+	// Agent's speed
+	@Accessors
+	var vitesse : Vector2d
+
+	// Acceleration
+	@Accessors
+	var acceleration : Vector2d
+
+//TODO  ajouter les parametres manquants 
+	new (iowner : UUID, iposition : Vector2d, ispeed : Vector2d) {
+		position = iposition
+		owner = iowner
+		vitesse = ispeed
+		acceleration = new Vector2d
+	}
+
+}

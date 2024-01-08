@@ -18,31 +18,53 @@ event Action {
 
 
 event Perception {
-	//TODO si y en a besoin 
+	val perceivedAgentBody : ConcurrentHashMap<UUID, PerceivedDroneBody>
+	val time : int
+	new (bodies : ConcurrentHashMap<UUID, PerceivedDroneBody>,newtime : int) {
+		perceivedAgentBody = new ConcurrentHashMap<UUID, PerceivedDroneBody>(bodies);
+		time = newtime;
+	}
 }
 
+event ValidateOrderReception
+
+event UpdateAction {
+	val perceivedAgentBody : ConcurrentHashMap<UUID, PerceivedDroneBody>
+
+	new (bodies : ConcurrentHashMap<UUID, PerceivedDroneBody>) {
+		perceivedAgentBody = new ConcurrentHashMap<UUID, PerceivedDroneBody>(bodies);
+	}
+}
+
+event AffectOrder{
+	val affectedparcel : Parcel
+	
+	//TODO vérifier si ça pose pas de problème
+	new (parcel : Parcel){
+		affectedparcel = parcel
+	}
+}
 
 event Start {
-	val perceivedAgentBody : ConcurrentHashMap<UUID, PerceivedBoidBody>
+	val perceivedAgentBody : ConcurrentHashMap<UUID, PerceivedDroneBody>
 
-	new (bodies : ConcurrentHashMap<UUID, PerceivedBoidBody>) {
-		perceivedAgentBody = new ConcurrentHashMap<UUID, PerceivedBoidBody>(bodies);
+	new (bodies : ConcurrentHashMap<UUID, PerceivedDroneBody>) {
+		perceivedAgentBody = new ConcurrentHashMap<UUID, PerceivedDroneBody>(bodies);
 	}
 	
 }
 
-//TODO vérifier l'utilistée
 event GuiRepaint {
-	val perceivedAgentBody : ConcurrentHashMap<UUID, PerceivedBoidBody>
+	val perceivedAgentBody : ConcurrentHashMap<UUID, PerceivedDroneBody>
 
-	new (bodies : ConcurrentHashMap<UUID, PerceivedBoidBody>) {
-		perceivedAgentBody = new ConcurrentHashMap<UUID, PerceivedBoidBody>(bodies);
+	new (bodies : ConcurrentHashMap<UUID, PerceivedDroneBody>) {
+		perceivedAgentBody = new ConcurrentHashMap<UUID, PerceivedDroneBody>(bodies);
 	}
 
 }
 
 
-class PerceivedBoidBody {
+class PerceivedDroneBody {
 
 	// Position of the body
 	@Accessors
@@ -59,17 +81,28 @@ class PerceivedBoidBody {
 	// Acceleration
 	@Accessors
 	var acceleration : Vector2d
+	
+	@Accessors	
+	var objectiv : Objectiv
+	
+	@Accessors	
+	var battery : float
 
-	// Population of the agent
-	@Accessors
-	var group : Population
+	@Accessors	
+	var targetPos : Vector2d
 
-	new (igroup : Population, iowner : UUID, iposition : Vector2d, ispeed : Vector2d) {
+	
+
+	new (iowner : UUID, iposition : Vector2d, ispeed : Vector2d, iobjectiv : Objectiv, itargetPos : Vector2d,
+		ibattery : float) {
 		position = iposition
 		owner = iowner
 		vitesse = ispeed
 		acceleration = new Vector2d
-		group = igroup
+		objectiv = iobjectiv
+		targetPos = itargetPos
+		battery = ibattery
+		
 	}
 
 }
