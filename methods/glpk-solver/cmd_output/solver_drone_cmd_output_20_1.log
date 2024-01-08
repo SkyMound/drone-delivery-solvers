@@ -1,0 +1,52 @@
+GLPSOL: GLPK LP/MIP Solver, v4.65
+Parameter(s) specified in the command line:
+ --model solver_drone.mod --data solver_drone_data_20.dat --output solver_drone_solution_20_1.log
+ --log solver_drone_cmd_output_20_1.log --tmlim 15
+Reading model section from solver_drone.mod...
+41 lines were read
+Reading data section from solver_drone_data_20.dat...
+59 lines were read
+Generating f...
+Generating package_deliverd_once...
+Generating package_well_delivered...
+Generating time_spent_flying...
+Generating autonomy_not_exceeded...
+Generating check_time_max...
+Model has been successfully generated
+GLPK Integer Optimizer, v4.65
+624 rows, 569 columns, 1732 non-zeros
+569 integer variables, 567 of which are binary
+Preprocessing...
+Objective value =   1.843600000e+04
+INTEGER OPTIMAL SOLUTION FOUND BY MIP PREPROCESSOR
+Time used:   0.0 secs
+Memory used: 0.9 Mb (977169 bytes)
+The package 1 is delivered by the drone 1 to the house 2
+The package 2 is delivered by the drone 1 to the house 2
+The package 3 is delivered by the drone 1 to the house 4
+The package 4 is delivered by the drone 1 to the house 4
+The package 5 is delivered by the drone 1 to the house 4
+The package 6 is delivered by the drone 1 to the house 5
+The package 7 is delivered by the drone 1 to the house 6
+The package 8 is delivered by the drone 1 to the house 6
+The package 9 is delivered by the drone 1 to the house 6
+The package 10 is delivered by the drone 1 to the house 8
+The package 11 is delivered by the drone 1 to the house 8
+The package 12 is delivered by the drone 1 to the house 8
+The package 13 is delivered by the drone 1 to the house 9
+The package 14 is delivered by the drone 1 to the house 9
+The package 15 is delivered by the drone 1 to the house 10
+The package 16 is delivered by the drone 1 to the house 10
+The package 17 is delivered by the drone 1 to the house 11
+The package 18 is delivered by the drone 1 to the house 12
+The package 19 is delivered by the drone 1 to the house 15
+The package 20 is delivered by the drone 1 to the house 16
+The package 21 is delivered by the drone 1 to the house 16
+The package 22 is delivered by the drone 1 to the house 18
+The package 23 is delivered by the drone 1 to the house 18
+The package 24 is delivered by the drone 1 to the house 20
+The package 25 is delivered by the drone 1 to the house 20
+The package 26 is delivered by the drone 1 to the house 21
+The package 27 is delivered by the drone 1 to the house 21
+Model has been successfully processed
+Writing MIP solution to 'solver_drone_solution_20_1.log'...

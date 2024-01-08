@@ -1,0 +1,586 @@
+Problem:    solver_drone
+Rows:       198
+Columns:    167 (167 integer, 165 binary)
+Non-zeros:  514
+Status:     INTEGER OPTIMAL
+Objective:  f = 11276 (MINimum)
+
+   No.   Row name        Activity     Lower bound   Upper bound
+------ ------------    ------------- ------------- -------------
+     1 f                       11276                             
+     2 package_deliverd_once[1]
+                                   1             1             = 
+     3 package_deliverd_once[2]
+                                   1             1             = 
+     4 package_deliverd_once[3]
+                                   1             1             = 
+     5 package_deliverd_once[4]
+                                   1             1             = 
+     6 package_deliverd_once[5]
+                                   1             1             = 
+     7 package_deliverd_once[6]
+                                   1             1             = 
+     8 package_deliverd_once[7]
+                                   1             1             = 
+     9 package_deliverd_once[8]
+                                   1             1             = 
+    10 package_deliverd_once[9]
+                                   1             1             = 
+    11 package_deliverd_once[10]
+                                   1             1             = 
+    12 package_deliverd_once[11]
+                                   1             1             = 
+    13 package_deliverd_once[12]
+                                   1             1             = 
+    14 package_deliverd_once[13]
+                                   1             1             = 
+    15 package_deliverd_once[14]
+                                   1             1             = 
+    16 package_deliverd_once[15]
+                                   1             1             = 
+    17 package_well_delivered[1]
+                                   1             1             = 
+    18 package_well_delivered[2]
+                                   1             1             = 
+    19 package_well_delivered[3]
+                                   1             1             = 
+    20 package_well_delivered[4]
+                                   1             1             = 
+    21 package_well_delivered[5]
+                                   1             1             = 
+    22 package_well_delivered[6]
+                                   1             1             = 
+    23 package_well_delivered[7]
+                                   1             1             = 
+    24 package_well_delivered[8]
+                                   1             1             = 
+    25 package_well_delivered[9]
+                                   1             1             = 
+    26 package_well_delivered[10]
+                                   1             1             = 
+    27 package_well_delivered[11]
+                                   1             1             = 
+    28 package_well_delivered[12]
+                                   1             1             = 
+    29 package_well_delivered[13]
+                                   1             1             = 
+    30 package_well_delivered[14]
+                                   1             1             = 
+    31 package_well_delivered[15]
+                                   1             1             = 
+    32 time_spent_flying[1]
+                                   0            -0             = 
+    33 autonomy_not_exceeded[1,1,1]
+                                 194                        1764 
+    34 autonomy_not_exceeded[1,1,2]
+                                   0                        1764 
+    35 autonomy_not_exceeded[1,1,3]
+                                   0                        1764 
+    36 autonomy_not_exceeded[1,1,4]
+                                   0                        1764 
+    37 autonomy_not_exceeded[1,1,5]
+                                   0                        1764 
+    38 autonomy_not_exceeded[1,1,6]
+                                   0                        1764 
+    39 autonomy_not_exceeded[1,1,7]
+                                   0                        1764 
+    40 autonomy_not_exceeded[1,1,8]
+                                   0                        1764 
+    41 autonomy_not_exceeded[1,1,9]
+                                   0                        1764 
+    42 autonomy_not_exceeded[1,1,10]
+                                   0                        1764 
+    43 autonomy_not_exceeded[1,1,11]
+                                   0                        1764 
+    44 autonomy_not_exceeded[1,2,1]
+                                 194                        1764 
+    45 autonomy_not_exceeded[1,2,2]
+                                   0                        1764 
+    46 autonomy_not_exceeded[1,2,3]
+                                   0                        1764 
+    47 autonomy_not_exceeded[1,2,4]
+                                   0                        1764 
+    48 autonomy_not_exceeded[1,2,5]
+                                   0                        1764 
+    49 autonomy_not_exceeded[1,2,6]
+                                   0                        1764 
+    50 autonomy_not_exceeded[1,2,7]
+                                   0                        1764 
+    51 autonomy_not_exceeded[1,2,8]
+                                   0                        1764 
+    52 autonomy_not_exceeded[1,2,9]
+                                   0                        1764 
+    53 autonomy_not_exceeded[1,2,10]
+                                   0                        1764 
+    54 autonomy_not_exceeded[1,2,11]
+                                   0                        1764 
+    55 autonomy_not_exceeded[1,3,1]
+                                 194                        1764 
+    56 autonomy_not_exceeded[1,3,2]
+                                   0                        1764 
+    57 autonomy_not_exceeded[1,3,3]
+                                   0                        1764 
+    58 autonomy_not_exceeded[1,3,4]
+                                   0                        1764 
+    59 autonomy_not_exceeded[1,3,5]
+                                   0                        1764 
+    60 autonomy_not_exceeded[1,3,6]
+                                   0                        1764 
+    61 autonomy_not_exceeded[1,3,7]
+                                   0                        1764 
+    62 autonomy_not_exceeded[1,3,8]
+                                   0                        1764 
+    63 autonomy_not_exceeded[1,3,9]
+                                   0                        1764 
+    64 autonomy_not_exceeded[1,3,10]
+                                   0                        1764 
+    65 autonomy_not_exceeded[1,3,11]
+                                   0                        1764 
+    66 autonomy_not_exceeded[1,4,1]
+                                   0                        1764 
+    67 autonomy_not_exceeded[1,4,2]
+                                 209                        1764 
+    68 autonomy_not_exceeded[1,4,3]
+                                   0                        1764 
+    69 autonomy_not_exceeded[1,4,4]
+                                   0                        1764 
+    70 autonomy_not_exceeded[1,4,5]
+                                   0                        1764 
+    71 autonomy_not_exceeded[1,4,6]
+                                   0                        1764 
+    72 autonomy_not_exceeded[1,4,7]
+                                   0                        1764 
+    73 autonomy_not_exceeded[1,4,8]
+                                   0                        1764 
+    74 autonomy_not_exceeded[1,4,9]
+                                   0                        1764 
+    75 autonomy_not_exceeded[1,4,10]
+                                   0                        1764 
+    76 autonomy_not_exceeded[1,4,11]
+                                   0                        1764 
+    77 autonomy_not_exceeded[1,5,1]
+                                   0                        1764 
+    78 autonomy_not_exceeded[1,5,2]
+                                 209                        1764 
+    79 autonomy_not_exceeded[1,5,3]
+                                   0                        1764 
+    80 autonomy_not_exceeded[1,5,4]
+                                   0                        1764 
+    81 autonomy_not_exceeded[1,5,5]
+                                   0                        1764 
+    82 autonomy_not_exceeded[1,5,6]
+                                   0                        1764 
+    83 autonomy_not_exceeded[1,5,7]
+                                   0                        1764 
+    84 autonomy_not_exceeded[1,5,8]
+                                   0                        1764 
+    85 autonomy_not_exceeded[1,5,9]
+                                   0                        1764 
+    86 autonomy_not_exceeded[1,5,10]
+                                   0                        1764 
+    87 autonomy_not_exceeded[1,5,11]
+                                   0                        1764 
+    88 autonomy_not_exceeded[1,6,1]
+                                   0                        1764 
+    89 autonomy_not_exceeded[1,6,2]
+                                 209                        1764 
+    90 autonomy_not_exceeded[1,6,3]
+                                   0                        1764 
+    91 autonomy_not_exceeded[1,6,4]
+                                   0                        1764 
+    92 autonomy_not_exceeded[1,6,5]
+                                   0                        1764 
+    93 autonomy_not_exceeded[1,6,6]
+                                   0                        1764 
+    94 autonomy_not_exceeded[1,6,7]
+                                   0                        1764 
+    95 autonomy_not_exceeded[1,6,8]
+                                   0                        1764 
+    96 autonomy_not_exceeded[1,6,9]
+                                   0                        1764 
+    97 autonomy_not_exceeded[1,6,10]
+                                   0                        1764 
+    98 autonomy_not_exceeded[1,6,11]
+                                   0                        1764 
+    99 autonomy_not_exceeded[1,7,1]
+                                   0                        1764 
+   100 autonomy_not_exceeded[1,7,2]
+                                   0                        1764 
+   101 autonomy_not_exceeded[1,7,3]
+                                 117                        1764 
+   102 autonomy_not_exceeded[1,7,4]
+                                   0                        1764 
+   103 autonomy_not_exceeded[1,7,5]
+                                   0                        1764 
+   104 autonomy_not_exceeded[1,7,6]
+                                   0                        1764 
+   105 autonomy_not_exceeded[1,7,7]
+                                   0                        1764 
+   106 autonomy_not_exceeded[1,7,8]
+                                   0                        1764 
+   107 autonomy_not_exceeded[1,7,9]
+                                   0                        1764 
+   108 autonomy_not_exceeded[1,7,10]
+                                   0                        1764 
+   109 autonomy_not_exceeded[1,7,11]
+                                   0                        1764 
+   110 autonomy_not_exceeded[1,8,1]
+                                   0                        1764 
+   111 autonomy_not_exceeded[1,8,2]
+                                   0                        1764 
+   112 autonomy_not_exceeded[1,8,3]
+                                   0                        1764 
+   113 autonomy_not_exceeded[1,8,4]
+                                  38                        1764 
+   114 autonomy_not_exceeded[1,8,5]
+                                   0                        1764 
+   115 autonomy_not_exceeded[1,8,6]
+                                   0                        1764 
+   116 autonomy_not_exceeded[1,8,7]
+                                   0                        1764 
+   117 autonomy_not_exceeded[1,8,8]
+                                   0                        1764 
+   118 autonomy_not_exceeded[1,8,9]
+                                   0                        1764 
+   119 autonomy_not_exceeded[1,8,10]
+                                   0                        1764 
+   120 autonomy_not_exceeded[1,8,11]
+                                   0                        1764 
+   121 autonomy_not_exceeded[1,9,1]
+                                   0                        1764 
+   122 autonomy_not_exceeded[1,9,2]
+                                   0                        1764 
+   123 autonomy_not_exceeded[1,9,3]
+                                   0                        1764 
+   124 autonomy_not_exceeded[1,9,4]
+                                   0                        1764 
+   125 autonomy_not_exceeded[1,9,5]
+                                   0                        1764 
+   126 autonomy_not_exceeded[1,9,6]
+                                 225                        1764 
+   127 autonomy_not_exceeded[1,9,7]
+                                   0                        1764 
+   128 autonomy_not_exceeded[1,9,8]
+                                   0                        1764 
+   129 autonomy_not_exceeded[1,9,9]
+                                   0                        1764 
+   130 autonomy_not_exceeded[1,9,10]
+                                   0                        1764 
+   131 autonomy_not_exceeded[1,9,11]
+                                   0                        1764 
+   132 autonomy_not_exceeded[1,10,1]
+                                   0                        1764 
+   133 autonomy_not_exceeded[1,10,2]
+                                   0                        1764 
+   134 autonomy_not_exceeded[1,10,3]
+                                   0                        1764 
+   135 autonomy_not_exceeded[1,10,4]
+                                   0                        1764 
+   136 autonomy_not_exceeded[1,10,5]
+                                   0                        1764 
+   137 autonomy_not_exceeded[1,10,6]
+                                   0                        1764 
+   138 autonomy_not_exceeded[1,10,7]
+                                 256                        1764 
+   139 autonomy_not_exceeded[1,10,8]
+                                   0                        1764 
+   140 autonomy_not_exceeded[1,10,9]
+                                   0                        1764 
+   141 autonomy_not_exceeded[1,10,10]
+                                   0                        1764 
+   142 autonomy_not_exceeded[1,10,11]
+                                   0                        1764 
+   143 autonomy_not_exceeded[1,11,1]
+                                   0                        1764 
+   144 autonomy_not_exceeded[1,11,2]
+                                   0                        1764 
+   145 autonomy_not_exceeded[1,11,3]
+                                   0                        1764 
+   146 autonomy_not_exceeded[1,11,4]
+                                   0                        1764 
+   147 autonomy_not_exceeded[1,11,5]
+                                   0                        1764 
+   148 autonomy_not_exceeded[1,11,6]
+                                   0                        1764 
+   149 autonomy_not_exceeded[1,11,7]
+                                   0                        1764 
+   150 autonomy_not_exceeded[1,11,8]
+                                 132                        1764 
+   151 autonomy_not_exceeded[1,11,9]
+                                   0                        1764 
+   152 autonomy_not_exceeded[1,11,10]
+                                   0                        1764 
+   153 autonomy_not_exceeded[1,11,11]
+                                   0                        1764 
+   154 autonomy_not_exceeded[1,12,1]
+                                   0                        1764 
+   155 autonomy_not_exceeded[1,12,2]
+                                   0                        1764 
+   156 autonomy_not_exceeded[1,12,3]
+                                   0                        1764 
+   157 autonomy_not_exceeded[1,12,4]
+                                   0                        1764 
+   158 autonomy_not_exceeded[1,12,5]
+                                   0                        1764 
+   159 autonomy_not_exceeded[1,12,6]
+                                   0                        1764 
+   160 autonomy_not_exceeded[1,12,7]
+                                   0                        1764 
+   161 autonomy_not_exceeded[1,12,8]
+                                 132                        1764 
+   162 autonomy_not_exceeded[1,12,9]
+                                   0                        1764 
+   163 autonomy_not_exceeded[1,12,10]
+                                   0                        1764 
+   164 autonomy_not_exceeded[1,12,11]
+                                   0                        1764 
+   165 autonomy_not_exceeded[1,13,1]
+                                   0                        1764 
+   166 autonomy_not_exceeded[1,13,2]
+                                   0                        1764 
+   167 autonomy_not_exceeded[1,13,3]
+                                   0                        1764 
+   168 autonomy_not_exceeded[1,13,4]
+                                   0                        1764 
+   169 autonomy_not_exceeded[1,13,5]
+                                   0                        1764 
+   170 autonomy_not_exceeded[1,13,6]
+                                   0                        1764 
+   171 autonomy_not_exceeded[1,13,7]
+                                   0                        1764 
+   172 autonomy_not_exceeded[1,13,8]
+                                   0                        1764 
+   173 autonomy_not_exceeded[1,13,9]
+                                 166                        1764 
+   174 autonomy_not_exceeded[1,13,10]
+                                   0                        1764 
+   175 autonomy_not_exceeded[1,13,11]
+                                   0                        1764 
+   176 autonomy_not_exceeded[1,14,1]
+                                   0                        1764 
+   177 autonomy_not_exceeded[1,14,2]
+                                   0                        1764 
+   178 autonomy_not_exceeded[1,14,3]
+                                   0                        1764 
+   179 autonomy_not_exceeded[1,14,4]
+                                   0                        1764 
+   180 autonomy_not_exceeded[1,14,5]
+                                   0                        1764 
+   181 autonomy_not_exceeded[1,14,6]
+                                   0                        1764 
+   182 autonomy_not_exceeded[1,14,7]
+                                   0                        1764 
+   183 autonomy_not_exceeded[1,14,8]
+                                   0                        1764 
+   184 autonomy_not_exceeded[1,14,9]
+                                   0                        1764 
+   185 autonomy_not_exceeded[1,14,10]
+                                 272                        1764 
+   186 autonomy_not_exceeded[1,14,11]
+                                   0                        1764 
+   187 autonomy_not_exceeded[1,15,1]
+                                   0                        1764 
+   188 autonomy_not_exceeded[1,15,2]
+                                   0                        1764 
+   189 autonomy_not_exceeded[1,15,3]
+                                   0                        1764 
+   190 autonomy_not_exceeded[1,15,4]
+                                   0                        1764 
+   191 autonomy_not_exceeded[1,15,5]
+                                   0                        1764 
+   192 autonomy_not_exceeded[1,15,6]
+                                   0                        1764 
+   193 autonomy_not_exceeded[1,15,7]
+                                   0                        1764 
+   194 autonomy_not_exceeded[1,15,8]
+                                   0                        1764 
+   195 autonomy_not_exceeded[1,15,9]
+                                   0                        1764 
+   196 autonomy_not_exceeded[1,15,10]
+                                 272                        1764 
+   197 autonomy_not_exceeded[1,15,11]
+                                   0                        1764 
+   198 check_time_max[1]
+                                   0            -0               
+
+   No. Column name       Activity     Lower bound   Upper bound
+------ ------------    ------------- ------------- -------------
+     1 x[1,1,1]     *              1             0             1 
+     2 x[1,1,2]     *              0             0             1 
+     3 x[1,1,3]     *              0             0             1 
+     4 x[1,1,4]     *              0             0             1 
+     5 x[1,1,5]     *              0             0             1 
+     6 x[1,1,6]     *              0             0             1 
+     7 x[1,1,7]     *              0             0             1 
+     8 x[1,1,8]     *              0             0             1 
+     9 x[1,1,9]     *              0             0             1 
+    10 x[1,1,10]    *              0             0             1 
+    11 x[1,1,11]    *              0             0             1 
+    12 x[2,1,1]     *              1             0             1 
+    13 x[2,1,2]     *              0             0             1 
+    14 x[2,1,3]     *              0             0             1 
+    15 x[2,1,4]     *              0             0             1 
+    16 x[2,1,5]     *              0             0             1 
+    17 x[2,1,6]     *              0             0             1 
+    18 x[2,1,7]     *              0             0             1 
+    19 x[2,1,8]     *              0             0             1 
+    20 x[2,1,9]     *              0             0             1 
+    21 x[2,1,10]    *              0             0             1 
+    22 x[2,1,11]    *              0             0             1 
+    23 x[3,1,1]     *              1             0             1 
+    24 x[3,1,2]     *              0             0             1 
+    25 x[3,1,3]     *              0             0             1 
+    26 x[3,1,4]     *              0             0             1 
+    27 x[3,1,5]     *              0             0             1 
+    28 x[3,1,6]     *              0             0             1 
+    29 x[3,1,7]     *              0             0             1 
+    30 x[3,1,8]     *              0             0             1 
+    31 x[3,1,9]     *              0             0             1 
+    32 x[3,1,10]    *              0             0             1 
+    33 x[3,1,11]    *              0             0             1 
+    34 x[4,1,1]     *              0             0             1 
+    35 x[4,1,2]     *              1             0             1 
+    36 x[4,1,3]     *              0             0             1 
+    37 x[4,1,4]     *              0             0             1 
+    38 x[4,1,5]     *              0             0             1 
+    39 x[4,1,6]     *              0             0             1 
+    40 x[4,1,7]     *              0             0             1 
+    41 x[4,1,8]     *              0             0             1 
+    42 x[4,1,9]     *              0             0             1 
+    43 x[4,1,10]    *              0             0             1 
+    44 x[4,1,11]    *              0             0             1 
+    45 x[5,1,1]     *              0             0             1 
+    46 x[5,1,2]     *              1             0             1 
+    47 x[5,1,3]     *              0             0             1 
+    48 x[5,1,4]     *              0             0             1 
+    49 x[5,1,5]     *              0             0             1 
+    50 x[5,1,6]     *              0             0             1 
+    51 x[5,1,7]     *              0             0             1 
+    52 x[5,1,8]     *              0             0             1 
+    53 x[5,1,9]     *              0             0             1 
+    54 x[5,1,10]    *              0             0             1 
+    55 x[5,1,11]    *              0             0             1 
+    56 x[6,1,1]     *              0             0             1 
+    57 x[6,1,2]     *              1             0             1 
+    58 x[6,1,3]     *              0             0             1 
+    59 x[6,1,4]     *              0             0             1 
+    60 x[6,1,5]     *              0             0             1 
+    61 x[6,1,6]     *              0             0             1 
+    62 x[6,1,7]     *              0             0             1 
+    63 x[6,1,8]     *              0             0             1 
+    64 x[6,1,9]     *              0             0             1 
+    65 x[6,1,10]    *              0             0             1 
+    66 x[6,1,11]    *              0             0             1 
+    67 x[7,1,1]     *              0             0             1 
+    68 x[7,1,2]     *              0             0             1 
+    69 x[7,1,3]     *              1             0             1 
+    70 x[7,1,4]     *              0             0             1 
+    71 x[7,1,5]     *              0             0             1 
+    72 x[7,1,6]     *              0             0             1 
+    73 x[7,1,7]     *              0             0             1 
+    74 x[7,1,8]     *              0             0             1 
+    75 x[7,1,9]     *              0             0             1 
+    76 x[7,1,10]    *              0             0             1 
+    77 x[7,1,11]    *              0             0             1 
+    78 x[8,1,1]     *              0             0             1 
+    79 x[8,1,2]     *              0             0             1 
+    80 x[8,1,3]     *              0             0             1 
+    81 x[8,1,4]     *              1             0             1 
+    82 x[8,1,5]     *              0             0             1 
+    83 x[8,1,6]     *              0             0             1 
+    84 x[8,1,7]     *              0             0             1 
+    85 x[8,1,8]     *              0             0             1 
+    86 x[8,1,9]     *              0             0             1 
+    87 x[8,1,10]    *              0             0             1 
+    88 x[8,1,11]    *              0             0             1 
+    89 x[9,1,1]     *              0             0             1 
+    90 x[9,1,2]     *              0             0             1 
+    91 x[9,1,3]     *              0             0             1 
+    92 x[9,1,4]     *              0             0             1 
+    93 x[9,1,5]     *              0             0             1 
+    94 x[9,1,6]     *              1             0             1 
+    95 x[9,1,7]     *              0             0             1 
+    96 x[9,1,8]     *              0             0             1 
+    97 x[9,1,9]     *              0             0             1 
+    98 x[9,1,10]    *              0             0             1 
+    99 x[9,1,11]    *              0             0             1 
+   100 x[10,1,1]    *              0             0             1 
+   101 x[10,1,2]    *              0             0             1 
+   102 x[10,1,3]    *              0             0             1 
+   103 x[10,1,4]    *              0             0             1 
+   104 x[10,1,5]    *              0             0             1 
+   105 x[10,1,6]    *              0             0             1 
+   106 x[10,1,7]    *              1             0             1 
+   107 x[10,1,8]    *              0             0             1 
+   108 x[10,1,9]    *              0             0             1 
+   109 x[10,1,10]   *              0             0             1 
+   110 x[10,1,11]   *              0             0             1 
+   111 x[11,1,1]    *              0             0             1 
+   112 x[11,1,2]    *              0             0             1 
+   113 x[11,1,3]    *              0             0             1 
+   114 x[11,1,4]    *              0             0             1 
+   115 x[11,1,5]    *              0             0             1 
+   116 x[11,1,6]    *              0             0             1 
+   117 x[11,1,7]    *              0             0             1 
+   118 x[11,1,8]    *              1             0             1 
+   119 x[11,1,9]    *              0             0             1 
+   120 x[11,1,10]   *              0             0             1 
+   121 x[11,1,11]   *              0             0             1 
+   122 x[12,1,1]    *              0             0             1 
+   123 x[12,1,2]    *              0             0             1 
+   124 x[12,1,3]    *              0             0             1 
+   125 x[12,1,4]    *              0             0             1 
+   126 x[12,1,5]    *              0             0             1 
+   127 x[12,1,6]    *              0             0             1 
+   128 x[12,1,7]    *              0             0             1 
+   129 x[12,1,8]    *              1             0             1 
+   130 x[12,1,9]    *              0             0             1 
+   131 x[12,1,10]   *              0             0             1 
+   132 x[12,1,11]   *              0             0             1 
+   133 x[13,1,1]    *              0             0             1 
+   134 x[13,1,2]    *              0             0             1 
+   135 x[13,1,3]    *              0             0             1 
+   136 x[13,1,4]    *              0             0             1 
+   137 x[13,1,5]    *              0             0             1 
+   138 x[13,1,6]    *              0             0             1 
+   139 x[13,1,7]    *              0             0             1 
+   140 x[13,1,8]    *              0             0             1 
+   141 x[13,1,9]    *              1             0             1 
+   142 x[13,1,10]   *              0             0             1 
+   143 x[13,1,11]   *              0             0             1 
+   144 x[14,1,1]    *              0             0             1 
+   145 x[14,1,2]    *              0             0             1 
+   146 x[14,1,3]    *              0             0             1 
+   147 x[14,1,4]    *              0             0             1 
+   148 x[14,1,5]    *              0             0             1 
+   149 x[14,1,6]    *              0             0             1 
+   150 x[14,1,7]    *              0             0             1 
+   151 x[14,1,8]    *              0             0             1 
+   152 x[14,1,9]    *              0             0             1 
+   153 x[14,1,10]   *              1             0             1 
+   154 x[14,1,11]   *              0             0             1 
+   155 x[15,1,1]    *              0             0             1 
+   156 x[15,1,2]    *              0             0             1 
+   157 x[15,1,3]    *              0             0             1 
+   158 x[15,1,4]    *              0             0             1 
+   159 x[15,1,5]    *              0             0             1 
+   160 x[15,1,6]    *              0             0             1 
+   161 x[15,1,7]    *              0             0             1 
+   162 x[15,1,8]    *              0             0             1 
+   163 x[15,1,9]    *              0             0             1 
+   164 x[15,1,10]   *              1             0             1 
+   165 x[15,1,11]   *              0             0             1 
+   166 t[1]         *          11276                             
+   167 time_max     *          11276                             
+
+Integer feasibility conditions:
+
+KKT.PE: max.abs.err = 0.00e+00 on row 0
+        max.rel.err = 0.00e+00 on row 0
+        High quality
+
+KKT.PB: max.abs.err = 0.00e+00 on row 0
+        max.rel.err = 0.00e+00 on row 0
+        High quality
+
+End of output

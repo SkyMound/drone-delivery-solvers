@@ -1,0 +1,94 @@
+GLPSOL: GLPK LP/MIP Solver, v4.65
+Parameter(s) specified in the command line:
+ --model solver_drone.mod --data solver_drone_data_20.dat --output solver_drone_solution_20_9.log
+ --log solver_drone_cmd_output_20_9.log --tmlim 55
+Reading model section from solver_drone.mod...
+41 lines were read
+Reading data section from solver_drone_data_20.dat...
+59 lines were read
+Generating f...
+Generating package_deliverd_once...
+Generating package_well_delivered...
+Generating time_spent_flying...
+Generating autonomy_not_exceeded...
+Generating check_time_max...
+Model has been successfully generated
+GLPK Integer Optimizer, v4.65
+5176 rows, 5113 columns, 15580 non-zeros
+5113 integer variables, 5103 of which are binary
+Preprocessing...
+72 rows, 5113 columns, 10476 non-zeros
+5113 integer variables, 5103 of which are binary
+Scaling...
+ A: min|aij| =  1.000e+00  max|aij| =  1.428e+03  ratio =  1.428e+03
+GM: min|aij| =  4.803e-01  max|aij| =  2.082e+00  ratio =  4.335e+00
+EQ: min|aij| =  2.307e-01  max|aij| =  1.000e+00  ratio =  4.335e+00
+2N: min|aij| =  2.500e-01  max|aij| =  1.742e+00  ratio =  6.969e+00
+Constructing initial basis...
+Size of triangular part is 72
+Solving LP relaxation...
+GLPK Simplex Optimizer, v4.65
+72 rows, 5113 columns, 10476 non-zeros
+      0: obj =   0.000000000e+00 inf =   5.761e+02 (1)
+     74: obj =   2.048444444e+03 inf =   3.806e-16 (0)
+*    98: obj =   2.048444444e+03 inf =   3.806e-16 (0)
+OPTIMAL LP SOLUTION FOUND
+Integer optimization begins...
+Long-step dual simplex will be used
++    98: mip =     not found yet >=              -inf        (1; 0)
++  1144: >>>>>   2.932000000e+03 >=   2.049000000e+03  30.1% (52; 0)
++  2588: >>>>>   2.616000000e+03 >=   2.049000000e+03  21.7% (114; 25)
++  3394: >>>>>   2.604000000e+03 >=   2.049000000e+03  21.3% (122; 65)
++  4835: >>>>>   2.320000000e+03 >=   2.049000000e+03  11.7% (173; 88)
++  6087: >>>>>   2.288000000e+03 >=   2.049000000e+03  10.4% (134; 318)
++  7031: >>>>>   2.244000000e+03 >=   2.049000000e+03   8.7% (160; 322)
++  8098: >>>>>   2.180000000e+03 >=   2.049000000e+03   6.0% (177; 366)
++  8979: >>>>>   2.176000000e+03 >=   2.049000000e+03   5.8% (248; 387)
++ 14181: >>>>>   2.172000000e+03 >=   2.049000000e+03   5.7% (559; 465)
++ 14889: >>>>>   2.168000000e+03 >=   2.049000000e+03   5.5% (469; 696)
++ 15766: >>>>>   2.164000000e+03 >=   2.049000000e+03   5.3% (512; 705)
++ 17007: >>>>>   2.140000000e+03 >=   2.049000000e+03   4.3% (570; 733)
++ 27005: >>>>>   2.132000000e+03 >=   2.049000000e+03   3.9% (1028; 996)
++ 35573: >>>>>   2.128000000e+03 >=   2.049000000e+03   3.7% (1569; 1083)
++ 49886: mip =   2.128000000e+03 >=   2.049000000e+03   3.7% (2236; 1378)
++ 66741: mip =   2.128000000e+03 >=   2.049000000e+03   3.7% (3117; 1476)
++ 76814: >>>>>   2.112000000e+03 >=   2.049000000e+03   3.0% (3588; 1533)
++ 93549: mip =   2.112000000e+03 >=   2.049000000e+03   3.0% (3680; 2889)
++109694: mip =   2.112000000e+03 >=   2.049000000e+03   3.0% (4579; 2973)
++124750: mip =   2.112000000e+03 >=   2.049000000e+03   3.0% (5483; 3054)
++138937: mip =   2.112000000e+03 >=   2.049000000e+03   3.0% (6365; 3145)
++151339: mip =   2.112000000e+03 >=   2.049000000e+03   3.0% (7105; 3228)
++164053: mip =   2.112000000e+03 >=   2.049000000e+03   3.0% (7847; 3353)
++168090: mip =   2.112000000e+03 >=   2.049000000e+03   3.0% (8073; 3388)
+TIME LIMIT EXCEEDED; SEARCH TERMINATED
+Time used:   55.0 secs
+Memory used: 98.8 Mb (103629106 bytes)
+The package 1 is delivered by the drone 1 to the house 2
+The package 2 is delivered by the drone 2 to the house 2
+The package 3 is delivered by the drone 8 to the house 4
+The package 4 is delivered by the drone 9 to the house 4
+The package 5 is delivered by the drone 6 to the house 4
+The package 6 is delivered by the drone 6 to the house 5
+The package 7 is delivered by the drone 1 to the house 6
+The package 8 is delivered by the drone 9 to the house 6
+The package 9 is delivered by the drone 5 to the house 6
+The package 10 is delivered by the drone 8 to the house 8
+The package 11 is delivered by the drone 5 to the house 8
+The package 12 is delivered by the drone 6 to the house 8
+The package 13 is delivered by the drone 7 to the house 9
+The package 14 is delivered by the drone 8 to the house 9
+The package 15 is delivered by the drone 3 to the house 10
+The package 16 is delivered by the drone 9 to the house 10
+The package 17 is delivered by the drone 1 to the house 11
+The package 18 is delivered by the drone 9 to the house 12
+The package 19 is delivered by the drone 6 to the house 15
+The package 20 is delivered by the drone 4 to the house 16
+The package 21 is delivered by the drone 9 to the house 16
+The package 22 is delivered by the drone 3 to the house 18
+The package 23 is delivered by the drone 3 to the house 18
+The package 24 is delivered by the drone 2 to the house 20
+The package 25 is delivered by the drone 7 to the house 20
+The package 26 is delivered by the drone 5 to the house 21
+The package 27 is delivered by the drone 4 to the house 21
+Model has been successfully processed
+Writing MIP solution to 'solver_drone_solution_20_9.log'...

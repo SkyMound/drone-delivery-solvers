@@ -1,0 +1,71 @@
+GLPSOL: GLPK LP/MIP Solver, v4.65
+Parameter(s) specified in the command line:
+ --model solver_drone.mod --data solver_drone_data_10.dat --output solver_drone_solution_10_5.log
+ --log solver_drone_cmd_output_10_5.log --tmlim 30
+Reading model section from solver_drone.mod...
+41 lines were read
+Reading data section from solver_drone_data_10.dat...
+37 lines were read
+Generating f...
+Generating package_deliverd_once...
+Generating package_well_delivered...
+Generating time_spent_flying...
+Generating autonomy_not_exceeded...
+Generating check_time_max...
+Model has been successfully generated
+GLPK Integer Optimizer, v4.65
+866 rows, 831 columns, 2566 non-zeros
+831 integer variables, 825 of which are binary
+Preprocessing...
+40 rows, 831 columns, 1740 non-zeros
+831 integer variables, 825 of which are binary
+Scaling...
+ A: min|aij| =  1.000e+00  max|aij| =  1.544e+03  ratio =  1.544e+03
+GM: min|aij| =  5.566e-01  max|aij| =  1.797e+00  ratio =  3.228e+00
+EQ: min|aij| =  3.098e-01  max|aij| =  1.000e+00  ratio =  3.228e+00
+2N: min|aij| =  2.969e-01  max|aij| =  1.516e+00  ratio =  5.105e+00
+Constructing initial basis...
+Size of triangular part is 40
+Solving LP relaxation...
+GLPK Simplex Optimizer, v4.65
+40 rows, 831 columns, 1740 non-zeros
+      0: obj =   0.000000000e+00 inf =   3.524e+02 (1)
+     45: obj =   2.255200000e+03 inf =   1.953e-14 (0)
+*    50: obj =   2.255200000e+03 inf =   2.743e-14 (0)
+OPTIMAL LP SOLUTION FOUND
+Integer optimization begins...
+Long-step dual simplex will be used
++    50: mip =     not found yet >=              -inf        (1; 0)
++   250: >>>>>   2.640000000e+03 >=   2.256000000e+03  14.5% (20; 0)
++   349: >>>>>   2.528000000e+03 >=   2.256000000e+03  10.8% (24; 27)
++   652: >>>>>   2.392000000e+03 >=   2.256000000e+03   5.7% (36; 55)
++  1205: >>>>>   2.388000000e+03 >=   2.256000000e+03   5.5% (62; 65)
++  1757: >>>>>   2.332000000e+03 >=   2.256000000e+03   3.3% (92; 93)
++  1917: >>>>>   2.328000000e+03 >=   2.256000000e+03   3.1% (78; 140)
++ 39784: >>>>>   2.292000000e+03 >=   2.256000000e+03   1.6% (1651; 1631)
++113161: mip =   2.292000000e+03 >=   2.256000000e+03   1.6% (3455; 6482)
++182183: mip =   2.292000000e+03 >=   2.256000000e+03   1.6% (5488; 9817)
++244209: mip =   2.292000000e+03 >=   2.256000000e+03   1.6% (7550; 12286)
++299281: mip =   2.292000000e+03 >=   2.256000000e+03   1.6% (9235; 14885)
++346999: mip =   2.292000000e+03 >=   2.256000000e+03   1.6% (10300; 17749)
++367077: mip =   2.292000000e+03 >=   2.256000000e+03   1.6% (10761; 18982)
+TIME LIMIT EXCEEDED; SEARCH TERMINATED
+Time used:   30.0 secs
+Memory used: 77.6 Mb (81362552 bytes)
+The package 1 is delivered by the drone 5 to the house 1
+The package 2 is delivered by the drone 1 to the house 1
+The package 3 is delivered by the drone 4 to the house 1
+The package 4 is delivered by the drone 1 to the house 2
+The package 5 is delivered by the drone 3 to the house 2
+The package 6 is delivered by the drone 5 to the house 2
+The package 7 is delivered by the drone 4 to the house 3
+The package 8 is delivered by the drone 5 to the house 4
+The package 9 is delivered by the drone 3 to the house 6
+The package 10 is delivered by the drone 4 to the house 7
+The package 11 is delivered by the drone 3 to the house 8
+The package 12 is delivered by the drone 5 to the house 8
+The package 13 is delivered by the drone 1 to the house 9
+The package 14 is delivered by the drone 2 to the house 10
+The package 15 is delivered by the drone 2 to the house 10
+Model has been successfully processed
+Writing MIP solution to 'solver_drone_solution_10_5.log'...
