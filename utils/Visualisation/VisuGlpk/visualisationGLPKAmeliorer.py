@@ -48,7 +48,7 @@ class House:
 
 
 class Drone:
-    def __init__(self, id, pos, canvas, package,depot,battery):
+    def __init__(self, id, pos, canvas, package,depot):
         self.id = id
         self.pos = pos
         self.isCharging = False
@@ -56,13 +56,13 @@ class Drone:
         self.packageHolding = None
         self.objectif = None
         self.destroy = False
-        self.listBattery = battery
         self.battery = 100
         self.depot = depot
+        print(self.depot)
+
+        self.ancPos = self.pos
         
         self.listPackage = package
-
-        self.numberPackage = len(self.listPackage)
         
         self.canvas = canvas
         self.canvas.create_oval(self.pos[0], self.pos[1], self.pos[0]+5, self.pos[1]+5, fill="red", tags="drone"+str(self.id))
@@ -137,21 +137,37 @@ class Drone:
             self.canvas.itemconfigure("battery"+str(self.id), fill="grey")
             self.canvas.itemconfigure("image_drone"+str(self.id), state="hidden")
 
+
         if not(self.destroy):
             self.setUpBattery()
+            distance = norm(self.objectif[0] - self.depot[0],self.objectif[1] - self.depot[1])*6.2
+            batteryNeeded = (distance/150)*2
+
+            if(self.id == "1"):
+                
+
+                print(distance)
+                print("batteryNeeded :",batteryNeeded)
+                print("battery :",self.battery)
+                self.ancPos = self.pos
+
             if not(self.isCharging):
-                self.battery -= 0.5/17.64
-                normVector = norm(self.objectif[0] - self.pos[0],self.objectif[1] - self.pos[1])*0.85
+                if self.battery <=batteryNeeded and self.atSpawn():
+                    self.charge()
+                    pass
+                self.battery -= 0.0567/2
+                normVector = norm(self.objectif[0] - self.pos[0],self.objectif[1] - self.pos[1])/0.766
+
                 self.move_drone(((self.objectif[0] - self.pos[0])/normVector, (self.objectif[1] - self.pos[1])/normVector))
                 if self.isAtObjectif() and self.isDelivering:
                     self.removePackage()
-                
-                if self.numberPackage - len(self.listPackage) < len(self.listBattery) and self.battery <= self.listBattery[self.numberPackage - len(self.listPackage)] and self.atSpawn():
-                        self.charge()
+
+
 
             if self.isCharging:
-                self.battery += 0.5/52.92 #charging is 3 times slower than decharging
-            if self.numberPackage - len(self.listPackage) < len(self.listBattery) and self.battery > self.listBattery[self.numberPackage - len(self.listPackage)] and self.isCharging:
+                self.battery += 0.00925925 #charging is 3 times slower than decharging
+
+            if self.battery >= batteryNeeded and self.isCharging:
                 self.isCharging = False
                 self.canvas.itemconfigure("drone"+str(self.id), fill="red")
                 print("Drone " + str(self.id) + " chargé")
@@ -196,19 +212,24 @@ def recupCity(filePathCity):
     
     selected_houses = ["0","83","166","249","332","415","498","581","664","747","830","913","996","1079","1162","1245","1328","1411","1494","1577","1660","1743","1826","1909","1992","2075","2158","2241","2324","2407","2490"]
     city = {}
-    x_values = []
-    y_values = []
-    with open(filePathCity, "r") as file:
-        next(file)  # Skip the header
-        for line in file:
-            line = line.split(",")
-            #if line[0] in selected_houses:
-            x_values.append(float(line[1]))
-            y_values.append(float(line[2].replace("\n","")))
+    # x_values = []
+    # y_values = []
+    # with open(filePathCity, "r") as file:
+    #     next(file)  # Skip the header
+    #     for line in file:
+    #         line = line.split(",")
+    #         #if line[0] in selected_houses:
+    #         x_values.append(float(line[1]))
+    #         y_values.append(float(line[2].replace("\n","")))
 
-    min_x, max_x = min(x_values), max(x_values)
-    min_y, max_y = min(y_values), max(y_values)
+    # min_x, max_x = min(x_values), max(x_values)
+    # min_y, max_y = min(y_values), max(y_values)
 
+    min_x, max_x = 2459408.8886362663,2464371.4307599477
+    min_y, max_y = 3982812.020560298, 3986583.9538094066
+
+
+#    exit()
     scale = max(max_x - min_x, max_y - min_y)
 
     depot = int(((2461228 - min_x) / scale) * 800), int(((3984254 - min_y) / scale) * 800)
@@ -216,48 +237,55 @@ def recupCity(filePathCity):
     i = 0
     with open(filePathCity, "r") as file:
         next(file)  # Skip the header
+        
         for line in file:
             line = line.split(",")
             #if line[0] in selected_houses:
             x = int(((float(line[1]) - min_x) / scale) * 800)
             y = int(((float(line[2].replace("\n","")) - min_y) / scale) * 800)
             city[i] = (x, y)
+ 
             i += 1
+
+        print(scale)
+        #exit()
 
     return city, depot
 
 
-sol = [[(99, 2), (78, 15), (60, 5), (51, 9)], [(99, 2), (77, 16), (56, 6), (51, 9)], [(99, 4), (85, 10), (58, 4)], [(99, 8), (72, 
-10), (48, 6)], [(99, 4), (85, 11), (75, 8), (46, 6)], [(98, 8), (70, 12)]]
+
 
 #filePath = "methods/glpk-solver/solver_drone_cmd_output.log"
-#filePath = "utils/Visualisation/solver_drone_cmd_output.log"
+filePath = "methods/glpk-solver/cmd_output/solver_drone_cmd_output_20_1.log"
 filePathCity = "utils/generationColi/generationRealisticCity/generateData/smallCity_20.csv"
 
+def recupData(filePath):
+    with open(filePath, "r") as f:
+        data = f.read() # read all lines at once
 
-def recupData2(solution):
+    data = data.split("\n")
     drones = []
     houses = []
-    battery = []
-    for n,i in enumerate(solution):
-        bat = []
-        for j in i:
-            drones.append(str(n+1))
-            houses.append(str(j[1]))
-            bat.append(j[0])
-        battery.append(bat)
-    return drones, houses, battery
 
+    #exemple data : The package 8 is delivered by the drone 2 to the house 2
 
+    for line in data:
+        drone = re.findall(r'drone\s\d+', line)
+        house = re.findall(r'house\s\d+', line)
+        if drone:
+            drones.append(drone[0].split(' ')[1])
+            
+        if house:
+            houses.append(house[0].split(' ')[1])
 
-drones, houses, battery = recupData2(sol)
-print(battery)
+    return drones, houses
+
+drones, houses = recupData(filePath)
 
 print("drones : ", drones) 
 print("houses : ", houses)
 
 nombreDrone = max(drones)
-print("Numbers of drone : ", nombreDrone)
 
 city,depot = recupCity(filePathCity)
 print(depot)
@@ -269,14 +297,17 @@ canvas.pack()
 canvas.create_oval(depot[0]-10, depot[1]-10, depot[0]+10, depot[1]+10, outline="black")
 canvas.create_rectangle(0, 0, 800, 800, outline="black")
 
-im = tk.PhotoImage(file = "utils/Visualisation/VisuRecuit/charge.png",master=window)
+im = tk.PhotoImage(file = "utils/Visualisation/VisuGlpk/charge.png",master=window)
 
 
 listDrones = {}
 listHouses = {}
 
-
+from PIL import Image, ImageSequence
 import io
+import time
+
+image = []
 
 for house in city:
     listHouses[str(int(house)+1)] = House(str(int(house)+1),city[house],canvas)
@@ -288,16 +319,13 @@ for drone in range(1,int(nombreDrone) +1):
         for j,i in enumerate(drones):
             if int(i) == drone:
                 package.append(Package(str(j)+str(k),str(drone),listHouses[houses[j]]))
-
-    listDrones[drone] = Drone(str(drone),depot,canvas, package,depot,battery[drone-1])
+    listDrones[str(drone)] = Drone(str(drone),depot,canvas, package,depot)
 
 
 globalCity = City("Grenoble",listDrones,listHouses,[],canvas,depot)
-
-image = []
 time0 = time.time()
 i = 0
-while time.time() - time0 < 30 :
+while time.time() - time0 < 700 :
     globalCity.execution()
     if i%5 == 0:
         ps = canvas.postscript(colormode='color')
@@ -310,8 +338,9 @@ window.destroy()
 import numpy as np
 
 # Create a gif from the list of images
-image[0].save('utils/Visualisation/VisuRecuit/animation.gif',
+image[0].save('utils/Visualisation/VisuGlpk/animation.gif',
                save_all=True,
                append_images=image[1:],
                duration=100,
                loop=0)
+
