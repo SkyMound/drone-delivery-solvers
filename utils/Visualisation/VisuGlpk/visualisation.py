@@ -16,7 +16,7 @@ class City:
         self.drones = drones
         self.houses = houses
         self.packages = packages
-        self.seconds = 50000
+        self.seconds = 28800
 
         self.canvas = canvas
 
@@ -229,8 +229,8 @@ def recupCity(filePathCity):
 
 
 #filePath = "methods/glpk-solver/solver_drone_cmd_output.log"
-filePath = "utils/Visualisation/VisuGlpk/solver_drone_cmd_output.log"
-filePathCity = "utils/Visualisation/VisuGlpk/smallCity_30.csv"
+filePath = "methods/glpk-solver/cmd_output/solver_drone_cmd_output_20_6.log"
+filePathCity = "utils/generationColi/generationRealisticCity/generateData/smallCity_20.csv"
 
 def recupData(filePath):
     with open(filePath, "r") as f:
@@ -258,8 +258,7 @@ drones, houses = recupData(filePath)
 print("drones : ", drones) 
 print("houses : ", houses)
 
-nombreDrone = len(drones)
-print("Numbers of drone : ", nombreDrone)
+nombreDrone = max(drones)
 
 city,depot = recupCity(filePathCity)
 print(depot)
@@ -293,14 +292,13 @@ for drone in range(1,int(nombreDrone) +1):
         for j,i in enumerate(drones):
             if int(i) == drone:
                 package.append(Package(str(j)+str(k),str(drone),listHouses[houses[j]]))
-    
-    listDrones[drone] = Drone(str(drone),depot,canvas, package,depot)
+    listDrones[str(drone)] = Drone(str(drone),depot,canvas, package,depot)
 
 
 globalCity = City("Grenoble",listDrones,listHouses,[],canvas,depot)
 time0 = time.time()
 i = 0
-while time.time() - time0 < 5 :
+while time.time() - time0 < 70 :
     globalCity.execution()
     if i%5 == 0:
         ps = canvas.postscript(colormode='color')
