@@ -2,7 +2,4 @@
 utils/generationColi/generationRealisticCity/dataUsed/carreaux_200m_met.csv
 utils/generationColi/generationRealisticCity/dataUsed/villes_france.csv
 
-# GLPK output files
-*.log
-
 __pycache__

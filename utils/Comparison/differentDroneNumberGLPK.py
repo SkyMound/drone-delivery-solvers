@@ -20,7 +20,7 @@ for numberOfDrone in range(1,11):
             for line in data:
                 if "time_max" in line and "check" not in line:
                     time = line.replace(' ','').split("*")
-                    TimeProcessing.append(100 + numberOfPackage//100 - numberOfDrone + int(time[1]))
+                    TimeProcessing.append(int(time[1]))
         numberOfDrones.append(numberOfDrone)
         numberOfPackages.append(numberOfPackage)
         # Process your file here

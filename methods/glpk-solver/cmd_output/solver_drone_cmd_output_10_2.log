@@ -1,0 +1,65 @@
+GLPSOL: GLPK LP/MIP Solver, v4.65
+Parameter(s) specified in the command line:
+ --model solver_drone.mod --data solver_drone_data_10.dat --output solver_drone_solution_10_2.log
+ --log solver_drone_cmd_output_10_2.log --tmlim 15
+Reading model section from solver_drone.mod...
+41 lines were read
+Reading data section from solver_drone_data_10.dat...
+37 lines were read
+Generating f...
+Generating package_deliverd_once...
+Generating package_well_delivered...
+Generating time_spent_flying...
+Generating autonomy_not_exceeded...
+Generating check_time_max...
+Model has been successfully generated
+GLPK Integer Optimizer, v4.65
+365 rows, 333 columns, 1027 non-zeros
+333 integer variables, 330 of which are binary
+Preprocessing...
+34 rows, 333 columns, 696 non-zeros
+333 integer variables, 330 of which are binary
+Scaling...
+ A: min|aij| =  1.000e+00  max|aij| =  1.544e+03  ratio =  1.544e+03
+GM: min|aij| =  5.566e-01  max|aij| =  1.797e+00  ratio =  3.228e+00
+EQ: min|aij| =  3.098e-01  max|aij| =  1.000e+00  ratio =  3.228e+00
+2N: min|aij| =  2.969e-01  max|aij| =  1.516e+00  ratio =  5.105e+00
+Constructing initial basis...
+Size of triangular part is 34
+Solving LP relaxation...
+GLPK Simplex Optimizer, v4.65
+34 rows, 333 columns, 696 non-zeros
+      0: obj =   0.000000000e+00 inf =   3.524e+02 (1)
+     23: obj =   5.638000000e+03 inf =   0.000e+00 (0)
+*    26: obj =   5.638000000e+03 inf =   0.000e+00 (0)
+OPTIMAL LP SOLUTION FOUND
+Integer optimization begins...
+Long-step dual simplex will be used
++    26: mip =     not found yet >=              -inf        (1; 0)
++    33: >>>>>   5.772000000e+03 >=   5.638000000e+03   2.3% (7; 0)
++    42: >>>>>   5.672000000e+03 >=   5.638000000e+03   0.6% (13; 1)
++    66: >>>>>   5.664000000e+03 >=   5.638000000e+03   0.5% (27; 6)
++    98: >>>>>   5.648000000e+03 >=   5.638000000e+03   0.2% (38; 12)
++   723: >>>>>   5.644000000e+03 >=   5.638000000e+03   0.1% (184; 348)
++  1044: >>>>>   5.640000000e+03 >=   5.638000000e+03 < 0.1% (214; 591)
++  2304: mip =   5.640000000e+03 >=     tree is empty   0.0% (0; 2711)
+INTEGER OPTIMAL SOLUTION FOUND
+Time used:   0.4 secs
+Memory used: 1.0 Mb (1019066 bytes)
+The package 1 is delivered by the drone 2 to the house 1
+The package 2 is delivered by the drone 2 to the house 1
+The package 3 is delivered by the drone 2 to the house 1
+The package 4 is delivered by the drone 1 to the house 2
+The package 5 is delivered by the drone 1 to the house 2
+The package 6 is delivered by the drone 1 to the house 2
+The package 7 is delivered by the drone 2 to the house 3
+The package 8 is delivered by the drone 1 to the house 4
+The package 9 is delivered by the drone 1 to the house 6
+The package 10 is delivered by the drone 1 to the house 7
+The package 11 is delivered by the drone 1 to the house 8
+The package 12 is delivered by the drone 1 to the house 8
+The package 13 is delivered by the drone 2 to the house 9
+The package 14 is delivered by the drone 2 to the house 10
+The package 15 is delivered by the drone 2 to the house 10
+Model has been successfully processed
+Writing MIP solution to 'solver_drone_solution_10_2.log'...
