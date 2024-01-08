@@ -20,68 +20,72 @@ Preprocessing...
 64 rows, 2841 columns, 5820 non-zeros
 2841 integer variables, 2835 of which are binary
 Scaling...
- A: min|aij| =  1.000e+00  max|aij| =  1.428e+03  ratio =  1.428e+03
+ A: min|aij| =  1.000e+00  max|aij| =  2.856e+03  ratio =  2.856e+03
 GM: min|aij| =  4.803e-01  max|aij| =  2.082e+00  ratio =  4.335e+00
 EQ: min|aij| =  2.307e-01  max|aij| =  1.000e+00  ratio =  4.335e+00
-2N: min|aij| =  2.500e-01  max|aij| =  1.742e+00  ratio =  6.969e+00
+2N: min|aij| =  1.250e-01  max|aij| =  1.180e+00  ratio =  9.438e+00
 Constructing initial basis...
 Size of triangular part is 64
 Solving LP relaxation...
 GLPK Simplex Optimizer, v4.65
 64 rows, 2841 columns, 5820 non-zeros
-      0: obj =   0.000000000e+00 inf =   5.761e+02 (1)
-     66: obj =   3.687200000e+03 inf =   8.985e-15 (0)
-*    90: obj =   3.687200000e+03 inf =   8.985e-15 (0)
+      0: obj =   0.000000000e+00 inf =   1.152e+03 (1)
+     70: obj =   7.374400000e+03 inf =   1.454e-14 (0)
+*    96: obj =   7.374400000e+03 inf =   1.285e-14 (0)
 OPTIMAL LP SOLUTION FOUND
 Integer optimization begins...
 Long-step dual simplex will be used
-+    90: mip =     not found yet >=              -inf        (1; 0)
-+   588: >>>>>   4.140000000e+03 >=   3.688000000e+03  10.9% (37; 0)
-+   921: >>>>>   3.888000000e+03 >=   3.688000000e+03   5.1% (64; 3)
-+  1133: >>>>>   3.844000000e+03 >=   3.688000000e+03   4.1% (83; 13)
-+  1246: >>>>>   3.768000000e+03 >=   3.688000000e+03   2.1% (91; 21)
-+  2161: >>>>>   3.764000000e+03 >=   3.688000000e+03   2.0% (123; 62)
-+  2598: >>>>>   3.760000000e+03 >=   3.688000000e+03   1.9% (141; 76)
-+  2764: >>>>>   3.748000000e+03 >=   3.688000000e+03   1.6% (142; 88)
-+  2894: >>>>>   3.728000000e+03 >=   3.688000000e+03   1.1% (150; 103)
-+ 20688: >>>>>   3.716000000e+03 >=   3.688000000e+03   0.8% (1019; 517)
-+ 51847: mip =   3.716000000e+03 >=   3.688000000e+03   0.8% (1964; 1533)
-+ 57086: >>>>>   3.700000000e+03 >=   3.688000000e+03   0.3% (2164; 1664)
-+ 95702: mip =   3.700000000e+03 >=   3.688000000e+03   0.3% (2815; 3843)
-+132351: mip =   3.700000000e+03 >=   3.688000000e+03   0.3% (4030; 5041)
-+165814: mip =   3.700000000e+03 >=   3.688000000e+03   0.3% (5022; 6271)
-+174931: >>>>>   3.696000000e+03 >=   3.688000000e+03   0.2% (5302; 6512)
-+208464: mip =   3.696000000e+03 >=   3.688000000e+03   0.2% (5379; 9547)
-+240832: mip =   3.696000000e+03 >=   3.688000000e+03   0.2% (6134; 10616)
++    96: mip =     not found yet >=              -inf        (1; 0)
++   513: >>>>>   8.248000000e+03 >=   7.375000000e+03  10.6% (27; 0)
++   930: >>>>>   8.048000000e+03 >=   7.375000000e+03   8.4% (69; 2)
++  1389: >>>>>   8.000000000e+03 >=   7.375000000e+03   7.8% (71; 67)
++  1525: >>>>>   7.768000000e+03 >=   7.375000000e+03   5.1% (92; 68)
++  2252: >>>>>   7.624000000e+03 >=   7.375000000e+03   3.3% (66; 192)
++  2534: >>>>>   7.592000000e+03 >=   7.375000000e+03   2.9% (80; 200)
++  2636: >>>>>   7.472000000e+03 >=   7.375000000e+03   1.3% (87; 201)
++  2698: >>>>>   7.464000000e+03 >=   7.375000000e+03   1.2% (87; 205)
++  3444: >>>>>   7.456000000e+03 >=   7.375000000e+03   1.1% (126; 235)
++  4146: >>>>>   7.448000000e+03 >=   7.375000000e+03   1.0% (187; 245)
++  5299: >>>>>   7.440000000e+03 >=   7.375000000e+03   0.9% (250; 279)
++  7059: >>>>>   7.408000000e+03 >=   7.375000000e+03   0.4% (287; 385)
++  9736: >>>>>   7.400000000e+03 >=   7.375000000e+03   0.3% (363; 522)
++ 23528: >>>>>   7.392000000e+03 >=   7.375000000e+03   0.2% (912; 887)
++ 47215: >>>>>   7.384000000e+03 >=   7.375000000e+03   0.1% (1765; 1474)
++ 88919: mip =   7.384000000e+03 >=   7.375000000e+03   0.1% (3116; 2764)
++132747: mip =   7.384000000e+03 >=   7.375000000e+03   0.1% (4651; 3573)
++176168: mip =   7.384000000e+03 >=   7.375000000e+03   0.1% (6050; 4414)
++216525: mip =   7.384000000e+03 >=   7.375000000e+03   0.1% (7559; 5183)
++253614: mip =   7.384000000e+03 >=   7.375000000e+03   0.1% (9098; 5918)
++285383: mip =   7.384000000e+03 >=   7.375000000e+03   0.1% (10205; 6655)
 TIME LIMIT EXCEEDED; SEARCH TERMINATED
 Time used:   35.0 secs
-Memory used: 54.0 Mb (56653902 bytes)
-The package 1 is delivered by the drone 2 to the house 2
-The package 2 is delivered by the drone 4 to the house 2
+Memory used: 72.5 Mb (76025676 bytes)
+The package 1 is delivered by the drone 3 to the house 2
+The package 2 is delivered by the drone 3 to the house 2
 The package 3 is delivered by the drone 5 to the house 4
-The package 4 is delivered by the drone 2 to the house 4
+The package 4 is delivered by the drone 4 to the house 4
 The package 5 is delivered by the drone 4 to the house 4
-The package 6 is delivered by the drone 1 to the house 5
-The package 7 is delivered by the drone 3 to the house 6
-The package 8 is delivered by the drone 1 to the house 6
-The package 9 is delivered by the drone 5 to the house 6
+The package 6 is delivered by the drone 2 to the house 5
+The package 7 is delivered by the drone 5 to the house 6
+The package 8 is delivered by the drone 3 to the house 6
+The package 9 is delivered by the drone 1 to the house 6
 The package 10 is delivered by the drone 5 to the house 8
 The package 11 is delivered by the drone 5 to the house 8
 The package 12 is delivered by the drone 5 to the house 8
 The package 13 is delivered by the drone 2 to the house 9
 The package 14 is delivered by the drone 2 to the house 9
 The package 15 is delivered by the drone 5 to the house 10
-The package 16 is delivered by the drone 5 to the house 10
+The package 16 is delivered by the drone 4 to the house 10
 The package 17 is delivered by the drone 4 to the house 11
-The package 18 is delivered by the drone 5 to the house 12
+The package 18 is delivered by the drone 2 to the house 12
 The package 19 is delivered by the drone 4 to the house 15
-The package 20 is delivered by the drone 1 to the house 16
+The package 20 is delivered by the drone 3 to the house 16
 The package 21 is delivered by the drone 4 to the house 16
-The package 22 is delivered by the drone 1 to the house 18
-The package 23 is delivered by the drone 5 to the house 18
-The package 24 is delivered by the drone 3 to the house 20
-The package 25 is delivered by the drone 3 to the house 20
-The package 26 is delivered by the drone 1 to the house 21
-The package 27 is delivered by the drone 3 to the house 21
+The package 22 is delivered by the drone 2 to the house 18
+The package 23 is delivered by the drone 3 to the house 18
+The package 24 is delivered by the drone 1 to the house 20
+The package 25 is delivered by the drone 1 to the house 20
+The package 26 is delivered by the drone 5 to the house 21
+The package 27 is delivered by the drone 1 to the house 21
 Model has been successfully processed
 Writing MIP solution to 'solver_drone_solution_20_5.log'...

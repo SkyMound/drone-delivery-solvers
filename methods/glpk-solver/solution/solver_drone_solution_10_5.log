@@ -3,11 +3,11 @@ Rows:       866
 Columns:    831 (831 integer, 825 binary)
 Non-zeros:  2566
 Status:     INTEGER NON-OPTIMAL
-Objective:  f = 2292 (MINimum)
+Objective:  f = 4584 (MINimum)
 
    No.   Row name        Activity     Lower bound   Upper bound
 ------ ------------    ------------- ------------- -------------
-     1 f                        2292                             
+     1 f                        4584                             
      2 package_deliverd_once[1]
                                    1             1             = 
      3 package_deliverd_once[2]
@@ -79,7 +79,7 @@ Objective:  f = 2292 (MINimum)
     36 time_spent_flying[5]
                                    0            -0             = 
     37 autonomy_not_exceeded[1,1,1]
-                                   0                        1764 
+                                 194                        1764 
     38 autonomy_not_exceeded[1,1,2]
                                    0                        1764 
     39 autonomy_not_exceeded[1,1,3]
@@ -101,7 +101,7 @@ Objective:  f = 2292 (MINimum)
     47 autonomy_not_exceeded[1,1,11]
                                    0                        1764 
     48 autonomy_not_exceeded[1,2,1]
-                                 194                        1764 
+                                   0                        1764 
     49 autonomy_not_exceeded[1,2,2]
                                    0                        1764 
     50 autonomy_not_exceeded[1,2,3]
@@ -239,7 +239,7 @@ Objective:  f = 2292 (MINimum)
    116 autonomy_not_exceeded[1,8,3]
                                    0                        1764 
    117 autonomy_not_exceeded[1,8,4]
-                                   0                        1764 
+                                  38                        1764 
    118 autonomy_not_exceeded[1,8,5]
                                    0                        1764 
    119 autonomy_not_exceeded[1,8,6]
@@ -313,7 +313,7 @@ Objective:  f = 2292 (MINimum)
    153 autonomy_not_exceeded[1,11,7]
                                    0                        1764 
    154 autonomy_not_exceeded[1,11,8]
-                                   0                        1764 
+                                 132                        1764 
    155 autonomy_not_exceeded[1,11,9]
                                    0                        1764 
    156 autonomy_not_exceeded[1,11,10]
@@ -359,7 +359,7 @@ Objective:  f = 2292 (MINimum)
    176 autonomy_not_exceeded[1,13,8]
                                    0                        1764 
    177 autonomy_not_exceeded[1,13,9]
-                                 166                        1764 
+                                   0                        1764 
    178 autonomy_not_exceeded[1,13,10]
                                    0                        1764 
    179 autonomy_not_exceeded[1,13,11]
@@ -453,7 +453,7 @@ Objective:  f = 2292 (MINimum)
    223 autonomy_not_exceeded[2,2,11]
                                    0                        1764 
    224 autonomy_not_exceeded[2,3,1]
-                                   0                        1764 
+                                 194                        1764 
    225 autonomy_not_exceeded[2,3,2]
                                    0                        1764 
    226 autonomy_not_exceeded[2,3,3]
@@ -521,7 +521,7 @@ Objective:  f = 2292 (MINimum)
    257 autonomy_not_exceeded[2,6,1]
                                    0                        1764 
    258 autonomy_not_exceeded[2,6,2]
-                                   0                        1764 
+                                 209                        1764 
    259 autonomy_not_exceeded[2,6,3]
                                    0                        1764 
    260 autonomy_not_exceeded[2,6,4]
@@ -689,7 +689,7 @@ Objective:  f = 2292 (MINimum)
    341 autonomy_not_exceeded[2,13,8]
                                    0                        1764 
    342 autonomy_not_exceeded[2,13,9]
-                                   0                        1764 
+                                 166                        1764 
    343 autonomy_not_exceeded[2,13,10]
                                    0                        1764 
    344 autonomy_not_exceeded[2,13,11]
@@ -713,7 +713,7 @@ Objective:  f = 2292 (MINimum)
    353 autonomy_not_exceeded[2,14,9]
                                    0                        1764 
    354 autonomy_not_exceeded[2,14,10]
-                                 272                        1764 
+                                   0                        1764 
    355 autonomy_not_exceeded[2,14,11]
                                    0                        1764 
    356 autonomy_not_exceeded[2,15,1]
@@ -735,7 +735,7 @@ Objective:  f = 2292 (MINimum)
    364 autonomy_not_exceeded[2,15,9]
                                    0                        1764 
    365 autonomy_not_exceeded[2,15,10]
-                                 272                        1764 
+                                   0                        1764 
    366 autonomy_not_exceeded[2,15,11]
                                    0                        1764 
    367 autonomy_not_exceeded[3,1,1]
@@ -761,7 +761,7 @@ Objective:  f = 2292 (MINimum)
    377 autonomy_not_exceeded[3,1,11]
                                    0                        1764 
    378 autonomy_not_exceeded[3,2,1]
-                                   0                        1764 
+                                 194                        1764 
    379 autonomy_not_exceeded[3,2,2]
                                    0                        1764 
    380 autonomy_not_exceeded[3,2,3]
@@ -829,7 +829,7 @@ Objective:  f = 2292 (MINimum)
    411 autonomy_not_exceeded[3,5,1]
                                    0                        1764 
    412 autonomy_not_exceeded[3,5,2]
-                                 209                        1764 
+                                   0                        1764 
    413 autonomy_not_exceeded[3,5,3]
                                    0                        1764 
    414 autonomy_not_exceeded[3,5,4]
@@ -875,7 +875,7 @@ Objective:  f = 2292 (MINimum)
    434 autonomy_not_exceeded[3,7,2]
                                    0                        1764 
    435 autonomy_not_exceeded[3,7,3]
-                                   0                        1764 
+                                 117                        1764 
    436 autonomy_not_exceeded[3,7,4]
                                    0                        1764 
    437 autonomy_not_exceeded[3,7,5]
@@ -925,7 +925,7 @@ Objective:  f = 2292 (MINimum)
    459 autonomy_not_exceeded[3,9,5]
                                    0                        1764 
    460 autonomy_not_exceeded[3,9,6]
-                                 225                        1764 
+                                   0                        1764 
    461 autonomy_not_exceeded[3,9,7]
                                    0                        1764 
    462 autonomy_not_exceeded[3,9,8]
@@ -949,7 +949,7 @@ Objective:  f = 2292 (MINimum)
    471 autonomy_not_exceeded[3,10,6]
                                    0                        1764 
    472 autonomy_not_exceeded[3,10,7]
-                                   0                        1764 
+                                 256                        1764 
    473 autonomy_not_exceeded[3,10,8]
                                    0                        1764 
    474 autonomy_not_exceeded[3,10,9]
@@ -973,7 +973,7 @@ Objective:  f = 2292 (MINimum)
    483 autonomy_not_exceeded[3,11,7]
                                    0                        1764 
    484 autonomy_not_exceeded[3,11,8]
-                                 132                        1764 
+                                   0                        1764 
    485 autonomy_not_exceeded[3,11,9]
                                    0                        1764 
    486 autonomy_not_exceeded[3,11,10]
@@ -1113,7 +1113,7 @@ Objective:  f = 2292 (MINimum)
    553 autonomy_not_exceeded[4,2,11]
                                    0                        1764 
    554 autonomy_not_exceeded[4,3,1]
-                                 194                        1764 
+                                   0                        1764 
    555 autonomy_not_exceeded[4,3,2]
                                    0                        1764 
    556 autonomy_not_exceeded[4,3,3]
@@ -1159,7 +1159,7 @@ Objective:  f = 2292 (MINimum)
    576 autonomy_not_exceeded[4,5,1]
                                    0                        1764 
    577 autonomy_not_exceeded[4,5,2]
-                                   0                        1764 
+                                 209                        1764 
    578 autonomy_not_exceeded[4,5,3]
                                    0                        1764 
    579 autonomy_not_exceeded[4,5,4]
@@ -1205,7 +1205,7 @@ Objective:  f = 2292 (MINimum)
    599 autonomy_not_exceeded[4,7,2]
                                    0                        1764 
    600 autonomy_not_exceeded[4,7,3]
-                                 117                        1764 
+                                   0                        1764 
    601 autonomy_not_exceeded[4,7,4]
                                    0                        1764 
    602 autonomy_not_exceeded[4,7,5]
@@ -1255,7 +1255,7 @@ Objective:  f = 2292 (MINimum)
    624 autonomy_not_exceeded[4,9,5]
                                    0                        1764 
    625 autonomy_not_exceeded[4,9,6]
-                                   0                        1764 
+                                 225                        1764 
    626 autonomy_not_exceeded[4,9,7]
                                    0                        1764 
    627 autonomy_not_exceeded[4,9,8]
@@ -1279,7 +1279,7 @@ Objective:  f = 2292 (MINimum)
    636 autonomy_not_exceeded[4,10,6]
                                    0                        1764 
    637 autonomy_not_exceeded[4,10,7]
-                                 256                        1764 
+                                   0                        1764 
    638 autonomy_not_exceeded[4,10,8]
                                    0                        1764 
    639 autonomy_not_exceeded[4,10,9]
@@ -1325,7 +1325,7 @@ Objective:  f = 2292 (MINimum)
    659 autonomy_not_exceeded[4,12,7]
                                    0                        1764 
    660 autonomy_not_exceeded[4,12,8]
-                                   0                        1764 
+                                 132                        1764 
    661 autonomy_not_exceeded[4,12,9]
                                    0                        1764 
    662 autonomy_not_exceeded[4,12,10]
@@ -1399,7 +1399,7 @@ Objective:  f = 2292 (MINimum)
    696 autonomy_not_exceeded[4,15,11]
                                    0                        1764 
    697 autonomy_not_exceeded[5,1,1]
-                                 194                        1764 
+                                   0                        1764 
    698 autonomy_not_exceeded[5,1,2]
                                    0                        1764 
    699 autonomy_not_exceeded[5,1,3]
@@ -1511,7 +1511,7 @@ Objective:  f = 2292 (MINimum)
    752 autonomy_not_exceeded[5,6,1]
                                    0                        1764 
    753 autonomy_not_exceeded[5,6,2]
-                                 209                        1764 
+                                   0                        1764 
    754 autonomy_not_exceeded[5,6,3]
                                    0                        1764 
    755 autonomy_not_exceeded[5,6,4]
@@ -1559,7 +1559,7 @@ Objective:  f = 2292 (MINimum)
    776 autonomy_not_exceeded[5,8,3]
                                    0                        1764 
    777 autonomy_not_exceeded[5,8,4]
-                                  38                        1764 
+                                   0                        1764 
    778 autonomy_not_exceeded[5,8,5]
                                    0                        1764 
    779 autonomy_not_exceeded[5,8,6]
@@ -1655,7 +1655,7 @@ Objective:  f = 2292 (MINimum)
    824 autonomy_not_exceeded[5,12,7]
                                    0                        1764 
    825 autonomy_not_exceeded[5,12,8]
-                                 132                        1764 
+                                   0                        1764 
    826 autonomy_not_exceeded[5,12,9]
                                    0                        1764 
    827 autonomy_not_exceeded[5,12,10]
@@ -1703,7 +1703,7 @@ Objective:  f = 2292 (MINimum)
    848 autonomy_not_exceeded[5,14,9]
                                    0                        1764 
    849 autonomy_not_exceeded[5,14,10]
-                                   0                        1764 
+                                 272                        1764 
    850 autonomy_not_exceeded[5,14,11]
                                    0                        1764 
    851 autonomy_not_exceeded[5,15,1]
@@ -1725,23 +1725,23 @@ Objective:  f = 2292 (MINimum)
    859 autonomy_not_exceeded[5,15,9]
                                    0                        1764 
    860 autonomy_not_exceeded[5,15,10]
-                                   0                        1764 
+                                 272                        1764 
    861 autonomy_not_exceeded[5,15,11]
                                    0                        1764 
    862 check_time_max[1]
-                                  16            -0               
-   863 check_time_max[2]
-                                 116            -0               
-   864 check_time_max[3]
-                                  28            -0               
-   865 check_time_max[4]
-                                  24            -0               
-   866 check_time_max[5]
                                    0            -0               
+   863 check_time_max[2]
+                                  32            -0               
+   864 check_time_max[3]
+                                  48            -0               
+   865 check_time_max[4]
+                                  56            -0               
+   866 check_time_max[5]
+                                 232            -0               
 
    No. Column name       Activity     Lower bound   Upper bound
 ------ ------------    ------------- ------------- -------------
-     1 x[1,1,1]     *              0             0             1 
+     1 x[1,1,1]     *              1             0             1 
      2 x[1,1,2]     *              0             0             1 
      3 x[1,1,3]     *              0             0             1 
      4 x[1,1,4]     *              0             0             1 
@@ -1785,7 +1785,7 @@ Objective:  f = 2292 (MINimum)
     42 x[1,4,9]     *              0             0             1 
     43 x[1,4,10]    *              0             0             1 
     44 x[1,4,11]    *              0             0             1 
-    45 x[1,5,1]     *              1             0             1 
+    45 x[1,5,1]     *              0             0             1 
     46 x[1,5,2]     *              0             0             1 
     47 x[1,5,3]     *              0             0             1 
     48 x[1,5,4]     *              0             0             1 
@@ -1796,7 +1796,7 @@ Objective:  f = 2292 (MINimum)
     53 x[1,5,9]     *              0             0             1 
     54 x[1,5,10]    *              0             0             1 
     55 x[1,5,11]    *              0             0             1 
-    56 x[2,1,1]     *              1             0             1 
+    56 x[2,1,1]     *              0             0             1 
     57 x[2,1,2]     *              0             0             1 
     58 x[2,1,3]     *              0             0             1 
     59 x[2,1,4]     *              0             0             1 
@@ -1818,7 +1818,7 @@ Objective:  f = 2292 (MINimum)
     75 x[2,2,9]     *              0             0             1 
     76 x[2,2,10]    *              0             0             1 
     77 x[2,2,11]    *              0             0             1 
-    78 x[2,3,1]     *              0             0             1 
+    78 x[2,3,1]     *              1             0             1 
     79 x[2,3,2]     *              0             0             1 
     80 x[2,3,3]     *              0             0             1 
     81 x[2,3,4]     *              0             0             1 
@@ -1862,7 +1862,7 @@ Objective:  f = 2292 (MINimum)
    119 x[3,1,9]     *              0             0             1 
    120 x[3,1,10]    *              0             0             1 
    121 x[3,1,11]    *              0             0             1 
-   122 x[3,2,1]     *              0             0             1 
+   122 x[3,2,1]     *              1             0             1 
    123 x[3,2,2]     *              0             0             1 
    124 x[3,2,3]     *              0             0             1 
    125 x[3,2,4]     *              0             0             1 
@@ -1884,7 +1884,7 @@ Objective:  f = 2292 (MINimum)
    141 x[3,3,9]     *              0             0             1 
    142 x[3,3,10]    *              0             0             1 
    143 x[3,3,11]    *              0             0             1 
-   144 x[3,4,1]     *              1             0             1 
+   144 x[3,4,1]     *              0             0             1 
    145 x[3,4,2]     *              0             0             1 
    146 x[3,4,3]     *              0             0             1 
    147 x[3,4,4]     *              0             0             1 
@@ -1984,7 +1984,7 @@ Objective:  f = 2292 (MINimum)
    241 x[5,2,10]    *              0             0             1 
    242 x[5,2,11]    *              0             0             1 
    243 x[5,3,1]     *              0             0             1 
-   244 x[5,3,2]     *              1             0             1 
+   244 x[5,3,2]     *              0             0             1 
    245 x[5,3,3]     *              0             0             1 
    246 x[5,3,4]     *              0             0             1 
    247 x[5,3,5]     *              0             0             1 
@@ -1995,7 +1995,7 @@ Objective:  f = 2292 (MINimum)
    252 x[5,3,10]    *              0             0             1 
    253 x[5,3,11]    *              0             0             1 
    254 x[5,4,1]     *              0             0             1 
-   255 x[5,4,2]     *              0             0             1 
+   255 x[5,4,2]     *              1             0             1 
    256 x[5,4,3]     *              0             0             1 
    257 x[5,4,4]     *              0             0             1 
    258 x[5,4,5]     *              0             0             1 
@@ -2028,7 +2028,7 @@ Objective:  f = 2292 (MINimum)
    285 x[6,1,10]    *              0             0             1 
    286 x[6,1,11]    *              0             0             1 
    287 x[6,2,1]     *              0             0             1 
-   288 x[6,2,2]     *              0             0             1 
+   288 x[6,2,2]     *              1             0             1 
    289 x[6,2,3]     *              0             0             1 
    290 x[6,2,4]     *              0             0             1 
    291 x[6,2,5]     *              0             0             1 
@@ -2061,7 +2061,7 @@ Objective:  f = 2292 (MINimum)
    318 x[6,4,10]    *              0             0             1 
    319 x[6,4,11]    *              0             0             1 
    320 x[6,5,1]     *              0             0             1 
-   321 x[6,5,2]     *              1             0             1 
+   321 x[6,5,2]     *              0             0             1 
    322 x[6,5,3]     *              0             0             1 
    323 x[6,5,4]     *              0             0             1 
    324 x[6,5,5]     *              0             0             1 
@@ -2095,7 +2095,7 @@ Objective:  f = 2292 (MINimum)
    352 x[7,2,11]    *              0             0             1 
    353 x[7,3,1]     *              0             0             1 
    354 x[7,3,2]     *              0             0             1 
-   355 x[7,3,3]     *              0             0             1 
+   355 x[7,3,3]     *              1             0             1 
    356 x[7,3,4]     *              0             0             1 
    357 x[7,3,5]     *              0             0             1 
    358 x[7,3,6]     *              0             0             1 
@@ -2106,7 +2106,7 @@ Objective:  f = 2292 (MINimum)
    363 x[7,3,11]    *              0             0             1 
    364 x[7,4,1]     *              0             0             1 
    365 x[7,4,2]     *              0             0             1 
-   366 x[7,4,3]     *              1             0             1 
+   366 x[7,4,3]     *              0             0             1 
    367 x[7,4,4]     *              0             0             1 
    368 x[7,4,5]     *              0             0             1 
    369 x[7,4,6]     *              0             0             1 
@@ -2129,7 +2129,7 @@ Objective:  f = 2292 (MINimum)
    386 x[8,1,1]     *              0             0             1 
    387 x[8,1,2]     *              0             0             1 
    388 x[8,1,3]     *              0             0             1 
-   389 x[8,1,4]     *              0             0             1 
+   389 x[8,1,4]     *              1             0             1 
    390 x[8,1,5]     *              0             0             1 
    391 x[8,1,6]     *              0             0             1 
    392 x[8,1,7]     *              0             0             1 
@@ -2173,7 +2173,7 @@ Objective:  f = 2292 (MINimum)
    430 x[8,5,1]     *              0             0             1 
    431 x[8,5,2]     *              0             0             1 
    432 x[8,5,3]     *              0             0             1 
-   433 x[8,5,4]     *              1             0             1 
+   433 x[8,5,4]     *              0             0             1 
    434 x[8,5,5]     *              0             0             1 
    435 x[8,5,6]     *              0             0             1 
    436 x[8,5,7]     *              0             0             1 
@@ -2208,7 +2208,7 @@ Objective:  f = 2292 (MINimum)
    465 x[9,3,3]     *              0             0             1 
    466 x[9,3,4]     *              0             0             1 
    467 x[9,3,5]     *              0             0             1 
-   468 x[9,3,6]     *              1             0             1 
+   468 x[9,3,6]     *              0             0             1 
    469 x[9,3,7]     *              0             0             1 
    470 x[9,3,8]     *              0             0             1 
    471 x[9,3,9]     *              0             0             1 
@@ -2219,7 +2219,7 @@ Objective:  f = 2292 (MINimum)
    476 x[9,4,3]     *              0             0             1 
    477 x[9,4,4]     *              0             0             1 
    478 x[9,4,5]     *              0             0             1 
-   479 x[9,4,6]     *              0             0             1 
+   479 x[9,4,6]     *              1             0             1 
    480 x[9,4,7]     *              0             0             1 
    481 x[9,4,8]     *              0             0             1 
    482 x[9,4,9]     *              0             0             1 
@@ -2264,7 +2264,7 @@ Objective:  f = 2292 (MINimum)
    521 x[10,3,4]    *              0             0             1 
    522 x[10,3,5]    *              0             0             1 
    523 x[10,3,6]    *              0             0             1 
-   524 x[10,3,7]    *              0             0             1 
+   524 x[10,3,7]    *              1             0             1 
    525 x[10,3,8]    *              0             0             1 
    526 x[10,3,9]    *              0             0             1 
    527 x[10,3,10]   *              0             0             1 
@@ -2275,7 +2275,7 @@ Objective:  f = 2292 (MINimum)
    532 x[10,4,4]    *              0             0             1 
    533 x[10,4,5]    *              0             0             1 
    534 x[10,4,6]    *              0             0             1 
-   535 x[10,4,7]    *              1             0             1 
+   535 x[10,4,7]    *              0             0             1 
    536 x[10,4,8]    *              0             0             1 
    537 x[10,4,9]    *              0             0             1 
    538 x[10,4,10]   *              0             0             1 
@@ -2298,7 +2298,7 @@ Objective:  f = 2292 (MINimum)
    555 x[11,1,5]    *              0             0             1 
    556 x[11,1,6]    *              0             0             1 
    557 x[11,1,7]    *              0             0             1 
-   558 x[11,1,8]    *              0             0             1 
+   558 x[11,1,8]    *              1             0             1 
    559 x[11,1,9]    *              0             0             1 
    560 x[11,1,10]   *              0             0             1 
    561 x[11,1,11]   *              0             0             1 
@@ -2320,7 +2320,7 @@ Objective:  f = 2292 (MINimum)
    577 x[11,3,5]    *              0             0             1 
    578 x[11,3,6]    *              0             0             1 
    579 x[11,3,7]    *              0             0             1 
-   580 x[11,3,8]    *              1             0             1 
+   580 x[11,3,8]    *              0             0             1 
    581 x[11,3,9]    *              0             0             1 
    582 x[11,3,10]   *              0             0             1 
    583 x[11,3,11]   *              0             0             1 
@@ -2386,7 +2386,7 @@ Objective:  f = 2292 (MINimum)
    643 x[12,4,5]    *              0             0             1 
    644 x[12,4,6]    *              0             0             1 
    645 x[12,4,7]    *              0             0             1 
-   646 x[12,4,8]    *              0             0             1 
+   646 x[12,4,8]    *              1             0             1 
    647 x[12,4,9]    *              0             0             1 
    648 x[12,4,10]   *              0             0             1 
    649 x[12,4,11]   *              0             0             1 
@@ -2397,7 +2397,7 @@ Objective:  f = 2292 (MINimum)
    654 x[12,5,5]    *              0             0             1 
    655 x[12,5,6]    *              0             0             1 
    656 x[12,5,7]    *              0             0             1 
-   657 x[12,5,8]    *              1             0             1 
+   657 x[12,5,8]    *              0             0             1 
    658 x[12,5,9]    *              0             0             1 
    659 x[12,5,10]   *              0             0             1 
    660 x[12,5,11]   *              0             0             1 
@@ -2409,7 +2409,7 @@ Objective:  f = 2292 (MINimum)
    666 x[13,1,6]    *              0             0             1 
    667 x[13,1,7]    *              0             0             1 
    668 x[13,1,8]    *              0             0             1 
-   669 x[13,1,9]    *              1             0             1 
+   669 x[13,1,9]    *              0             0             1 
    670 x[13,1,10]   *              0             0             1 
    671 x[13,1,11]   *              0             0             1 
    672 x[13,2,1]    *              0             0             1 
@@ -2420,7 +2420,7 @@ Objective:  f = 2292 (MINimum)
    677 x[13,2,6]    *              0             0             1 
    678 x[13,2,7]    *              0             0             1 
    679 x[13,2,8]    *              0             0             1 
-   680 x[13,2,9]    *              0             0             1 
+   680 x[13,2,9]    *              1             0             1 
    681 x[13,2,10]   *              0             0             1 
    682 x[13,2,11]   *              0             0             1 
    683 x[13,3,1]    *              0             0             1 
@@ -2476,7 +2476,7 @@ Objective:  f = 2292 (MINimum)
    733 x[14,2,7]    *              0             0             1 
    734 x[14,2,8]    *              0             0             1 
    735 x[14,2,9]    *              0             0             1 
-   736 x[14,2,10]   *              1             0             1 
+   736 x[14,2,10]   *              0             0             1 
    737 x[14,2,11]   *              0             0             1 
    738 x[14,3,1]    *              0             0             1 
    739 x[14,3,2]    *              0             0             1 
@@ -2509,7 +2509,7 @@ Objective:  f = 2292 (MINimum)
    766 x[14,5,7]    *              0             0             1 
    767 x[14,5,8]    *              0             0             1 
    768 x[14,5,9]    *              0             0             1 
-   769 x[14,5,10]   *              0             0             1 
+   769 x[14,5,10]   *              1             0             1 
    770 x[14,5,11]   *              0             0             1 
    771 x[15,1,1]    *              0             0             1 
    772 x[15,1,2]    *              0             0             1 
@@ -2531,7 +2531,7 @@ Objective:  f = 2292 (MINimum)
    788 x[15,2,7]    *              0             0             1 
    789 x[15,2,8]    *              0             0             1 
    790 x[15,2,9]    *              0             0             1 
-   791 x[15,2,10]   *              1             0             1 
+   791 x[15,2,10]   *              0             0             1 
    792 x[15,2,11]   *              0             0             1 
    793 x[15,3,1]    *              0             0             1 
    794 x[15,3,2]    *              0             0             1 
@@ -2564,14 +2564,14 @@ Objective:  f = 2292 (MINimum)
    821 x[15,5,7]    *              0             0             1 
    822 x[15,5,8]    *              0             0             1 
    823 x[15,5,9]    *              0             0             1 
-   824 x[15,5,10]   *              0             0             1 
+   824 x[15,5,10]   *              1             0             1 
    825 x[15,5,11]   *              0             0             1 
-   826 t[1]         *           2276                             
-   827 t[2]         *           2176                             
-   828 t[3]         *           2264                             
-   829 t[4]         *           2268                             
-   830 t[5]         *           2292                             
-   831 time_max     *           2292                             
+   826 t[1]         *           4584                             
+   827 t[2]         *           4552                             
+   828 t[3]         *           4536                             
+   829 t[4]         *           4528                             
+   830 t[5]         *           4352                             
+   831 time_max     *           4584                             
 
 Integer feasibility conditions:
 

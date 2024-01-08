@@ -20,45 +20,46 @@ Preprocessing...
 36 rows, 499 columns, 1044 non-zeros
 499 integer variables, 495 of which are binary
 Scaling...
- A: min|aij| =  1.000e+00  max|aij| =  1.544e+03  ratio =  1.544e+03
-GM: min|aij| =  5.566e-01  max|aij| =  1.797e+00  ratio =  3.228e+00
-EQ: min|aij| =  3.098e-01  max|aij| =  1.000e+00  ratio =  3.228e+00
-2N: min|aij| =  2.969e-01  max|aij| =  1.516e+00  ratio =  5.105e+00
+ A: min|aij| =  1.000e+00  max|aij| =  3.088e+03  ratio =  3.088e+03
+GM: min|aij| =  5.550e-01  max|aij| =  1.802e+00  ratio =  3.246e+00
+EQ: min|aij| =  3.081e-01  max|aij| =  1.000e+00  ratio =  3.246e+00
+2N: min|aij| =  2.500e-01  max|aij| =  1.031e+00  ratio =  4.125e+00
 Constructing initial basis...
 Size of triangular part is 36
 Solving LP relaxation...
 GLPK Simplex Optimizer, v4.65
 36 rows, 499 columns, 1044 non-zeros
-      0: obj =   0.000000000e+00 inf =   3.524e+02 (1)
-     35: obj =   3.758666667e+03 inf =   1.002e-14 (0)
-*    39: obj =   3.758666667e+03 inf =   5.329e-15 (0)
+      0: obj =   0.000000000e+00 inf =   7.048e+02 (1)
+     35: obj =   7.517333333e+03 inf =   2.665e-15 (0)
+*    48: obj =   7.517333333e+03 inf =   2.665e-15 (0)
 OPTIMAL LP SOLUTION FOUND
 Integer optimization begins...
 Long-step dual simplex will be used
-+    39: mip =     not found yet >=              -inf        (1; 0)
-+   175: >>>>>   3.812000000e+03 >=   3.759000000e+03   1.4% (22; 0)
-+   191: >>>>>   3.788000000e+03 >=   3.759000000e+03   0.8% (19; 15)
-+   208: >>>>>   3.784000000e+03 >=   3.759000000e+03   0.7% (19; 17)
-+  2072: >>>>>   3.768000000e+03 >=   3.759000000e+03   0.2% (105; 118)
-+  4211: >>>>>   3.764000000e+03 >=   3.759000000e+03   0.1% (191; 296)
-+ 96841: mip =   3.764000000e+03 >=   3.759000000e+03   0.1% (1291; 13117)
-+185681: mip =   3.764000000e+03 >=   3.759000000e+03   0.1% (1938; 26929)
-+228865: mip =   3.764000000e+03 >=     tree is empty   0.0% (0; 46041)
++    48: mip =     not found yet >=              -inf        (1; 0)
++   110: >>>>>   7.776000000e+03 >=   7.518000000e+03   3.3% (17; 0)
++   158: >>>>>   7.576000000e+03 >=   7.518000000e+03   0.8% (16; 19)
++   307: >>>>>   7.544000000e+03 >=   7.518000000e+03   0.3% (23; 23)
++   831: >>>>>   7.536000000e+03 >=   7.518000000e+03   0.2% (43; 67)
++  3828: >>>>>   7.528000000e+03 >=   7.518000000e+03   0.1% (71; 427)
++139475: mip =   7.528000000e+03 >=   7.518000000e+03   0.1% (1402; 14973)
++262377: mip =   7.528000000e+03 >=   7.518000000e+03   0.1% (1065; 34059)
++378543: mip =   7.528000000e+03 >=   7.518000000e+03   0.1% (1261; 50657)
++386057: mip =   7.528000000e+03 >=     tree is empty   0.0% (0; 60339)
 INTEGER OPTIMAL SOLUTION FOUND
-Time used:   13.3 secs
-Memory used: 15.2 Mb (15935876 bytes)
-The package 1 is delivered by the drone 3 to the house 1
+Time used:   15.8 secs
+Memory used: 14.4 Mb (15102136 bytes)
+The package 1 is delivered by the drone 1 to the house 1
 The package 2 is delivered by the drone 1 to the house 1
 The package 3 is delivered by the drone 1 to the house 1
-The package 4 is delivered by the drone 1 to the house 2
-The package 5 is delivered by the drone 1 to the house 2
-The package 6 is delivered by the drone 2 to the house 2
+The package 4 is delivered by the drone 2 to the house 2
+The package 5 is delivered by the drone 3 to the house 2
+The package 6 is delivered by the drone 3 to the house 2
 The package 7 is delivered by the drone 3 to the house 3
 The package 8 is delivered by the drone 2 to the house 4
-The package 9 is delivered by the drone 3 to the house 6
+The package 9 is delivered by the drone 1 to the house 6
 The package 10 is delivered by the drone 2 to the house 7
-The package 11 is delivered by the drone 1 to the house 8
-The package 12 is delivered by the drone 3 to the house 8
+The package 11 is delivered by the drone 3 to the house 8
+The package 12 is delivered by the drone 1 to the house 8
 The package 13 is delivered by the drone 2 to the house 9
 The package 14 is delivered by the drone 2 to the house 10
 The package 15 is delivered by the drone 3 to the house 10

@@ -24,7 +24,7 @@ package_deliverd_once {p in 1..nb_p}: sum{d in 1..nb_d, h in 1..nb_h} x[p, d, h]
 package_well_delivered {p in 1..nb_p}: sum{d in 1..nb_d} x[p, d, orders[p]] = 1;        # Check if the order is respected
 
 # Autonomy constraints
-time_spent_flying {d in 1..nb_d}: t[d] = sum{p in 1..nb_p, h in 1..nb_h} (delivery_time[h]*x[p, d, h])*(1+recharge_time) ;    # Compute time spent flying and recharging for each drone
+time_spent_flying {d in 1..nb_d}: t[d] = sum{p in 1..nb_p, h in 1..nb_h} ((delivery_time[h]*x[p, d, h])*(1+recharge_time))*2 ;    # Compute time spent flying and recharging for each drone
 autonomy_not_exceeded {d in 1..nb_d, p in 1..nb_p, h in 1..nb_h}: (delivery_time[h]*x[p, d, h]) <= autonomy_max;# Check if delivery is possible
 check_time_max {d in 1..nb_d}: time_max >= t[d] ; # time_max = max(t)
 

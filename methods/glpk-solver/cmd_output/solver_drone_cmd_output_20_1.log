@@ -17,7 +17,7 @@ GLPK Integer Optimizer, v4.65
 624 rows, 569 columns, 1732 non-zeros
 569 integer variables, 567 of which are binary
 Preprocessing...
-Objective value =   1.843600000e+04
+Objective value =   3.687200000e+04
 INTEGER OPTIMAL SOLUTION FOUND BY MIP PREPROCESSOR
 Time used:   0.0 secs
 Memory used: 0.9 Mb (977169 bytes)

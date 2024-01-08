@@ -3,11 +3,11 @@ Rows:       3872
 Columns:    3725 (3725 integer, 3723 binary)
 Non-zeros:  11246
 Status:     INTEGER OPTIMAL
-Objective:  f = 51260 (MINimum)
+Objective:  f = 102520 (MINimum)
 
    No.   Row name        Activity     Lower bound   Upper bound
 ------ ------------    ------------- ------------- -------------
-     1 f                       51260                             
+     1 f                      102520                             
      2 package_deliverd_once[1]
                                    1             1             = 
      3 package_deliverd_once[2]
@@ -11476,8 +11476,8 @@ Objective:  f = 51260 (MINimum)
   3721 x[73,1,49]   *              0             0             1 
   3722 x[73,1,50]   *              0             0             1 
   3723 x[73,1,51]   *              1             0             1 
-  3724 t[1]         *          51260                             
-  3725 time_max     *          51260                             
+  3724 t[1]         *         102520                             
+  3725 time_max     *         102520                             
 
 Integer feasibility conditions:
 

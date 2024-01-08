@@ -20,115 +20,116 @@ Preprocessing...
 162 rows, 29793 columns, 60176 non-zeros
 29793 integer variables, 29784 of which are binary
 Scaling...
- A: min|aij| =  1.000e+00  max|aij| =  1.348e+03  ratio =  1.348e+03
+ A: min|aij| =  1.000e+00  max|aij| =  2.696e+03  ratio =  2.696e+03
 GM: min|aij| =  4.432e-01  max|aij| =  2.256e+00  ratio =  5.091e+00
 EQ: min|aij| =  1.964e-01  max|aij| =  1.000e+00  ratio =  5.091e+00
-2N: min|aij| =  2.031e-01  max|aij| =  1.703e+00  ratio =  8.385e+00
+2N: min|aij| =  2.031e-01  max|aij| =  1.316e+00  ratio =  6.481e+00
 Constructing initial basis...
 Size of triangular part is 162
 Solving LP relaxation...
 GLPK Simplex Optimizer, v4.65
 162 rows, 29793 columns, 60176 non-zeros
       0: obj =   0.000000000e+00 inf =   3.204e+03 (1)
-    243: obj =   6.407500000e+03 inf =   2.842e-14 (0) 2
-*   316: obj =   6.407500000e+03 inf =   3.819e-14 (0)
+    228: obj =   1.281500000e+04 inf =   5.773e-15 (0) 2
+*   230: obj =   1.281500000e+04 inf =   5.773e-15 (0)
 OPTIMAL LP SOLUTION FOUND
 Integer optimization begins...
 Long-step dual simplex will be used
-+   316: mip =     not found yet >=              -inf        (1; 0)
-+  4232: >>>>>   6.868000000e+03 >=   6.408000000e+03   6.7% (131; 0)
-+  6307: >>>>>   6.692000000e+03 >=   6.408000000e+03   4.2% (195; 6)
-+  8241: >>>>>   6.652000000e+03 >=   6.408000000e+03   3.7% (259; 30)
-+ 10690: >>>>>   6.596000000e+03 >=   6.408000000e+03   2.9% (303; 126)
-+ 11435: >>>>>   6.544000000e+03 >=   6.408000000e+03   2.1% (259; 317)
-+ 11917: >>>>>   6.536000000e+03 >=   6.408000000e+03   2.0% (283; 382)
-+ 15143: mip =   6.536000000e+03 >=   6.408000000e+03   2.0% (427; 421)
-+ 18506: mip =   6.536000000e+03 >=   6.408000000e+03   2.0% (579; 425)
-+ 19790: >>>>>   6.524000000e+03 >=   6.408000000e+03   1.8% (673; 427)
-+ 23398: mip =   6.524000000e+03 >=   6.408000000e+03   1.8% (720; 625)
-+ 24879: >>>>>   6.512000000e+03 >=   6.408000000e+03   1.6% (790; 626)
-+ 27269: mip =   6.512000000e+03 >=   6.408000000e+03   1.6% (852; 707)
-+ 29093: mip =   6.512000000e+03 >=   6.408000000e+03   1.6% (981; 711)
-+ 31324: mip =   6.512000000e+03 >=   6.408000000e+03   1.6% (1089; 714)
-+ 35124: mip =   6.512000000e+03 >=   6.408000000e+03   1.6% (1225; 717)
-Time used: 60.0 secs.  Memory used: 64.5 Mb.
-+ 38435: mip =   6.512000000e+03 >=   6.408000000e+03   1.6% (1379; 720)
-+ 40108: mip =   6.512000000e+03 >=   6.408000000e+03   1.6% (1465; 724)
++   230: mip =     not found yet >=              -inf        (1; 0)
++  2559: mip =     not found yet >=   1.281500000e+04        (158; 0)
++  2866: >>>>>   1.439200000e+04 >=   1.281500000e+04  11.0% (211; 0)
++  3469: mip =   1.439200000e+04 >=   1.281500000e+04  11.0% (380; 2)
++  3823: >>>>>   1.424800000e+04 >=   1.281500000e+04  10.1% (442; 2)
++  4295: mip =   1.424800000e+04 >=   1.281500000e+04  10.1% (624; 6)
++  4376: >>>>>   1.368000000e+04 >=   1.281500000e+04   6.3% (672; 6)
++  4588: >>>>>   1.366400000e+04 >=   1.281500000e+04   6.2% (689; 78)
++  5088: >>>>>   1.364800000e+04 >=   1.281500000e+04   6.1% (812; 111)
++  5769: >>>>>   1.304000000e+04 >=   1.281500000e+04   1.7% (941; 156)
++  6400: mip =   1.304000000e+04 >=   1.281500000e+04   1.7% (615; 880)
++  7229: mip =   1.304000000e+04 >=   1.281500000e+04   1.7% (797; 885)
++  7314: >>>>>   1.298400000e+04 >=   1.281500000e+04   1.3% (816; 885)
++  8101: mip =   1.298400000e+04 >=   1.281500000e+04   1.3% (915; 1060)
++  9130: >>>>>   1.294400000e+04 >=   1.281500000e+04   1.0% (1111; 1062)
++  9840: mip =   1.294400000e+04 >=   1.281500000e+04   1.0% (1161; 1283)
++ 10782: mip =   1.294400000e+04 >=   1.281500000e+04   1.0% (1292; 1286)
+Time used: 60.0 secs.  Memory used: 63.2 Mb.
++ 11557: mip =   1.294400000e+04 >=   1.281500000e+04   1.0% (1422; 1292)
++ 11802: mip =   1.294400000e+04 >=   1.281500000e+04   1.0% (1467; 1296)
 TIME LIMIT EXCEEDED; SEARCH TERMINATED
 Time used:   65.2 secs
-Memory used: 68.8 Mb (72107786 bytes)
-The package 1 is delivered by the drone 1 to the house 1
+Memory used: 66.5 Mb (69751746 bytes)
+The package 1 is delivered by the drone 7 to the house 1
 The package 2 is delivered by the drone 1 to the house 1
-The package 3 is delivered by the drone 2 to the house 1
-The package 4 is delivered by the drone 8 to the house 2
-The package 5 is delivered by the drone 8 to the house 2
-The package 6 is delivered by the drone 4 to the house 3
-The package 7 is delivered by the drone 1 to the house 3
-The package 8 is delivered by the drone 3 to the house 3
+The package 3 is delivered by the drone 3 to the house 1
+The package 4 is delivered by the drone 1 to the house 2
+The package 5 is delivered by the drone 5 to the house 2
+The package 6 is delivered by the drone 6 to the house 3
+The package 7 is delivered by the drone 5 to the house 3
+The package 8 is delivered by the drone 2 to the house 3
 The package 9 is delivered by the drone 5 to the house 5
-The package 10 is delivered by the drone 3 to the house 7
-The package 11 is delivered by the drone 2 to the house 8
-The package 12 is delivered by the drone 3 to the house 9
-The package 13 is delivered by the drone 5 to the house 9
-The package 14 is delivered by the drone 2 to the house 9
+The package 10 is delivered by the drone 6 to the house 7
+The package 11 is delivered by the drone 8 to the house 8
+The package 12 is delivered by the drone 4 to the house 9
+The package 13 is delivered by the drone 3 to the house 9
+The package 14 is delivered by the drone 4 to the house 9
 The package 15 is delivered by the drone 3 to the house 10
-The package 16 is delivered by the drone 7 to the house 11
-The package 17 is delivered by the drone 5 to the house 11
-The package 18 is delivered by the drone 2 to the house 11
-The package 19 is delivered by the drone 1 to the house 12
-The package 20 is delivered by the drone 7 to the house 13
-The package 21 is delivered by the drone 3 to the house 14
-The package 22 is delivered by the drone 2 to the house 15
-The package 23 is delivered by the drone 1 to the house 15
-The package 24 is delivered by the drone 6 to the house 22
-The package 25 is delivered by the drone 5 to the house 22
-The package 26 is delivered by the drone 4 to the house 22
-The package 27 is delivered by the drone 2 to the house 24
-The package 28 is delivered by the drone 5 to the house 25
-The package 29 is delivered by the drone 1 to the house 27
-The package 30 is delivered by the drone 2 to the house 27
-The package 31 is delivered by the drone 5 to the house 28
+The package 16 is delivered by the drone 4 to the house 11
+The package 17 is delivered by the drone 4 to the house 11
+The package 18 is delivered by the drone 5 to the house 11
+The package 19 is delivered by the drone 8 to the house 12
+The package 20 is delivered by the drone 8 to the house 13
+The package 21 is delivered by the drone 7 to the house 14
+The package 22 is delivered by the drone 6 to the house 15
+The package 23 is delivered by the drone 6 to the house 15
+The package 24 is delivered by the drone 8 to the house 22
+The package 25 is delivered by the drone 7 to the house 22
+The package 26 is delivered by the drone 1 to the house 22
+The package 27 is delivered by the drone 1 to the house 24
+The package 28 is delivered by the drone 8 to the house 25
+The package 29 is delivered by the drone 8 to the house 27
+The package 30 is delivered by the drone 8 to the house 27
+The package 31 is delivered by the drone 4 to the house 28
 The package 32 is delivered by the drone 3 to the house 28
-The package 33 is delivered by the drone 4 to the house 28
-The package 34 is delivered by the drone 6 to the house 29
-The package 35 is delivered by the drone 3 to the house 29
-The package 36 is delivered by the drone 6 to the house 29
-The package 37 is delivered by the drone 3 to the house 30
-The package 38 is delivered by the drone 4 to the house 30
-The package 39 is delivered by the drone 4 to the house 30
-The package 40 is delivered by the drone 8 to the house 31
-The package 41 is delivered by the drone 8 to the house 31
+The package 33 is delivered by the drone 8 to the house 28
+The package 34 is delivered by the drone 8 to the house 29
+The package 35 is delivered by the drone 8 to the house 29
+The package 36 is delivered by the drone 8 to the house 29
+The package 37 is delivered by the drone 7 to the house 30
+The package 38 is delivered by the drone 6 to the house 30
+The package 39 is delivered by the drone 7 to the house 30
+The package 40 is delivered by the drone 5 to the house 31
+The package 41 is delivered by the drone 1 to the house 31
 The package 42 is delivered by the drone 8 to the house 33
-The package 43 is delivered by the drone 6 to the house 33
+The package 43 is delivered by the drone 8 to the house 33
 The package 44 is delivered by the drone 8 to the house 33
-The package 45 is delivered by the drone 8 to the house 34
-The package 46 is delivered by the drone 3 to the house 35
-The package 47 is delivered by the drone 2 to the house 35
-The package 48 is delivered by the drone 4 to the house 36
-The package 49 is delivered by the drone 6 to the house 36
-The package 50 is delivered by the drone 4 to the house 36
-The package 51 is delivered by the drone 8 to the house 37
-The package 52 is delivered by the drone 6 to the house 37
-The package 53 is delivered by the drone 2 to the house 39
-The package 54 is delivered by the drone 7 to the house 39
-The package 55 is delivered by the drone 4 to the house 39
-The package 56 is delivered by the drone 7 to the house 41
+The package 45 is delivered by the drone 5 to the house 34
+The package 46 is delivered by the drone 5 to the house 35
+The package 47 is delivered by the drone 8 to the house 35
+The package 48 is delivered by the drone 7 to the house 36
+The package 49 is delivered by the drone 2 to the house 36
+The package 50 is delivered by the drone 1 to the house 36
+The package 51 is delivered by the drone 2 to the house 37
+The package 52 is delivered by the drone 4 to the house 37
+The package 53 is delivered by the drone 1 to the house 39
+The package 54 is delivered by the drone 3 to the house 39
+The package 55 is delivered by the drone 7 to the house 39
+The package 56 is delivered by the drone 6 to the house 41
 The package 57 is delivered by the drone 7 to the house 42
 The package 58 is delivered by the drone 7 to the house 42
-The package 59 is delivered by the drone 3 to the house 42
-The package 60 is delivered by the drone 5 to the house 43
-The package 61 is delivered by the drone 6 to the house 46
-The package 62 is delivered by the drone 5 to the house 46
-The package 63 is delivered by the drone 1 to the house 46
-The package 64 is delivered by the drone 2 to the house 47
-The package 65 is delivered by the drone 3 to the house 47
+The package 59 is delivered by the drone 6 to the house 42
+The package 60 is delivered by the drone 2 to the house 43
+The package 61 is delivered by the drone 2 to the house 46
+The package 62 is delivered by the drone 6 to the house 46
+The package 63 is delivered by the drone 3 to the house 46
+The package 64 is delivered by the drone 1 to the house 47
+The package 65 is delivered by the drone 2 to the house 47
 The package 66 is delivered by the drone 4 to the house 48
-The package 67 is delivered by the drone 6 to the house 49
-The package 68 is delivered by the drone 6 to the house 49
-The package 69 is delivered by the drone 4 to the house 49
-The package 70 is delivered by the drone 7 to the house 50
+The package 67 is delivered by the drone 1 to the house 49
+The package 68 is delivered by the drone 3 to the house 49
+The package 69 is delivered by the drone 2 to the house 49
+The package 70 is delivered by the drone 3 to the house 50
 The package 71 is delivered by the drone 7 to the house 50
-The package 72 is delivered by the drone 5 to the house 51
-The package 73 is delivered by the drone 1 to the house 51
+The package 72 is delivered by the drone 4 to the house 51
+The package 73 is delivered by the drone 5 to the house 51
 Model has been successfully processed
 Writing MIP solution to 'solver_drone_solution_50_8.log'...

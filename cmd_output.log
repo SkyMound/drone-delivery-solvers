@@ -1,8 +1,0 @@
-GLPSOL: GLPK LP/MIP Solver, v4.65
-Parameter(s) specified in the command line:
- --model solver_drone_multi.mod --data solver_drone_multi.dat --output solution.log
- --log cmd_output.log --tmlim 10
-Reading model section from solver_drone_multi.mod...
-(unknown):0: unable to open solver_drone_multi.mod - No such file or directory
-Context:                                                             
-MathProg model processing error

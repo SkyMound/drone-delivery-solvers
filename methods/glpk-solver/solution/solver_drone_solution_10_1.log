@@ -3,11 +3,11 @@ Rows:       198
 Columns:    167 (167 integer, 165 binary)
 Non-zeros:  514
 Status:     INTEGER OPTIMAL
-Objective:  f = 11276 (MINimum)
+Objective:  f = 22552 (MINimum)
 
    No.   Row name        Activity     Lower bound   Upper bound
 ------ ------------    ------------- ------------- -------------
-     1 f                       11276                             
+     1 f                       22552                             
      2 package_deliverd_once[1]
                                    1             1             = 
      3 package_deliverd_once[2]
@@ -570,8 +570,8 @@ Objective:  f = 11276 (MINimum)
    163 x[15,1,9]    *              0             0             1 
    164 x[15,1,10]   *              1             0             1 
    165 x[15,1,11]   *              0             0             1 
-   166 t[1]         *          11276                             
-   167 time_max     *          11276                             
+   166 t[1]         *          22552                             
+   167 time_max     *          22552                             
 
 Integer feasibility conditions:
 
