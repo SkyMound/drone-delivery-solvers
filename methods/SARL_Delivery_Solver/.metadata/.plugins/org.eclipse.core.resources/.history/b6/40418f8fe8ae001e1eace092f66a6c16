@@ -127,9 +127,9 @@ class DroneSimulation implements EventListener {
 		
 		^space = defaultSARLContext.defaultSpace as OpenEventSpace
 
-		var guidepotPos = new Vector2d(this.depotPos.x * guiwidth / width, depotPos.y * guiheight / height)
+		var guidepotPos = new Vector2d(this.depotPos.x * width / guiwidth, depotPos.y * height / guiheight)
 		this.myGUI = new EnvironmentGui(^space, guiheight, guiwidth, scaleDronePosToGui(this.droneBodies), guidepotPos,
-			scaleHousesPosForGui(this.housesPos))
+			scaleDronePosToGui(this.housesPos))
 
 		// Registering to receive GUIRepaint events
 		^space.registerWeakParticipant(this)
@@ -179,14 +179,15 @@ class DroneSimulation implements EventListener {
 	private def translatehousesPosTo0(minX : double, minY : double){
 		var newHousesPos = new ArrayList<Vector2d>
 		for (house : housesPos) {
-			newHousesPos.add(new Vector2d(house.x - minX, house.y - minY))
+			//0.9 because we want to see the houses in the rectangle 
+			newHousesPos.add(new Vector2d(house.x - minX * 0.9, house.y - minY * 0.9))
 		}
 		housesPos = newHousesPos
 	}
 	
 	
 	private def launchDepot : void {
-		var initialPosition = new Vector2d(Settings::DepotPos.x - minDataX, Settings::DepotPos.y - minDataY)
+		var initialPosition = new Vector2d(Settings::DepotPos.x - minDataX * 0.9, Settings::DepotPos.y - minDataY * 0.9)
 		this.depotPos = initialPosition
 		var de = UUID::randomUUID
 		kernel.startAgentWithID(typeof(Depot), de, environment, initialPosition, "Depot", this.parcelToCreate,this.droneBodies)
@@ -203,7 +204,7 @@ class DroneSimulation implements EventListener {
 	}
 	
 	private def launchDrone(droneName:String){
-		var initialPosition = new Vector2d(Settings::DepotPos.x - minDataX, Settings::DepotPos.y - minDataY)
+		var initialPosition = new Vector2d(Settings::DepotPos.x - minDataX * 0.9, Settings::DepotPos.y - minDataY * 0.9)
 		var initSpeed = new Vector2d
 		var objectiv = Objectiv.Charge
 		var targetPos = null
@@ -245,8 +246,7 @@ class DroneSimulation implements EventListener {
 		var guiPosDrones = new ConcurrentHashMap<UUID, PerceivedDroneBody>
 		for (droneSet : drones.entrySet){
 			var droneBody = droneSet.value
-			var droneGuiPos = new Vector2d(droneBody.position.x * guiwidth / width,
-				droneBody.position.y * guiheight / height)
+			var droneGuiPos = new Vector2d(droneBody.position.x * width/guiwidth, droneBody.position.y * height/guiheight)
 			var guiPerceivedDrone = new PerceivedDroneBody(droneBody.owner, droneGuiPos, droneBody.vitesse,
 				droneBody.objectiv, droneBody.targetPos, droneBody.battery, droneBody.weight)
 			
@@ -259,7 +259,7 @@ class DroneSimulation implements EventListener {
 	def scaleHousesPosForGui(housesPosenv : List<Vector2d>) {
 		var newhp = new ArrayList<Vector2d>
 		for(hp : housesPosenv){
-			newhp.add(new Vector2d(hp.x * guiwidth / width, hp.y * guiheight / height))
+			newhp.add(new Vector2d(hp.x * width / guiwidth, hp.y * height / guiheight))
 		}
 		return newhp
 	}

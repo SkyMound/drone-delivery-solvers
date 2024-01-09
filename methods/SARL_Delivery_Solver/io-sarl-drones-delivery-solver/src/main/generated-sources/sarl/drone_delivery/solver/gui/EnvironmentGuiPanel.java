@@ -87,6 +87,7 @@ class EnvironmentGuiPanel extends Panel {
         this.paintDrone(this.myCanvas, drone);
       }
       this.myGraphics.drawImage(this.myImage, 0, 0, this);
+      int test = 1;
     }
   }
 

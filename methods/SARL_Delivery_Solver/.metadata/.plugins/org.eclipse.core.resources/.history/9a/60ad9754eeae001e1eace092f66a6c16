@@ -136,6 +136,7 @@ package class EnvironmentGuiPanel extends Panel {
 			myCanvas.drawRect(0, 0, width * 2 - 1, height * 2 - 1)
 
 			paintDepot(myCanvas, depotPos)
+			myGraphics.drawImage(myImage, 0, 0, this)
 			
 			for (housePos : housesPos){
 				paintHouse(myCanvas,housePos)
@@ -146,7 +147,6 @@ package class EnvironmentGuiPanel extends Panel {
 			}
 			
 			myGraphics.drawImage(myImage, 0, 0, this)
-			var test = 1
 		}
 	}
 

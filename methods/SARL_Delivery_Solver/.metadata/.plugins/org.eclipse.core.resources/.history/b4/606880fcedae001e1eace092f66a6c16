@@ -127,7 +127,7 @@ class DroneSimulation implements EventListener {
 		
 		^space = defaultSARLContext.defaultSpace as OpenEventSpace
 
-		var guidepotPos = new Vector2d(this.depotPos.x * guiwidth / width, depotPos.y * guiheight / height)
+		var guidepotPos = new Vector2d(this.depotPos.x * width / guiwidth, depotPos.y * height / guiheight)
 		this.myGUI = new EnvironmentGui(^space, guiheight, guiwidth, scaleDronePosToGui(this.droneBodies), guidepotPos,
 			scaleHousesPosForGui(this.housesPos))
 
@@ -245,8 +245,7 @@ class DroneSimulation implements EventListener {
 		var guiPosDrones = new ConcurrentHashMap<UUID, PerceivedDroneBody>
 		for (droneSet : drones.entrySet){
 			var droneBody = droneSet.value
-			var droneGuiPos = new Vector2d(droneBody.position.x * guiwidth / width,
-				droneBody.position.y * guiheight / height)
+			var droneGuiPos = new Vector2d(droneBody.position.x * width/guiwidth, droneBody.position.y * height/guiheight)
 			var guiPerceivedDrone = new PerceivedDroneBody(droneBody.owner, droneGuiPos, droneBody.vitesse,
 				droneBody.objectiv, droneBody.targetPos, droneBody.battery, droneBody.weight)
 			
@@ -259,7 +258,7 @@ class DroneSimulation implements EventListener {
 	def scaleHousesPosForGui(housesPosenv : List<Vector2d>) {
 		var newhp = new ArrayList<Vector2d>
 		for(hp : housesPosenv){
-			newhp.add(new Vector2d(hp.x * guiwidth / width, hp.y * guiheight / height))
+			newhp.add(new Vector2d(hp.x * width / guiwidth, hp.y * height / guiheight))
 		}
 		return newhp
 	}

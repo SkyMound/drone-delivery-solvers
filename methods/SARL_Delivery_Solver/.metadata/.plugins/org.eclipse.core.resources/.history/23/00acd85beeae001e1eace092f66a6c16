@@ -146,7 +146,6 @@ package class EnvironmentGuiPanel extends Panel {
 			}
 			
 			myGraphics.drawImage(myImage, 0, 0, this)
-			var test = 1
 		}
 	}
 

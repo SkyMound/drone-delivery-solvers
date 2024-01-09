@@ -135,10 +135,10 @@ public class DroneSimulation implements EventListener {
       this.space = ((OpenEventSpace) _defaultSpace);
       double _x = this.depotPos.getX();
       double _y = this.depotPos.getY();
-      Vector2d guidepotPos = new Vector2d(((_x * this.width) / this.guiwidth), ((_y * this.height) / this.guiheight));
+      Vector2d guidepotPos = new Vector2d(((_x * this.guiwidth) / this.width), ((_y * this.guiheight) / this.height));
       ConcurrentHashMap<UUID, PerceivedDroneBody> _scaleDronePosToGui = this.scaleDronePosToGui(this.droneBodies);
-      EnvironmentGui _environmentGui = new EnvironmentGui(this.space, this.guiheight, this.guiwidth, _scaleDronePosToGui, guidepotPos, 
-        this.housesPos);
+      ArrayList<Vector2d> _scaleHousesPosForGui = this.scaleHousesPosForGui(this.housesPos);
+      EnvironmentGui _environmentGui = new EnvironmentGui(this.space, this.guiheight, this.guiwidth, _scaleDronePosToGui, guidepotPos, _scaleHousesPosForGui);
       this.myGUI = _environmentGui;
       this.space.registerWeakParticipant(this);
       Start _start = new Start(this.droneBodies);
@@ -190,7 +190,7 @@ public class DroneSimulation implements EventListener {
       for (final Vector2d house : this.housesPos) {
         double _x = house.getX();
         double _y = house.getY();
-        Vector2d _vector2d = new Vector2d((_x - (minX * 0.9)), (_y - (minY * 0.9)));
+        Vector2d _vector2d = new Vector2d((_x - minX), (_y - minY));
         newHousesPos.add(_vector2d);
       }
       _xblockexpression = this.housesPos = newHousesPos;
@@ -202,7 +202,7 @@ public class DroneSimulation implements EventListener {
     try {
       double _x = Settings.DepotPos.getX();
       double _y = Settings.DepotPos.getY();
-      Vector2d initialPosition = new Vector2d((_x - (this.minDataX * 0.9)), (_y - (this.minDataY * 0.9)));
+      Vector2d initialPosition = new Vector2d((_x - this.minDataX), (_y - this.minDataY));
       this.depotPos = initialPosition;
       UUID de = UUID.randomUUID();
       this.kernel.startAgentWithID(Depot.class, de, this.environment, initialPosition, "Depot", this.parcelToCreate, this.droneBodies);
@@ -224,7 +224,7 @@ public class DroneSimulation implements EventListener {
     try {
       double _x = Settings.DepotPos.getX();
       double _y = Settings.DepotPos.getY();
-      Vector2d initialPosition = new Vector2d((_x - (this.minDataX * 0.9)), (_y - (this.minDataY * 0.9)));
+      Vector2d initialPosition = new Vector2d((_x - this.minDataX), (_y - this.minDataY));
       Vector2d initSpeed = new Vector2d();
       Objectiv objectiv = Objectiv.Charge;
       Object targetPos = null;
@@ -273,7 +273,8 @@ public class DroneSimulation implements EventListener {
         PerceivedDroneBody droneBody = droneSet.getValue();
         double _x = droneBody.getPosition().getX();
         double _y = droneBody.getPosition().getY();
-        Vector2d droneGuiPos = new Vector2d(((_x * this.width) / this.guiwidth), ((_y * this.height) / this.guiheight));
+        Vector2d droneGuiPos = new Vector2d(((_x * this.guiwidth) / this.width), 
+          ((_y * this.guiheight) / this.height));
         UUID _owner = droneBody.getOwner();
         Vector2d _vitesse = droneBody.getVitesse();
         Objectiv _objectiv = droneBody.getObjectiv();
@@ -292,7 +293,7 @@ public class DroneSimulation implements EventListener {
     for (final Vector2d hp : housesPosenv) {
       double _x = hp.getX();
       double _y = hp.getY();
-      Vector2d _vector2d = new Vector2d(((_x * this.width) / this.guiwidth), ((_y * this.height) / this.guiheight));
+      Vector2d _vector2d = new Vector2d(((_x * this.guiwidth) / this.width), ((_y * this.guiheight) / this.height));
       newhp.add(_vector2d);
     }
     return newhp;
