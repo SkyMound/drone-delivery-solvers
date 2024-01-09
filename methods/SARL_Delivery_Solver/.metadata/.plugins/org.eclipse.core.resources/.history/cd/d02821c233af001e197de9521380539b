@@ -1,0 +1,140 @@
+/** 
+ * 
+ */
+package drone_delivery.solver
+import io.sarl.api.core.Initialize
+import io.sarl.api.core.Logging
+import org.arakhne.afc.math.geometry.d2.d.Vector2d
+import io.sarl.api.core.DefaultContextInteractions
+import io.sarl.api.core.Schedules
+import io.sarl.api.core.Lifecycle
+import java.util.concurrent.ConcurrentHashMap
+import java.util.UUID
+import java.util.List
+import java.util.ArrayList
+
+/** 
+ * 
+ */
+agent Depot {
+	uses Logging, DefaultContextInteractions, Schedules, Lifecycle
+
+	var environment : UUID
+	
+	var position : Vector2d
+	var drones : ConcurrentHashMap<UUID,PerceivedDroneBody>
+	var todeliver : List<Parcel>
+	var parcelToCreate : List<Parcel>
+	
+
+	on Initialize {
+	// Depot init parameters : UUID envt, Vector2d initialPosition, String name,Listparcels
+	if (occurrence.parameters.size > 4) {
+		if (occurrence.parameters.get(0) instanceof UUID) {
+			environment = occurrence.parameters.get(0) as UUID
+		}
+
+		if (occurrence.parameters.get(1) instanceof Vector2d) {
+			position = occurrence.parameters.get(1) as Vector2d
+		}
+		if (occurrence.parameters.get(2) instanceof String) {
+			loggingName = occurrence.parameters.get(2) as String
+		}
+		if (occurrence.parameters.get(3) instanceof List) {
+			parcelToCreate = occurrence.parameters.get(3) as List<Parcel>
+		}
+		if (occurrence.parameters.get(4) instanceof ConcurrentHashMap) {
+			drones = occurrence.parameters.get(4) as ConcurrentHashMap<UUID, PerceivedDroneBody>
+		}
+		
+//		if (occurrence.parameters.get(3) instanceof List) {
+//			var cityFilename = occurrence.parameters.get(3) as List<Parcel>
+//		}
+//		if (occurrence.parameters.get(4) instanceof List) {
+//			var parcelFilename = occurrence.parameters.get(4) as String
+//		}
+		}
+		this.todeliver = newArrayList
+	}
+	
+
+
+	on Perception { 
+		synchronized(drones){
+			drones = occurrence.perceivedAgentBody
+			//TODO faire en sorte que ça lance le kill de tout les agent quand c'est vide et que tout les colis sont livrées (sinon ça fait une erreur ici
+			while (this.parcelToCreate.get(0).ordertime< occurrence.time){
+				todeliver.add(this.parcelToCreate.remove(0))
+			}
+			if (!todeliver.empty){
+				var toremoveFromList = new ArrayList<Parcel>
+				var dronesAvailables = getDronesAtDepot
+				for (p : todeliver) {
+
+					var indexBestDrone = 0
+					var isreallyBest = false
+					//Choix du meilleur drone 
+					for (var i =0 ; i<dronesAvailables.length; i++){
+						//calcul de l'energie necessaire au voyage allé retour
+						var energyneed = energyneeded(p, dronesAvailables.get(i))
+						if (dronesAvailables.get(i).battery > energyneed) {
+							if (isreallyBest){
+								if (dronesAvailables.get(i).battery < dronesAvailables.get(indexBestDrone).battery) {
+									indexBestDrone = i
+									isreallyBest = true
+									
+								}
+							}
+							else {
+								indexBestDrone = i
+								isreallyBest = true
+								}
+						}
+					}
+					
+					//Affectation du drone
+					if (isreallyBest) {
+						info("Le Drone " + dronesAvailables.get(indexBestDrone) + "à été affecté au colis : " +
+							p.ordertime)
+						affecterDrone(dronesAvailables.get(indexBestDrone).owner, p)
+						dronesAvailables.remove(dronesAvailables.get(indexBestDrone))
+						toremoveFromList.add(p)
+					}
+				}
+				todeliver.removeAll(toremoveFromList)
+			}
+			in(50)[
+				emit(new UpdateAction(this.drones),this.position)
+			]
+		}		
+	}	
+	
+	def affecterDrone(id : UUID, p : Parcel) {
+		emit(new AffectOrder(p))[it.ID == id]
+	}
+	def getDronesAtDepot() {
+		var dronesAvailable = new ArrayList<PerceivedDroneBody>
+		for (drone : this.drones.values){
+			if (drone.objectiv == Objectiv.Charge) {
+				dronesAvailable.add(drone)
+			}
+		}
+		return dronesAvailable
+	}
+	
+	def energyneeded(p : Parcel, drone : PerceivedDroneBody) {
+		// distancemax with with this particular package
+		var distance_max_with_package = Settings::DistMaxDrone * drone.weight / (drone.weight + p.weight)
+		var distance = Math.sqrt(Math.pow(p.housePos.x - drone.position.x, 2) +
+			Math.pow(p.housePos.y - drone.position.y, 2));
+		
+		
+		var percentage_battery_needed = distance * 100 / distance_max_with_package
+		// takeoff and landing
+		percentage_battery_needed +=
+			(drone.weight + p.weight) * Settings::DroneTakeoffRatio + Settings::DroneTakeoffBatteryLoss
+		// return percentage rounded to the	superior integer
+		return (percentage_battery_needed + 0.99) as int
+		
+	}
+}

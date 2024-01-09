@@ -122,6 +122,7 @@ public class Depot extends Agent {
               this.affecterDrone(dronesAvailables.get(indexBestDrone).getOwner(), p);
               dronesAvailables.remove(dronesAvailables.get(indexBestDrone));
               toremoveFromList.add(p);
+              isreallyBest = false;
             }
           }
         }
@@ -130,7 +131,7 @@ public class Depot extends Agent {
       Schedules _$CAPACITY_USE$IO_SARL_API_CORE_SCHEDULES$CALLER = this.$CAPACITY_USE$IO_SARL_API_CORE_SCHEDULES$CALLER();
       final Procedure1<Agent> _function = (Agent it) -> {
         DefaultContextInteractions _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER = this.$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER();
-        UpdateAction _updateAction = new UpdateAction(this.drones);
+        UpdateAction _updateAction = new UpdateAction(this.drones, this.position);
         _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER.emit(_updateAction);
       };
       _$CAPACITY_USE$IO_SARL_API_CORE_SCHEDULES$CALLER.in(50, _function);

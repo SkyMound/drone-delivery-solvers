@@ -102,8 +102,9 @@ public class Drone extends Agent {
     }
   }
 
-  @Pure
   protected boolean closeEnoughToTarget(final Vector2d v1, final Vector2d v2) {
+    Logging _$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER = this.$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER();
+    _$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER.info("Le Drone est en mouvement  ");
     int distanceMin = Settings.distMinLiv;
     double _x = v2.getX();
     double _x_1 = v1.getX();
@@ -168,6 +169,9 @@ public class Drone extends Agent {
           this.battery = (_battery_1 - (Settings.SecondsPerCycle * Settings.BatteryLostPerSec));
           boolean _closeEnoughToTarget = this.closeEnoughToTarget(this.position, this.targetPos);
           if (_closeEnoughToTarget) {
+            Logging _$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER = this.$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER();
+            UUID _iD = this.getID();
+            _$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER.info((("Le drone " + _iD) + " est rentré au dépot et se met en charge"));
             this.objectiv = Objectiv.Charge;
             this.targetPos = null;
             this.battery = 0.0f;
@@ -243,8 +247,10 @@ public class Drone extends Agent {
             this.battery = (_battery_2 - (Settings.SecondsPerCycle * Settings.BatteryLostPerSec));
             boolean _closeEnoughToTarget_1 = this.closeEnoughToTarget(this.position, this.targetPos);
             if (_closeEnoughToTarget_1) {
+              Logging _$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER_1 = this.$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER();
+              _$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER_1.info("Le Drone est assez proche de sa cible");
               this.objectiv = Objectiv.BackLiv;
-              this.targetPos = Settings.DepotPos;
+              this.targetPos = occurrence.depotPos;
               this.parcel = null;
               DefaultContextInteractions _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_3 = this.$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER();
               Action _action_3 = new Action();
@@ -523,20 +529,20 @@ public class Drone extends Agent {
   }
 
   @Pure
-  public Vector2d getPosition() {
+  protected Vector2d getPosition() {
     return this.position;
   }
 
-  public void setPosition(final Vector2d position) {
+  protected void setPosition(final Vector2d position) {
     this.position = position;
   }
 
   @Pure
-  public float getWeight() {
+  protected float getWeight() {
     return this.weight;
   }
 
-  public void setWeight(final float weight) {
+  protected void setWeight(final float weight) {
     this.weight = weight;
   }
 }

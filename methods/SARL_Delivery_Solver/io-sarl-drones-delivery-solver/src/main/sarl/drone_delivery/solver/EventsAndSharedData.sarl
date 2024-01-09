@@ -30,9 +30,11 @@ event ValidateOrderReception
 
 event UpdateAction {
 	val perceivedAgentBody : ConcurrentHashMap<UUID, PerceivedDroneBody>
+	val depotPos : Vector2d
 
-	new (bodies : ConcurrentHashMap<UUID, PerceivedDroneBody>) {
+	new (bodies : ConcurrentHashMap<UUID, PerceivedDroneBody>, newdepotPos : Vector2d) {
 		perceivedAgentBody = new ConcurrentHashMap<UUID, PerceivedDroneBody>(bodies);
+		depotPos = new Vector2d(newdepotPos);
 	}
 }
 

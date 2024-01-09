@@ -3623,3 +3623,414 @@ java.lang.IndexOutOfBoundsException: Index 2 out of bounds for length 2
 
 !ENTRY io.sarl.lang.ui 4 0 2024-01-09 20:50:12.691
 !MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY org.eclipse.jdt.debug 2 0 2024-01-09 21:28:50.352
+!MESSAGE Unable to find location of java.lang.Thread.setName() in debuggee JVM, for type java.lang.Thread
+
+!ENTRY org.eclipse.jdt.debug 4 125 2024-01-09 21:30:54.099
+!MESSAGE Internal error logged from JDI Debug: 
+!STACK 0
+com.sun.jdi.VMDisconnectedException: Got IOException from Virtual Machine
+	at org.eclipse.jdi.internal.connect.PacketSendManager.sendPacket(PacketSendManager.java:93)
+	at org.eclipse.jdi.internal.MirrorImpl.requestVM(MirrorImpl.java:203)
+	at org.eclipse.jdi.internal.MirrorImpl.requestVM(MirrorImpl.java:243)
+	at org.eclipse.jdi.internal.MirrorImpl.requestVM(MirrorImpl.java:275)
+	at org.eclipse.jdi.internal.ClassTypeImpl.superclass(ClassTypeImpl.java:309)
+	at org.eclipse.jdt.internal.debug.core.model.JDIClassType.getSuperclass(JDIClassType.java:145)
+	at org.eclipse.jdt.internal.debug.core.logicalstructures.JavaLogicalStructures.getLogicalStructureTypes(JavaLogicalStructures.java:297)
+	at org.eclipse.debug.internal.core.LogicalStructureProvider.getLogicalStructures(LogicalStructureProvider.java:59)
+	at org.eclipse.debug.internal.core.LogicalStructureManager.getLogicalStructureTypes(LogicalStructureManager.java:98)
+	at org.eclipse.debug.core.DebugPlugin.getLogicalStructureTypes(DebugPlugin.java:844)
+	at org.eclipse.debug.internal.ui.model.elements.VariableContentProvider.getLogicalValue(VariableContentProvider.java:211)
+	at org.eclipse.debug.internal.ui.model.elements.VariableContentProvider.getLogicalValue(VariableContentProvider.java:114)
+	at org.eclipse.debug.internal.ui.model.elements.VariableContentProvider.getValueChildren(VariableContentProvider.java:132)
+	at org.eclipse.debug.internal.ui.model.elements.ExpressionContentProvider.getAllChildren(ExpressionContentProvider.java:190)
+	at org.eclipse.jdt.internal.debug.ui.variables.JavaExpressionContentProvider.getAllChildren(JavaExpressionContentProvider.java:88)
+	at org.eclipse.debug.internal.ui.model.elements.VariableContentProvider.getChildCount(VariableContentProvider.java:48)
+	at org.eclipse.jdt.internal.debug.ui.variables.JavaExpressionContentProvider.getChildCount(JavaExpressionContentProvider.java:62)
+	at org.eclipse.debug.internal.ui.model.elements.ElementContentProvider.retrieveChildCount(ElementContentProvider.java:126)
+	at org.eclipse.debug.internal.ui.model.elements.ElementContentProvider$2.run(ElementContentProvider.java:76)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.jdt.debug 4 125 2024-01-09 21:30:54.100
+!MESSAGE Internal error logged from JDI Debug: 
+!STACK 0
+com.sun.jdi.VMDisconnectedException: Got IOException from Virtual Machine
+	at org.eclipse.jdi.internal.connect.PacketSendManager.sendPacket(PacketSendManager.java:93)
+	at org.eclipse.jdi.internal.MirrorImpl.requestVM(MirrorImpl.java:203)
+	at org.eclipse.jdi.internal.MirrorImpl.requestVM(MirrorImpl.java:243)
+	at org.eclipse.jdi.internal.MirrorImpl.requestVM(MirrorImpl.java:275)
+	at org.eclipse.jdi.internal.ClassTypeImpl.superclass(ClassTypeImpl.java:309)
+	at org.eclipse.jdt.internal.debug.core.model.JDIClassType.getSuperclass(JDIClassType.java:145)
+	at org.eclipse.jdt.internal.debug.core.logicalstructures.JavaLogicalStructures.getLogicalStructureTypes(JavaLogicalStructures.java:297)
+	at org.eclipse.debug.internal.core.LogicalStructureProvider.getLogicalStructures(LogicalStructureProvider.java:59)
+	at org.eclipse.debug.internal.core.LogicalStructureManager.getLogicalStructureTypes(LogicalStructureManager.java:98)
+	at org.eclipse.debug.core.DebugPlugin.getLogicalStructureTypes(DebugPlugin.java:844)
+	at org.eclipse.debug.internal.ui.model.elements.VariableContentProvider.getLogicalValue(VariableContentProvider.java:211)
+	at org.eclipse.debug.internal.ui.model.elements.VariableContentProvider.getLogicalValue(VariableContentProvider.java:114)
+	at org.eclipse.debug.internal.ui.model.elements.VariableContentProvider.getValueChildren(VariableContentProvider.java:132)
+	at org.eclipse.debug.internal.ui.model.elements.ExpressionContentProvider.getAllChildren(ExpressionContentProvider.java:190)
+	at org.eclipse.jdt.internal.debug.ui.variables.JavaExpressionContentProvider.getAllChildren(JavaExpressionContentProvider.java:88)
+	at org.eclipse.debug.internal.ui.model.elements.VariableContentProvider.getChildCount(VariableContentProvider.java:48)
+	at org.eclipse.jdt.internal.debug.ui.variables.JavaExpressionContentProvider.getChildCount(JavaExpressionContentProvider.java:62)
+	at org.eclipse.debug.internal.ui.model.elements.ElementContentProvider.retrieveChildCount(ElementContentProvider.java:126)
+	at org.eclipse.debug.internal.ui.model.elements.ElementContentProvider$2.run(ElementContentProvider.java:76)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.jdt.debug 4 125 2024-01-09 21:30:54.113
+!MESSAGE Internal error logged from JDI Debug: 
+!STACK 0
+com.sun.jdi.VMDisconnectedException: Got IOException from Virtual Machine
+	at org.eclipse.jdi.internal.connect.PacketSendManager.sendPacket(PacketSendManager.java:93)
+	at org.eclipse.jdi.internal.MirrorImpl.requestVM(MirrorImpl.java:203)
+	at org.eclipse.jdi.internal.MirrorImpl.requestVM(MirrorImpl.java:243)
+	at org.eclipse.jdi.internal.MirrorImpl.requestVM(MirrorImpl.java:275)
+	at org.eclipse.jdi.internal.ClassTypeImpl.superclass(ClassTypeImpl.java:309)
+	at org.eclipse.jdt.internal.debug.core.model.JDIClassType.getSuperclass(JDIClassType.java:145)
+	at org.eclipse.jdt.internal.debug.core.logicalstructures.JavaLogicalStructures.getLogicalStructureTypes(JavaLogicalStructures.java:297)
+	at org.eclipse.debug.internal.core.LogicalStructureProvider.getLogicalStructures(LogicalStructureProvider.java:59)
+	at org.eclipse.debug.internal.core.LogicalStructureManager.getLogicalStructureTypes(LogicalStructureManager.java:98)
+	at org.eclipse.debug.core.DebugPlugin.getLogicalStructureTypes(DebugPlugin.java:844)
+	at org.eclipse.debug.internal.ui.model.elements.VariableContentProvider.getLogicalValue(VariableContentProvider.java:211)
+	at org.eclipse.debug.internal.ui.model.elements.VariableContentProvider.getLogicalValue(VariableContentProvider.java:114)
+	at org.eclipse.debug.internal.ui.model.elements.VariableContentProvider.getValueChildren(VariableContentProvider.java:132)
+	at org.eclipse.debug.internal.ui.model.elements.ExpressionContentProvider.getAllChildren(ExpressionContentProvider.java:190)
+	at org.eclipse.jdt.internal.debug.ui.variables.JavaExpressionContentProvider.getAllChildren(JavaExpressionContentProvider.java:88)
+	at org.eclipse.debug.internal.ui.model.elements.VariableContentProvider.getChildCount(VariableContentProvider.java:48)
+	at org.eclipse.jdt.internal.debug.ui.variables.JavaExpressionContentProvider.getChildCount(JavaExpressionContentProvider.java:62)
+	at org.eclipse.debug.internal.ui.model.elements.ElementContentProvider.retrieveChildCount(ElementContentProvider.java:126)
+	at org.eclipse.debug.internal.ui.model.elements.ElementContentProvider$2.run(ElementContentProvider.java:76)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.jdt.debug 4 125 2024-01-09 21:30:54.114
+!MESSAGE Internal error logged from JDI Debug: 
+!STACK 0
+com.sun.jdi.VMDisconnectedException: Got IOException from Virtual Machine
+	at org.eclipse.jdi.internal.connect.PacketSendManager.sendPacket(PacketSendManager.java:93)
+	at org.eclipse.jdi.internal.MirrorImpl.requestVM(MirrorImpl.java:203)
+	at org.eclipse.jdi.internal.MirrorImpl.requestVM(MirrorImpl.java:243)
+	at org.eclipse.jdi.internal.MirrorImpl.requestVM(MirrorImpl.java:275)
+	at org.eclipse.jdi.internal.ClassTypeImpl.superclass(ClassTypeImpl.java:309)
+	at org.eclipse.jdt.internal.debug.core.model.JDIClassType.getSuperclass(JDIClassType.java:145)
+	at org.eclipse.jdt.internal.debug.core.logicalstructures.JavaLogicalStructures.getLogicalStructureTypes(JavaLogicalStructures.java:297)
+	at org.eclipse.debug.internal.core.LogicalStructureProvider.getLogicalStructures(LogicalStructureProvider.java:59)
+	at org.eclipse.debug.internal.core.LogicalStructureManager.getLogicalStructureTypes(LogicalStructureManager.java:98)
+	at org.eclipse.debug.core.DebugPlugin.getLogicalStructureTypes(DebugPlugin.java:844)
+	at org.eclipse.debug.internal.ui.model.elements.VariableContentProvider.getLogicalValue(VariableContentProvider.java:211)
+	at org.eclipse.debug.internal.ui.model.elements.VariableContentProvider.getLogicalValue(VariableContentProvider.java:114)
+	at org.eclipse.debug.internal.ui.model.elements.VariableContentProvider.getValueChildren(VariableContentProvider.java:132)
+	at org.eclipse.debug.internal.ui.model.elements.ExpressionContentProvider.getAllChildren(ExpressionContentProvider.java:190)
+	at org.eclipse.jdt.internal.debug.ui.variables.JavaExpressionContentProvider.getAllChildren(JavaExpressionContentProvider.java:88)
+	at org.eclipse.jdt.internal.debug.ui.variables.JavaExpressionContentProvider.getChildren(JavaExpressionContentProvider.java:44)
+	at org.eclipse.debug.internal.ui.model.elements.ElementContentProvider.retrieveChildren(ElementContentProvider.java:99)
+	at org.eclipse.debug.internal.ui.model.elements.ElementContentProvider$1.run(ElementContentProvider.java:58)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.jdt.debug 4 125 2024-01-09 21:30:54.143
+!MESSAGE Internal error logged from JDI Debug: 
+!STACK 0
+com.sun.jdi.VMDisconnectedException: Got IOException from Virtual Machine
+	at org.eclipse.jdi.internal.connect.PacketSendManager.sendPacket(PacketSendManager.java:93)
+	at org.eclipse.jdi.internal.MirrorImpl.requestVM(MirrorImpl.java:203)
+	at org.eclipse.jdi.internal.MirrorImpl.requestVM(MirrorImpl.java:243)
+	at org.eclipse.jdi.internal.MirrorImpl.requestVM(MirrorImpl.java:275)
+	at org.eclipse.jdi.internal.ClassTypeImpl.superclass(ClassTypeImpl.java:309)
+	at org.eclipse.jdt.internal.debug.core.model.JDIClassType.getSuperclass(JDIClassType.java:145)
+	at org.eclipse.jdt.internal.debug.core.logicalstructures.JavaLogicalStructures.getLogicalStructureTypes(JavaLogicalStructures.java:297)
+	at org.eclipse.debug.internal.core.LogicalStructureProvider.getLogicalStructures(LogicalStructureProvider.java:59)
+	at org.eclipse.debug.internal.core.LogicalStructureManager.getLogicalStructureTypes(LogicalStructureManager.java:98)
+	at org.eclipse.debug.core.DebugPlugin.getLogicalStructureTypes(DebugPlugin.java:844)
+	at org.eclipse.debug.internal.ui.model.elements.VariableContentProvider.getLogicalValue(VariableContentProvider.java:211)
+	at org.eclipse.debug.internal.ui.model.elements.VariableContentProvider.getLogicalValue(VariableContentProvider.java:114)
+	at org.eclipse.debug.internal.ui.model.elements.VariableContentProvider.getValueChildren(VariableContentProvider.java:132)
+	at org.eclipse.debug.internal.ui.model.elements.ExpressionContentProvider.getAllChildren(ExpressionContentProvider.java:190)
+	at org.eclipse.jdt.internal.debug.ui.variables.JavaExpressionContentProvider.getAllChildren(JavaExpressionContentProvider.java:88)
+	at org.eclipse.jdt.internal.debug.ui.variables.JavaExpressionContentProvider.getChildren(JavaExpressionContentProvider.java:44)
+	at org.eclipse.debug.internal.ui.model.elements.ElementContentProvider.retrieveChildren(ElementContentProvider.java:99)
+	at org.eclipse.debug.internal.ui.model.elements.ElementContentProvider$1.run(ElementContentProvider.java:58)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.jdt.debug 2 0 2024-01-09 21:34:04.390
+!MESSAGE Unable to find location of java.lang.Thread.setName() in debuggee JVM, for type java.lang.Thread
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 21:37:44.563
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 21:37:44.667
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 21:37:44.713
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY org.eclipse.jdt.debug 2 0 2024-01-09 21:37:56.465
+!MESSAGE Unable to find location of java.lang.Thread.setName() in debuggee JVM, for type java.lang.Thread
+
+!ENTRY org.eclipse.jdt.debug 2 0 2024-01-09 21:52:39.096
+!MESSAGE Unable to find location of java.lang.Thread.setName() in debuggee JVM, for type java.lang.Thread
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:00:32.862
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:00:33.620
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:00:33.629
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY org.eclipse.jdt.debug 2 0 2024-01-09 22:00:53.058
+!MESSAGE Unable to find location of java.lang.Thread.setName() in debuggee JVM, for type java.lang.Thread
+
+!ENTRY org.eclipse.jdt.debug 2 0 2024-01-09 22:03:40.653
+!MESSAGE Unable to find location of java.lang.Thread.setName() in debuggee JVM, for type java.lang.Thread
+
+!ENTRY org.eclipse.jdt.debug 2 0 2024-01-09 22:07:02.619
+!MESSAGE Unable to find location of java.lang.Thread.setName() in debuggee JVM, for type java.lang.Thread
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:10:47.507
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/EventsAndSharedData.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:10:48.153
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/EventsAndSharedData.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:10:49.382
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/EventsAndSharedData.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:10:59.366
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Depot.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:10:59.857
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Depot.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:11:00.071
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Depot.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:11:03.126
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Depot.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:11:03.130
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Depot.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:11:03.139
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:11:03.162
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:11:03.163
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:11:08.053
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:11:08.056
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:11:08.056
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:11:08.058
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Depot.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:11:08.061
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Depot.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:11:08.063
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Depot.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:11:08.065
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:11:08.070
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:11:08.074
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:11:10.211
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Depot.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:11:10.215
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Depot.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:11:10.216
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:11:10.225
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:11:11.561
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Depot.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:11:11.564
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Depot.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:11:12.023
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/EventsAndSharedData.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:11:12.856
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/EventsAndSharedData.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:11:12.864
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Depot.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:11:28.427
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/EventsAndSharedData.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:11:31.344
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Depot.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:11:31.356
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/EventsAndSharedData.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:11:32.121
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/EventsAndSharedData.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:11:32.122
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Depot.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:12:00.549
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Depot.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:12:01.115
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Depot.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:12:11.061
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Depot.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:12:13.233
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Depot.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:12:13.671
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Depot.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:12:21.535
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/EventsAndSharedData.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:12:21.547
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Depot.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:12:22.499
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:12:22.501
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/EventsAndSharedData.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:12:22.503
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/EventsAndSharedData.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:12:22.513
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Depot.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:12:22.544
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Depot.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:12:22.562
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:12:22.563
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:12:23.780
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:12:23.791
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:12:23.803
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:12:23.813
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:12:23.820
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/EventsAndSharedData.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:12:23.828
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/EventsAndSharedData.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:12:23.837
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Depot.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:12:23.848
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Depot.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:12:24.731
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/EventsAndSharedData.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:12:24.736
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/EventsAndSharedData.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:12:24.740
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:12:24.746
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:12:24.766
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Depot.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:13:11.330
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/EventsAndSharedData.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:14:09.920
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:14:09.922
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/EventsAndSharedData.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:14:09.960
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Depot.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:14:09.972
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Depot.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:14:09.986
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:14:09.986
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:14:11.223
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:14:11.234
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:14:11.243
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:14:11.253
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:14:11.262
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Depot.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:14:11.273
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Depot.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:14:11.280
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/EventsAndSharedData.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:14:12.124
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/EventsAndSharedData.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:14:12.137
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Depot.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:14:12.173
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:14:12.179
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 22:14:12.224
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY org.eclipse.jdt.debug 2 0 2024-01-09 22:26:34.872
+!MESSAGE Unable to find location of java.lang.Thread.setName() in debuggee JVM, for type java.lang.Thread
+
+!ENTRY org.eclipse.jdt.debug 2 0 2024-01-09 22:29:43.127
+!MESSAGE Unable to find location of java.lang.Thread.setName() in debuggee JVM, for type java.lang.Thread
+
+!ENTRY org.eclipse.jdt.debug 2 0 2024-01-09 22:33:23.142
+!MESSAGE Unable to find location of java.lang.Thread.setName() in debuggee JVM, for type java.lang.Thread

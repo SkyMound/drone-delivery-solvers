@@ -69,10 +69,11 @@ agent Depot {
 			if (!todeliver.empty){
 				var toremoveFromList = new ArrayList<Parcel>
 				var dronesAvailables = getDronesAtDepot
+				
 				for (p : todeliver) {
-
 					var indexBestDrone = 0
 					var isreallyBest = false
+					
 					//Choix du meilleur drone 
 					for (var i =0 ; i<dronesAvailables.length; i++){
 						//calcul de l'energie necessaire au voyage allé retour
@@ -82,7 +83,6 @@ agent Depot {
 								if (dronesAvailables.get(i).battery < dronesAvailables.get(indexBestDrone).battery) {
 									indexBestDrone = i
 									isreallyBest = true
-									
 								}
 							}
 							else {
@@ -99,15 +99,17 @@ agent Depot {
 						affecterDrone(dronesAvailables.get(indexBestDrone).owner, p)
 						dronesAvailables.remove(dronesAvailables.get(indexBestDrone))
 						toremoveFromList.add(p)
+						isreallyBest = false
 					}
 				}
 				todeliver.removeAll(toremoveFromList)
 			}
 			in(50)[
-				emit(new UpdateAction(this.drones))
+				emit(new UpdateAction(this.drones, this.position))
 			]
 		}		
 	}	
+	
 	def affecterDrone(id : UUID, p : Parcel) {
 		emit(new AffectOrder(p))[it.ID == id]
 	}

@@ -77,13 +77,14 @@ agent Drone {
 	}
 	
 	def closeEnoughToTarget(v1 : Vector2d, v2 : Vector2d) {
+		info("Le Drone est en mouvement  ")
 		var distanceMin = Settings::distMinLiv
 		var distance = Math.sqrt(Math.pow(v2.x - v1.x, 2) + Math.pow(v2.y - v1.y, 2));
 		return distance <= distanceMin;
 	}
 	
 	on UpdateAction {
-		var myBody = occurrence.perceivedAgentBody.get(ID)
+		var myBody = occurrence.perceivedAgentBody.get(this.ID)
 		if ((myBody !== null) && (myBody.owner == this.ID)) {
 			// Update drones' speed and position according to the new environmental data
 			this.position = myBody.position
@@ -104,6 +105,7 @@ agent Drone {
 				this.battery -= Settings::SecondsPerCycle * Settings::BatteryLostPerSec
 				
 				if (closeEnoughToTarget(this.position, this.targetPos)) {
+					info("Le drone " + this.ID+" est rentré au dépot et se met en charge")
 					this.objectiv = Objectiv.Charge
 					this.targetPos = null
 					this.battery =0.0f
@@ -117,8 +119,9 @@ agent Drone {
 		else if (this.objectiv == Objectiv.GoLiv) {
 			this.battery -= Settings::SecondsPerCycle * Settings::BatteryLostPerSec
 			if (closeEnoughToTarget(this.position, this.targetPos)) {
+				info("Le Drone est assez proche de sa cible")
 				this.objectiv = Objectiv.BackLiv
-				this.targetPos = Settings::DepotPos
+				this.targetPos = occurrence.depotPos
 				this.parcel = null
 				emit(new Action => [influence = moveTo(this.targetPos)])[it.ID == this.environment]
 			} 
