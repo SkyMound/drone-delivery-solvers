@@ -127,8 +127,9 @@ class DroneSimulation implements EventListener {
 		
 		^space = defaultSARLContext.defaultSpace as OpenEventSpace
 
-
-		this.myGUI = new EnvironmentGui(^space, guiheight, guiwidth, this.droneBodies,this.depotPos,this.housesPos)
+		var guidepotPos = new Vector2d(this.depotPos.x * width / guiwidth, depotPos.y * height / guiheight)
+		this.myGUI = new EnvironmentGui(^space, guiheight, guiwidth, scaleDronePosToGui(this.droneBodies), guidepotPos,
+			this.housesPos)
 
 		// Registering to receive GUIRepaint events
 		^space.registerWeakParticipant(this)
@@ -184,9 +185,10 @@ class DroneSimulation implements EventListener {
 		housesPos = newHousesPos
 	}
 	
+	
 	private def launchDepot : void {
-		var initialPosition = Settings::DepotPos
-		
+		var initialPosition = new Vector2d(Settings::DepotPos.x - minDataX * 0.9, Settings::DepotPos.y - minDataY * 0.9)
+		this.depotPos = initialPosition
 		var de = UUID::randomUUID
 		kernel.startAgentWithID(typeof(Depot), de, environment, initialPosition, "Depot", this.parcelToCreate,this.droneBodies)
 
@@ -202,7 +204,7 @@ class DroneSimulation implements EventListener {
 	}
 	
 	private def launchDrone(droneName:String){
-		var initialPosition = Settings::DepotPos
+		var initialPosition = new Vector2d(Settings::DepotPos.x - minDataX * 0.9, Settings::DepotPos.y - minDataY * 0.9)
 		var initSpeed = new Vector2d
 		var objectiv = Objectiv.Charge
 		var targetPos = null
@@ -240,6 +242,28 @@ class DroneSimulation implements EventListener {
 		return CustomCSVReader.getHousesFromCSV(cityfilePath).values
 	}
 	
+	def scaleDronePosToGui(drones : ConcurrentHashMap<UUID, PerceivedDroneBody>){
+		var guiPosDrones = new ConcurrentHashMap<UUID, PerceivedDroneBody>
+		for (droneSet : drones.entrySet){
+			var droneBody = droneSet.value
+			var droneGuiPos = new Vector2d(droneBody.position.x * width/guiwidth, droneBody.position.y * height/guiheight)
+			var guiPerceivedDrone = new PerceivedDroneBody(droneBody.owner, droneGuiPos, droneBody.vitesse,
+				droneBody.objectiv, droneBody.targetPos, droneBody.battery, droneBody.weight)
+			
+			guiPosDrones.put(droneSet.key, guiPerceivedDrone)
+		}
+		return guiPosDrones
+	}
+	
+	
+	def scaleHousesPosForGui(housesPosenv : List<Vector2d>) {
+		var newhp = new ArrayList<Vector2d>
+		for(hp : housesPosenv){
+			newhp.add(new Vector2d(hp.x * width / guiwidth, hp.y * height / guiheight))
+		}
+		return newhp
+	}
+	
 	override getID : UUID {
 		id
 	}
@@ -249,7 +273,7 @@ class DroneSimulation implements EventListener {
 	 */
 	override receiveEvent(^event : Event) {
 		if (^event instanceof GuiRepaint) { // event from the environment, GUI must be refreshed
-			this.myGUI.drones = ^event.perceivedAgentBody
+			this.myGUI.drones = scaleDronePosToGui(	^event.perceivedAgentBody) 
 			this.myGUI.repaint
 		}
 	}

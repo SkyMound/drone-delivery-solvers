@@ -16,7 +16,9 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
+import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 import org.arakhne.afc.math.geometry.d2.d.Vector2d;
@@ -41,6 +43,10 @@ public class DroneSimulation implements EventListener {
    * The default SARL context where environment and drones are spawned
    */
   private AgentContext defaultSARLContext;
+
+  private double minDataX;
+
+  private double minDataY;
 
   /**
    * Identifier of the environment
@@ -127,7 +133,12 @@ public class DroneSimulation implements EventListener {
       this.launchDepot();
       EventSpace _defaultSpace = this.defaultSARLContext.getDefaultSpace();
       this.space = ((OpenEventSpace) _defaultSpace);
-      EnvironmentGui _environmentGui = new EnvironmentGui(this.space, this.guiheight, this.guiwidth, this.droneBodies, this.depotPos, this.housesPos);
+      double _x = this.depotPos.getX();
+      double _y = this.depotPos.getY();
+      Vector2d guidepotPos = new Vector2d(((_x * this.width) / this.guiwidth), ((_y * this.height) / this.guiheight));
+      ConcurrentHashMap<UUID, PerceivedDroneBody> _scaleDronePosToGui = this.scaleDronePosToGui(this.droneBodies);
+      EnvironmentGui _environmentGui = new EnvironmentGui(this.space, this.guiheight, this.guiwidth, _scaleDronePosToGui, guidepotPos, 
+        this.housesPos);
       this.myGUI = _environmentGui;
       this.space.registerWeakParticipant(this);
       Start _start = new Start(this.droneBodies);
@@ -163,6 +174,8 @@ public class DroneSimulation implements EventListener {
       }
     }
     InputOutput.<String>println(((((((("les maisons etaient entre  : " + Double.valueOf(minValueX)) + ",") + Double.valueOf(maxValueX)) + " et ") + Double.valueOf(minValueY)) + ",") + Double.valueOf(maxValueY)));
+    this.minDataX = minValueX;
+    this.minDataY = minValueY;
     this.translatehousesPosTo0(minValueX, minValueY);
     ArrayList<Double> newboudaries = CollectionLiterals.<Double>newArrayList();
     newboudaries.add(Double.valueOf((maxValueX - minValueX)));
@@ -187,7 +200,10 @@ public class DroneSimulation implements EventListener {
 
   private void launchDepot() {
     try {
-      Vector2d initialPosition = Settings.DepotPos;
+      double _x = Settings.DepotPos.getX();
+      double _y = Settings.DepotPos.getY();
+      Vector2d initialPosition = new Vector2d((_x - (this.minDataX * 0.9)), (_y - (this.minDataY * 0.9)));
+      this.depotPos = initialPosition;
       UUID de = UUID.randomUUID();
       this.kernel.startAgentWithID(Depot.class, de, this.environment, initialPosition, "Depot", this.parcelToCreate, this.droneBodies);
       if (Settings.isLogActivated) {
@@ -206,7 +222,9 @@ public class DroneSimulation implements EventListener {
 
   private void launchDrone(final String droneName) {
     try {
-      Vector2d initialPosition = Settings.DepotPos;
+      double _x = Settings.DepotPos.getX();
+      double _y = Settings.DepotPos.getY();
+      Vector2d initialPosition = new Vector2d((_x - (this.minDataX * 0.9)), (_y - (this.minDataY * 0.9)));
       Vector2d initSpeed = new Vector2d();
       Objectiv objectiv = Objectiv.Charge;
       Object targetPos = null;
@@ -247,6 +265,39 @@ public class DroneSimulation implements EventListener {
     return CustomCSVReader.getHousesFromCSV(cityfilePath).values();
   }
 
+  public ConcurrentHashMap<UUID, PerceivedDroneBody> scaleDronePosToGui(final ConcurrentHashMap<UUID, PerceivedDroneBody> drones) {
+    ConcurrentHashMap<UUID, PerceivedDroneBody> guiPosDrones = new ConcurrentHashMap<UUID, PerceivedDroneBody>();
+    Set<Map.Entry<UUID, PerceivedDroneBody>> _entrySet = drones.entrySet();
+    for (final Map.Entry<UUID, PerceivedDroneBody> droneSet : _entrySet) {
+      {
+        PerceivedDroneBody droneBody = droneSet.getValue();
+        double _x = droneBody.getPosition().getX();
+        double _y = droneBody.getPosition().getY();
+        Vector2d droneGuiPos = new Vector2d(((_x * this.width) / this.guiwidth), ((_y * this.height) / this.guiheight));
+        UUID _owner = droneBody.getOwner();
+        Vector2d _vitesse = droneBody.getVitesse();
+        Objectiv _objectiv = droneBody.getObjectiv();
+        Vector2d _targetPos = droneBody.getTargetPos();
+        float _battery = droneBody.getBattery();
+        float _weight = droneBody.getWeight();
+        PerceivedDroneBody guiPerceivedDrone = new PerceivedDroneBody(_owner, droneGuiPos, _vitesse, _objectiv, _targetPos, _battery, _weight);
+        guiPosDrones.put(droneSet.getKey(), guiPerceivedDrone);
+      }
+    }
+    return guiPosDrones;
+  }
+
+  public ArrayList<Vector2d> scaleHousesPosForGui(final List<Vector2d> housesPosenv) {
+    ArrayList<Vector2d> newhp = new ArrayList<Vector2d>();
+    for (final Vector2d hp : housesPosenv) {
+      double _x = hp.getX();
+      double _y = hp.getY();
+      Vector2d _vector2d = new Vector2d(((_x * this.width) / this.guiwidth), ((_y * this.height) / this.guiheight));
+      newhp.add(_vector2d);
+    }
+    return newhp;
+  }
+
   @Override
   @Pure
   public UUID getID() {
@@ -259,7 +310,7 @@ public class DroneSimulation implements EventListener {
   @Override
   public void receiveEvent(final Event event) {
     if ((event instanceof GuiRepaint)) {
-      this.myGUI.setDrones(((GuiRepaint)event).perceivedAgentBody);
+      this.myGUI.setDrones(this.scaleDronePosToGui(((GuiRepaint)event).perceivedAgentBody));
       this.myGUI.repaint();
     }
   }
@@ -275,6 +326,10 @@ public class DroneSimulation implements EventListener {
     if (getClass() != obj.getClass())
       return false;
     DroneSimulation other = (DroneSimulation) obj;
+    if (Double.doubleToLongBits(other.minDataX) != Double.doubleToLongBits(this.minDataX))
+      return false;
+    if (Double.doubleToLongBits(other.minDataY) != Double.doubleToLongBits(this.minDataY))
+      return false;
     if (!Objects.equals(this.environment, other.environment))
       return false;
     if (other.width != this.width)
@@ -302,6 +357,8 @@ public class DroneSimulation implements EventListener {
   public int hashCode() {
     int result = super.hashCode();
     final int prime = 31;
+    result = prime * result + Double.hashCode(this.minDataX);
+    result = prime * result + Double.hashCode(this.minDataY);
     result = prime * result + Objects.hashCode(this.environment);
     result = prime * result + Integer.hashCode(this.width);
     result = prime * result + Integer.hashCode(this.height);
