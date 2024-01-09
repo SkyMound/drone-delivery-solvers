@@ -1195,3 +1195,110 @@ java.lang.ExceptionInInitializerError
 Caused by: java.lang.NullPointerException: Cannot invoke "org.osgi.framework.BundleContext.getProperty(String)" because the return value of "org.eclipse.equinox.internal.p2.artifact.repository.Activator.getContext()" is null
 	at org.eclipse.oomph.p2.internal.core.CachingRepositoryManager$Artifact.<clinit>(CachingRepositoryManager.java:571)
 	... 34 more
+!SESSION 2024-01-09 14:15:43.839 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=17.0.8
+java.vendor=OpenLogic
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=fr_FR
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.jface 2 0 2024-01-09 14:16:02.666
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2024-01-09 14:16:02.666
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.jdt.ui.navigate.open.type"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.lsp4e.symbolinworkspace"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.jdt.debug 2 0 2024-01-09 14:22:40.922
+!MESSAGE Unable to find location of java.lang.Thread.setName() in debuggee JVM, for type java.lang.Thread
+
+!ENTRY org.eclipse.jdt.debug 2 0 2024-01-09 14:23:58.294
+!MESSAGE Unable to find location of java.lang.Thread.setName() in debuggee JVM, for type java.lang.Thread
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 14:32:53.443
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 14:32:55.148
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 14:33:09.931
+!MESSAGE OperationCanceledException
+!STACK 0
+org.eclipse.core.runtime.OperationCanceledException
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.internalReadOnly(XtextDocument.java:540)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.readOnly(XtextDocument.java:497)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument.readOnly(XtextDocument.java:136)
+	at org.eclipse.xtext.util.concurrent.IReadAccess.tryReadOnly(IReadAccess.java:50)
+	at io.sarl.lang.ui.codemining.SARLCodeMiningProvider.lambda$0(SARLCodeMiningProvider.java:147)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(Unknown Source)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.exec(Unknown Source)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(Unknown Source)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(Unknown Source)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(Unknown Source)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(Unknown Source)
+
+!ENTRY org.eclipse.jdt.debug 2 0 2024-01-09 14:35:24.197
+!MESSAGE Unable to find location of java.lang.Thread.setName() in debuggee JVM, for type java.lang.Thread
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 14:37:15.479
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 14:37:25.157
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 14:37:25.249
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 14:37:25.842
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 14:37:42.155
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 14:37:42.326
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 14:41:39.914
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 14:41:43.124
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 14:41:43.227
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 14:43:31.607
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 14:43:31.711
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 14:43:32.298
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-09 14:43:40.026
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY org.eclipse.jdt.debug 2 0 2024-01-09 14:43:45.112
+!MESSAGE Unable to find location of java.lang.Thread.setName() in debuggee JVM, for type java.lang.Thread
+
+!ENTRY org.eclipse.jdt.debug 2 0 2024-01-09 14:44:09.828
+!MESSAGE Unable to find location of java.lang.Thread.setName() in debuggee JVM, for type java.lang.Thread
+
+!ENTRY org.eclipse.jdt.debug 2 0 2024-01-09 14:44:31.699
+!MESSAGE Unable to find location of java.lang.Thread.setName() in debuggee JVM, for type java.lang.Thread

@@ -525,20 +525,20 @@ public class Drone extends Agent {
   }
 
   @Pure
-  public Vector2d getPosition() {
+  protected Vector2d getPosition() {
     return this.position;
   }
 
-  public void setPosition(final Vector2d position) {
+  protected void setPosition(final Vector2d position) {
     this.position = position;
   }
 
   @Pure
-  public float getWeight() {
+  protected float getWeight() {
     return this.weight;
   }
 
-  public void setWeight(final float weight) {
+  protected void setWeight(final float weight) {
     this.weight = weight;
   }
 }

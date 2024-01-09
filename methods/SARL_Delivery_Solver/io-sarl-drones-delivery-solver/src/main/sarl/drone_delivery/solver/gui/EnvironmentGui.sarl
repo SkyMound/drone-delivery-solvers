@@ -166,15 +166,16 @@ package class EnvironmentGuiPanel extends Panel {
 	}
 
 	def paintDrone(g : Graphics, drone : PerceivedDroneBody) {
-		var posX = width + drone.position.x as int
-		var posY = height + drone.position.y as int
+		var posX = drone.position.x as int
+		var posY = drone.position.y as int
 		var direction = drone.vitesse.angle
 		var cos = direction.cos
 		var sin = direction.sin
 
 		g.color =  Color.GREEN
 
-		g.drawLine(posX + ( 5 * cos ) as int, posY + ( 5 * sin ) as int, posX - ( 2 * cos + 2 * sin ) as int,
+		g.drawLine(posX + ( 5 as int * cos ) as int, posY + ( 5 * sin ) as int,
+			posX - ( 2 * cos + 2 * sin ) as int,
 			posY - ( 2 * sin - 2 * cos ) as int)
 		g.drawLine(posX + ( 5 * cos ) as int, posY + ( 5 * sin ) as int, posX - ( 2 * cos - 2 * sin ) as int,
 			posY - ( 2 * sin + 2 * cos ) as int)
@@ -194,7 +195,7 @@ package class EnvironmentGuiPanel extends Panel {
 	}
 	
 	def paintDepot(g : Graphics, depotPos : Vector2d) {
-		var len = 3
+		var len = (width * 0.011) as int
 		var posX = depotPos.x as int
 		var posY = depotPos.y as int
 
@@ -220,13 +221,13 @@ package class EnvironmentGuiPanel extends Panel {
 	
 	
 	def paintHouse(g:Graphics,housePos : Vector2d){
-		var radius = 3
-		var posX = depotPos.x as int
-		var posY = depotPos.y as int
+		var radius = (width * 0.011) as int
+		var posX = housePos.x as int
+		var posY = housePos.y as int
 		
 		
 	    // Dessin du cercle
-	    g.color = Color.RED
+	    g.color = Color.BLACK
 	    g.drawOval(posX - radius, posY - radius, radius * 2, radius * 2)
 	
 	}

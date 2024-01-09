@@ -28,9 +28,9 @@ public interface Settings {
    */
   static final int pause = 0;
 
-  static final double DroneMaxSpeed = 7.5;
+  static final int DroneMaxSpeed = 30;
 
-  static final int SecondsPerCycle = 1;
+  static final int SecondsPerCycle = 20;
 
   static final float ChargePerSec = 0.01f;
 

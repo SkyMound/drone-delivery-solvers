@@ -27,9 +27,9 @@ interface Settings {
     public static val pause = 0
     
     
-    public static val DroneMaxSpeed = 7.5
+    public static val DroneMaxSpeed = 8.5
 
-	public static val SecondsPerCycle = 1
+	public static val SecondsPerCycle = 20
 	public static val ChargePerSec = 0.01f
 	public static val BatteryLostPerSec = 0.03f
 	public static val distMinLiv = 20
