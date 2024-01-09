@@ -20,7 +20,9 @@ import java.util.Objects;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 import org.arakhne.afc.math.geometry.d2.d.Vector2d;
+import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import org.eclipse.xtext.xbase.lib.Exceptions;
+import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.Pure;
 
@@ -48,6 +50,10 @@ public class DroneSimulation implements EventListener {
   private int width = Settings.EnvtWidth;
 
   private int height = Settings.EnvtHeight;
+
+  private int guiwidth = Settings.EnvtWidth;
+
+  private int guiheight = Settings.EnvtHeight;
 
   /**
    * Map buffering drones before launch/start
@@ -94,6 +100,11 @@ public class DroneSimulation implements EventListener {
     this.nbParcelinSim = nbParcel;
     this.housesPos = IterableExtensions.<Vector2d>toList(this.createHousePosList(cityfilePath));
     this.parcelToCreate = this.createParcelsList(cityfilePath, parcelfilePath);
+    ArrayList<Double> newNnvBoudaries = this.resizeEnvToModel();
+    Double _get = newNnvBoudaries.get(0);
+    this.width = ((Integer.valueOf((int) (((_get) == null ? 0 : (_get).doubleValue()) * 1.2))) == null ? 0 : (Integer.valueOf((int) (((_get) == null ? 0 : (_get).doubleValue()) * 1.2))).intValue());
+    Double _get_1 = newNnvBoudaries.get(1);
+    this.height = ((Integer.valueOf((int) (((_get_1) == null ? 0 : (_get_1).doubleValue()) * 1.2))) == null ? 0 : (Integer.valueOf((int) (((_get_1) == null ? 0 : (_get_1).doubleValue()) * 1.2))).intValue());
   }
 
   public void start() {
@@ -116,7 +127,7 @@ public class DroneSimulation implements EventListener {
       this.launchDepot();
       EventSpace _defaultSpace = this.defaultSARLContext.getDefaultSpace();
       this.space = ((OpenEventSpace) _defaultSpace);
-      EnvironmentGui _environmentGui = new EnvironmentGui(this.space, this.height, this.width, this.droneBodies, this.depotPos, this.housesPos);
+      EnvironmentGui _environmentGui = new EnvironmentGui(this.space, this.guiheight, this.guiwidth, this.droneBodies, this.depotPos, this.housesPos);
       this.myGUI = _environmentGui;
       this.space.registerWeakParticipant(this);
       Start _start = new Start(this.droneBodies);
@@ -124,6 +135,54 @@ public class DroneSimulation implements EventListener {
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }
+  }
+
+  private ArrayList<Double> resizeEnvToModel() {
+    double minValueX = this.housesPos.get(0).getX();
+    double minValueY = this.housesPos.get(0).getY();
+    double maxValueX = this.housesPos.get(0).getX();
+    double maxValueY = this.housesPos.get(0).getY();
+    for (final Vector2d value : this.housesPos) {
+      {
+        double _x = value.getX();
+        if ((_x < minValueX)) {
+          minValueX = value.getX();
+        }
+        double _y = value.getY();
+        if ((_y < minValueY)) {
+          minValueY = value.getY();
+        }
+        double _x_1 = value.getX();
+        if ((_x_1 > maxValueX)) {
+          maxValueX = value.getX();
+        }
+        double _y_1 = value.getY();
+        if ((_y_1 > maxValueY)) {
+          maxValueY = value.getY();
+        }
+      }
+    }
+    InputOutput.<String>println(((((((("les maisons etaient entre  : " + Double.valueOf(minValueX)) + ",") + Double.valueOf(maxValueX)) + " et ") + Double.valueOf(minValueY)) + ",") + Double.valueOf(maxValueY)));
+    this.translatehousesPosTo0(minValueX, minValueY);
+    ArrayList<Double> newboudaries = CollectionLiterals.<Double>newArrayList();
+    newboudaries.add(Double.valueOf((maxValueX - minValueX)));
+    newboudaries.add(Double.valueOf((maxValueY - minValueY)));
+    return newboudaries;
+  }
+
+  private List<Vector2d> translatehousesPosTo0(final double minX, final double minY) {
+    List<Vector2d> _xblockexpression = null;
+    {
+      ArrayList<Vector2d> newHousesPos = new ArrayList<Vector2d>();
+      for (final Vector2d house : this.housesPos) {
+        double _x = house.getX();
+        double _y = house.getY();
+        Vector2d _vector2d = new Vector2d((_x - (minX * 0.9)), (_y - (minY * 0.9)));
+        newHousesPos.add(_vector2d);
+      }
+      _xblockexpression = this.housesPos = newHousesPos;
+    }
+    return _xblockexpression;
   }
 
   private void launchDepot() {
@@ -222,6 +281,10 @@ public class DroneSimulation implements EventListener {
       return false;
     if (other.height != this.height)
       return false;
+    if (other.guiwidth != this.guiwidth)
+      return false;
+    if (other.guiheight != this.guiheight)
+      return false;
     if (other.dronesToLaunch != this.dronesToLaunch)
       return false;
     if (other.nbParcelinSim != this.nbParcelinSim)
@@ -242,6 +305,8 @@ public class DroneSimulation implements EventListener {
     result = prime * result + Objects.hashCode(this.environment);
     result = prime * result + Integer.hashCode(this.width);
     result = prime * result + Integer.hashCode(this.height);
+    result = prime * result + Integer.hashCode(this.guiwidth);
+    result = prime * result + Integer.hashCode(this.guiheight);
     result = prime * result + Integer.hashCode(this.dronesToLaunch);
     result = prime * result + Integer.hashCode(this.nbParcelinSim);
     result = prime * result + Integer.hashCode(this.dronesCount);
