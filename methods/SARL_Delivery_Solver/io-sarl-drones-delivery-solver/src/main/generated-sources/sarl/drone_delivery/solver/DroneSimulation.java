@@ -24,7 +24,6 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.arakhne.afc.math.geometry.d2.d.Vector2d;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import org.eclipse.xtext.xbase.lib.Exceptions;
-import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.Pure;
 
@@ -107,6 +106,8 @@ public class DroneSimulation implements EventListener {
     this.housesPos = IterableExtensions.<Vector2d>toList(this.createHousePosList(cityfilePath));
     this.parcelToCreate = this.createParcelsList(cityfilePath, parcelfilePath);
     ArrayList<Double> newNnvBoudaries = this.resizeEnvToModel();
+    this.translatehousesPosTo0(this.minDataX, this.minDataY);
+    this.translateParcelsPosTo0(this.minDataX, this.minDataY);
     Double _get = newNnvBoudaries.get(0);
     this.width = ((Integer.valueOf((int) (((_get) == null ? 0 : (_get).doubleValue()) * 1.2))) == null ? 0 : (Integer.valueOf((int) (((_get) == null ? 0 : (_get).doubleValue()) * 1.2))).intValue());
     Double _get_1 = newNnvBoudaries.get(1);
@@ -173,10 +174,8 @@ public class DroneSimulation implements EventListener {
         }
       }
     }
-    InputOutput.<String>println(((((((("les maisons etaient entre  : " + Double.valueOf(minValueX)) + ",") + Double.valueOf(maxValueX)) + " et ") + Double.valueOf(minValueY)) + ",") + Double.valueOf(maxValueY)));
     this.minDataX = minValueX;
     this.minDataY = minValueY;
-    this.translatehousesPosTo0(minValueX, minValueY);
     ArrayList<Double> newboudaries = CollectionLiterals.<Double>newArrayList();
     newboudaries.add(Double.valueOf((maxValueX - minValueX)));
     newboudaries.add(Double.valueOf((maxValueY - minValueY)));
@@ -194,6 +193,22 @@ public class DroneSimulation implements EventListener {
         newHousesPos.add(_vector2d);
       }
       _xblockexpression = this.housesPos = newHousesPos;
+    }
+    return _xblockexpression;
+  }
+
+  private List<Parcel> translateParcelsPosTo0(final double minX, final double minY) {
+    List<Parcel> _xblockexpression = null;
+    {
+      ArrayList<Parcel> newParcelsToCreate = new ArrayList<Parcel>();
+      for (final Parcel p : this.parcelToCreate) {
+        double _x = p.getHousePos().getX();
+        double _y = p.getHousePos().getY();
+        Vector2d _vector2d = new Vector2d((_x - minX), (_y - minY));
+        Parcel _parcel = new Parcel(p, _vector2d);
+        newParcelsToCreate.add(_parcel);
+      }
+      _xblockexpression = this.parcelToCreate = newParcelsToCreate;
     }
     return _xblockexpression;
   }

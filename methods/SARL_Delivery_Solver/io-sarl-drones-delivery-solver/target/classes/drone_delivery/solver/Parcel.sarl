@@ -20,6 +20,13 @@ class Parcel {
 		this.idOrder = other.idOrder
 	}
 
+	new(other : Parcel, newPos : Vector2d) {
+		this.housPos = newPos
+		this.weight = other.weight
+		this.ordertime = other.ordertime
+		this.idOrder = other.idOrder
+	} 
+
 	new(ihousPos : Vector2d, iweight : float, iordertime : int, iidOrder : int) {
 		this.housPos = ihousPos
 		this.weight = iweight

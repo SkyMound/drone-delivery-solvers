@@ -91,8 +91,8 @@ agent Environment{
 		vitesse += acceleration
 
 		// updating speed
-		if (vitesse.length > Settings::DroneMaxSpeed) {
-			vitesse.length = Settings::DroneMaxSpeed
+		if (vitesse.length > Settings::DroneMaxSpeed * Settings::SecondsPerCycle) {
+			vitesse.length = Settings::DroneMaxSpeed * Settings::SecondsPerCycle
 		}
 
 		// updating the position
@@ -104,31 +104,6 @@ agent Environment{
 		dd.vitesse = vitesse
 		dd.position = position
 
-		// we adjust it according to the dimensions of the World.
-		d.clampToWorld
-	}
-
-	/** 
-	 * The world is circular, this function clamps coordinates to stay within the frame
-	 */
-	def clampToWorld(b : PerceivedDroneBody) {
-		var posX = b.position.x
-		var posY = b.position.y
-
-		if (posX > width / 2) {
-			posX -= width
-		}
-		if (posX < ( -1 * width / 2 )) {
-			posX += width
-		}
-		if (posY > height / 2) {
-			posY -= height
-		}
-		if (posY < ( -1 * height / 2 )) {
-			posY += height
-		}
-
-		drones.get(b.owner).position = new Vector2d(posX, posY)
 	}
 
 }

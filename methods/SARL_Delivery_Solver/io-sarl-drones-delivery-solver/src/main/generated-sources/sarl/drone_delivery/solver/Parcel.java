@@ -29,6 +29,13 @@ public class Parcel {
     this.idOrder = other.idOrder;
   }
 
+  public Parcel(final Parcel other, final Vector2d newPos) {
+    this.housPos = newPos;
+    this.weight = other.weight;
+    this.ordertime = other.ordertime;
+    this.idOrder = other.idOrder;
+  }
+
   public Parcel(final Vector2d ihousPos, final float iweight, final int iordertime, final int iidOrder) {
     this.housPos = ihousPos;
     this.weight = iweight;

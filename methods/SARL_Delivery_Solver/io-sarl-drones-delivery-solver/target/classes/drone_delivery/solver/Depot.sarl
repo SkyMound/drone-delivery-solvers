@@ -11,6 +11,7 @@ import io.sarl.api.core.Lifecycle
 import java.util.concurrent.ConcurrentHashMap
 import java.util.UUID
 import java.util.List
+import java.util.ArrayList
 
 /** 
  * 
@@ -55,65 +56,79 @@ agent Depot {
 		}
 		this.todeliver = newArrayList
 	}
+	
 
-	on Perception {
+
+	on Perception { 
 		synchronized(drones){
 			drones = occurrence.perceivedAgentBody
-			
+			//TODO faire en sorte que ça lance le kill de tout les agent quand c'est vide et que tout les colis sont livrées (sinon ça fait une erreur ici
 			while (this.parcelToCreate.get(0).ordertime< occurrence.time){
 				todeliver.add(this.parcelToCreate.remove(0))
 			}
 			if (!todeliver.empty){
-				for (p : todeliver){
-					var droneToAffect = affecterDrone(p)
-					if (droneToAffect !== null ){
-						emit(new AffectOrder(p))[it.ID == droneToAffect]
+				var toremoveFromList = new ArrayList<Parcel>
+				var dronesAvailables = getDronesAtDepot
+				for (p : todeliver) {
+
+					var indexBestDrone = 0
+					var isreallyBest = false
+					//Choix du meilleur drone 
+					for (var i =0 ; i<dronesAvailables.length; i++){
+						//calcul de l'energie necessaire au voyage allé retour
+						var energyneed = energyneeded(p, dronesAvailables.get(i))
+						if (dronesAvailables.get(i).battery > energyneed) {
+							if (isreallyBest){
+								if (dronesAvailables.get(i).battery < dronesAvailables.get(indexBestDrone).battery) {
+									indexBestDrone = i
+									isreallyBest = true
+									
+								}
+							}
+							else {
+								indexBestDrone = i
+								isreallyBest = true
+								}
+						}
+					}
+					
+					//Affectation du drone
+					if (isreallyBest) {
+						info("Le Drone " + dronesAvailables.get(indexBestDrone) + "à été affecté au colis : " +
+							p.ordertime)
+						affecterDrone(dronesAvailables.get(indexBestDrone).owner, p)
+						dronesAvailables.remove(dronesAvailables.get(indexBestDrone))
+						toremoveFromList.add(p)
 					}
 				}
+				todeliver.removeAll(toremoveFromList)
 			}
 			in(50)[
 				emit(new UpdateAction(this.drones))
 			]
 		}		
 	}	
-	
-	on ValidateOrderReception{
-		
+	def affecterDrone(id : UUID, p : Parcel) {
+		emit(new AffectOrder(p))[it.ID == id]
 	}
-
-	def affecterDrone(parcel : Parcel){
-		var bestDrone = this.drones.values.get(0)
-		var isreallyBest = false
+	def getDronesAtDepot() {
+		var dronesAvailable = new ArrayList<PerceivedDroneBody>
 		for (drone : this.drones.values){
-			if(drone.objectiv == Objectiv.Charge){
-				var energyneed = energyneeded(parcel, drone)
-				if (drone.battery > energyneed) {
-					if(isreallyBest){
-						if (drone.battery < bestDrone.battery) {
-							bestDrone = drone
-						}
-					}
-					else
-					{
-						bestDrone = drone
-						isreallyBest = true
-					}
-				}
+			if (drone.objectiv == Objectiv.Charge) {
+				dronesAvailable.add(drone)
 			}
 		}
-		
-		return bestDrone.owner
+		return dronesAvailable
 	}
 	
 	def energyneeded(p : Parcel, drone : PerceivedDroneBody) {
 		// distancemax with with this particular package
-		var distance_max_with_package = Settings::DistMaxDrone * (drone.weight + p.weight) / drone.weight
+		var distance_max_with_package = Settings::DistMaxDrone * drone.weight / (drone.weight + p.weight)
 		var distance = Math.sqrt(Math.pow(p.housePos.x - drone.position.x, 2) +
 			Math.pow(p.housePos.y - drone.position.y, 2));
 		
 		
-		var percentage_battery_needed = distance * 100 / distance_max_with_package +
-			distance * 100 / Settings::DistMaxDrone
+		var percentage_battery_needed = distance * 100 / distance_max_with_package
 		// takeoff and landing
 		percentage_battery_needed +=
 			(drone.weight + p.weight) * Settings::DroneTakeoffRatio + Settings::DroneTakeoffBatteryLoss

@@ -94,6 +94,8 @@ class DroneSimulation implements EventListener {
 		housesPos = createHousePosList(cityfilePath).toList
 		parcelToCreate = createParcelsList(cityfilePath, parcelfilePath)
 		var newNnvBoudaries = resizeEnvToModel
+		translatehousesPosTo0(minDataX, minDataY)
+		translateParcelsPosTo0(minDataX, minDataY)
 
 		width = (newNnvBoudaries.get(0) * 1.2).toInteger
 		height = (newNnvBoudaries.get(1) * 1.2).toInteger
@@ -163,12 +165,8 @@ class DroneSimulation implements EventListener {
 
 			}
 		}
-		println("les maisons etaient entre  : " + minValueX + "," + maxValueX + " et " + minValueY + "," + maxValueY)
 		minDataX = minValueX
-		minDataY = minValueY
-		
-		translatehousesPosTo0(minValueX,minValueY)
-		
+		minDataY = minValueY		
 		
 		var newboudaries = newArrayList
 		newboudaries.add(maxValueX - minValueX)
@@ -182,6 +180,13 @@ class DroneSimulation implements EventListener {
 			newHousesPos.add(new Vector2d(house.x - minX, house.y - minY))
 		}
 		housesPos = newHousesPos
+	}
+	private def translateParcelsPosTo0(minX : double, minY : double) {
+		var newParcelsToCreate = new ArrayList<Parcel>
+		for (p : parcelToCreate) {
+			newParcelsToCreate.add(new Parcel(p, new Vector2d(p.housePos.x - minX, p.housePos.y - minY)))
+		}
+		parcelToCreate = newParcelsToCreate
 	}
 	
 	

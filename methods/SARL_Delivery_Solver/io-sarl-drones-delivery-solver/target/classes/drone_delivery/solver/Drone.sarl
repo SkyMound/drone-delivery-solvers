@@ -88,7 +88,7 @@ agent Drone {
 			// Update drones' speed and position according to the new environmental data
 			this.position = myBody.position
 			this.speed = myBody.vitesse
-			info("Le drone = " + ID + "est en " + position + " avec un vitesse de "+ speed)
+			//info("Le drone = " + ID + "est en " + position + " avec un vitesse de "+ speed)
 		}
 
 		in(Settings::pause) [
@@ -106,6 +106,7 @@ agent Drone {
 				if (closeEnoughToTarget(this.position, this.targetPos)) {
 					this.objectiv = Objectiv.Charge
 					this.targetPos = null
+					this.battery =0.0f
 					emit(new Action => [influence = new Vector2d])[it.ID == this.environment]
 				}
 				else {

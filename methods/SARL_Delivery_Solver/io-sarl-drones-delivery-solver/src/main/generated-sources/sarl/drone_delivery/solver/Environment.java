@@ -151,8 +151,8 @@ public class Environment extends Agent {
     Vector2d vitesse = d.getVitesse();
     vitesse.operator_add(acceleration);
     double _length = vitesse.getLength();
-    if ((_length > Settings.DroneMaxSpeed)) {
-      vitesse.setLength(Settings.DroneMaxSpeed);
+    if ((_length > (Settings.DroneMaxSpeed * Settings.SecondsPerCycle))) {
+      vitesse.setLength((Settings.DroneMaxSpeed * Settings.SecondsPerCycle));
     }
     Vector2d position = d.getPosition();
     position.operator_add(vitesse);
@@ -160,30 +160,6 @@ public class Environment extends Agent {
     dd.setAcceleration(acceleration);
     dd.setVitesse(vitesse);
     dd.setPosition(position);
-    this.clampToWorld(d);
-  }
-
-  /**
-   * The world is circular, this function clamps coordinates to stay within the frame
-   */
-  protected void clampToWorld(final PerceivedDroneBody b) {
-    double posX = b.getPosition().getX();
-    double posY = b.getPosition().getY();
-    if ((posX > (this.width / 2))) {
-      posX = (posX - this.width);
-    }
-    if ((posX < (((-1) * this.width) / 2))) {
-      posX = (posX + this.width);
-    }
-    if ((posY > (this.height / 2))) {
-      posY = (posY - this.height);
-    }
-    if ((posY < (((-1) * this.height) / 2))) {
-      posY = (posY + this.height);
-    }
-    PerceivedDroneBody _get = this.drones.get(b.getOwner());
-    Vector2d _vector2d = new Vector2d(posX, posY);
-    _get.setPosition(_vector2d);
   }
 
   @Extension

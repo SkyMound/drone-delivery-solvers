@@ -120,9 +120,6 @@ public class Drone extends Agent {
     if (((myBody != null) && Objects.equal(myBody.getOwner(), this.getID()))) {
       this.position = myBody.getPosition();
       this.speed = myBody.getVitesse();
-      Logging _$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER = this.$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER();
-      UUID _iD = this.getID();
-      _$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER.info(((((("Le drone = " + _iD) + "est en ") + this.position) + " avec un vitesse de ") + this.speed));
     }
     Schedules _$CAPACITY_USE$IO_SARL_API_CORE_SCHEDULES$CALLER = this.$CAPACITY_USE$IO_SARL_API_CORE_SCHEDULES$CALLER();
     final Procedure1<Agent> _function = (Agent it) -> {
@@ -173,6 +170,7 @@ public class Drone extends Agent {
           if (_closeEnoughToTarget) {
             this.objectiv = Objectiv.Charge;
             this.targetPos = null;
+            this.battery = 0.0f;
             DefaultContextInteractions _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_1 = this.$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER();
             Action _action_1 = new Action();
             final Procedure1<Action> _function_3 = (Action it_1) -> {
@@ -525,20 +523,20 @@ public class Drone extends Agent {
   }
 
   @Pure
-  protected Vector2d getPosition() {
+  public Vector2d getPosition() {
     return this.position;
   }
 
-  protected void setPosition(final Vector2d position) {
+  public void setPosition(final Vector2d position) {
     this.position = position;
   }
 
   @Pure
-  protected float getWeight() {
+  public float getWeight() {
     return this.weight;
   }
 
-  protected void setWeight(final float weight) {
+  public void setWeight(final float weight) {
     this.weight = weight;
   }
 }

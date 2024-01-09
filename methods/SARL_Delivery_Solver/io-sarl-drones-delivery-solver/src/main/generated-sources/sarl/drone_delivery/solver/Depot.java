@@ -20,6 +20,7 @@ import io.sarl.lang.core.annotation.SyntheticMember;
 import io.sarl.lang.core.scoping.extensions.cast.PrimitiveCastExtensions;
 import io.sarl.lang.core.util.SerializableProxy;
 import java.io.ObjectStreamException;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Set;
@@ -88,40 +89,43 @@ public class Depot extends Agent {
       }
       boolean _isEmpty = this.todeliver.isEmpty();
       if ((!_isEmpty)) {
+        ArrayList<Parcel> toremoveFromList = new ArrayList<Parcel>();
+        ArrayList<PerceivedDroneBody> dronesAvailables = this.getDronesAtDepot();
         for (final Parcel p : this.todeliver) {
           {
-            UUID droneToAffect = this.affecterDrone(p);
-            if ((droneToAffect != null)) {
-              DefaultContextInteractions _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER = this.$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER();
-              AffectOrder _affectOrder = new AffectOrder(p);
-              class $SerializableClosureProxy implements Scope<Address> {
-                
-                private final UUID droneToAffect;
-                
-                public $SerializableClosureProxy(final UUID droneToAffect) {
-                  this.droneToAffect = droneToAffect;
-                }
-                
-                @Override
-                public boolean matches(final Address it) {
-                  UUID _iD = it.getID();
-                  return Objects.equal(_iD, droneToAffect);
+            int indexBestDrone = 0;
+            boolean isreallyBest = false;
+            for (int i = 0; (i < ((Object[])Conversions.unwrapArray(dronesAvailables, Object.class)).length); i++) {
+              {
+                int energyneed = this.energyneeded(p, dronesAvailables.get(i));
+                float _battery = dronesAvailables.get(i).getBattery();
+                if ((_battery > energyneed)) {
+                  if (isreallyBest) {
+                    float _battery_1 = dronesAvailables.get(i).getBattery();
+                    float _battery_2 = dronesAvailables.get(indexBestDrone).getBattery();
+                    if ((_battery_1 < _battery_2)) {
+                      indexBestDrone = i;
+                      isreallyBest = true;
+                    }
+                  } else {
+                    indexBestDrone = i;
+                    isreallyBest = true;
+                  }
                 }
               }
-              final Scope<Address> _function = new Scope<Address>() {
-                @Override
-                public boolean matches(final Address it) {
-                  UUID _iD = it.getID();
-                  return Objects.equal(_iD, droneToAffect);
-                }
-                private Object writeReplace() throws ObjectStreamException {
-                  return new SerializableProxy($SerializableClosureProxy.class, droneToAffect);
-                }
-              };
-              _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER.emit(_affectOrder, _function);
+            }
+            if (isreallyBest) {
+              Logging _$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER = this.$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER();
+              PerceivedDroneBody _get = dronesAvailables.get(indexBestDrone);
+              int _ordertime = p.getOrdertime();
+              _$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER.info(((("Le Drone " + _get) + "à été affecté au colis : ") + Integer.valueOf(_ordertime)));
+              this.affecterDrone(dronesAvailables.get(indexBestDrone).getOwner(), p);
+              dronesAvailables.remove(dronesAvailables.get(indexBestDrone));
+              toremoveFromList.add(p);
             }
           }
         }
+        this.todeliver.removeAll(toremoveFromList);
       }
       Schedules _$CAPACITY_USE$IO_SARL_API_CORE_SCHEDULES$CALLER = this.$CAPACITY_USE$IO_SARL_API_CORE_SCHEDULES$CALLER();
       final Procedure1<Agent> _function = (Agent it) -> {
@@ -133,42 +137,56 @@ public class Depot extends Agent {
     }
   }
 
-  private void $behaviorUnit$ValidateOrderReception$2(final ValidateOrderReception occurrence) {
+  protected void affecterDrone(final UUID id, final Parcel p) {
+    DefaultContextInteractions _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER = this.$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER();
+    AffectOrder _affectOrder = new AffectOrder(p);
+    class $SerializableClosureProxy implements Scope<Address> {
+      
+      private final UUID id;
+      
+      public $SerializableClosureProxy(final UUID id) {
+        this.id = id;
+      }
+      
+      @Override
+      public boolean matches(final Address it) {
+        UUID _iD = it.getID();
+        return Objects.equal(_iD, id);
+      }
+    }
+    final Scope<Address> _function = new Scope<Address>() {
+      @Override
+      public boolean matches(final Address it) {
+        UUID _iD = it.getID();
+        return Objects.equal(_iD, id);
+      }
+      private Object writeReplace() throws ObjectStreamException {
+        return new SerializableProxy($SerializableClosureProxy.class, id);
+      }
+    };
+    _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER.emit(_affectOrder, _function);
   }
 
-  protected UUID affecterDrone(final Parcel parcel) {
-    PerceivedDroneBody bestDrone = ((PerceivedDroneBody[])Conversions.unwrapArray(this.drones.values(), PerceivedDroneBody.class))[0];
-    boolean isreallyBest = false;
+  @Pure
+  protected ArrayList<PerceivedDroneBody> getDronesAtDepot() {
+    ArrayList<PerceivedDroneBody> dronesAvailable = new ArrayList<PerceivedDroneBody>();
     Collection<PerceivedDroneBody> _values = this.drones.values();
     for (final PerceivedDroneBody drone : _values) {
       Objectiv _objectiv = drone.getObjectiv();
       boolean _equals = Objects.equal(_objectiv, Objectiv.Charge);
       if (_equals) {
-        int energyneed = this.energyneeded(parcel, drone);
-        float _battery = drone.getBattery();
-        if ((_battery > energyneed)) {
-          if (isreallyBest) {
-            float _battery_1 = drone.getBattery();
-            float _battery_2 = bestDrone.getBattery();
-            if ((_battery_1 < _battery_2)) {
-              bestDrone = drone;
-            }
-          } else {
-            bestDrone = drone;
-            isreallyBest = true;
-          }
-        }
+        dronesAvailable.add(drone);
       }
     }
-    return bestDrone.getOwner();
+    return dronesAvailable;
   }
 
   @Pure
   protected int energyneeded(final Parcel p, final PerceivedDroneBody drone) {
     float _weight = drone.getWeight();
-    float _weight_1 = p.getWeight();
-    float _weight_2 = drone.getWeight();
-    float distance_max_with_package = ((Settings.DistMaxDrone * (_weight + _weight_1)) / _weight_2);
+    float _weight_1 = drone.getWeight();
+    float _weight_2 = p.getWeight();
+    float distance_max_with_package = ((Settings.DistMaxDrone * _weight) / (_weight_1 + _weight_2));
     double _x = p.getHousePos().getX();
     double _x_1 = drone.getPosition().getX();
     double _pow = Math.pow((_x - _x_1), 2);
@@ -176,8 +194,7 @@ public class Depot extends Agent {
     double _y_1 = drone.getPosition().getY();
     double _pow_1 = Math.pow((_y - _y_1), 2);
     double distance = Math.sqrt((_pow + _pow_1));
-    double percentage_battery_needed = (((distance * 100) / distance_max_with_package) + 
-      ((distance * 100) / Settings.DistMaxDrone));
+    double percentage_battery_needed = ((distance * 100) / distance_max_with_package);
     float _weight_3 = drone.getWeight();
     float _weight_4 = p.getWeight();
     percentage_battery_needed = (percentage_battery_needed + 
@@ -258,19 +275,10 @@ public class Depot extends Agent {
   }
 
   @SyntheticMember
-  @PerceptGuardEvaluator
-  private void $guardEvaluator$ValidateOrderReception(final ValidateOrderReception occurrence, final Collection<Runnable> ___SARLlocal_runnableCollection) {
-    assert occurrence != null;
-    assert ___SARLlocal_runnableCollection != null;
-    ___SARLlocal_runnableCollection.add(() -> $behaviorUnit$ValidateOrderReception$2(occurrence));
-  }
-
-  @SyntheticMember
   @Override
   public void $getSupportedEvents(final Set<Class<? extends Event>> toBeFilled) {
     super.$getSupportedEvents(toBeFilled);
     toBeFilled.add(Perception.class);
-    toBeFilled.add(ValidateOrderReception.class);
     toBeFilled.add(Initialize.class);
   }
 
@@ -278,9 +286,6 @@ public class Depot extends Agent {
   @Override
   public boolean $isSupportedEvent(final Class<? extends Event> event) {
     if (Perception.class.isAssignableFrom(event)) {
-      return true;
-    }
-    if (ValidateOrderReception.class.isAssignableFrom(event)) {
       return true;
     }
     if (Initialize.class.isAssignableFrom(event)) {
@@ -296,10 +301,6 @@ public class Depot extends Agent {
     if (event instanceof Perception) {
       final Perception occurrence = (Perception) event;
       $guardEvaluator$Perception(occurrence, callbacks);
-    }
-    if (event instanceof ValidateOrderReception) {
-      final ValidateOrderReception occurrence = (ValidateOrderReception) event;
-      $guardEvaluator$ValidateOrderReception(occurrence, callbacks);
     }
     if (event instanceof Initialize) {
       final Initialize occurrence = (Initialize) event;
