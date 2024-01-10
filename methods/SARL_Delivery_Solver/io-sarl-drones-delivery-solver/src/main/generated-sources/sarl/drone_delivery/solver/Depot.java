@@ -151,14 +151,14 @@ public class Depot extends Agent {
           }
           this.todeliver.removeAll(toremoveFromList);
         }
-        Schedules _$CAPACITY_USE$IO_SARL_API_CORE_SCHEDULES$CALLER = this.$CAPACITY_USE$IO_SARL_API_CORE_SCHEDULES$CALLER();
-        final Procedure1<Agent> _function = (Agent it) -> {
-          DefaultContextInteractions _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_1 = this.$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER();
-          UpdateAction _updateAction = new UpdateAction(this.drones, this.position);
-          _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_1.emit(_updateAction);
-        };
-        _$CAPACITY_USE$IO_SARL_API_CORE_SCHEDULES$CALLER.in(50, _function);
       }
+      Schedules _$CAPACITY_USE$IO_SARL_API_CORE_SCHEDULES$CALLER = this.$CAPACITY_USE$IO_SARL_API_CORE_SCHEDULES$CALLER();
+      final Procedure1<Agent> _function = (Agent it) -> {
+        DefaultContextInteractions _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_1 = this.$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER();
+        UpdateAction _updateAction = new UpdateAction(this.drones, this.position);
+        _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_1.emit(_updateAction);
+      };
+      _$CAPACITY_USE$IO_SARL_API_CORE_SCHEDULES$CALLER.in(50, _function);
     }
   }
 

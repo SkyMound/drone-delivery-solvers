@@ -121,11 +121,11 @@ agent Depot {
 					}
 					todeliver.removeAll(toremoveFromList)
 				}
-				in(50)[
-					emit(new UpdateAction(this.drones, this.position))
-				]
-			}	
-		
+				}	
+			in(50)[
+				emit(new UpdateAction(this.drones, this.position))
+			]
+	
 		}	
 	}
 	

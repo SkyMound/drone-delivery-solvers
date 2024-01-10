@@ -20,16 +20,26 @@ class DroneDeliveryLauncher {
 	
 	static def main(args : String*) {
 		
-		var nbDrones =10
-		var nbParcel = 100
+		var nbDrones = Settings::nbDrones
+		var nbParcel = Settings::nbColis
 		var cityfilePath = getResourcePath("src\\main\\resources\\smallCity_100.csv")
 		var parcelfilePath = getResourcePath("src\\main\\resources\\packagesSmallCity_100.csv")
 	
 		var simu = new DroneSimulation(nbDrones, nbParcel, cityfilePath, parcelfilePath)
 		
 		simu.start
-		print(" sfd")
-		return
+		
+		try{
+			simu.finished
+			System.out.flush
+			
+			System.exit(0)
+
+		}
+		catch(e : Exception){
+			print(e)
+			return
+		}
 		
 		
 	}

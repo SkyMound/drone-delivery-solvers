@@ -113,6 +113,12 @@ class DroneSimulation implements EventListener {
 		killAllAgent
 		isSimulationStarted = false
 	}
+	def finished : boolean{
+		while(isSimulationStarted){
+			
+		}
+		return true
+	}
 
 	private def launchAllAgents : void {
 
@@ -229,7 +235,7 @@ class DroneSimulation implements EventListener {
 	private def killAllAgent : void {
 		// do something if you want to
 		^space.emit(UUID.randomUUID, new Die)
-		println("SystemExit")
+		this.myGUI.dispose
 	}
 	
 	
@@ -284,7 +290,7 @@ class DroneSimulation implements EventListener {
 			this.myGUI.repaint
 		}
 		if ( ^event instanceof GeneralSepuku){
-			killAllAgent
+			stop
 		}
 	}
 }

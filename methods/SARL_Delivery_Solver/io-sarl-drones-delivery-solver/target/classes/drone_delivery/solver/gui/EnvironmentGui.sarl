@@ -129,7 +129,7 @@ package class EnvironmentGuiPanel extends Panel {
 
 	override paint(g : Graphics) {
 		if ((myCanvas !== null) && (myGraphics !== null)) {
-			val bgColor = new Color(0.6F, 0.6F, 0.6F)
+			val bgColor = new Color(255F / 255, 236F / 255, 209F / 255)
 			myCanvas.color = bgColor
 			myCanvas.fillRect(0, 0, width * 2 - 1, height * 2 - 1)
 			myCanvas.setColor(Color::BLACK)
@@ -146,7 +146,6 @@ package class EnvironmentGuiPanel extends Panel {
 			}
 			
 			myGraphics.drawImage(myImage, 0, 0, this)
-			var test = 1
 		}
 	}
 
@@ -166,13 +165,13 @@ package class EnvironmentGuiPanel extends Panel {
 	}
 
 	def paintDrone(g : Graphics, drone : PerceivedDroneBody) {
-		var posX = drone.position.x as int
-		var posY = drone.position.y as int
+		var posX = (drone.position.x + 10) as int
+		var posY = (drone.position.y + 10) as int
 		var direction = drone.vitesse.angle
 		var cos = direction.cos
 		var sin = direction.sin
 
-		g.color =  Color.GREEN
+		g.color = new Color(21F / 255, 97f / 255, 109F / 255)
 
 		g.drawLine(posX + ( 5 as int * cos ) as int, posY + ( 5 * sin ) as int,
 			posX - ( 2 * cos + 2 * sin ) as int,
@@ -195,9 +194,9 @@ package class EnvironmentGuiPanel extends Panel {
 	}
 	
 	def paintDepot(g : Graphics, depotPos : Vector2d) {
-		var len = (width * 0.011) as int
-		var posX = depotPos.x as int
-		var posY = depotPos.y as int
+		var len = (width * 0.03) as int
+		var posX = (depotPos.x +10) as int
+		var posY = (depotPos.y + 10) as int
 
 		// Calcul des coordonnées des coins du carré
 		var x1 = posX - len / 2
@@ -210,7 +209,7 @@ package class EnvironmentGuiPanel extends Panel {
 		var y4 = posY + len / 2
 
 		// Dessin du carré
-    	g.color = Color.BLUE
+		g.color = new Color(255F / 255, 125F / 255, 0F / 255)
 		g.drawLine(x1, y1, x2, y2)
 		g.drawLine(x2, y2, x3, y3)
 		g.drawLine(x3, y3, x4, y4)
@@ -221,13 +220,13 @@ package class EnvironmentGuiPanel extends Panel {
 	
 	
 	def paintHouse(g:Graphics,housePos : Vector2d){
-		var radius = (width * 0.011) as int
-		var posX = housePos.x as int
-		var posY = housePos.y as int
+		var radius = (width * 0.008) as int
+		var posX = (housePos.x + 10) as int
+		var posY = (housePos.y +10) as int
 		
 		
 	    // Dessin du cercle
-	    g.color = Color.BLACK
+		g.color = new Color(0F / 255, 21F / 255, 36F / 255)
 	    g.drawOval(posX - radius, posY - radius, radius * 2, radius * 2)
 	
 	}

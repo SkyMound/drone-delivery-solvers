@@ -73,7 +73,7 @@ class EnvironmentGuiPanel extends Panel {
   @Override
   public void paint(final Graphics g) {
     if (((this.myCanvas != null) && (this.myGraphics != null))) {
-      final Color bgColor = new Color(0.6F, 0.6F, 0.6F);
+      final Color bgColor = new Color((255F / 255), (236F / 255), (209F / 255));
       this.myCanvas.setColor(bgColor);
       this.myCanvas.fillRect(0, 0, ((this.width * 2) - 1), ((this.height * 2) - 1));
       this.myCanvas.setColor(Color.BLACK);
@@ -87,7 +87,6 @@ class EnvironmentGuiPanel extends Panel {
         this.paintDrone(this.myCanvas, drone);
       }
       this.myGraphics.drawImage(this.myImage, 0, 0, this);
-      int test = 1;
     }
   }
 
@@ -107,13 +106,14 @@ class EnvironmentGuiPanel extends Panel {
 
   public void paintDrone(final Graphics g, final PerceivedDroneBody drone) {
     double _x = drone.getPosition().getX();
-    int posX = ((int) _x);
+    int posX = ((int) (_x + 10));
     double _y = drone.getPosition().getY();
-    int posY = ((int) _y);
+    int posY = ((int) (_y + 10));
     double direction = EnvironmentGuiPanel.getAngle(drone.getVitesse());
     double cos = Math.cos(direction);
     double sin = Math.sin(direction);
-    g.setColor(Color.GREEN);
+    Color _color = new Color((21F / 255), (97f / 255), (109F / 255));
+    g.setColor(_color);
     g.drawLine((posX + ((int) (5 * cos))), (posY + ((int) (5 * sin))), 
       (posX - ((int) ((2 * cos) + (2 * sin)))), 
       (posY - ((int) ((2 * sin) - (2 * cos)))));
@@ -155,11 +155,11 @@ class EnvironmentGuiPanel extends Panel {
   }
 
   public void paintDepot(final Graphics g, final Vector2d depotPos) {
-    int len = ((int) (this.width * 0.011));
+    int len = ((int) (this.width * 0.03));
     double _x = depotPos.getX();
-    int posX = ((int) _x);
+    int posX = ((int) (_x + 10));
     double _y = depotPos.getY();
-    int posY = ((int) _y);
+    int posY = ((int) (_y + 10));
     int x1 = (posX - (len / 2));
     int y1 = (posY - (len / 2));
     int x2 = (posX + (len / 2));
@@ -168,7 +168,8 @@ class EnvironmentGuiPanel extends Panel {
     int y3 = (posY + (len / 2));
     int x4 = (posX - (len / 2));
     int y4 = (posY + (len / 2));
-    g.setColor(Color.BLUE);
+    Color _color = new Color((255F / 255), (125F / 255), (0F / 255));
+    g.setColor(_color);
     g.drawLine(x1, y1, x2, y2);
     g.drawLine(x2, y2, x3, y3);
     g.drawLine(x3, y3, x4, y4);
@@ -176,12 +177,13 @@ class EnvironmentGuiPanel extends Panel {
   }
 
   public void paintHouse(final Graphics g, final Vector2d housePos) {
-    int radius = ((int) (this.width * 0.011));
+    int radius = ((int) (this.width * 0.008));
     double _x = housePos.getX();
-    int posX = ((int) _x);
+    int posX = ((int) (_x + 10));
     double _y = housePos.getY();
-    int posY = ((int) _y);
-    g.setColor(Color.BLACK);
+    int posY = ((int) (_y + 10));
+    Color _color = new Color((0F / 255), (21F / 255), (36F / 255));
+    g.setColor(_color);
     g.drawOval((posX - radius), (posY - radius), (radius * 2), (radius * 2));
   }
 
