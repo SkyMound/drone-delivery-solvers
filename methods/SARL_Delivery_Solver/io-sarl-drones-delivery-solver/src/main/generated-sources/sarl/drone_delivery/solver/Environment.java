@@ -145,11 +145,9 @@ public class Environment extends Agent {
     }
   }
 
-  protected void applyForce(final Vector2d force, final PerceivedDroneBody d) {
-    Vector2d acceleration = d.getAcceleration();
-    acceleration.set(force);
+  protected void applyForce(final Vector2d speed, final PerceivedDroneBody d) {
     Vector2d vitesse = d.getVitesse();
-    vitesse.operator_add(acceleration);
+    vitesse = speed;
     double _length = vitesse.getLength();
     if ((_length > (Settings.DroneMaxSpeed * Settings.SecondsPerCycle))) {
       vitesse.setLength((Settings.DroneMaxSpeed * Settings.SecondsPerCycle));
@@ -157,7 +155,6 @@ public class Environment extends Agent {
     Vector2d position = d.getPosition();
     position.operator_add(vitesse);
     PerceivedDroneBody dd = this.drones.get(d.getOwner());
-    dd.setAcceleration(acceleration);
     dd.setVitesse(vitesse);
     dd.setPosition(position);
   }

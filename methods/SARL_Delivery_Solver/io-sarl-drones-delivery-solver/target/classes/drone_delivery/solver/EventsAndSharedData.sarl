@@ -13,7 +13,12 @@ event Die
 
 
 event Action {
-	var influence : Vector2d
+	val influence : Vector2d
+	val newDroneState : PerceivedDroneBody
+	new(inf : Vector2d, inewDroneState : PerceivedDroneBody){
+		influence = new Vector2d(inf)
+		newDroneState = new PerceivedDroneBody(inewDroneState)
+	}
 }
 
 
@@ -25,8 +30,6 @@ event Perception {
 		time = newtime;
 	}
 }
-
-event ValidateOrderReception
 
 event UpdateAction {
 	val perceivedAgentBody : ConcurrentHashMap<UUID, PerceivedDroneBody>
@@ -108,8 +111,16 @@ class PerceivedDroneBody {
 		targetPos = itargetPos
 		battery = ibattery
 		weight= iweight
-		
-		
 	}
-
+	
+	new (other : PerceivedDroneBody){
+		position = other.position
+		owner = other.owner
+		vitesse = other.vitesse
+		acceleration = other.acceleration
+		objectiv = other.objectiv
+		targetPos = other.targetPos
+		battery = other.battery
+		weight= other.weight
+		}
 }

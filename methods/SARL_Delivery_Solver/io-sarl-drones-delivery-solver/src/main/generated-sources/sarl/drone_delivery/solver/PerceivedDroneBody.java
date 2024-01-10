@@ -49,6 +49,17 @@ public class PerceivedDroneBody {
     this.weight = iweight;
   }
 
+  public PerceivedDroneBody(final PerceivedDroneBody other) {
+    this.position = other.position;
+    this.owner = other.owner;
+    this.vitesse = other.vitesse;
+    this.acceleration = other.acceleration;
+    this.objectiv = other.objectiv;
+    this.targetPos = other.targetPos;
+    this.battery = other.battery;
+    this.weight = other.weight;
+  }
+
   @Override
   @Pure
   @SyntheticMember

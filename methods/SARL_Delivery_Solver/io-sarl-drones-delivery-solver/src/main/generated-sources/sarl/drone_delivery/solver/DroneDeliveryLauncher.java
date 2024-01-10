@@ -26,8 +26,8 @@ public class DroneDeliveryLauncher {
   }
 
   public static void main(final String... args) {
-    int nbDrones = 20;
-    int nbParcel = 20;
+    int nbDrones = 10;
+    int nbParcel = 100;
     String cityfilePath = DroneDeliveryLauncher.getResourcePath("src\\main\\resources\\smallCity_100.csv");
     String parcelfilePath = DroneDeliveryLauncher.getResourcePath("src\\main\\resources\\packagesSmallCity_100.csv");
     DroneSimulation simu = new DroneSimulation(nbDrones, nbParcel, cityfilePath, parcelfilePath);

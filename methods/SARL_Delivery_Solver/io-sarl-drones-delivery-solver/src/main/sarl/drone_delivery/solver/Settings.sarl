@@ -27,12 +27,12 @@ interface Settings {
     public static val pause = 0
     
     
-    public static val DroneMaxSpeed = 8.5
+    public static val DroneMaxSpeed = 8.5 //m/s
 
-	public static val SecondsPerCycle = 60
+	public static val SecondsPerCycle = 30
 	public static val ChargePerSec = 0.01f
 	public static val BatteryLostPerSec = 0.03f
-	public static val distMinLiv = 100
+	public static val distMinLiv = 50
 	
 	public static val DepotPos = new Vector2d(2461228,3984254)
 	

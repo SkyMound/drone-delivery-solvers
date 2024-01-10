@@ -20,8 +20,8 @@ class DroneDeliveryLauncher {
 	
 	static def main(args : String*) {
 		
-		var nbDrones = 20
-		var nbParcel = 20
+		var nbDrones =10
+		var nbParcel = 100
 		var cityfilePath = getResourcePath("src\\main\\resources\\smallCity_100.csv")
 		var parcelfilePath = getResourcePath("src\\main\\resources\\packagesSmallCity_100.csv")
 	

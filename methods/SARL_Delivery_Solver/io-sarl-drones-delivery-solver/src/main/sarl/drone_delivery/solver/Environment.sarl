@@ -80,15 +80,10 @@ agent Environment{
 	
 
 
-	def applyForce(force : Vector2d, d : PerceivedDroneBody) {
-		//TODO ralentir à l'approche de la cible 
-		// contribution of the mass.
-		// force * (1 / b.getGroupe().masse);
-		// updating acceleration and speed.
-		var acceleration = d.acceleration
-		acceleration.set(force)
+	def applyForce(speed : Vector2d, d : PerceivedDroneBody) {
+
 		var vitesse = d.vitesse
-		vitesse += acceleration
+		vitesse = speed
 
 		// updating speed
 		if (vitesse.length > Settings::DroneMaxSpeed * Settings::SecondsPerCycle) {
@@ -100,7 +95,6 @@ agent Environment{
 		position += vitesse
 
 		var dd = drones.get(d.owner)
-		dd.acceleration = acceleration
 		dd.vitesse = vitesse
 		dd.position = position
 

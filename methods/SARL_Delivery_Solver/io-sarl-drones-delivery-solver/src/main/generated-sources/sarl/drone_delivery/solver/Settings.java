@@ -30,13 +30,13 @@ public interface Settings {
 
   static final double DroneMaxSpeed = 8.5;
 
-  static final int SecondsPerCycle = 60;
+  static final int SecondsPerCycle = 30;
 
   static final float ChargePerSec = 0.01f;
 
   static final float BatteryLostPerSec = 0.03f;
 
-  static final int distMinLiv = 100;
+  static final int distMinLiv = 50;
 
   static final Vector2d DepotPos = new Vector2d(2461228, 3984254);
 
