@@ -1,0 +1,268 @@
+
+package drone_delivery.solver.gui
+
+import io.sarl.api.core.OpenEventSpace
+import drone_delivery.solver.Die
+import java.awt.Color
+import java.awt.Frame
+import java.awt.Graphics
+import java.awt.Image
+import java.awt.Panel
+import java.awt.^event.WindowAdapter
+import java.awt.^event.WindowEvent
+import java.util.Map
+import java.util.UUID
+import org.arakhne.afc.math.geometry.d2.d.Vector2d
+import drone_delivery.solver.PerceivedDroneBody
+
+import static extension java.lang.Math.*
+import java.util.List
+import java.awt.BorderLayout
+import java.awt.TextField
+
+class EnvironmentGui extends Frame {
+
+	var handler : Closer
+
+	var panel : EnvironmentGuiPanel
+	var rightpanel : InfoPanel
+
+	new (comspace : OpenEventSpace, iheight : int, iwidth : int, idrones : Map<UUID, PerceivedDroneBody>,idepotPos:Vector2d, ihousesPos : List<Vector2d>) {
+		super()
+		this.setSize(iwidth, iheight)
+		
+		handler = new Closer(this, comspace)
+		panel = new EnvironmentGuiPanel(iheight, iwidth, idrones, idepotPos, ihousesPos)
+		
+		rightpanel = new InfoPanel(150, iwidth);
+		setLayout(new BorderLayout());
+		this.title = "Drone Delivery Simulation"
+		addWindowListener(handler)
+
+		add("East", rightpanel); // Add the panel to the right of the window
+		add("Center", panel)
+		this.visible = true
+	}
+
+	def setDrones(drones : Map<UUID, PerceivedDroneBody>){
+		this.panel.drones = drones
+	}
+	
+	def setDepotPos(depotpos : Vector2d) {
+		this.panel.depotPos = depotpos
+	}
+	def setHousesPos(housesPos : List<Vector2d>){
+		this.panel.housesPos = housesPos
+	}
+	
+	def updateDeliveriesMeanDuration(newduration : int){
+		rightpanel.updateMeanTime(newduration)
+	}
+
+	override paint(g : Graphics) {
+		super.paint(g)
+		this.panel.paint(g)
+	}
+
+}
+
+package class Closer extends WindowAdapter {
+	var ^space : OpenEventSpace
+	var iframe : Frame
+
+	new(parent : Frame, comspace : OpenEventSpace) {
+		^space = comspace
+		iframe = parent
+	}
+
+	/**
+	 * Clean the simulation asking the agents to die before disposing the window
+	 */
+	override windowClosing(^event : WindowEvent) {
+		^space.emit(UUID.randomUUID, new Die)
+		iframe.dispose();		
+	}
+
+}
+
+package class InfoPanel extends Panel{
+	var meanTimeText : TextField
+	var width : int
+	
+
+	var height : int
+	new (iheight : int, iwidth : int) {
+		super()
+		width = iwidth
+		height = iheight
+		meanTimeText = new TextField("0")
+		add(meanTimeText)
+
+	}
+	
+	def updateMeanTime(newMean : int) {
+		meanTimeText.text = newMean + " secondes"
+		
+	}
+	
+
+}
+
+/** 
+ * The GUI of the Simulation
+ * 
+ * @author <a href="http://www.ciad-lab.fr/nicolas_gaud">Nicolas Gaud</a>
+ */
+package class EnvironmentGuiPanel extends Panel {
+
+	/** 
+	 * Double buffering management.
+	 */
+	var myGraphics : Graphics
+
+	/** 
+	 * Double buffering management.
+	 */
+	var myCanvas : Graphics
+
+	/** 
+	 * Double buffering management.
+	 */
+	var myImage : Image
+
+	var width : int
+
+	var height : int
+
+	var drones : Map<UUID, PerceivedDroneBody>
+	
+	var depotPos : Vector2d
+	
+	var housesPos : List<Vector2d>
+
+	def setDrones(drones : Map<UUID, PerceivedDroneBody>) {
+		this.drones = drones
+	}
+	
+	def setDepotPos(depotPos : Vector2d) {
+		this.depotPos = depotPos
+	}
+	
+	def setHousesPos(housesPos : List<Vector2d>) {
+		this.housesPos= housesPos
+	}
+
+	new (iheight : int, iwidth : int, idrones : Map<UUID, PerceivedDroneBody>, idepotPos : Vector2d, ihousesPos : List<Vector2d>) {
+		super()
+		width = iwidth
+		height = iheight
+		drones = idrones
+		depotPos = idepotPos
+		housesPos = ihousesPos
+	}
+
+	override paint(g : Graphics) {
+		if ((myCanvas !== null) && (myGraphics !== null)) {
+			val bgColor = new Color(255F / 255, 236F / 255, 209F / 255)
+			myCanvas.color = bgColor
+			myCanvas.fillRect(0, 0, width * 2 - 1, height * 2 - 1)
+			myCanvas.setColor(Color::BLACK)
+			myCanvas.drawRect(0, 0, width * 2 - 1, height * 2 - 1)
+
+			paintDepot(myCanvas, depotPos)
+			
+			for (housePos : housesPos){
+				paintHouse(myCanvas,housePos)
+			}
+
+			for (drone : drones.values) {
+				paintDrone(myCanvas, drone)
+			}
+			
+			myGraphics.drawImage(myImage, 0, 0, this)
+		}
+	}
+
+	def update(g : Graphics) {
+		g.paint
+	}
+
+	override doLayout {
+		super.doLayout
+
+		width = (this.size.width / 2)
+		height = this.size.height / 2
+
+		myImage = createImage(width * 2, height * 2)
+		myCanvas = myImage.graphics
+		myGraphics = this.graphics
+	}
+
+	def paintDrone(g : Graphics, drone : PerceivedDroneBody) {
+		var posX = (drone.position.x + 10) as int
+		var posY = (drone.position.y + 10) as int
+		var direction = drone.vitesse.angle
+		var cos = direction.cos
+		var sin = direction.sin
+
+		g.color = new Color(21F / 255, 97f / 255, 109F / 255)
+
+		g.drawLine(posX + ( 5 as int * cos ) as int, posY + ( 5 * sin ) as int,
+			posX - ( 2 * cos + 2 * sin ) as int,
+			posY - ( 2 * sin - 2 * cos ) as int)
+		g.drawLine(posX + ( 5 * cos ) as int, posY + ( 5 * sin ) as int, posX - ( 2 * cos - 2 * sin ) as int,
+			posY - ( 2 * sin + 2 * cos ) as int)
+		g.drawLine(posX - ( 2 * cos + 2 * sin ) as int, posY - ( 2 * sin - 2 * cos ) as int,
+			posX - ( 2 * cos - 2 * sin ) as int, posY - ( 2 * sin + 2 * cos ) as int)
+	}
+
+	private static def getAngle(v : Vector2d) : double {
+		var zero = 1E-9
+		if ((v.x * v.x) < zero) {
+			if(v.y >= 0) return (PI / 2)
+			return (-1 * PI / 2)
+		}
+		if(v.x >= 0) return (v.y / v.x).atan
+		if(v.y >= 0) return ( PI + (v.y / v.x).atan )
+		return ( (v.y / v.x).atan - PI )
+	}
+	
+	def paintDepot(g : Graphics, depotPos : Vector2d) {
+		var len = (width * 0.03) as int
+		var posX = (depotPos.x +10) as int
+		var posY = (depotPos.y + 10) as int
+
+		// Calcul des coordonnées des coins du carré
+		var x1 = posX - len / 2
+		var y1 = posY - len / 2
+		var x2 = posX + len / 2
+		var y2 = posY - len / 2
+		var x3 = posX + len / 2
+		var y3 = posY + len / 2
+		var x4 = posX - len / 2
+		var y4 = posY + len / 2
+
+		// Dessin du carré
+		g.color = new Color(255F / 255, 125F / 255, 0F / 255)
+		g.drawLine(x1, y1, x2, y2)
+		g.drawLine(x2, y2, x3, y3)
+		g.drawLine(x3, y3, x4, y4)
+		g.drawLine(x4, y4, x1, y1)
+	}
+
+
+	
+	
+	def paintHouse(g:Graphics,housePos : Vector2d){
+		var radius = (width * 0.008) as int
+		var posX = (housePos.x + 10) as int
+		var posY = (housePos.y +10) as int
+		
+		
+	    // Dessin du cercle
+		g.color = new Color(0F / 255, 21F / 255, 36F / 255)
+	    g.drawOval(posX - radius, posY - radius, radius * 2, radius * 2)
+	
+	}
+
+}

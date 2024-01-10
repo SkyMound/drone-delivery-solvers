@@ -150,6 +150,10 @@ public class Drone extends Agent {
             if (_closeEnoughToTarget_1) {
               Logging _$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER_1 = this.$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER();
               _$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER_1.info(" est assez proche de sa cible");
+              DefaultContextInteractions _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER = this.$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER();
+              int _ordertime = this.parcel.getOrdertime();
+              ParcelDelivered _parcelDelivered = new ParcelDelivered((occurrence.time - _ordertime));
+              _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER.emit(_parcelDelivered);
               this.objectiv = Objectiv.BackLiv;
               this.targetPos = occurrence.depotPos;
               this.parcel = null;
@@ -163,9 +167,9 @@ public class Drone extends Agent {
       myBody.setBattery(this.battery);
       myBody.setObjectiv(this.objectiv);
       myBody.setTargetPos(this.targetPos);
-      DefaultContextInteractions _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER = this.$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER();
+      DefaultContextInteractions _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_1 = this.$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER();
       Action _action = new Action(influence, myBody);
-      _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER.emit(_action);
+      _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_1.emit(_action);
     };
     _$CAPACITY_USE$IO_SARL_API_CORE_SCHEDULES$CALLER.in(Settings.pause, _function);
   }

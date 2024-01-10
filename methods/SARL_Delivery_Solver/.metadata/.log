@@ -9954,3 +9954,2078 @@ java.lang.Error: SWT Resource was not properly disposed
 
 !ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:24:14.392
 !MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:33:38.536
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Depot.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:33:39.056
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Depot.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:33:44.019
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Depot.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:33:44.920
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:33:44.920
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:33:44.933
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Depot.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:33:44.959
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Depot.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:33:44.960
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneDeliveryLauncher.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:33:46.267
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneDeliveryLauncher.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:33:46.273
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneDeliveryLauncher.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:33:46.290
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Depot.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:33:46.834
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Depot.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:33:46.835
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneDeliveryLauncher.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:33:46.850
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Depot.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:33:46.885
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:35:38.534
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:35:39.141
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:35:41.647
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:35:43.206
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:35:43.796
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:35:50.832
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:35:50.838
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:35:50.851
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Depot.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:35:52.031
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:35:52.034
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:35:52.035
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Depot.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:35:52.045
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Depot.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:35:56.138
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:35:56.142
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:35:56.144
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Depot.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:35:57.272
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:35:57.275
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:35:59.708
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:35:59.710
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:36:00.640
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:36:00.642
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:36:02.192
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:36:02.199
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:36:04.584
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:36:04.588
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:36:04.604
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Depot.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:36:04.614
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Depot.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:36:07.216
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:36:07.225
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:36:07.226
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Depot.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:36:08.943
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:36:08.950
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:36:10.887
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:36:10.889
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:36:26.912
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:36:26.918
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:36:29.412
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:36:29.414
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:36:30.278
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:36:30.281
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:36:31.290
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:36:31.292
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:36:32.359
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:36:32.364
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:36:35.437
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:36:35.451
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:36:36.870
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:36:36.873
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:36:40.789
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:36:42.644
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:36:44.490
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:37:04.051
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:37:10.956
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:37:11.646
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:37:11.672
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:37:11.673
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/EventsAndSharedData.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:37:11.689
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Depot.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:37:11.689
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneDeliveryLauncher.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:37:12.816
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneDeliveryLauncher.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:37:12.822
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneDeliveryLauncher.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:37:12.830
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Depot.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:37:12.839
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Depot.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:37:12.848
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:37:12.859
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:37:12.865
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/EventsAndSharedData.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:37:13.244
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/EventsAndSharedData.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:37:13.247
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneDeliveryLauncher.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:37:13.257
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Depot.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:37:13.271
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:37:24.358
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:37:24.359
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:37:24.372
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:37:38.698
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/EventsAndSharedData.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:37:38.711
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:37:38.712
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneDeliveryLauncher.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:37:38.717
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Depot.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:37:38.719
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Depot.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:37:38.766
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:37:38.767
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:37:38.774
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:37:39.201
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneDeliveryLauncher.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:37:39.207
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneDeliveryLauncher.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:37:39.235
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Depot.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:37:39.244
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Depot.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:37:39.252
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:37:39.261
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:37:39.269
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/EventsAndSharedData.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:37:39.280
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:37:39.291
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:37:39.933
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneDeliveryLauncher.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:37:39.936
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/EventsAndSharedData.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:37:39.955
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Depot.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:37:39.965
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:37:39.981
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:39:57.375
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:39:57.478
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:39:57.523
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:39:57.558
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:39:57.558
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:39:57.905
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:40:05.878
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:43:00.018
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:43:00.899
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:47:02.017
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:47:08.394
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:47:13.560
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:49:14.381
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:49:14.382
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:49:14.395
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:49:16.449
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:49:16.451
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:49:16.460
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:49:19.380
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:49:19.406
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:49:19.406
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:49:21.990
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:49:21.991
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:49:22.006
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:51:00.160
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:51:00.192
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:51:00.192
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:51:02.466
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:51:02.572
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:51:03.101
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:51:03.106
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:51:03.108
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:51:03.123
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:51:15.079
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:51:15.746
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:51:15.748
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:51:15.762
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:51:16.005
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:51:16.159
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:51:16.651
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:51:16.653
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:51:16.680
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:51:16.680
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:51:26.239
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:51:27.204
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:51:27.226
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:51:27.242
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:51:27.246
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:51:27.250
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:51:27.876
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:51:27.888
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:51:27.896
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:51:27.905
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:51:28.134
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:51:28.160
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:51:28.169
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:51:28.174
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:51:28.178
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:51:28.184
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:51:53.745
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:51:54.623
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:51:54.659
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:51:54.662
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:51:55.348
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:51:55.384
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:51:55.385
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:51:56.290
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:51:56.291
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:51:56.303
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:51:57.804
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:51:57.836
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:51:57.837
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:52:00.315
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:52:00.321
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:52:00.332
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:52:05.842
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:52:05.844
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:52:05.859
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:52:09.782
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:52:09.890
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:52:10.367
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:52:10.369
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:52:10.399
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:52:10.400
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:52:12.680
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:52:13.040
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:52:13.171
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:52:13.673
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:52:13.680
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:52:13.701
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:52:13.710
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:52:18.167
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:52:19.158
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:52:19.262
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:52:19.733
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:52:19.741
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:52:19.763
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:52:19.763
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:52:52.027
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:52:53.260
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:52:53.270
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:52:53.270
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:52:55.988
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:52:55.992
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:52:56.004
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:52:56.067
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:52:56.230
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:52:56.653
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:52:56.655
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:52:56.683
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:52:56.683
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:53:19.791
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:53:19.800
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:53:21.131
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:53:21.166
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:53:21.167
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:53:34.147
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:53:34.150
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:53:34.158
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:53:35.519
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:53:35.520
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:53:35.527
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:53:38.715
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:53:38.716
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:53:38.729
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:53:39.937
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:53:39.938
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:53:39.953
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:53:42.212
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:53:42.214
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:53:42.218
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:53:46.735
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:53:46.736
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:53:46.747
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:53:59.650
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:53:59.652
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:53:59.665
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:54:02.467
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:54:02.499
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:54:02.500
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:54:04.122
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:54:04.157
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:54:04.158
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:54:14.266
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:54:14.298
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:54:14.299
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:54:26.772
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:54:26.773
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:54:26.786
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:54:27.942
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:54:27.948
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:54:27.958
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:54:28.759
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:54:28.787
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:54:28.788
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:54:30.022
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:54:30.023
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:54:30.036
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:54:31.461
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:54:31.462
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:54:31.485
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:54:32.606
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:54:32.914
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:54:32.915
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:54:33.484
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:54:33.486
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:54:33.497
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:54:39.931
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:54:39.968
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:54:39.969
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:54:43.740
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:54:43.766
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:54:43.776
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:54:47.064
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:54:47.066
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:54:47.080
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:54:48.019
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:54:48.065
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:54:48.067
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:54:50.401
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:54:50.403
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:54:50.417
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:54:53.157
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:54:53.159
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:54:53.174
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:54:53.737
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:54:53.851
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:54:54.329
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:54:54.330
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:54:54.360
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:54:54.360
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:54:58.855
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:55:13.054
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:55:13.165
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:55:13.172
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:55:16.539
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:55:16.551
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:55:17.339
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:55:17.345
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:55:17.346
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:56:11.311
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:56:12.746
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:56:13.254
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:56:28.686
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:56:28.794
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:56:28.843
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:56:28.843
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:56:29.162
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 14:56:37.718
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:01:42.185
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:01:42.186
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:01:42.198
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:01:42.199
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:01:43.453
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:01:43.934
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:01:43.962
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:01:43.999
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:03:17.082
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:03:17.199
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:03:17.708
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:03:19.190
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY org.eclipse.oomph.p2.core 4 0 2024-01-10 15:03:45.176
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Exception in org.eclipse.oomph.p2.internal.core.P2CorePlugin$Implementation.stop() of bundle org.eclipse.oomph.p2.core.
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.stop(BundleContextImpl.java:895)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.stopWorker0(EquinoxBundle.java:1046)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.stopWorker(EquinoxBundle.java:376)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:660)
+	at org.eclipse.osgi.container.Module.stop(Module.java:521)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.decStartLevel(ModuleContainer.java:1893)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1768)
+	at org.eclipse.osgi.container.SystemModule.stopWorker(SystemModule.java:275)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule.stopWorker(EquinoxBundle.java:208)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:660)
+	at org.eclipse.osgi.container.Module.stop(Module.java:521)
+	at org.eclipse.osgi.container.SystemModule.stop(SystemModule.java:207)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:226)
+	at java.base/java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.ExceptionInInitializerError
+	at org.eclipse.oomph.p2.internal.core.AgentImpl.initializeProvisioningAgent(AgentImpl.java:597)
+	at org.eclipse.oomph.p2.internal.core.AgentImpl.getProvisioningAgent(AgentImpl.java:695)
+	at org.eclipse.oomph.p2.internal.core.AgentImpl.getProfileRegistry(AgentImpl.java:339)
+	at org.eclipse.oomph.p2.internal.core.AgentImpl$1.initializeFirstTime(AgentImpl.java:147)
+	at org.eclipse.oomph.p2.internal.core.PersistentMap.load(PersistentMap.java:113)
+	at org.eclipse.oomph.p2.internal.core.AgentImpl.<init>(AgentImpl.java:194)
+	at org.eclipse.oomph.p2.internal.core.AgentManagerImpl$1.createElement(AgentManagerImpl.java:92)
+	at org.eclipse.oomph.p2.internal.core.AgentManagerImpl$1.createElement(AgentManagerImpl.java:1)
+	at org.eclipse.oomph.p2.internal.core.PersistentMap.addElement(PersistentMap.java:153)
+	at org.eclipse.oomph.p2.internal.core.AgentManagerImpl.addAgent(AgentManagerImpl.java:228)
+	at org.eclipse.oomph.p2.internal.core.AgentManagerImpl$1.initializeFirstTime(AgentManagerImpl.java:129)
+	at org.eclipse.oomph.p2.internal.core.AgentManagerImpl$1.initializeFirstTime(AgentManagerImpl.java:98)
+	at org.eclipse.oomph.p2.internal.core.PersistentMap.load(PersistentMap.java:113)
+	at org.eclipse.oomph.p2.internal.core.AgentManagerImpl.<init>(AgentManagerImpl.java:142)
+	at org.eclipse.oomph.p2.internal.core.AgentManagerImpl.<init>(AgentManagerImpl.java:64)
+	at org.eclipse.oomph.p2.core.P2Util.getAgentManager(P2Util.java:100)
+	at org.eclipse.oomph.p2.internal.core.P2CorePlugin$Implementation.stop(P2CorePlugin.java:177)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$3.run(BundleContextImpl.java:875)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$3.run(BundleContextImpl.java:1)
+	at java.base/java.security.AccessController.doPrivileged(Unknown Source)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.stop(BundleContextImpl.java:867)
+	... 13 more
+Caused by: java.lang.NullPointerException: Cannot invoke "org.osgi.framework.BundleContext.getProperty(String)" because the return value of "org.eclipse.equinox.internal.p2.artifact.repository.Activator.getContext()" is null
+	at org.eclipse.oomph.p2.internal.core.CachingRepositoryManager$Artifact.<clinit>(CachingRepositoryManager.java:571)
+	... 34 more
+Root exception:
+java.lang.ExceptionInInitializerError
+	at org.eclipse.oomph.p2.internal.core.AgentImpl.initializeProvisioningAgent(AgentImpl.java:597)
+	at org.eclipse.oomph.p2.internal.core.AgentImpl.getProvisioningAgent(AgentImpl.java:695)
+	at org.eclipse.oomph.p2.internal.core.AgentImpl.getProfileRegistry(AgentImpl.java:339)
+	at org.eclipse.oomph.p2.internal.core.AgentImpl$1.initializeFirstTime(AgentImpl.java:147)
+	at org.eclipse.oomph.p2.internal.core.PersistentMap.load(PersistentMap.java:113)
+	at org.eclipse.oomph.p2.internal.core.AgentImpl.<init>(AgentImpl.java:194)
+	at org.eclipse.oomph.p2.internal.core.AgentManagerImpl$1.createElement(AgentManagerImpl.java:92)
+	at org.eclipse.oomph.p2.internal.core.AgentManagerImpl$1.createElement(AgentManagerImpl.java:1)
+	at org.eclipse.oomph.p2.internal.core.PersistentMap.addElement(PersistentMap.java:153)
+	at org.eclipse.oomph.p2.internal.core.AgentManagerImpl.addAgent(AgentManagerImpl.java:228)
+	at org.eclipse.oomph.p2.internal.core.AgentManagerImpl$1.initializeFirstTime(AgentManagerImpl.java:129)
+	at org.eclipse.oomph.p2.internal.core.AgentManagerImpl$1.initializeFirstTime(AgentManagerImpl.java:98)
+	at org.eclipse.oomph.p2.internal.core.PersistentMap.load(PersistentMap.java:113)
+	at org.eclipse.oomph.p2.internal.core.AgentManagerImpl.<init>(AgentManagerImpl.java:142)
+	at org.eclipse.oomph.p2.internal.core.AgentManagerImpl.<init>(AgentManagerImpl.java:64)
+	at org.eclipse.oomph.p2.core.P2Util.getAgentManager(P2Util.java:100)
+	at org.eclipse.oomph.p2.internal.core.P2CorePlugin$Implementation.stop(P2CorePlugin.java:177)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$3.run(BundleContextImpl.java:875)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$3.run(BundleContextImpl.java:1)
+	at java.base/java.security.AccessController.doPrivileged(Unknown Source)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.stop(BundleContextImpl.java:867)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.stopWorker0(EquinoxBundle.java:1046)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.stopWorker(EquinoxBundle.java:376)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:660)
+	at org.eclipse.osgi.container.Module.stop(Module.java:521)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.decStartLevel(ModuleContainer.java:1893)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1768)
+	at org.eclipse.osgi.container.SystemModule.stopWorker(SystemModule.java:275)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule.stopWorker(EquinoxBundle.java:208)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:660)
+	at org.eclipse.osgi.container.Module.stop(Module.java:521)
+	at org.eclipse.osgi.container.SystemModule.stop(SystemModule.java:207)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:226)
+	at java.base/java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.NullPointerException: Cannot invoke "org.osgi.framework.BundleContext.getProperty(String)" because the return value of "org.eclipse.equinox.internal.p2.artifact.repository.Activator.getContext()" is null
+	at org.eclipse.oomph.p2.internal.core.CachingRepositoryManager$Artifact.<clinit>(CachingRepositoryManager.java:571)
+	... 34 more
+!SESSION 2024-01-10 15:03:51.584 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=17.0.8
+java.vendor=OpenLogic
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=fr_FR
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.jface 2 0 2024-01-10 15:04:07.026
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2024-01-10 15:04:07.026
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.jdt.ui.navigate.open.type"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.lsp4e.symbolinworkspace"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:04:33.398
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:04:33.454
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:04:46.063
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:04:46.063
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:04:46.065
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:04:46.514
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:04:46.515
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:04:46.557
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:04:55.154
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:04:55.208
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:04:55.223
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:04:55.307
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:05:39.998
+!MESSAGE OperationCanceledException
+!STACK 0
+org.eclipse.core.runtime.OperationCanceledException
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.internalReadOnly(XtextDocument.java:540)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.readOnly(XtextDocument.java:497)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument.readOnly(XtextDocument.java:136)
+	at org.eclipse.xtext.util.concurrent.IReadAccess.tryReadOnly(IReadAccess.java:50)
+	at io.sarl.lang.ui.codemining.SARLCodeMiningProvider.lambda$0(SARLCodeMiningProvider.java:147)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(Unknown Source)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.exec(Unknown Source)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(Unknown Source)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(Unknown Source)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(Unknown Source)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(Unknown Source)
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:05:40.776
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:05:40.796
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:05:41.393
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:05:42.486
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:05:42.917
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:05:43.000
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:05:43.265
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:09:56.138
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:09:56.208
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:09:56.460
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:09:56.514
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:09:56.515
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:09:56.917
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:09:58.156
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:09:58.625
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:09:58.726
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:09:58.878
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:14:26.660
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:14:29.246
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:14:29.248
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:14:48.237
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:14:48.277
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:14:48.811
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:14:58.508
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:15:45.637
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:15:50.889
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:18:33.871
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:18:33.939
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:18:33.939
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:18:34.270
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:18:35.393
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:19:18.691
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:19:26.530
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:19:31.090
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:19:31.101
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:19:31.803
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:19:31.808
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:19:31.819
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:19:34.854
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:19:34.856
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:19:34.870
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:19:36.947
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:19:36.948
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:19:36.956
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:19:38.285
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:19:38.287
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:19:38.302
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:19:40.493
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:19:40.495
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:19:40.508
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:19:47.211
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:19:47.234
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:19:47.244
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:19:51.120
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:19:51.121
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:19:51.134
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:19:53.295
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:19:53.296
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:19:53.311
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:19:55.249
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:19:55.250
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:19:55.263
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:19:56.878
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:19:56.879
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:19:56.889
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:19:58.354
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:19:58.356
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:19:58.370
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:20:00.772
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:20:00.796
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:20:00.806
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:20:03.202
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:20:03.204
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:20:03.216
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:20:06.571
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:20:06.572
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:20:06.582
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:20:07.349
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:20:07.350
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:20:07.363
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:20:09.255
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:20:09.256
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:20:09.267
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:20:09.792
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:20:09.845
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:20:10.410
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:20:10.422
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:20:10.423
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:20:12.434
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:20:13.824
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:20:29.114
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:20:29.130
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:20:29.845
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:20:29.857
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:20:29.857
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:20:30.336
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:20:30.358
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:20:30.359
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:20:48.281
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:20:48.282
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:20:48.294
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:20:49.088
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:20:49.120
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:20:49.126
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:20:53.832
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:20:53.859
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:20:53.870
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:21:07.823
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:21:07.865
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:21:07.866
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:21:13.034
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:21:13.055
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:21:13.071
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:21:14.679
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:21:14.682
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:21:14.684
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:21:38.630
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:21:38.631
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:21:38.646
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:21:46.968
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:21:46.995
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:21:47.004
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:21:50.345
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:21:50.396
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:21:50.916
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:21:50.921
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:21:50.947
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:21:50.947
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:21:57.337
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:21:59.015
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:21:59.091
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:21:59.092
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:22:02.460
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:22:02.463
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:22:02.463
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:22:04.007
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:22:04.010
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:22:04.012
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:22:06.155
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:22:06.187
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:22:06.190
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:22:07.405
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:22:07.406
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:22:07.408
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:22:08.577
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:22:08.578
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:22:08.593
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:22:14.718
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:22:14.719
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:22:14.733
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:22:17.933
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:22:17.966
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:22:17.967
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:22:20.772
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:22:20.809
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:22:20.810
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:22:21.979
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:22:21.985
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:22:21.996
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:22:36.412
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:22:36.479
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:22:36.479
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:22:43.612
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:22:43.614
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:22:43.614
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:22:50.433
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:22:50.434
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:22:50.447
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:22:51.389
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:22:51.422
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:22:51.423
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:22:55.775
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:22:55.776
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:22:55.788
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:22:56.604
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:22:56.639
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:22:56.640
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:22:58.711
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:22:58.770
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:22:58.770
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:23:03.155
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:23:03.182
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:23:03.183
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:23:04.430
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:23:05.000
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:23:05.011
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:23:05.012
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:23:05.020
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:23:20.187
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:23:20.190
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:23:20.761
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:23:20.798
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:23:21.345
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:23:21.349
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:23:21.352
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:23:21.367
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:23:37.809
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:23:37.821
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:23:37.824
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:23:37.841
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:23:53.845
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:23:54.776
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:23:54.788
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:23:54.790
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:24:12.843
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:24:13.752
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:24:13.753
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:24:13.758
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:24:13.806
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:24:13.806
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:24:15.786
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:24:15.789
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:24:15.790
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:24:15.791
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:24:15.796
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:24:15.824
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:24:36.294
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:24:36.295
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:24:36.339
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:24:36.339
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:24:37.257
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:24:37.270
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:24:37.284
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:24:37.298
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:24:38.252
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:24:38.288
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:24:38.291
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:26:50.166
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:26:50.166
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:26:50.179
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:26:50.183
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:26:57.573
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:26:57.588
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:26:57.602
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:26:58.507
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:26:58.518
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:26:58.536
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY org.eclipse.jdt.debug 2 0 2024-01-10 15:28:11.205
+!MESSAGE Unable to find location of java.lang.Thread.setName() in debuggee JVM, for type java.lang.Thread
+
+!ENTRY org.eclipse.jdt.debug 2 0 2024-01-10 15:29:12.999
+!MESSAGE Unable to find location of java.lang.Thread.setName() in debuggee JVM, for type java.lang.Thread
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:30:20.980
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:30:21.132
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:34:20.143
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:34:20.161
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:34:20.207
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:34:20.207
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:34:22.106
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:37:03.339
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:37:03.339
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:37:04.589
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:37:04.591
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:37:06.718
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:37:09.448
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:37:09.449
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:37:16.021
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:37:16.031
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:37:16.792
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:37:22.916
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:38:05.850
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:38:05.978
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:39:00.578
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:39:00.635
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:39:00.930
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:39:00.977
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:39:00.978
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:39:01.159
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:39:06.666
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:43:46.132
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:43:46.133
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:43:48.541
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:43:48.591
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:43:48.726
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:43:49.136
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:54:36.393
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:54:36.393
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:54:38.889
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:54:38.890
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:54:38.891
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:54:39.384
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:54:53.423
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:58:19.277
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:58:19.378
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:58:19.457
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:58:23.176
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:58:23.233
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:58:23.274
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:58:23.295
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:58:23.295
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:58:23.787
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 15:58:30.244
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 16:02:28.665
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 16:02:32.791
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 16:02:32.827
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 16:02:32.828
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 16:02:36.439
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 16:02:36.440
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 16:02:36.453
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 16:02:41.775
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 16:02:41.776
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 16:02:41.790
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 16:02:49.685
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 16:02:49.686
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 16:02:49.691
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 16:02:50.435
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 16:02:50.544
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 16:02:51.011
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 16:02:51.013
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 16:02:52.749
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/gui/EnvironmentGui.sarl. Reconciliation of the editor is forced.

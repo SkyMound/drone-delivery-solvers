@@ -21,6 +21,13 @@ event Action {
 	}
 }
 
+event ParcelDelivered{
+	val deliveredDuration : int
+	
+	new(duration : int){
+		deliveredDuration = duration
+	}
+}
 
 event Perception {
 	val perceivedAgentBody : ConcurrentHashMap<UUID, PerceivedDroneBody>
@@ -34,10 +41,11 @@ event Perception {
 event UpdateAction {
 	val perceivedAgentBody : ConcurrentHashMap<UUID, PerceivedDroneBody>
 	val depotPos : Vector2d
-
-	new (bodies : ConcurrentHashMap<UUID, PerceivedDroneBody>, newdepotPos : Vector2d) {
+	val time : int
+	new (bodies : ConcurrentHashMap<UUID, PerceivedDroneBody>, newdepotPos : Vector2d , itime : int) {
 		perceivedAgentBody = new ConcurrentHashMap<UUID, PerceivedDroneBody>(bodies);
 		depotPos = new Vector2d(newdepotPos);
+		time = itime
 	}
 }
 

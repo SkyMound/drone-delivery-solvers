@@ -16,6 +16,7 @@ import java.util.Collections
 import org.arakhne.afc.math.geometry.d2.Vector2D
 import java.util.ArrayList
 import io.sarl.api.core.Destroy
+import java.lang.reflect.Parameter
 
 class DroneSimulation implements EventListener {
 	public static val id = UUID::randomUUID
@@ -66,7 +67,8 @@ class DroneSimulation implements EventListener {
 	var depotPos : Vector2d
 	
 	var housesPos : List<Vector2d>
-
+	
+	var deliveriesTime : List<Integer>
 
 	/** 
 	 * Boolean specifying id the simulation is started or not.
@@ -100,7 +102,7 @@ class DroneSimulation implements EventListener {
 
 		width = (newNnvBoudaries.get(0) * 1.2).toInteger
 		height = (newNnvBoudaries.get(1) * 1.2).toInteger
-		
+		deliveriesTime = newArrayList
 		
 	}
 	
@@ -287,10 +289,22 @@ class DroneSimulation implements EventListener {
 	override receiveEvent(^event : Event) {
 		if (^event instanceof GuiRepaint) { // event from the environment, GUI must be refreshed
 			this.myGUI.drones = scaleDronePosToGui(	^event.perceivedAgentBody) 
+
 			this.myGUI.repaint
 		}
 		if ( ^event instanceof GeneralSepuku){
 			stop
+		}
+		if (^event instanceof ParcelDelivered) {
+
+			deliveriesTime.add(^event.deliveredDuration)
+			var meanDur : float = 0
+			for (d : deliveriesTime) {
+				meanDur += d
+			}
+			meanDur /= deliveriesTime.size
+
+			this.myGUI.updateDeliveriesMeanDuration(meanDur as int) 
 		}
 	}
 }

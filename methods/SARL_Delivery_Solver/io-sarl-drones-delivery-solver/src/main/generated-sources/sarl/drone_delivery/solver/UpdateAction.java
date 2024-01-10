@@ -18,17 +18,29 @@ public class UpdateAction extends Event {
 
   public final Vector2d depotPos;
 
-  public UpdateAction(final ConcurrentHashMap<UUID, PerceivedDroneBody> bodies, final Vector2d newdepotPos) {
+  public final int time;
+
+  public UpdateAction(final ConcurrentHashMap<UUID, PerceivedDroneBody> bodies, final Vector2d newdepotPos, final int itime) {
     ConcurrentHashMap<UUID, PerceivedDroneBody> _concurrentHashMap = new ConcurrentHashMap<UUID, PerceivedDroneBody>(bodies);
     this.perceivedAgentBody = _concurrentHashMap;
     Vector2d _vector2d = new Vector2d(newdepotPos);
     this.depotPos = _vector2d;
+    this.time = itime;
   }
 
   @Override
   @Pure
   @SyntheticMember
   public boolean equals(final Object obj) {
+    if (this == obj)
+      return true;
+    if (obj == null)
+      return false;
+    if (getClass() != obj.getClass())
+      return false;
+    UpdateAction other = (UpdateAction) obj;
+    if (other.time != this.time)
+      return false;
     return super.equals(obj);
   }
 
@@ -37,6 +49,8 @@ public class UpdateAction extends Event {
   @SyntheticMember
   public int hashCode() {
     int result = super.hashCode();
+    final int prime = 31;
+    result = prime * result + Integer.hashCode(this.time);
     return result;
   }
 
@@ -49,8 +63,9 @@ public class UpdateAction extends Event {
     super.toString(builder);
     builder.add("perceivedAgentBody", this.perceivedAgentBody);
     builder.add("depotPos", this.depotPos);
+    builder.add("time", this.time);
   }
 
   @SyntheticMember
-  private static final long serialVersionUID = -481174885L;
+  private static final long serialVersionUID = -597208172L;
 }

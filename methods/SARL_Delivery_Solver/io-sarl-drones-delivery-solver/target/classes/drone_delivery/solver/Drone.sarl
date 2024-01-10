@@ -120,6 +120,8 @@ agent Drone {
 			else if (this.objectiv == Objectiv.GoLiv) {
 				if (closeEnoughToTarget(this.position, this.targetPos)) {
 					info(" est assez proche de sa cible")
+					emit(new ParcelDelivered(occurrence.time - this.parcel.ordertime))
+					
 					this.objectiv = Objectiv.BackLiv
 					this.targetPos = occurrence.depotPos
 					this.parcel = null

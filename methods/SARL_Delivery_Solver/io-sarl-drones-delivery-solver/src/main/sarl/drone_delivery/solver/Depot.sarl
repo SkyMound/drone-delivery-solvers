@@ -123,7 +123,7 @@ agent Depot {
 				}
 				}	
 			in(50)[
-				emit(new UpdateAction(this.drones, this.position))
+				emit(new UpdateAction(this.drones, this.position,occurrence.time))
 			]
 	
 		}	

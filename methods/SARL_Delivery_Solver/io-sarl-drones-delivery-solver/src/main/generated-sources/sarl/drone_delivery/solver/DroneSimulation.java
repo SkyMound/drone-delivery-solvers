@@ -80,6 +80,8 @@ public class DroneSimulation implements EventListener {
 
   private List<Vector2d> housesPos;
 
+  private List<Integer> deliveriesTime;
+
   /**
    * Boolean specifying id the simulation is started or not.
    */
@@ -112,6 +114,7 @@ public class DroneSimulation implements EventListener {
     this.width = ((Integer.valueOf((int) (((_get) == null ? 0 : (_get).doubleValue()) * 1.2))) == null ? 0 : (Integer.valueOf((int) (((_get) == null ? 0 : (_get).doubleValue()) * 1.2))).intValue());
     Double _get_1 = newNnvBoudaries.get(1);
     this.height = ((Integer.valueOf((int) (((_get_1) == null ? 0 : (_get_1).doubleValue()) * 1.2))) == null ? 0 : (Integer.valueOf((int) (((_get_1) == null ? 0 : (_get_1).doubleValue()) * 1.2))).intValue());
+    this.deliveriesTime = CollectionLiterals.<Integer>newArrayList();
   }
 
   public void start() {
@@ -342,6 +345,16 @@ public class DroneSimulation implements EventListener {
     }
     if ((event instanceof GeneralSepuku)) {
       this.stop();
+    }
+    if ((event instanceof ParcelDelivered)) {
+      this.deliveriesTime.add(Integer.valueOf(((ParcelDelivered)event).deliveredDuration));
+      float meanDur = 0;
+      for (final Integer d : this.deliveriesTime) {
+        meanDur = (meanDur + ((d) == null ? 0 : (d).intValue()));
+      }
+      int _size = this.deliveriesTime.size();
+      meanDur = (meanDur / _size);
+      this.myGUI.updateDeliveriesMeanDuration(((int) meanDur));
     }
   }
 

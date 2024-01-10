@@ -17,23 +17,31 @@ import drone_delivery.solver.PerceivedDroneBody
 
 import static extension java.lang.Math.*
 import java.util.List
+import java.awt.BorderLayout
+import java.awt.Label
 
 class EnvironmentGui extends Frame {
 
 	var handler : Closer
 
 	var panel : EnvironmentGuiPanel
+	var rightpanel : InfoPanel
 
 	new (comspace : OpenEventSpace, iheight : int, iwidth : int, idrones : Map<UUID, PerceivedDroneBody>,idepotPos:Vector2d, ihousesPos : List<Vector2d>) {
 		super()
-		handler = new Closer(this, comspace)
-		panel = new EnvironmentGuiPanel(iheight, iwidth, idrones, idepotPos, ihousesPos)
-
-		this.title = "Drone Delivery Simulation"
 		this.setSize(iwidth, iheight)
+		
+		handler = new Closer(this, comspace)
+		panel = new EnvironmentGuiPanel(iheight, iwidth-100, idrones, idepotPos, ihousesPos)
+		rightpanel = new InfoPanel(iwidth);
+		
+		
+		
+		this.title = "Drone Delivery Simulation"
 		addWindowListener(handler)
 
 		add("Center", panel)
+		add("North", rightpanel); // Add the panel to the right of the window
 		this.visible = true
 	}
 
@@ -46,6 +54,10 @@ class EnvironmentGui extends Frame {
 	}
 	def setHousesPos(housesPos : List<Vector2d>){
 		this.panel.housesPos = housesPos
+	}
+	
+	def updateDeliveriesMeanDuration(newduration : int){
+		rightpanel.updateMeanTime(newduration)
 	}
 
 	override paint(g : Graphics) {
@@ -74,6 +86,34 @@ package class Closer extends WindowAdapter {
 
 }
 
+package class InfoPanel extends Panel{
+	var meanTimeText : Label
+	var width : int
+	var height : int
+	
+	new (iwidth : int) {
+		super()
+		meanTimeText = new Label()
+		meanTimeText.text = " Le temps moyen de livraison esrt de :" + 0 + " minutes et " + 0 +
+			"secondes"
+		
+		add(meanTimeText)
+
+	}
+	
+	def updateMeanTime(newMean : int) {
+
+		var hours = newMean / 3600
+		var remaining_seconds = newMean % 3600
+		var minutes = remaining_seconds / 60
+		var seconds = remaining_seconds % 60
+		
+		meanTimeText.text = " Le temps moyen de livraison est de : "+ hours +" heures " + minutes + " minutes et " + seconds + " secondes"
+	}
+	
+
+}
+
 /** 
  * The GUI of the Simulation
  * 
@@ -81,9 +121,9 @@ package class Closer extends WindowAdapter {
  */
 package class EnvironmentGuiPanel extends Panel {
 
-		/** 
-		 * Double buffering management.
-		 */
+	/** 
+	 * Double buffering management.
+	 */
 	var myGraphics : Graphics
 
 	/** 
@@ -156,7 +196,7 @@ package class EnvironmentGuiPanel extends Panel {
 	override doLayout {
 		super.doLayout
 
-		width = (this.size.width / 2)
+		width = this.size.width / 2
 		height = this.size.height / 2
 
 		myImage = createImage(width * 2, height * 2)

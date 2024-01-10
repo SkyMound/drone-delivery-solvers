@@ -35,4 +35,19 @@
 	<section name="BuildPathsPropertyPage">
 		<item key="pageIndex" value="3"/>
 	</section>
+	<section name="OptionalMessageDialog.hide.">
+	</section>
+	<section name="FatJarPackageWizard">
+		<item key="ExportSarlApplicationPage.ANTSCRIPT_SAVE" value="false"/>
+		<item key="ExportSarlApplicationPage.ANTSCRIPT_LOCATION" value="C:\Users\proma\Documents\droneIaHub\drone-delivery-solvers\methods\SARL_Delivery_Solver"/>
+		<item key="ExportSarlApplicationPage.LIBRARY_HANDLING" value="1"/>
+		<item key="ExportSarlApplicationPage.LAUNCH_CONFIGURATION_SELECTION_NAME" value="Drone_Delivery_Simulation - io-sarl-drones-delivery-solver"/>
+		<item key="ExportSarlApplicationPage.DESTINATION_PATH_SELECTION" value="C:\Users\proma\Downloads\DDS.jar"/>
+		<list key="ExportSarlApplicationPage.DESTINATION_NAMES_ID">
+			<item value="C:\Users\proma\Downloads\DDS.jar"/>
+		</list>
+		<list key="ExportSarlApplicationPage.ANTSCRIPT_LOCATION_HISTORY">
+			<item value=".xml"/>
+		</list>
+	</section>
 </section>
