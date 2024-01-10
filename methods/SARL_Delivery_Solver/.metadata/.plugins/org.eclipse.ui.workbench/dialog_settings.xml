@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="ImportExportAction">
+		<item key="ImportExportPage.STORE_SELECTED_EXPORT_WIZARD_ID" value="io.sarl.eclipse.wizard.exportSarlApplication"/>
+		<list key="ImportExportPage.STORE_EXPANDED_EXPORT_CATEGORIES">
+			<item value="io.sarl.eclipse.category.wizards"/>
+		</list>
+	</section>
+	<section name="NewWizardAction">
 	</section>
 </section>

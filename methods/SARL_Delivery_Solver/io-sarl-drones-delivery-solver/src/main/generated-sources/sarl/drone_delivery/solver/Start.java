@@ -1,3 +1,6 @@
+/**
+ * Events and shared data for the simulation
+ */
 package drone_delivery.solver;
 
 import io.sarl.lang.core.Event;

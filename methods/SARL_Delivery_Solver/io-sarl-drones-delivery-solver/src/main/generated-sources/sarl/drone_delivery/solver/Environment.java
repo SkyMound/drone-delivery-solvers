@@ -1,3 +1,16 @@
+/**
+ * The environment of the simulation.
+ * It contains the drones, the depot and the parcels.
+ * @param width : width of the environment
+ * @param height : height of the environment
+ * @param drones : list of drones
+ * @param depot : depot of the environment
+ * @param parcels : list of parcels
+ * @param time : time of the simulation
+ * @param influences : list of influences
+ * @param name : name of the agent
+ * @author Mickael Martin https://github.com/Araphlen and Berne Thomas at conception
+ */
 package drone_delivery.solver;
 
 import com.google.common.base.Objects;
@@ -73,7 +86,7 @@ public class Environment extends Agent {
       }
     }
     this.drones = null;
-    this.time = 0;
+    this.time = (Settings.DeliveryStartingHour * 3600);
     this.depot = null;
     ConcurrentSkipListSet<UUID> _concurrentSkipListSet = new ConcurrentSkipListSet<UUID>();
     this.influences = _concurrentSkipListSet;
@@ -88,6 +101,8 @@ public class Environment extends Agent {
   }
 
   private void $behaviorUnit$Die$2(final Die occurrence) {
+    Logging _$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER = this.$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER();
+    _$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER.info("Env Die");
     Lifecycle _$CAPACITY_USE$IO_SARL_API_CORE_LIFECYCLE$CALLER = this.$CAPACITY_USE$IO_SARL_API_CORE_LIFECYCLE$CALLER();
     _$CAPACITY_USE$IO_SARL_API_CORE_LIFECYCLE$CALLER.killMe();
   }
@@ -107,6 +122,13 @@ public class Environment extends Agent {
           final Procedure1<Agent> _function = (Agent it) -> {
             int _time = this.time;
             this.time = (_time + Settings.SecondsPerCycle);
+            int hours = ((this.time / 3600) % 24);
+            int remaining_seconds = (this.time % 3600);
+            int minutes = (remaining_seconds / 60);
+            int seconds = (remaining_seconds % 60);
+            Logging _$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER = this.$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER();
+            String _plus = (Integer.valueOf(hours) + ":");
+            _$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER.info((((_plus + Integer.valueOf(minutes)) + ":") + Integer.valueOf(seconds)));
             DefaultContextInteractions _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER = this.$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER();
             class $SerializableClosureProxy implements Scope<Address> {
               
@@ -143,45 +165,24 @@ public class Environment extends Agent {
     }
   }
 
-  protected void applyForce(final Vector2d force, final PerceivedDroneBody d) {
-    Vector2d acceleration = d.getAcceleration();
-    acceleration.set(force);
+  /**
+   * event to update the drone's position and speed
+   * input : perceivedAgentBody, time
+   * 
+   * output : Action
+   */
+  private void applyForce(final Vector2d speed, final PerceivedDroneBody d) {
     Vector2d vitesse = d.getVitesse();
-    vitesse.operator_add(acceleration);
+    vitesse = speed;
     double _length = vitesse.getLength();
-    if ((_length > Settings.DroneMaxSpeed)) {
-      vitesse.setLength(Settings.DroneMaxSpeed);
+    if ((_length > (Settings.DroneMaxSpeed * Settings.SecondsPerCycle))) {
+      vitesse.setLength((Settings.DroneMaxSpeed * Settings.SecondsPerCycle));
     }
     Vector2d position = d.getPosition();
     position.operator_add(vitesse);
     PerceivedDroneBody dd = this.drones.get(d.getOwner());
-    dd.setAcceleration(acceleration);
     dd.setVitesse(vitesse);
     dd.setPosition(position);
-    this.clampToWorld(d);
-  }
-
-  /**
-   * The world is circular, this function clamps coordinates to stay within the frame
-   */
-  protected void clampToWorld(final PerceivedDroneBody b) {
-    double posX = b.getPosition().getX();
-    double posY = b.getPosition().getY();
-    if ((posX > (this.width / 2))) {
-      posX = (posX - this.width);
-    }
-    if ((posX < (((-1) * this.width) / 2))) {
-      posX = (posX + this.width);
-    }
-    if ((posY > (this.height / 2))) {
-      posY = (posY - this.height);
-    }
-    if ((posY < (((-1) * this.height) / 2))) {
-      posY = (posY + this.height);
-    }
-    PerceivedDroneBody _get = this.drones.get(b.getOwner());
-    Vector2d _vector2d = new Vector2d(posX, posY);
-    _get.setPosition(_vector2d);
   }
 
   @Extension
@@ -240,6 +241,11 @@ public class Environment extends Agent {
     return $castSkill(Lifecycle.class, this.$CAPACITY_USE$IO_SARL_API_CORE_LIFECYCLE);
   }
 
+  /**
+   * Constructor of the agent Environment
+   * @param width : width of the environment
+   * @param height : height of the environment
+   */
   @SyntheticMember
   @PerceptGuardEvaluator
   private void $guardEvaluator$Initialize(final Initialize occurrence, final Collection<Runnable> ___SARLlocal_runnableCollection) {
@@ -248,6 +254,9 @@ public class Environment extends Agent {
     ___SARLlocal_runnableCollection.add(() -> $behaviorUnit$Initialize$0(occurrence));
   }
 
+  /**
+   * environment Starting event
+   */
   @SyntheticMember
   @PerceptGuardEvaluator
   private void $guardEvaluator$Start(final Start occurrence, final Collection<Runnable> ___SARLlocal_runnableCollection) {
@@ -256,6 +265,10 @@ public class Environment extends Agent {
     ___SARLlocal_runnableCollection.add(() -> $behaviorUnit$Start$1(occurrence));
   }
 
+  /**
+   * event received when a drone has sent its influence
+   * input : perceivedAgentBody, time
+   */
   @SyntheticMember
   @PerceptGuardEvaluator
   private void $guardEvaluator$Action(final Action occurrence, final Collection<Runnable> ___SARLlocal_runnableCollection) {
@@ -264,6 +277,9 @@ public class Environment extends Agent {
     ___SARLlocal_runnableCollection.add(() -> $behaviorUnit$Action$3(occurrence));
   }
 
+  /**
+   * environment Die event
+   */
   @SyntheticMember
   @PerceptGuardEvaluator
   private void $guardEvaluator$Die(final Die occurrence, final Collection<Runnable> ___SARLlocal_runnableCollection) {

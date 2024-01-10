@@ -1,3 +1,12 @@
+/**
+ * Drone agent
+ * @param envt : UUID of the environment
+ * @param initialPosition : initial position of the depot
+ * @param name : name of the agent
+ * @param listparcels : list of parcels to create
+ * @param drones : list of drones perceived by the depot
+ * @author Mickael Martin https://github.com/Araphlen and Berne Thomas at conception
+ */
 package drone_delivery.solver;
 
 import com.google.common.base.Objects;
@@ -6,28 +15,26 @@ import io.sarl.api.core.Initialize;
 import io.sarl.api.core.Lifecycle;
 import io.sarl.api.core.Logging;
 import io.sarl.api.core.Schedules;
-import io.sarl.lang.core.Address;
 import io.sarl.lang.core.Agent;
 import io.sarl.lang.core.AtomicSkillReference;
 import io.sarl.lang.core.DynamicSkillProvider;
 import io.sarl.lang.core.Event;
-import io.sarl.lang.core.Scope;
 import io.sarl.lang.core.annotation.ImportedCapacityFeature;
 import io.sarl.lang.core.annotation.PerceptGuardEvaluator;
 import io.sarl.lang.core.annotation.SarlElementType;
 import io.sarl.lang.core.annotation.SarlSpecification;
 import io.sarl.lang.core.annotation.SyntheticMember;
 import io.sarl.lang.core.scoping.extensions.cast.PrimitiveCastExtensions;
-import io.sarl.lang.core.util.SerializableProxy;
-import java.io.ObjectStreamException;
 import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 import javax.inject.Inject;
 import org.arakhne.afc.math.geometry.d2.d.Vector2d;
+import org.eclipse.xtend.lib.annotations.Accessors;
 import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.Extension;
+import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.eclipse.xtext.xbase.lib.Pure;
 
 @SarlSpecification("0.13")
@@ -36,12 +43,14 @@ import org.eclipse.xtext.xbase.lib.Pure;
 public class Drone extends Agent {
   private UUID environment;
 
+  @Accessors
   private Vector2d position;
 
   private Vector2d speed;
 
   private float battery;
 
+  @Accessors
   private float weight;
 
   private Vector2d targetPos;
@@ -97,8 +106,84 @@ public class Drone extends Agent {
     }
   }
 
+  private void $behaviorUnit$Die$1(final Die occurrence) {
+    Logging _$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER = this.$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER();
+    _$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER.info((" is dying while " + this.objectiv));
+  }
+
+  private void $behaviorUnit$UpdateAction$2(final UpdateAction occurrence) {
+    PerceivedDroneBody myBody = occurrence.perceivedAgentBody.get(this.getID());
+    if (((myBody != null) && Objects.equal(myBody.getOwner(), this.getID()))) {
+      this.position = myBody.getPosition();
+      this.speed = myBody.getVitesse();
+    }
+    Schedules _$CAPACITY_USE$IO_SARL_API_CORE_SCHEDULES$CALLER = this.$CAPACITY_USE$IO_SARL_API_CORE_SCHEDULES$CALLER();
+    final Procedure1<Agent> _function = (Agent it) -> {
+      Vector2d influence = new Vector2d();
+      boolean _equals = Objects.equal(this.objectiv, Objectiv.Charge);
+      if (_equals) {
+        if ((this.battery <= (100 - (Settings.SecondsPerCycle * Settings.ChargePerSec)))) {
+          float _battery = this.battery;
+          this.battery = (_battery + (Settings.SecondsPerCycle * Settings.ChargePerSec));
+        }
+      } else {
+        boolean _equals_1 = Objects.equal(this.objectiv, Objectiv.BackLiv);
+        if (_equals_1) {
+          boolean _closeEnoughToTarget = this.closeEnoughToTarget(this.position, this.targetPos);
+          if (_closeEnoughToTarget) {
+            Logging _$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER = this.$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER();
+            _$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER.info(" est rentré au dépot et se met en charge");
+            this.objectiv = Objectiv.Charge;
+            this.targetPos = null;
+            this.battery = 0.0f;
+          } else {
+            influence = this.moveTo(this.targetPos);
+          }
+        } else {
+          boolean _equals_2 = Objects.equal(this.objectiv, Objectiv.GoLiv);
+          if (_equals_2) {
+            boolean _closeEnoughToTarget_1 = this.closeEnoughToTarget(this.position, this.targetPos);
+            if (_closeEnoughToTarget_1) {
+              Logging _$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER_1 = this.$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER();
+              _$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER_1.info(" est assez proche de sa cible");
+              DefaultContextInteractions _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER = this.$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER();
+              int _ordertime = this.parcel.getOrdertime();
+              ParcelDelivered _parcelDelivered = new ParcelDelivered((occurrence.time - _ordertime));
+              _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER.emit(_parcelDelivered);
+              this.objectiv = Objectiv.BackLiv;
+              this.targetPos = occurrence.depotPos;
+              this.parcel = null;
+              influence = this.moveTo(this.targetPos);
+            } else {
+              influence = this.moveTo(this.targetPos);
+            }
+          }
+        }
+      }
+      myBody.setBattery(this.battery);
+      myBody.setObjectiv(this.objectiv);
+      myBody.setTargetPos(this.targetPos);
+      DefaultContextInteractions _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_1 = this.$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER();
+      Action _action = new Action(influence, myBody);
+      _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_1.emit(_action);
+    };
+    _$CAPACITY_USE$IO_SARL_API_CORE_SCHEDULES$CALLER.in(Settings.pause, _function);
+  }
+
+  private void $behaviorUnit$AffectOrder$3(final AffectOrder occurrence) {
+    this.parcel = occurrence.affectedparcel;
+    this.targetPos = this.parcel.getHousePos();
+    this.objectiv = Objectiv.GoLiv;
+  }
+
+  /**
+   * Method to know if the drone is close enough to its target
+   * @param v1 : position of the drone
+   * @param v2 : position of the target
+   * @return true if the drone is close enough to its target, false otherwise
+   */
   @Pure
-  protected boolean closeEnoughToTarget(final Vector2d v1, final Vector2d v2) {
+  private boolean closeEnoughToTarget(final Vector2d v1, final Vector2d v2) {
     int distanceMin = Settings.distMinLiv;
     double _x = v2.getX();
     double _x_1 = v1.getX();
@@ -110,50 +195,40 @@ public class Drone extends Agent {
     return (distance <= distanceMin);
   }
 
-  private void $behaviorUnit$UpdateAction$1(final UpdateAction occurrence) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nType mismatch: cannot convert from void to Vector2d"
-      + "\nType mismatch: cannot convert from void to Vector2d"
-      + "\nType mismatch: cannot convert from void to Vector2d");
-  }
-
-  private void $behaviorUnit$AffectOrder$2(final AffectOrder occurrence) {
-    this.parcel = occurrence.affectedparcel;
-    this.targetPos = this.parcel.getHousePos();
-    this.objectiv = Objectiv.GoLiv;
-    DefaultContextInteractions _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER = this.$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER();
-    ValidateOrderReception _validateOrderReception = new ValidateOrderReception();
-    class $SerializableClosureProxy implements Scope<Address> {
-      
-      private final UUID $_iD;
-      
-      public $SerializableClosureProxy(final UUID $_iD) {
-        this.$_iD = $_iD;
-      }
-      
-      @Override
-      public boolean matches(final Address it) {
-        UUID _iD = it.getID();
-        return Objects.equal(_iD, $_iD);
-      }
+  /**
+   * Method to move the drone to its target
+   * @param targetPos : position of the target
+   * @return the vector of the drone's movement
+   */
+  private Vector2d moveTo(final Vector2d targetPos) {
+    float _battery = this.battery;
+    this.battery = (_battery - (Settings.SecondsPerCycle * Settings.BatteryLostPerSec));
+    double slowDownDistance = ((2 * Settings.DroneMaxSpeed) * Settings.SecondsPerCycle);
+    Vector2d vector = targetPos.operator_minus(this.position);
+    double _length = vector.getLength();
+    if ((_length <= slowDownDistance)) {
+      double _norm = this.norm(vector);
+      final double timeToTarget = (slowDownDistance / _norm);
+      double _length_1 = vector.getLength();
+      vector.setLength((_length_1 / timeToTarget));
+    } else {
+      vector.setLength((Settings.DroneMaxSpeed * Settings.SecondsPerCycle));
     }
-    final Scope<Address> _function = new Scope<Address>() {
-      @Override
-      public boolean matches(final Address it) {
-        UUID _iD = it.getID();
-        UUID _iD_1 = occurrence.getSource().getID();
-        return Objects.equal(_iD, _iD_1);
-      }
-      private Object writeReplace() throws ObjectStreamException {
-        return new SerializableProxy($SerializableClosureProxy.class, occurrence.getSource().getID());
-      }
-    };
-    _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER.emit(_validateOrderReception, _function);
+    return vector;
   }
 
-  protected void moveTo(final Vector2d targetPos) {
-    final Vector2d vector = targetPos.operator_minus(this.position);
-    vector.setLength(2);
+  /**
+   * Method to compute the norm of a vector
+   * @param vector : vector to compute the norm
+   * @return the norm of the vector
+   */
+  @Pure
+  private double norm(final Vector2d vector) {
+    double _x = vector.getX();
+    double _x_1 = vector.getX();
+    double _y = vector.getY();
+    double _y_1 = vector.getY();
+    return Math.sqrt(((_x * _x_1) + (_y * _y_1)));
   }
 
   @Extension
@@ -212,6 +287,18 @@ public class Drone extends Agent {
     return $castSkill(Lifecycle.class, this.$CAPACITY_USE$IO_SARL_API_CORE_LIFECYCLE);
   }
 
+  /**
+   * Constructor of the agent Drone
+   * @param envt : UUID of the environment
+   * @param initialPosition : initial position of the drone
+   * @param initSpeed : initial speed of the drone
+   * @param objectiv : objective of the drone
+   * @param targetPos : position of the drone's target
+   * @param battery : battery of the drone
+   * @param name : name of the agent
+   * @param weight : weight of the drone
+   * @author Mickael Martin https://github.com/Araphlen and Berne Thomas at conception
+   */
   @SyntheticMember
   @PerceptGuardEvaluator
   private void $guardEvaluator$Initialize(final Initialize occurrence, final Collection<Runnable> ___SARLlocal_runnableCollection) {
@@ -220,20 +307,41 @@ public class Drone extends Agent {
     ___SARLlocal_runnableCollection.add(() -> $behaviorUnit$Initialize$0(occurrence));
   }
 
+  /**
+   * event to update the drone's position and speed
+   * input : perceivedAgentBody, time
+   * 
+   * output : Action
+   */
   @SyntheticMember
   @PerceptGuardEvaluator
   private void $guardEvaluator$UpdateAction(final UpdateAction occurrence, final Collection<Runnable> ___SARLlocal_runnableCollection) {
     assert occurrence != null;
     assert ___SARLlocal_runnableCollection != null;
-    ___SARLlocal_runnableCollection.add(() -> $behaviorUnit$UpdateAction$1(occurrence));
+    ___SARLlocal_runnableCollection.add(() -> $behaviorUnit$UpdateAction$2(occurrence));
   }
 
+  /**
+   * event to affect a drone to a parcel
+   * input : affectedparcel
+   */
   @SyntheticMember
   @PerceptGuardEvaluator
   private void $guardEvaluator$AffectOrder(final AffectOrder occurrence, final Collection<Runnable> ___SARLlocal_runnableCollection) {
     assert occurrence != null;
     assert ___SARLlocal_runnableCollection != null;
-    ___SARLlocal_runnableCollection.add(() -> $behaviorUnit$AffectOrder$2(occurrence));
+    ___SARLlocal_runnableCollection.add(() -> $behaviorUnit$AffectOrder$3(occurrence));
+  }
+
+  /**
+   * Destructor of the agent Drone
+   */
+  @SyntheticMember
+  @PerceptGuardEvaluator
+  private void $guardEvaluator$Die(final Die occurrence, final Collection<Runnable> ___SARLlocal_runnableCollection) {
+    assert occurrence != null;
+    assert ___SARLlocal_runnableCollection != null;
+    ___SARLlocal_runnableCollection.add(() -> $behaviorUnit$Die$1(occurrence));
   }
 
   @SyntheticMember
@@ -241,6 +349,7 @@ public class Drone extends Agent {
   public void $getSupportedEvents(final Set<Class<? extends Event>> toBeFilled) {
     super.$getSupportedEvents(toBeFilled);
     toBeFilled.add(AffectOrder.class);
+    toBeFilled.add(Die.class);
     toBeFilled.add(UpdateAction.class);
     toBeFilled.add(Initialize.class);
   }
@@ -249,6 +358,9 @@ public class Drone extends Agent {
   @Override
   public boolean $isSupportedEvent(final Class<? extends Event> event) {
     if (AffectOrder.class.isAssignableFrom(event)) {
+      return true;
+    }
+    if (Die.class.isAssignableFrom(event)) {
       return true;
     }
     if (UpdateAction.class.isAssignableFrom(event)) {
@@ -267,6 +379,10 @@ public class Drone extends Agent {
     if (event instanceof AffectOrder) {
       final AffectOrder occurrence = (AffectOrder) event;
       $guardEvaluator$AffectOrder(occurrence, callbacks);
+    }
+    if (event instanceof Die) {
+      final Die occurrence = (Die) event;
+      $guardEvaluator$Die(occurrence, callbacks);
     }
     if (event instanceof UpdateAction) {
       final UpdateAction occurrence = (UpdateAction) event;
@@ -319,5 +435,23 @@ public class Drone extends Agent {
   @Inject
   public Drone(final UUID parentID, final UUID agentID, final DynamicSkillProvider skillProvider) {
     super(parentID, agentID, skillProvider);
+  }
+
+  @Pure
+  protected Vector2d getPosition() {
+    return this.position;
+  }
+
+  protected void setPosition(final Vector2d position) {
+    this.position = position;
+  }
+
+  @Pure
+  protected float getWeight() {
+    return this.weight;
+  }
+
+  protected void setWeight(final float weight) {
+    this.weight = weight;
   }
 }

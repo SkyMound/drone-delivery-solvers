@@ -1,4 +1,7 @@
-
+/**
+ * The GUI of the Simulation
+ * @author Martin Mickael https://github.com/Araphlen  and Berne Thomas at conception
+ */
 package drone_delivery.solver.gui
 
 import io.sarl.api.core.OpenEventSpace
@@ -14,26 +17,32 @@ import java.util.Map
 import java.util.UUID
 import org.arakhne.afc.math.geometry.d2.d.Vector2d
 import drone_delivery.solver.PerceivedDroneBody
-
-import static extension java.lang.Math.*
 import java.util.List
+import java.awt.Label
+import static extension java.lang.Math.*
 
 class EnvironmentGui extends Frame {
 
 	var handler : Closer
 
 	var panel : EnvironmentGuiPanel
+	var rightpanel : InfoPanel
 
 	new (comspace : OpenEventSpace, iheight : int, iwidth : int, idrones : Map<UUID, PerceivedDroneBody>,idepotPos:Vector2d, ihousesPos : List<Vector2d>) {
 		super()
-		handler = new Closer(this, comspace)
-		panel = new EnvironmentGuiPanel(iheight, iwidth, idrones, idepotPos, ihousesPos)
-
-		this.title = "Drone Delivery Simulation"
 		this.setSize(iwidth, iheight)
+		
+		handler = new Closer(this, comspace)
+		panel = new EnvironmentGuiPanel(iheight, iwidth-100, idrones, idepotPos, ihousesPos)
+		rightpanel = new InfoPanel(iwidth);
+		
+		
+		
+		this.title = "Drone Delivery Simulation"
 		addWindowListener(handler)
 
 		add("Center", panel)
+		add("North", rightpanel); // Add the panel to the right of the window
 		this.visible = true
 	}
 
@@ -46,6 +55,10 @@ class EnvironmentGui extends Frame {
 	}
 	def setHousesPos(housesPos : List<Vector2d>){
 		this.panel.housesPos = housesPos
+	}
+	
+	def updateDeliveriesMeanDuration(newduration : int){
+		rightpanel.updateMeanTime(newduration)
 	}
 
 	override paint(g : Graphics) {
@@ -74,6 +87,38 @@ package class Closer extends WindowAdapter {
 
 }
 
+/**
+ * Panel to display the informations about the simulation
+ * @author Martin Mickael
+ */
+package class InfoPanel extends Panel{
+	var meanTimeText : Label
+	var width : int
+	var height : int
+	
+	new (iwidth : int) {
+		super()
+		meanTimeText = new Label()
+		meanTimeText.text = " Le temps moyen de livraison esrt de :" + 0 + " minutes et " + 0 +
+			"secondes"
+		
+		add(meanTimeText)
+
+	}
+	
+	def updateMeanTime(newMean : int) {
+
+		var hours = newMean / 3600
+		var remaining_seconds = newMean % 3600
+		var minutes = remaining_seconds / 60
+		var seconds = remaining_seconds % 60
+		
+		meanTimeText.text = " Le temps moyen de livraison est de : "+ hours +" heures " + minutes + " minutes et " + seconds + " secondes"
+	}
+	
+
+}
+
 /** 
  * The GUI of the Simulation
  * 
@@ -81,9 +126,9 @@ package class Closer extends WindowAdapter {
  */
 package class EnvironmentGuiPanel extends Panel {
 
-		/** 
-		 * Double buffering management.
-		 */
+	/** 
+	 * Double buffering management.
+	 */
 	var myGraphics : Graphics
 
 	/** 
@@ -129,7 +174,7 @@ package class EnvironmentGuiPanel extends Panel {
 
 	override paint(g : Graphics) {
 		if ((myCanvas !== null) && (myGraphics !== null)) {
-			val bgColor = new Color(0.6F, 0.6F, 0.6F)
+			val bgColor = new Color(255F / 255, 236F / 255, 209F / 255)
 			myCanvas.color = bgColor
 			myCanvas.fillRect(0, 0, width * 2 - 1, height * 2 - 1)
 			myCanvas.setColor(Color::BLACK)
@@ -156,7 +201,7 @@ package class EnvironmentGuiPanel extends Panel {
 	override doLayout {
 		super.doLayout
 
-		width = (this.size.width / 2)
+		width = this.size.width / 2
 		height = this.size.height / 2
 
 		myImage = createImage(width * 2, height * 2)
@@ -165,15 +210,16 @@ package class EnvironmentGuiPanel extends Panel {
 	}
 
 	def paintDrone(g : Graphics, drone : PerceivedDroneBody) {
-		var posX = width + drone.position.x as int
-		var posY = height + drone.position.y as int
+		var posX = (drone.position.x + 10) as int
+		var posY = (drone.position.y + 10) as int
 		var direction = drone.vitesse.angle
 		var cos = direction.cos
 		var sin = direction.sin
 
-		g.color =  Color.GREEN
+		g.color = new Color(21F / 255, 97f / 255, 109F / 255)
 
-		g.drawLine(posX + ( 5 * cos ) as int, posY + ( 5 * sin ) as int, posX - ( 2 * cos + 2 * sin ) as int,
+		g.drawLine(posX + ( 5 as int * cos ) as int, posY + ( 5 * sin ) as int,
+			posX - ( 2 * cos + 2 * sin ) as int,
 			posY - ( 2 * sin - 2 * cos ) as int)
 		g.drawLine(posX + ( 5 * cos ) as int, posY + ( 5 * sin ) as int, posX - ( 2 * cos - 2 * sin ) as int,
 			posY - ( 2 * sin + 2 * cos ) as int)
@@ -193,9 +239,9 @@ package class EnvironmentGuiPanel extends Panel {
 	}
 	
 	def paintDepot(g : Graphics, depotPos : Vector2d) {
-		var len = 3
-		var posX = depotPos.x as int
-		var posY = depotPos.y as int
+		var len = (width * 0.03) as int
+		var posX = (depotPos.x +10) as int
+		var posY = (depotPos.y + 10) as int
 
 		// Calcul des coordonnées des coins du carré
 		var x1 = posX - len / 2
@@ -208,7 +254,7 @@ package class EnvironmentGuiPanel extends Panel {
 		var y4 = posY + len / 2
 
 		// Dessin du carré
-    	g.color = Color.BLUE
+		g.color = new Color(255F / 255, 125F / 255, 0F / 255)
 		g.drawLine(x1, y1, x2, y2)
 		g.drawLine(x2, y2, x3, y3)
 		g.drawLine(x3, y3, x4, y4)
@@ -219,13 +265,13 @@ package class EnvironmentGuiPanel extends Panel {
 	
 	
 	def paintHouse(g:Graphics,housePos : Vector2d){
-		var radius = 3
-		var posX = depotPos.x as int
-		var posY = depotPos.y as int
+		var radius = (width * 0.008) as int
+		var posX = (housePos.x + 10) as int
+		var posY = (housePos.y +10) as int
 		
 		
 	    // Dessin du cercle
-	    g.color = Color.RED
+		g.color = new Color(0F / 255, 21F / 255, 36F / 255)
 	    g.drawOval(posX - radius, posY - radius, radius * 2, radius * 2)
 	
 	}

@@ -1,3 +1,6 @@
+/**
+ * Events and shared data for the simulation
+ */
 package drone_delivery.solver;
 
 import io.sarl.lang.core.annotation.SarlElementType;
@@ -9,6 +12,9 @@ import org.arakhne.afc.math.geometry.d2.d.Vector2d;
 import org.eclipse.xtend.lib.annotations.Accessors;
 import org.eclipse.xtext.xbase.lib.Pure;
 
+/**
+ * class representing the perceived body of a drone by the environment
+ */
 @SarlSpecification("0.13")
 @SarlElementType(10)
 @SuppressWarnings("all")
@@ -34,7 +40,10 @@ public class PerceivedDroneBody {
   @Accessors
   private Vector2d targetPos;
 
-  public PerceivedDroneBody(final UUID iowner, final Vector2d iposition, final Vector2d ispeed, final Objectiv iobjectiv, final Vector2d itargetPos, final float ibattery) {
+  @Accessors
+  private float weight;
+
+  public PerceivedDroneBody(final UUID iowner, final Vector2d iposition, final Vector2d ispeed, final Objectiv iobjectiv, final Vector2d itargetPos, final float ibattery, final float iweight) {
     this.position = iposition;
     this.owner = iowner;
     this.vitesse = ispeed;
@@ -43,6 +52,18 @@ public class PerceivedDroneBody {
     this.objectiv = iobjectiv;
     this.targetPos = itargetPos;
     this.battery = ibattery;
+    this.weight = iweight;
+  }
+
+  public PerceivedDroneBody(final PerceivedDroneBody other) {
+    this.position = other.position;
+    this.owner = other.owner;
+    this.vitesse = other.vitesse;
+    this.acceleration = other.acceleration;
+    this.objectiv = other.objectiv;
+    this.targetPos = other.targetPos;
+    this.battery = other.battery;
+    this.weight = other.weight;
   }
 
   @Override
@@ -60,6 +81,8 @@ public class PerceivedDroneBody {
       return false;
     if (Float.floatToIntBits(other.battery) != Float.floatToIntBits(this.battery))
       return false;
+    if (Float.floatToIntBits(other.weight) != Float.floatToIntBits(this.weight))
+      return false;
     return super.equals(obj);
   }
 
@@ -71,6 +94,7 @@ public class PerceivedDroneBody {
     final int prime = 31;
     result = prime * result + Objects.hashCode(this.owner);
     result = prime * result + Float.hashCode(this.battery);
+    result = prime * result + Float.hashCode(this.weight);
     return result;
   }
 
@@ -135,5 +159,14 @@ public class PerceivedDroneBody {
 
   public void setTargetPos(final Vector2d targetPos) {
     this.targetPos = targetPos;
+  }
+
+  @Pure
+  public float getWeight() {
+    return this.weight;
+  }
+
+  public void setWeight(final float weight) {
+    this.weight = weight;
   }
 }

@@ -1,4 +1,6 @@
-
+/**
+ * Events and shared data for the simulation
+ */
 package drone_delivery.solver
 
 import java.util.UUID
@@ -11,12 +13,32 @@ import org.arakhne.afc.math.geometry.d2.d.Vector2d
  */
 event Die
 
-
+/**
+ * Event sent by the drone to the environment to inform it of its action
+ */
 event Action {
-	var influence : Vector2d
+	val influence : Vector2d
+	val newDroneState : PerceivedDroneBody
+	new(inf : Vector2d, inewDroneState : PerceivedDroneBody){
+		influence = new Vector2d(inf)
+		newDroneState = new PerceivedDroneBody(inewDroneState)
+	}
 }
 
+/**
+ * Event sent by the environment to the drone to inform it of the new state of the environment
+ */
+event ParcelDelivered{
+	val deliveredDuration : int
+	
+	new(duration : int){
+		deliveredDuration = duration
+	}
+}
 
+/**
+ * Event sent by the environment to the depot to inform it of the new state of the environment
+ */
 event Perception {
 	val perceivedAgentBody : ConcurrentHashMap<UUID, PerceivedDroneBody>
 	val time : int
@@ -26,16 +48,23 @@ event Perception {
 	}
 }
 
-event ValidateOrderReception
-
+/**
+ * Event sent by the environment to the depot to inform it of the new state of the environment
+ */
 event UpdateAction {
 	val perceivedAgentBody : ConcurrentHashMap<UUID, PerceivedDroneBody>
-
-	new (bodies : ConcurrentHashMap<UUID, PerceivedDroneBody>) {
+	val depotPos : Vector2d
+	val time : int
+	new (bodies : ConcurrentHashMap<UUID, PerceivedDroneBody>, newdepotPos : Vector2d , itime : int) {
 		perceivedAgentBody = new ConcurrentHashMap<UUID, PerceivedDroneBody>(bodies);
+		depotPos = new Vector2d(newdepotPos);
+		time = itime
 	}
 }
 
+/**
+ * Event sent by the depot to the drone chosen to deliver a parcel
+ */
 event AffectOrder{
 	val affectedparcel : Parcel
 	
@@ -44,6 +73,7 @@ event AffectOrder{
 		affectedparcel = parcel
 	}
 }
+
 
 event Start {
 	val perceivedAgentBody : ConcurrentHashMap<UUID, PerceivedDroneBody>
@@ -63,7 +93,14 @@ event GuiRepaint {
 
 }
 
+/**
+ * Event sent by the depot to the simulation to inform it of the end of the simulation
+ */
+event GeneralSepuku
 
+/**
+ * class representing the perceived body of a drone by the environment
+ */
 class PerceivedDroneBody {
 
 	// Position of the body
@@ -91,10 +128,13 @@ class PerceivedDroneBody {
 	@Accessors	
 	var targetPos : Vector2d
 
+	@Accessors
+	var weight : float
+
 	
 
 	new (iowner : UUID, iposition : Vector2d, ispeed : Vector2d, iobjectiv : Objectiv, itargetPos : Vector2d,
-		ibattery : float) {
+		ibattery : float, iweight:float) {
 		position = iposition
 		owner = iowner
 		vitesse = ispeed
@@ -102,7 +142,17 @@ class PerceivedDroneBody {
 		objectiv = iobjectiv
 		targetPos = itargetPos
 		battery = ibattery
-		
+		weight= iweight
 	}
-
+	
+	new (other : PerceivedDroneBody){
+		position = other.position
+		owner = other.owner
+		vitesse = other.vitesse
+		acceleration = other.acceleration
+		objectiv = other.objectiv
+		targetPos = other.targetPos
+		battery = other.battery
+		weight= other.weight
+		}
 }

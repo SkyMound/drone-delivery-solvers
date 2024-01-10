@@ -1,15 +1,21 @@
+/**
+ * Launcher of the simulation.
+ * @author Mickael Martin https://github.com/Araphlen and Berne Thomas at conception
+ */
 
 package drone_delivery.solver
 
+// Imports
 import java.io.File
 
 class DroneDeliveryLauncher {
 
-	 def static getResourcePath(fileName : String) {
+
+	def static getResourcePath(fileName : String) {
        var f = new File("")
        var dossierPath = f.getAbsolutePath() + File.separator + fileName
        return dossierPath
-   }
+    }
 
     def static getResource(fileName : String) {
        var completeFileName = getResourcePath(fileName);
@@ -20,12 +26,30 @@ class DroneDeliveryLauncher {
 	
 	static def main(args : String*) {
 		
-		var nbDrones = 20
-		var nbParcel = 20
+		var nbDrones = Settings::nbDrones
+		var nbParcel = Settings::nbColis
+		// resources path
 		var cityfilePath = getResourcePath("src\\main\\resources\\smallCity_100.csv")
 		var parcelfilePath = getResourcePath("src\\main\\resources\\packagesSmallCity_100.csv")
 	
 		var simu = new DroneSimulation(nbDrones, nbParcel, cityfilePath, parcelfilePath)
+		
+		simu.start
+		
+		try{
+			// Wait for the end of the simulation
+			simu.finished
+			// Exit the program
+			System.out.flush
+			System.exit(0)
+
+		}
+		catch(e : Exception){
+			print(e)
+			return
+		}
+		
+		
 	}
 
 }

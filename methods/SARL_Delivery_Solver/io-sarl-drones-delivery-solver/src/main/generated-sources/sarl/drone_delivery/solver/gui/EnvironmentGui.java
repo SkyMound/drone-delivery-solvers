@@ -1,3 +1,7 @@
+/**
+ * The GUI of the Simulation
+ * @author Martin Mickael https://github.com/Araphlen  and Berne Thomas at conception
+ */
 package drone_delivery.solver.gui;
 
 import drone_delivery.solver.PerceivedDroneBody;
@@ -21,16 +25,21 @@ public class EnvironmentGui extends Frame {
 
   private EnvironmentGuiPanel panel;
 
+  private InfoPanel rightpanel;
+
   public EnvironmentGui(final OpenEventSpace comspace, final int iheight, final int iwidth, final Map<UUID, PerceivedDroneBody> idrones, final Vector2d idepotPos, final List<Vector2d> ihousesPos) {
     super();
+    this.setSize(iwidth, iheight);
     Closer _closer = new Closer(this, comspace);
     this.handler = _closer;
-    EnvironmentGuiPanel _environmentGuiPanel = new EnvironmentGuiPanel(iheight, iwidth, idrones, idepotPos, ihousesPos);
+    EnvironmentGuiPanel _environmentGuiPanel = new EnvironmentGuiPanel(iheight, (iwidth - 100), idrones, idepotPos, ihousesPos);
     this.panel = _environmentGuiPanel;
+    InfoPanel _infoPanel = new InfoPanel(iwidth);
+    this.rightpanel = _infoPanel;
     this.setTitle("Drone Delivery Simulation");
-    this.setSize(iwidth, iheight);
     this.addWindowListener(this.handler);
     this.add("Center", this.panel);
+    this.add("North", this.rightpanel);
     this.setVisible(true);
   }
 
@@ -44,6 +53,10 @@ public class EnvironmentGui extends Frame {
 
   public void setHousesPos(final List<Vector2d> housesPos) {
     this.panel.setHousesPos(housesPos);
+  }
+
+  public void updateDeliveriesMeanDuration(final int newduration) {
+    this.rightpanel.updateMeanTime(newduration);
   }
 
   @Override
@@ -68,5 +81,5 @@ public class EnvironmentGui extends Frame {
   }
 
   @SyntheticMember
-  private static final long serialVersionUID = -745199466L;
+  private static final long serialVersionUID = -1533747634L;
 }

@@ -28,15 +28,27 @@ public interface Settings {
    */
   static final int pause = 0;
 
-  static final double DroneMaxSpeed = 7.5;
+  static final int nbDrones = 5;
 
-  static final int SecondsPerCycle = 1;
+  static final int nbColis = 100;
+
+  static final double DroneMaxSpeed = 8.5;
+
+  static final int SecondsPerCycle = 120;
 
   static final float ChargePerSec = 0.01f;
 
   static final float BatteryLostPerSec = 0.03f;
 
-  static final int distMinLiv = 20;
+  static final int distMinLiv = 30;
 
   static final Vector2d DepotPos = new Vector2d(2461228, 3984254);
+
+  static final int DeliveryStartingHour = 8;
+
+  static final int DistMaxDrone = 15000;
+
+  static final int DroneTakeoffRatio = 1;
+
+  static final int DroneTakeoffBatteryLoss = (1 / 4);
 }

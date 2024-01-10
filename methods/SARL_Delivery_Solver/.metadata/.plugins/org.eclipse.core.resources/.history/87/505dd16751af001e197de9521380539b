@@ -1,0 +1,33 @@
+
+package drone_delivery.solver
+
+import java.io.File
+
+class DroneDeliveryLauncher {
+
+	 def static getResourcePath(fileName : String) {
+       var f = new File("")
+       var dossierPath = f.getAbsolutePath() + File.separator + fileName
+       return dossierPath
+   }
+
+    def static getResource(fileName : String) {
+       var completeFileName = getResourcePath(fileName);
+       var file = new File(completeFileName);
+       return file;
+
+	}
+	
+	static def main(args : String*) {
+		
+		var nbDrones = 40
+		var nbParcel = 80
+		var cityfilePath = getResourcePath("src\\main\\resources\\smallCity_100.csv")
+		var parcelfilePath = getResourcePath("src\\main\\resources\\packagesSmallCity_100.csv")
+	
+		var simu = new DroneSimulation(nbDrones, nbParcel, cityfilePath, parcelfilePath)
+		
+		simu.start
+	}
+
+}

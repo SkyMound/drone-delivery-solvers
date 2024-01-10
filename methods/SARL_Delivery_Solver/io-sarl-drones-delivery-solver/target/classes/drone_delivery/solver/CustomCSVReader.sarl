@@ -1,3 +1,7 @@
+/**
+ * CustomCSVReader class is responsible for reading CSV files and extracting data.
+ * It provides methods to read houses and parcels information from CSV files.
+ */
 package drone_delivery.solver
 
 import java.io.IOException;
@@ -5,7 +9,6 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.sql.Time
 import org.arakhne.afc.math.geometry.d2.d.Vector2d
 import java.util.HashMap
 import java.io.FileReader
@@ -31,11 +34,8 @@ class CustomCSVReader {
             while (cityline !== null){
 				var cityattributes = cityline
 				var x = Float.parseFloat(cityattributes.get(1));
-				println(x)
 				var y = Float.parseFloat(cityattributes.get(2));
-				println(y)
 				var numMaison = cityattributes.get(3);
-				println(numMaison)
 
 				mapInfoMaison.put(numMaison, new Vector2d(x, y))
 				cityline = br.readNext();
@@ -44,18 +44,27 @@ class CustomCSVReader {
       	}
       }
 
+	/** 
+	* This method is used to read parcels from CSV file.
+	* @param cityfileName : String
+	* @param parcelfileName : String
+	* @param nbParcel : int
+	* @return ArrayList<Parcel>
+	*
+	*@author Mickael Martin https://github.com/Araphlen
+	*/
 	static def getparcelsFromCSV(cityfileName : String,parcelfileName : String, nbParcel:int){
 	    var parcelsList = new ArrayList<Parcel>();
 		var mapInfoMaison = getHousesFromCSV(cityfileName)
 		var pathToparcelFile = Paths.get(parcelfileName);
-                	
+        var nbParcelrest = nbParcel
 		try (var pr = Files.newBufferedReader(pathToparcelFile,
             	StandardCharsets.US_ASCII)) {	
             // read the first line from the text file
 			var parcelline = pr.readLine();
 			parcelline = pr.readLine();
             // loop until all lines are read
-			while (parcelline !== null && nbParcel >= 1) {
+			while (parcelline !== null && nbParcelrest >= 1) {
                 // use string.split to load a string array with the values from
                 // each line of
                 // the file, using a comma as the delimiter
@@ -69,6 +78,7 @@ class CustomCSVReader {
                 // read next line before looping
 				// if end of file reached, line would be null
 				parcelline = pr.readLine();
+				nbParcelrest--
         	}
 
         } catch (ioe : IOException) {
@@ -78,6 +88,14 @@ class CustomCSVReader {
         return parcelsList;
     }
 
+
+	/***
+	 * This method is used to create a parcel from a metadata.
+	 * @param metadaparcel : String[]
+	 * @param mapMaison : HashMap<String, Vector2d>
+	 * @return Parcel
+	 * @author Mickael Martin https://github.com/Araphlen
+	 */
     def static createParcel(metadaparcel : String[], mapMaison : HashMap<String, Vector2d>) {
 
 		
@@ -86,12 +104,14 @@ class CustomCSVReader {
 		var idMaisonReel = metadaparcel.get(3);
 		var position = mapMaison.get(idMaisonReel)
 		
-		var heure = Time.valueOf(metadaparcel.get(2));
+		var ordertime = (metadaparcel.get(2)).split(":")
 		
+		var secFrommidnight = Integer.valueOf(ordertime.get(0)) * 3600 + Integer.valueOf(ordertime.get(1)) * 60 +
+			Integer.valueOf(ordertime.get(2))
 		var weight = Float.parseFloat(metadaparcel.get(4));
 		
 		// create and return parcel of this metadata
-		return new Parcel(position, weight, heure.toInteger,commande);
+		return new Parcel(position, weight, secFrommidnight, commande);
     }
 
 }

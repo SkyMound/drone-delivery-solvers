@@ -1,0 +1,193 @@
+/** 
+ * agent Depot 
+ * agent responsible for the management of the drones
+ * @author Mickael Martin https://github.com/Araphlen and Berne Thomas at conception
+ */
+package drone_delivery.solver
+import io.sarl.api.core.Initialize
+import io.sarl.api.core.Logging
+import org.arakhne.afc.math.geometry.d2.d.Vector2d
+import io.sarl.api.core.DefaultContextInteractions
+import io.sarl.api.core.Schedules
+import io.sarl.api.core.Lifecycle
+import java.util.concurrent.ConcurrentHashMap
+import java.util.UUID
+import java.util.List
+import java.util.ArrayList
+
+agent Depot {
+	uses Logging, DefaultContextInteractions, Schedules, Lifecycle
+
+	var environment : UUID
+	
+	var position : Vector2d
+
+	// map of drones perceived by the depot
+	var drones : ConcurrentHashMap<UUID,PerceivedDroneBody>
+
+	// list of parcels to deliver
+	var todeliver : List<Parcel>
+
+	// list of parcels to create (from the file)
+	var parcelToCreate : List<Parcel>
+	var nbDrones : int
+	
+
+	/**
+	 * Constructor of the agent Depot
+	 * @param envt : UUID of the environment
+	 * @param initialPosition : initial position of the depot
+	 * @param name : name of the agent
+	 * @param listparcels : list of parcels to create
+	 * @param drones : list of drones perceived by the depot
+	 */
+	on Initialize {
+		if (occurrence.parameters.size > 4) {
+			if (occurrence.parameters.get(0) instanceof UUID) {
+				environment = occurrence.parameters.get(0) as UUID
+			}
+
+			if (occurrence.parameters.get(1) instanceof Vector2d) {
+				position = occurrence.parameters.get(1) as Vector2d
+			}
+			if (occurrence.parameters.get(2) instanceof String) {
+				loggingName = occurrence.parameters.get(2) as String
+			}
+			if (occurrence.parameters.get(3) instanceof List) {
+				parcelToCreate = occurrence.parameters.get(3) as List<Parcel>
+			}
+			if (occurrence.parameters.get(4) instanceof ConcurrentHashMap) {
+				drones = occurrence.parameters.get(4) as ConcurrentHashMap<UUID, PerceivedDroneBody>
+				nbDrones=drones.size
+			}
+		}
+		this.todeliver = newArrayList
+	}
+	
+	/**
+	 * Destructor of the agent Depot
+	 */
+	on Die{
+		info("Depot die")
+		killMe
+	}	
+
+	/**
+	 * Reaction to the event Perception
+	 * @param occurrence : event Perception
+	 */
+	on Perception { 
+		synchronized(drones){
+			drones = occurrence.perceivedAgentBody
+			
+			// if there is no more drones, the depot dies
+			if (this.parcelToCreate.empty) {
+				var dronesAtDepot = getDronesAtDepot
+				if (dronesAtDepot.length == nbDrones){
+					emit(new GeneralSepuku)
+				}
+				
+			}
+			else{
+				// if the depot has drones and parcels to deliver, it tries to affect a drone to a parcel
+				while (this.parcelToCreate.get(0).ordertime< occurrence.time){
+					todeliver.add(this.parcelToCreate.remove(0))
+					// prevent the case where there is no more parcels to deliver
+					if(this.parcelToCreate.empty){
+						break
+					}
+				}
+				if (!todeliver.empty){
+					var toremoveFromList = new ArrayList<Parcel>
+					var dronesAvailables = getDronesAtDepot
+					
+					//for each parcel to deliver, we try to affect a drone
+					for (p : todeliver) {
+						var indexBestDrone = 0
+						var isreallyBest = false
+						
+						//for each drone available, we check if it has enough energy to deliver the parcel
+						for (var i =0 ; i<dronesAvailables.length; i++){
+							//compute the energy needed to deliver the parcel
+							var energyneed = energyneeded(p, dronesAvailables.get(i))
+							if (dronesAvailables.get(i).battery > energyneed) {
+								if (isreallyBest){
+									if (dronesAvailables.get(i).battery < dronesAvailables.get(indexBestDrone).battery) {
+										indexBestDrone = i
+										isreallyBest = true
+									}
+								}
+								else {
+									indexBestDrone = i
+									isreallyBest = true
+									}
+							}
+						}
+						
+						//affect the drone to the parcel
+						if (isreallyBest) {
+							affecterDrone(dronesAvailables.get(indexBestDrone).owner, p)
+							//remove the drone from the list of available drones
+							dronesAvailables.remove(dronesAvailables.get(indexBestDrone))
+							toremoveFromList.add(p)
+							isreallyBest = false
+						}
+					}
+					//remove the affected parcels from the list of parcels to deliver
+					todeliver.removeAll(toremoveFromList)
+				}
+				}	
+			// wait 50 ms before giving the next order to the drones 
+			in(50)[
+				emit(new UpdateAction(this.drones, this.position,occurrence.time))
+			]
+	
+		}	
+	}
+	
+	/**
+	 * Affection of a drone to a parcel
+	 * @param id : UUID of the drone
+	 * @param p : parcel to deliver
+	 * 
+	 */
+	private def affecterDrone(id : UUID, p : Parcel) {
+		emit(new AffectOrder(p))[it.ID == id]
+	}
+
+	/**
+	 * Get the list of drones at the depot (with the objective to charge)
+	 * @return the list of drones at the depot
+	 */
+	private def getDronesAtDepot() {
+		var dronesAvailable = new ArrayList<PerceivedDroneBody>
+		for (drone : this.drones.values){
+			if (drone.objectiv == Objectiv.Charge) {
+				dronesAvailable.add(drone)
+			}
+		}
+		return dronesAvailable
+	}
+	
+	/**
+	 * Compute the energy needed to deliver a parcel
+	 * @param p : parcel to deliver
+	 * @param drone : drone to use
+	 * @return the energy needed to deliver the parcel
+	 */
+	def energyneeded(p : Parcel, drone : PerceivedDroneBody) {
+		// distancemax with with this particular package
+		var distance_max_with_package = Settings::DistMaxDrone * drone.weight / (drone.weight + p.weight)
+		var distance = Math.sqrt(Math.pow(p.housePos.x - drone.position.x, 2) +
+			Math.pow(p.housePos.y - drone.position.y, 2));
+		
+		
+		var percentage_battery_needed = distance * 100 / distance_max_with_package
+		// takeoff and landing
+		percentage_battery_needed +=
+			(drone.weight + p.weight) * Settings::DroneTakeoffRatio + Settings::DroneTakeoffBatteryLoss
+		// return percentage rounded to the	superior integer
+		return (percentage_battery_needed + 0.99) as int
+		
+	}
+}
