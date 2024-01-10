@@ -48,6 +48,8 @@ public class Depot extends Agent {
 
   private List<Parcel> parcelToCreate;
 
+  private int nbDrones;
+
   private void $behaviorUnit$Initialize$0(final Initialize occurrence) {
     int _size = ((List<Object>)Conversions.doWrapArray(occurrence.parameters)).size();
     if ((_size > 4)) {
@@ -76,65 +78,87 @@ public class Depot extends Agent {
       if ((_get_8 instanceof ConcurrentHashMap)) {
         Object _get_9 = occurrence.parameters[4];
         this.drones = ((ConcurrentHashMap<UUID, PerceivedDroneBody>) _get_9);
+        this.nbDrones = this.drones.size();
       }
     }
     this.todeliver = CollectionLiterals.<Parcel>newArrayList();
   }
 
-  private void $behaviorUnit$Perception$1(final Perception occurrence) {
+  private void $behaviorUnit$Die$1(final Die occurrence) {
+    Logging _$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER = this.$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER();
+    _$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER.info("Depot die");
+    Lifecycle _$CAPACITY_USE$IO_SARL_API_CORE_LIFECYCLE$CALLER = this.$CAPACITY_USE$IO_SARL_API_CORE_LIFECYCLE$CALLER();
+    _$CAPACITY_USE$IO_SARL_API_CORE_LIFECYCLE$CALLER.killMe();
+  }
+
+  private void $behaviorUnit$Perception$2(final Perception occurrence) {
     synchronized (this.drones) {
       this.drones = occurrence.perceivedAgentBody;
-      while ((this.parcelToCreate.get(0).getOrdertime() < occurrence.time)) {
-        this.todeliver.add(this.parcelToCreate.remove(0));
-      }
-      boolean _isEmpty = this.todeliver.isEmpty();
-      if ((!_isEmpty)) {
-        ArrayList<Parcel> toremoveFromList = new ArrayList<Parcel>();
-        ArrayList<PerceivedDroneBody> dronesAvailables = this.getDronesAtDepot();
-        for (final Parcel p : this.todeliver) {
+      boolean _isEmpty = this.parcelToCreate.isEmpty();
+      if (_isEmpty) {
+        ArrayList<PerceivedDroneBody> dronesAtDepot = this.getDronesAtDepot();
+        final ArrayList<PerceivedDroneBody> _converted_dronesAtDepot = (ArrayList<PerceivedDroneBody>)dronesAtDepot;
+        int _length = ((Object[])Conversions.unwrapArray(_converted_dronesAtDepot, Object.class)).length;
+        if ((_length == this.nbDrones)) {
+          DefaultContextInteractions _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER = this.$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER();
+          GeneralSepuku _generalSepuku = new GeneralSepuku();
+          _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER.emit(_generalSepuku);
+        }
+      } else {
+        while ((this.parcelToCreate.get(0).getOrdertime() < occurrence.time)) {
           {
-            int indexBestDrone = 0;
-            boolean isreallyBest = false;
-            for (int i = 0; (i < ((Object[])Conversions.unwrapArray(dronesAvailables, Object.class)).length); i++) {
-              {
-                int energyneed = this.energyneeded(p, dronesAvailables.get(i));
-                float _battery = dronesAvailables.get(i).getBattery();
-                if ((_battery > energyneed)) {
-                  if (isreallyBest) {
-                    float _battery_1 = dronesAvailables.get(i).getBattery();
-                    float _battery_2 = dronesAvailables.get(indexBestDrone).getBattery();
-                    if ((_battery_1 < _battery_2)) {
-                      indexBestDrone = i;
-                      isreallyBest = true;
-                    }
-                  } else {
-                    indexBestDrone = i;
-                    isreallyBest = true;
-                  }
-                }
-              }
-            }
-            if (isreallyBest) {
-              Logging _$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER = this.$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER();
-              PerceivedDroneBody _get = dronesAvailables.get(indexBestDrone);
-              int _ordertime = p.getOrdertime();
-              _$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER.info(((("Le Drone " + _get) + "à été affecté au colis : ") + Integer.valueOf(_ordertime)));
-              this.affecterDrone(dronesAvailables.get(indexBestDrone).getOwner(), p);
-              dronesAvailables.remove(dronesAvailables.get(indexBestDrone));
-              toremoveFromList.add(p);
-              isreallyBest = false;
+            this.todeliver.add(this.parcelToCreate.remove(0));
+            boolean _isEmpty_1 = this.parcelToCreate.isEmpty();
+            if (_isEmpty_1) {
+              break;
             }
           }
         }
-        this.todeliver.removeAll(toremoveFromList);
+        boolean _isEmpty_1 = this.todeliver.isEmpty();
+        if ((!_isEmpty_1)) {
+          ArrayList<Parcel> toremoveFromList = new ArrayList<Parcel>();
+          ArrayList<PerceivedDroneBody> dronesAvailables = this.getDronesAtDepot();
+          for (final Parcel p : this.todeliver) {
+            {
+              int indexBestDrone = 0;
+              boolean isreallyBest = false;
+              for (int i = 0; (i < ((Object[])Conversions.unwrapArray(dronesAvailables, Object.class)).length); i++) {
+                {
+                  int energyneed = this.energyneeded(p, dronesAvailables.get(i));
+                  float _battery = dronesAvailables.get(i).getBattery();
+                  if ((_battery > energyneed)) {
+                    if (isreallyBest) {
+                      float _battery_1 = dronesAvailables.get(i).getBattery();
+                      float _battery_2 = dronesAvailables.get(indexBestDrone).getBattery();
+                      if ((_battery_1 < _battery_2)) {
+                        indexBestDrone = i;
+                        isreallyBest = true;
+                      }
+                    } else {
+                      indexBestDrone = i;
+                      isreallyBest = true;
+                    }
+                  }
+                }
+              }
+              if (isreallyBest) {
+                this.affecterDrone(dronesAvailables.get(indexBestDrone).getOwner(), p);
+                dronesAvailables.remove(dronesAvailables.get(indexBestDrone));
+                toremoveFromList.add(p);
+                isreallyBest = false;
+              }
+            }
+          }
+          this.todeliver.removeAll(toremoveFromList);
+        }
+        Schedules _$CAPACITY_USE$IO_SARL_API_CORE_SCHEDULES$CALLER = this.$CAPACITY_USE$IO_SARL_API_CORE_SCHEDULES$CALLER();
+        final Procedure1<Agent> _function = (Agent it) -> {
+          DefaultContextInteractions _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_1 = this.$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER();
+          UpdateAction _updateAction = new UpdateAction(this.drones, this.position);
+          _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_1.emit(_updateAction);
+        };
+        _$CAPACITY_USE$IO_SARL_API_CORE_SCHEDULES$CALLER.in(50, _function);
       }
-      Schedules _$CAPACITY_USE$IO_SARL_API_CORE_SCHEDULES$CALLER = this.$CAPACITY_USE$IO_SARL_API_CORE_SCHEDULES$CALLER();
-      final Procedure1<Agent> _function = (Agent it) -> {
-        DefaultContextInteractions _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER = this.$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER();
-        UpdateAction _updateAction = new UpdateAction(this.drones, this.position);
-        _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER.emit(_updateAction);
-      };
-      _$CAPACITY_USE$IO_SARL_API_CORE_SCHEDULES$CALLER.in(50, _function);
     }
   }
 
@@ -272,13 +296,22 @@ public class Depot extends Agent {
   private void $guardEvaluator$Perception(final Perception occurrence, final Collection<Runnable> ___SARLlocal_runnableCollection) {
     assert occurrence != null;
     assert ___SARLlocal_runnableCollection != null;
-    ___SARLlocal_runnableCollection.add(() -> $behaviorUnit$Perception$1(occurrence));
+    ___SARLlocal_runnableCollection.add(() -> $behaviorUnit$Perception$2(occurrence));
+  }
+
+  @SyntheticMember
+  @PerceptGuardEvaluator
+  private void $guardEvaluator$Die(final Die occurrence, final Collection<Runnable> ___SARLlocal_runnableCollection) {
+    assert occurrence != null;
+    assert ___SARLlocal_runnableCollection != null;
+    ___SARLlocal_runnableCollection.add(() -> $behaviorUnit$Die$1(occurrence));
   }
 
   @SyntheticMember
   @Override
   public void $getSupportedEvents(final Set<Class<? extends Event>> toBeFilled) {
     super.$getSupportedEvents(toBeFilled);
+    toBeFilled.add(Die.class);
     toBeFilled.add(Perception.class);
     toBeFilled.add(Initialize.class);
   }
@@ -286,6 +319,9 @@ public class Depot extends Agent {
   @SyntheticMember
   @Override
   public boolean $isSupportedEvent(final Class<? extends Event> event) {
+    if (Die.class.isAssignableFrom(event)) {
+      return true;
+    }
     if (Perception.class.isAssignableFrom(event)) {
       return true;
     }
@@ -299,6 +335,10 @@ public class Depot extends Agent {
   @Override
   public void $evaluateBehaviorGuards(final Object event, final Collection<Runnable> callbacks) {
     super.$evaluateBehaviorGuards(event, callbacks);
+    if (event instanceof Die) {
+      final Die occurrence = (Die) event;
+      $guardEvaluator$Die(occurrence, callbacks);
+    }
     if (event instanceof Perception) {
       final Perception occurrence = (Perception) event;
       $guardEvaluator$Perception(occurrence, callbacks);
@@ -322,6 +362,8 @@ public class Depot extends Agent {
     Depot other = (Depot) obj;
     if (!java.util.Objects.equals(this.environment, other.environment))
       return false;
+    if (other.nbDrones != this.nbDrones)
+      return false;
     return super.equals(obj);
   }
 
@@ -332,6 +374,7 @@ public class Depot extends Agent {
     int result = super.hashCode();
     final int prime = 31;
     result = prime * result + java.util.Objects.hashCode(this.environment);
+    result = prime * result + Integer.hashCode(this.nbDrones);
     return result;
   }
 

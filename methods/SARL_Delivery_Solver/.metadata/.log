@@ -4892,3 +4892,1064 @@ java.lang.IllegalArgumentException: The feature 'featureCallArguments' is not a 
 
 !ENTRY io.sarl.lang.ui 4 0 2024-01-10 01:44:26.692
 !MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneDeliveryLauncher.sarl. Reconciliation of the editor is forced.
+
+!ENTRY org.eclipse.oomph.p2.core 4 0 2024-01-10 01:47:09.350
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Exception in org.eclipse.oomph.p2.internal.core.P2CorePlugin$Implementation.stop() of bundle org.eclipse.oomph.p2.core.
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.stop(BundleContextImpl.java:895)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.stopWorker0(EquinoxBundle.java:1046)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.stopWorker(EquinoxBundle.java:376)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:660)
+	at org.eclipse.osgi.container.Module.stop(Module.java:521)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.decStartLevel(ModuleContainer.java:1893)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1768)
+	at org.eclipse.osgi.container.SystemModule.stopWorker(SystemModule.java:275)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule.stopWorker(EquinoxBundle.java:208)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:660)
+	at org.eclipse.osgi.container.Module.stop(Module.java:521)
+	at org.eclipse.osgi.container.SystemModule.stop(SystemModule.java:207)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:226)
+	at java.base/java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.ExceptionInInitializerError
+	at org.eclipse.oomph.p2.internal.core.AgentImpl.initializeProvisioningAgent(AgentImpl.java:597)
+	at org.eclipse.oomph.p2.internal.core.AgentImpl.getProvisioningAgent(AgentImpl.java:695)
+	at org.eclipse.oomph.p2.internal.core.AgentImpl.getProfileRegistry(AgentImpl.java:339)
+	at org.eclipse.oomph.p2.internal.core.AgentImpl$1.initializeFirstTime(AgentImpl.java:147)
+	at org.eclipse.oomph.p2.internal.core.PersistentMap.load(PersistentMap.java:113)
+	at org.eclipse.oomph.p2.internal.core.AgentImpl.<init>(AgentImpl.java:194)
+	at org.eclipse.oomph.p2.internal.core.AgentManagerImpl$1.createElement(AgentManagerImpl.java:92)
+	at org.eclipse.oomph.p2.internal.core.AgentManagerImpl$1.createElement(AgentManagerImpl.java:1)
+	at org.eclipse.oomph.p2.internal.core.PersistentMap.addElement(PersistentMap.java:153)
+	at org.eclipse.oomph.p2.internal.core.AgentManagerImpl.addAgent(AgentManagerImpl.java:228)
+	at org.eclipse.oomph.p2.internal.core.AgentManagerImpl$1.initializeFirstTime(AgentManagerImpl.java:129)
+	at org.eclipse.oomph.p2.internal.core.AgentManagerImpl$1.initializeFirstTime(AgentManagerImpl.java:98)
+	at org.eclipse.oomph.p2.internal.core.PersistentMap.load(PersistentMap.java:113)
+	at org.eclipse.oomph.p2.internal.core.AgentManagerImpl.<init>(AgentManagerImpl.java:142)
+	at org.eclipse.oomph.p2.internal.core.AgentManagerImpl.<init>(AgentManagerImpl.java:64)
+	at org.eclipse.oomph.p2.core.P2Util.getAgentManager(P2Util.java:100)
+	at org.eclipse.oomph.p2.internal.core.P2CorePlugin$Implementation.stop(P2CorePlugin.java:177)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$3.run(BundleContextImpl.java:875)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$3.run(BundleContextImpl.java:1)
+	at java.base/java.security.AccessController.doPrivileged(Unknown Source)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.stop(BundleContextImpl.java:867)
+	... 13 more
+Caused by: java.lang.NullPointerException: Cannot invoke "org.osgi.framework.BundleContext.getProperty(String)" because the return value of "org.eclipse.equinox.internal.p2.artifact.repository.Activator.getContext()" is null
+	at org.eclipse.oomph.p2.internal.core.CachingRepositoryManager$Artifact.<clinit>(CachingRepositoryManager.java:571)
+	... 34 more
+Root exception:
+java.lang.ExceptionInInitializerError
+	at org.eclipse.oomph.p2.internal.core.AgentImpl.initializeProvisioningAgent(AgentImpl.java:597)
+	at org.eclipse.oomph.p2.internal.core.AgentImpl.getProvisioningAgent(AgentImpl.java:695)
+	at org.eclipse.oomph.p2.internal.core.AgentImpl.getProfileRegistry(AgentImpl.java:339)
+	at org.eclipse.oomph.p2.internal.core.AgentImpl$1.initializeFirstTime(AgentImpl.java:147)
+	at org.eclipse.oomph.p2.internal.core.PersistentMap.load(PersistentMap.java:113)
+	at org.eclipse.oomph.p2.internal.core.AgentImpl.<init>(AgentImpl.java:194)
+	at org.eclipse.oomph.p2.internal.core.AgentManagerImpl$1.createElement(AgentManagerImpl.java:92)
+	at org.eclipse.oomph.p2.internal.core.AgentManagerImpl$1.createElement(AgentManagerImpl.java:1)
+	at org.eclipse.oomph.p2.internal.core.PersistentMap.addElement(PersistentMap.java:153)
+	at org.eclipse.oomph.p2.internal.core.AgentManagerImpl.addAgent(AgentManagerImpl.java:228)
+	at org.eclipse.oomph.p2.internal.core.AgentManagerImpl$1.initializeFirstTime(AgentManagerImpl.java:129)
+	at org.eclipse.oomph.p2.internal.core.AgentManagerImpl$1.initializeFirstTime(AgentManagerImpl.java:98)
+	at org.eclipse.oomph.p2.internal.core.PersistentMap.load(PersistentMap.java:113)
+	at org.eclipse.oomph.p2.internal.core.AgentManagerImpl.<init>(AgentManagerImpl.java:142)
+	at org.eclipse.oomph.p2.internal.core.AgentManagerImpl.<init>(AgentManagerImpl.java:64)
+	at org.eclipse.oomph.p2.core.P2Util.getAgentManager(P2Util.java:100)
+	at org.eclipse.oomph.p2.internal.core.P2CorePlugin$Implementation.stop(P2CorePlugin.java:177)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$3.run(BundleContextImpl.java:875)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$3.run(BundleContextImpl.java:1)
+	at java.base/java.security.AccessController.doPrivileged(Unknown Source)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.stop(BundleContextImpl.java:867)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.stopWorker0(EquinoxBundle.java:1046)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.stopWorker(EquinoxBundle.java:376)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:660)
+	at org.eclipse.osgi.container.Module.stop(Module.java:521)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.decStartLevel(ModuleContainer.java:1893)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1768)
+	at org.eclipse.osgi.container.SystemModule.stopWorker(SystemModule.java:275)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule.stopWorker(EquinoxBundle.java:208)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:660)
+	at org.eclipse.osgi.container.Module.stop(Module.java:521)
+	at org.eclipse.osgi.container.SystemModule.stop(SystemModule.java:207)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:226)
+	at java.base/java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.NullPointerException: Cannot invoke "org.osgi.framework.BundleContext.getProperty(String)" because the return value of "org.eclipse.equinox.internal.p2.artifact.repository.Activator.getContext()" is null
+	at org.eclipse.oomph.p2.internal.core.CachingRepositoryManager$Artifact.<clinit>(CachingRepositoryManager.java:571)
+	... 34 more
+!SESSION 2024-01-10 11:12:07.427 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=17.0.8
+java.vendor=OpenLogic
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=fr_FR
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.jface 2 0 2024-01-10 11:12:19.862
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2024-01-10 11:12:19.862
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.jdt.ui.navigate.open.type"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.lsp4e.symbolinworkspace"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.jdt.debug 2 0 2024-01-10 11:20:56.700
+!MESSAGE Unable to find location of java.lang.Thread.setName() in debuggee JVM, for type java.lang.Thread
+
+!ENTRY org.eclipse.jdt.debug 2 0 2024-01-10 11:22:47.415
+!MESSAGE Unable to find location of java.lang.Thread.setName() in debuggee JVM, for type java.lang.Thread
+
+!ENTRY org.eclipse.jdt.debug 2 0 2024-01-10 11:22:58.097
+!MESSAGE Unable to find location of java.lang.Thread.setName() in debuggee JVM, for type java.lang.Thread
+
+!ENTRY org.eclipse.jdt.debug 2 0 2024-01-10 11:23:42.345
+!MESSAGE Unable to find location of java.lang.Thread.setName() in debuggee JVM, for type java.lang.Thread
+
+!ENTRY org.apache.log4j 4 0 2024-01-10 11:38:57.072
+!MESSAGE org.eclipse.xtext.xbase.resource.BatchLinkableResource  - resolution of uriFragment '/0/@xtendTypes.0/@members.7/@expression/@expressions.0/@then/@expressions.4/@then/@expressions.1/@value/@memberCallTarget' failed.
+
+!STACK 0
+java.lang.IllegalArgumentException: The feature 'then' is not a valid feature
+	at org.eclipse.emf.ecore.impl.BasicEObjectImpl.eStructuralFeature(BasicEObjectImpl.java:772)
+	at org.eclipse.emf.ecore.impl.BasicEObjectImpl.eObjectForURIFragmentSegment(BasicEObjectImpl.java:560)
+	at org.eclipse.emf.ecore.resource.impl.ResourceImpl.getEObject(ResourceImpl.java:811)
+	at org.eclipse.emf.ecore.resource.impl.ResourceImpl.getEObject(ResourceImpl.java:787)
+	at org.eclipse.xtext.resource.XtextResource.access$1(XtextResource.java:1)
+	at org.eclipse.xtext.resource.XtextResource$1.getEObject(XtextResource.java:121)
+	at org.eclipse.xtext.resource.DefaultFragmentProvider.getEObject(DefaultFragmentProvider.java:29)
+	at org.eclipse.xtext.resource.XtextResource.basicGetEObject(XtextResource.java:376)
+	at org.eclipse.xtext.resource.XtextResource.getEObject(XtextResource.java:362)
+	at org.eclipse.xtext.linking.lazy.LazyLinkingResource.getEObject(LazyLinkingResource.java:246)
+	at org.eclipse.xtext.resource.persistence.StorageAwareResource.getEObject(StorageAwareResource.java:131)
+	at org.eclipse.xtext.xbase.resource.BatchLinkableResource.getEObject(BatchLinkableResource.java:125)
+	at org.eclipse.emf.ecore.resource.impl.ResourceSetImpl.getEObject(ResourceSetImpl.java:223)
+	at io.sarl.lang.ui.quickfix.acceptors.SuppressWarningsAddModification.accept(SuppressWarningsAddModification.java:85)
+	at io.sarl.lang.ui.quickfix.SARLQuickfixProvider.fixSuppressWarnings(SARLQuickfixProvider.java:191)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.xtext.ui.editor.quickfix.AbstractDeclarativeQuickfixProvider.getResolutions(AbstractDeclarativeQuickfixProvider.java:59)
+	at org.eclipse.xtext.ui.editor.quickfix.AbstractDeclarativeQuickfixProvider.getResolutions(AbstractDeclarativeQuickfixProvider.java:89)
+	at org.eclipse.xtext.ui.editor.quickfix.DefaultQuickfixProvider.getResolutions(DefaultQuickfixProvider.java:250)
+	at org.eclipse.xtend.ide.quickfix.XtendQuickfixProvider.getResolutions(XtendQuickfixProvider.java:188)
+	at org.eclipse.xtext.ui.editor.quickfix.AbstractIssueResolutionProviderAdapter.getResolutions(AbstractIssueResolutionProviderAdapter.java:47)
+	at org.eclipse.xtext.ui.editor.quickfix.XtextQuickAssistProcessor.createQuickfixes(XtextQuickAssistProcessor.java:157)
+	at org.eclipse.xtext.ui.editor.quickfix.XtextQuickAssistProcessor.computeQuickAssistProposals(XtextQuickAssistProcessor.java:126)
+	at org.eclipse.xtext.ui.editor.hover.AnnotationWithQuickFixesHover$CompletionProposalRunnable.run(AnnotationWithQuickFixesHover.java:605)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4047)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3663)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:643)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:550)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:171)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:40:28.478
+!MESSAGE OperationCanceledException
+!STACK 0
+org.eclipse.core.runtime.OperationCanceledException
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.internalReadOnly(XtextDocument.java:540)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.readOnly(XtextDocument.java:497)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument.readOnly(XtextDocument.java:136)
+	at org.eclipse.xtext.util.concurrent.IReadAccess.tryReadOnly(IReadAccess.java:50)
+	at io.sarl.lang.ui.codemining.SARLCodeMiningProvider.lambda$0(SARLCodeMiningProvider.java:147)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(Unknown Source)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.exec(Unknown Source)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(Unknown Source)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(Unknown Source)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(Unknown Source)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(Unknown Source)
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:49:56.598
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:49:56.650
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:49:56.782
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:51:48.342
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:51:52.936
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:51:57.141
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:52:46.105
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:52:46.139
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:52:46.140
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:52:47.639
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:52:47.642
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:52:47.643
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:52:48.336
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:52:48.338
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:52:48.339
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:52:49.490
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:52:49.491
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:52:49.493
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:52:52.459
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:52:52.465
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:52:52.467
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:52:55.982
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:52:55.984
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:52:55.985
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:52:56.647
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:52:56.650
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:52:56.650
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:52:57.904
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:52:57.927
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:52:57.929
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:52:58.986
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:52:58.988
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:52:58.989
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:53:07.635
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:53:07.687
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:53:07.687
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:53:11.855
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:53:11.856
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:53:11.878
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:53:14.196
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:53:14.203
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:53:14.203
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:54:01.166
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:54:01.167
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:54:01.169
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:54:02.633
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:54:02.634
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:54:02.654
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:54:02.665
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:54:04.023
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:54:04.035
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:54:04.038
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:54:04.054
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:54:07.079
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:54:07.081
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:54:07.094
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:54:09.235
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:54:09.236
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:54:09.238
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:54:10.189
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:54:10.191
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:54:10.207
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:54:11.994
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:54:12.020
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:54:12.020
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:54:16.971
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:54:16.993
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:54:17.134
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:54:20.978
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:54:21.733
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/EventsAndSharedData.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:54:21.735
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneDeliveryLauncher.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:54:21.746
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:54:21.761
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:54:21.806
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:54:21.820
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:54:24.117
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneDeliveryLauncher.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:54:24.125
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:54:24.132
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:54:24.135
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:54:24.136
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:54:24.137
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/EventsAndSharedData.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:54:24.138
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/EventsAndSharedData.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:54:24.145
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:54:24.159
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 11:54:24.179
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY org.apache.log4j 4 0 2024-01-10 12:11:12.271
+!MESSAGE org.eclipse.xtext.ui.editor.reconciler.XtextDocumentReconcileStrategy  - Parsing in reconciler failed.
+
+!STACK 0
+java.lang.ClassCastException: class org.eclipse.xtext.nodemodel.impl.HiddenLeafNode cannot be cast to class org.eclipse.xtext.nodemodel.impl.CompositeNode (org.eclipse.xtext.nodemodel.impl.HiddenLeafNode and org.eclipse.xtext.nodemodel.impl.CompositeNode are in unnamed module of loader org.eclipse.osgi.internal.loader.EquinoxClassLoader @28ffa527)
+	at org.eclipse.xtext.xbase.parser.LookAheadPreservingNodeModelBuilder.replaceAndTransferLookAhead(LookAheadPreservingNodeModelBuilder.java:41)
+	at org.eclipse.xtext.xbase.parser.TokenSequencePreservingPartialParsingHelper.reparse(TokenSequencePreservingPartialParsingHelper.java:135)
+	at org.eclipse.xtext.parser.antlr.AbstractAntlrParser.doReparse(AbstractAntlrParser.java:139)
+	at org.eclipse.xtext.parser.AbstractParser.reparse(AbstractParser.java:51)
+	at org.eclipse.xtext.resource.XtextResource.update(XtextResource.java:267)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextDocumentReconcileStrategy.doReconcile(XtextDocumentReconcileStrategy.java:183)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextDocumentReconcileStrategy.reconcile(XtextDocumentReconcileStrategy.java:91)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler.doRun(XtextReconciler.java:457)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler$1.process(XtextReconciler.java:371)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler$1.process(XtextReconciler.java:1)
+	at org.eclipse.xtext.util.concurrent.IUnitOfWork$Void.exec(IUnitOfWork.java:38)
+	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:70)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.modify(XtextDocument.java:432)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument.internalModify(XtextDocument.java:165)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler.run(XtextReconciler.java:368)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 4 2 2024-01-10 12:11:12.279
+!MESSAGE An internal error occurred during: "XtextReconcilerJob".
+!STACK 0
+java.lang.ClassCastException: class org.eclipse.xtext.nodemodel.impl.HiddenLeafNode cannot be cast to class org.eclipse.xtext.nodemodel.impl.CompositeNode (org.eclipse.xtext.nodemodel.impl.HiddenLeafNode and org.eclipse.xtext.nodemodel.impl.CompositeNode are in unnamed module of loader org.eclipse.osgi.internal.loader.EquinoxClassLoader @28ffa527)
+	at org.eclipse.xtext.xbase.parser.LookAheadPreservingNodeModelBuilder.replaceAndTransferLookAhead(LookAheadPreservingNodeModelBuilder.java:41)
+	at org.eclipse.xtext.xbase.parser.TokenSequencePreservingPartialParsingHelper.reparse(TokenSequencePreservingPartialParsingHelper.java:135)
+	at org.eclipse.xtext.parser.antlr.AbstractAntlrParser.doReparse(AbstractAntlrParser.java:139)
+	at org.eclipse.xtext.parser.AbstractParser.reparse(AbstractParser.java:51)
+	at org.eclipse.xtext.resource.XtextResource.update(XtextResource.java:267)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextDocumentReconcileStrategy.doReconcile(XtextDocumentReconcileStrategy.java:183)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextDocumentReconcileStrategy.reconcile(XtextDocumentReconcileStrategy.java:91)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler.doRun(XtextReconciler.java:457)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler$1.process(XtextReconciler.java:371)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler$1.process(XtextReconciler.java:1)
+	at org.eclipse.xtext.util.concurrent.IUnitOfWork$Void.exec(IUnitOfWork.java:38)
+	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:70)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.modify(XtextDocument.java:432)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument.internalModify(XtextDocument.java:165)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler.run(XtextReconciler.java:368)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 12:11:18.295
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Depot.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 12:11:18.344
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Depot.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 12:11:18.884
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Depot.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 12:11:25.568
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Depot.sarl. Reconciliation of the editor is forced.
+
+!ENTRY org.apache.log4j 4 0 2024-01-10 12:11:26.048
+!MESSAGE org.eclipse.xtext.ui.editor.reconciler.XtextDocumentReconcileStrategy  - Parsing in reconciler failed.
+
+!STACK 0
+java.lang.ClassCastException: class org.eclipse.xtext.nodemodel.impl.HiddenLeafNode cannot be cast to class org.eclipse.xtext.nodemodel.impl.CompositeNode (org.eclipse.xtext.nodemodel.impl.HiddenLeafNode and org.eclipse.xtext.nodemodel.impl.CompositeNode are in unnamed module of loader org.eclipse.osgi.internal.loader.EquinoxClassLoader @28ffa527)
+	at org.eclipse.xtext.xbase.parser.LookAheadPreservingNodeModelBuilder.replaceAndTransferLookAhead(LookAheadPreservingNodeModelBuilder.java:41)
+	at org.eclipse.xtext.xbase.parser.TokenSequencePreservingPartialParsingHelper.reparse(TokenSequencePreservingPartialParsingHelper.java:135)
+	at org.eclipse.xtext.parser.antlr.AbstractAntlrParser.doReparse(AbstractAntlrParser.java:139)
+	at org.eclipse.xtext.parser.AbstractParser.reparse(AbstractParser.java:51)
+	at org.eclipse.xtext.resource.XtextResource.update(XtextResource.java:267)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextDocumentReconcileStrategy.doReconcile(XtextDocumentReconcileStrategy.java:183)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextDocumentReconcileStrategy.reconcile(XtextDocumentReconcileStrategy.java:91)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler.doRun(XtextReconciler.java:457)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler$DocumentListener$1.exec(XtextReconciler.java:140)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler$DocumentListener$1.exec(XtextReconciler.java:1)
+	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:70)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.modify(XtextDocument.java:432)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.process(XtextDocument.java:340)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler$DocumentListener.performNecessaryUpdates(XtextReconciler.java:137)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument.updateContentBeforeRead(XtextDocument.java:252)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.internalReadOnly(XtextDocument.java:523)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.priorityReadOnly(XtextDocument.java:489)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument.priorityReadOnly(XtextDocument.java:145)
+	at org.eclipse.xtext.ui.editor.contentassist.RepeatedContentAssistProcessor.computeCompletionProposals(RepeatedContentAssistProcessor.java:118)
+	at org.eclipse.xtext.ui.editor.contentassist.RepeatedContentAssistProcessor.computeCompletionProposals(RepeatedContentAssistProcessor.java:87)
+	at org.eclipse.jface.text.contentassist.ContentAssistant$2.lambda$0(ContentAssistant.java:2063)
+	at java.base/java.util.Collections$SingletonSet.forEach(Unknown Source)
+	at org.eclipse.jface.text.contentassist.ContentAssistant$2.run(ContentAssistant.java:2062)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jface.text.contentassist.ContentAssistant.computeCompletionProposals(ContentAssistant.java:2059)
+	at org.eclipse.jface.text.contentassist.CompletionProposalPopup.computeProposals(CompletionProposalPopup.java:577)
+	at org.eclipse.jface.text.contentassist.CompletionProposalPopup.lambda$0(CompletionProposalPopup.java:507)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:67)
+	at org.eclipse.jface.text.contentassist.CompletionProposalPopup.showProposals(CompletionProposalPopup.java:502)
+	at org.eclipse.jface.text.contentassist.ContentAssistant.showPossibleCompletions(ContentAssistant.java:1873)
+	at org.eclipse.xtend.ide.editor.RichStringAwareSourceViewer.doOperation(RichStringAwareSourceViewer.java:259)
+	at io.sarl.lang.ui.editor.SARLSourceViewer.doOperation(SARLSourceViewer.java:110)
+	at org.eclipse.ui.texteditor.ContentAssistAction.lambda$0(ContentAssistAction.java:85)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:67)
+	at org.eclipse.ui.texteditor.ContentAssistAction.run(ContentAssistAction.java:84)
+	at org.eclipse.jface.action.Action.runWithEvent(Action.java:474)
+	at org.eclipse.jface.commands.ActionHandler.execute(ActionHandler.java:121)
+	at org.eclipse.ui.internal.handlers.E4HandlerProxy.execute(E4HandlerProxy.java:97)
+	at jdk.internal.reflect.GeneratedMethodAccessor207.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:58)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invokeUsingClass(InjectorImpl.java:309)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invoke(InjectorImpl.java:243)
+	at org.eclipse.e4.core.contexts.ContextInjectionFactory.invoke(ContextInjectionFactory.java:173)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceHandler.execute(HandlerServiceHandler.java:156)
+	at org.eclipse.core.commands.Command.executeWithChecks(Command.java:488)
+	at org.eclipse.core.commands.ParameterizedCommand.executeWithChecks(ParameterizedCommand.java:485)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceImpl.executeHandler(HandlerServiceImpl.java:213)
+	at org.eclipse.e4.ui.bindings.keys.KeyBindingDispatcher.executeCommand(KeyBindingDispatcher.java:308)
+	at org.eclipse.e4.ui.bindings.keys.KeyBindingDispatcher.press(KeyBindingDispatcher.java:580)
+	at org.eclipse.e4.ui.bindings.keys.KeyBindingDispatcher.processKeyEvent(KeyBindingDispatcher.java:655)
+	at org.eclipse.e4.ui.bindings.keys.KeyBindingDispatcher.filterKeySequenceBindings(KeyBindingDispatcher.java:439)
+	at org.eclipse.e4.ui.bindings.keys.KeyBindingDispatcher$KeyDownFilter.handleEvent(KeyBindingDispatcher.java:96)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.filterEvent(Display.java:1286)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1065)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1090)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1075)
+	at org.eclipse.swt.widgets.Widget.sendKeyEvent(Widget.java:1117)
+	at org.eclipse.swt.widgets.Widget.sendKeyEvent(Widget.java:1113)
+	at org.eclipse.swt.widgets.Widget.wmChar(Widget.java:1594)
+	at org.eclipse.swt.widgets.Control.WM_CHAR(Control.java:4865)
+	at org.eclipse.swt.widgets.Canvas.WM_CHAR(Canvas.java:345)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4743)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:340)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5040)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessage(Native Method)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3658)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:643)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:550)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:171)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+
+!ENTRY org.apache.log4j 4 0 2024-01-10 12:11:26.054
+!MESSAGE org.eclipse.xtext.ui.editor.reconciler.XtextReconciler  - Error while forcing reconciliation
+
+!STACK 0
+java.lang.ClassCastException: class org.eclipse.xtext.nodemodel.impl.HiddenLeafNode cannot be cast to class org.eclipse.xtext.nodemodel.impl.CompositeNode (org.eclipse.xtext.nodemodel.impl.HiddenLeafNode and org.eclipse.xtext.nodemodel.impl.CompositeNode are in unnamed module of loader org.eclipse.osgi.internal.loader.EquinoxClassLoader @28ffa527)
+	at org.eclipse.xtext.xbase.parser.LookAheadPreservingNodeModelBuilder.replaceAndTransferLookAhead(LookAheadPreservingNodeModelBuilder.java:41)
+	at org.eclipse.xtext.xbase.parser.TokenSequencePreservingPartialParsingHelper.reparse(TokenSequencePreservingPartialParsingHelper.java:135)
+	at org.eclipse.xtext.parser.antlr.AbstractAntlrParser.doReparse(AbstractAntlrParser.java:139)
+	at org.eclipse.xtext.parser.AbstractParser.reparse(AbstractParser.java:51)
+	at org.eclipse.xtext.resource.XtextResource.update(XtextResource.java:267)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextDocumentReconcileStrategy.doReconcile(XtextDocumentReconcileStrategy.java:183)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextDocumentReconcileStrategy.reconcile(XtextDocumentReconcileStrategy.java:91)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler.doRun(XtextReconciler.java:457)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler$DocumentListener$1.exec(XtextReconciler.java:140)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler$DocumentListener$1.exec(XtextReconciler.java:1)
+	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:70)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.modify(XtextDocument.java:432)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.process(XtextDocument.java:340)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler$DocumentListener.performNecessaryUpdates(XtextReconciler.java:137)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument.updateContentBeforeRead(XtextDocument.java:252)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.internalReadOnly(XtextDocument.java:523)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.priorityReadOnly(XtextDocument.java:489)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument.priorityReadOnly(XtextDocument.java:145)
+	at org.eclipse.xtext.ui.editor.contentassist.RepeatedContentAssistProcessor.computeCompletionProposals(RepeatedContentAssistProcessor.java:118)
+	at org.eclipse.xtext.ui.editor.contentassist.RepeatedContentAssistProcessor.computeCompletionProposals(RepeatedContentAssistProcessor.java:87)
+	at org.eclipse.jface.text.contentassist.ContentAssistant$2.lambda$0(ContentAssistant.java:2063)
+	at java.base/java.util.Collections$SingletonSet.forEach(Unknown Source)
+	at org.eclipse.jface.text.contentassist.ContentAssistant$2.run(ContentAssistant.java:2062)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jface.text.contentassist.ContentAssistant.computeCompletionProposals(ContentAssistant.java:2059)
+	at org.eclipse.jface.text.contentassist.CompletionProposalPopup.computeProposals(CompletionProposalPopup.java:577)
+	at org.eclipse.jface.text.contentassist.CompletionProposalPopup.lambda$0(CompletionProposalPopup.java:507)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:67)
+	at org.eclipse.jface.text.contentassist.CompletionProposalPopup.showProposals(CompletionProposalPopup.java:502)
+	at org.eclipse.jface.text.contentassist.ContentAssistant.showPossibleCompletions(ContentAssistant.java:1873)
+	at org.eclipse.xtend.ide.editor.RichStringAwareSourceViewer.doOperation(RichStringAwareSourceViewer.java:259)
+	at io.sarl.lang.ui.editor.SARLSourceViewer.doOperation(SARLSourceViewer.java:110)
+	at org.eclipse.ui.texteditor.ContentAssistAction.lambda$0(ContentAssistAction.java:85)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:67)
+	at org.eclipse.ui.texteditor.ContentAssistAction.run(ContentAssistAction.java:84)
+	at org.eclipse.jface.action.Action.runWithEvent(Action.java:474)
+	at org.eclipse.jface.commands.ActionHandler.execute(ActionHandler.java:121)
+	at org.eclipse.ui.internal.handlers.E4HandlerProxy.execute(E4HandlerProxy.java:97)
+	at jdk.internal.reflect.GeneratedMethodAccessor207.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:58)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invokeUsingClass(InjectorImpl.java:309)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invoke(InjectorImpl.java:243)
+	at org.eclipse.e4.core.contexts.ContextInjectionFactory.invoke(ContextInjectionFactory.java:173)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceHandler.execute(HandlerServiceHandler.java:156)
+	at org.eclipse.core.commands.Command.executeWithChecks(Command.java:488)
+	at org.eclipse.core.commands.ParameterizedCommand.executeWithChecks(ParameterizedCommand.java:485)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceImpl.executeHandler(HandlerServiceImpl.java:213)
+	at org.eclipse.e4.ui.bindings.keys.KeyBindingDispatcher.executeCommand(KeyBindingDispatcher.java:308)
+	at org.eclipse.e4.ui.bindings.keys.KeyBindingDispatcher.press(KeyBindingDispatcher.java:580)
+	at org.eclipse.e4.ui.bindings.keys.KeyBindingDispatcher.processKeyEvent(KeyBindingDispatcher.java:655)
+	at org.eclipse.e4.ui.bindings.keys.KeyBindingDispatcher.filterKeySequenceBindings(KeyBindingDispatcher.java:439)
+	at org.eclipse.e4.ui.bindings.keys.KeyBindingDispatcher$KeyDownFilter.handleEvent(KeyBindingDispatcher.java:96)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.filterEvent(Display.java:1286)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1065)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1090)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1075)
+	at org.eclipse.swt.widgets.Widget.sendKeyEvent(Widget.java:1117)
+	at org.eclipse.swt.widgets.Widget.sendKeyEvent(Widget.java:1113)
+	at org.eclipse.swt.widgets.Widget.wmChar(Widget.java:1594)
+	at org.eclipse.swt.widgets.Control.WM_CHAR(Control.java:4865)
+	at org.eclipse.swt.widgets.Canvas.WM_CHAR(Canvas.java:345)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4743)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:340)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5040)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessage(Native Method)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3658)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:643)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:550)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:171)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+
+!ENTRY org.apache.log4j 4 0 2024-01-10 12:11:33.286
+!MESSAGE org.eclipse.xtext.ui.editor.reconciler.XtextDocumentReconcileStrategy  - Parsing in reconciler failed.
+
+!STACK 0
+java.lang.ClassCastException: class org.eclipse.xtext.nodemodel.impl.HiddenLeafNode cannot be cast to class org.eclipse.xtext.nodemodel.impl.CompositeNode (org.eclipse.xtext.nodemodel.impl.HiddenLeafNode and org.eclipse.xtext.nodemodel.impl.CompositeNode are in unnamed module of loader org.eclipse.osgi.internal.loader.EquinoxClassLoader @28ffa527)
+	at org.eclipse.xtext.xbase.parser.LookAheadPreservingNodeModelBuilder.replaceAndTransferLookAhead(LookAheadPreservingNodeModelBuilder.java:41)
+	at org.eclipse.xtext.xbase.parser.TokenSequencePreservingPartialParsingHelper.reparse(TokenSequencePreservingPartialParsingHelper.java:135)
+	at org.eclipse.xtext.parser.antlr.AbstractAntlrParser.doReparse(AbstractAntlrParser.java:139)
+	at org.eclipse.xtext.parser.AbstractParser.reparse(AbstractParser.java:51)
+	at org.eclipse.xtext.resource.XtextResource.update(XtextResource.java:267)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextDocumentReconcileStrategy.doReconcile(XtextDocumentReconcileStrategy.java:183)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextDocumentReconcileStrategy.reconcile(XtextDocumentReconcileStrategy.java:91)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler.doRun(XtextReconciler.java:457)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler$1.process(XtextReconciler.java:371)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler$1.process(XtextReconciler.java:1)
+	at org.eclipse.xtext.util.concurrent.IUnitOfWork$Void.exec(IUnitOfWork.java:38)
+	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:70)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.modify(XtextDocument.java:432)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument.internalModify(XtextDocument.java:165)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler.run(XtextReconciler.java:368)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 4 2 2024-01-10 12:11:33.310
+!MESSAGE An internal error occurred during: "XtextReconcilerJob".
+!STACK 0
+java.lang.ClassCastException: class org.eclipse.xtext.nodemodel.impl.HiddenLeafNode cannot be cast to class org.eclipse.xtext.nodemodel.impl.CompositeNode (org.eclipse.xtext.nodemodel.impl.HiddenLeafNode and org.eclipse.xtext.nodemodel.impl.CompositeNode are in unnamed module of loader org.eclipse.osgi.internal.loader.EquinoxClassLoader @28ffa527)
+	at org.eclipse.xtext.xbase.parser.LookAheadPreservingNodeModelBuilder.replaceAndTransferLookAhead(LookAheadPreservingNodeModelBuilder.java:41)
+	at org.eclipse.xtext.xbase.parser.TokenSequencePreservingPartialParsingHelper.reparse(TokenSequencePreservingPartialParsingHelper.java:135)
+	at org.eclipse.xtext.parser.antlr.AbstractAntlrParser.doReparse(AbstractAntlrParser.java:139)
+	at org.eclipse.xtext.parser.AbstractParser.reparse(AbstractParser.java:51)
+	at org.eclipse.xtext.resource.XtextResource.update(XtextResource.java:267)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextDocumentReconcileStrategy.doReconcile(XtextDocumentReconcileStrategy.java:183)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextDocumentReconcileStrategy.reconcile(XtextDocumentReconcileStrategy.java:91)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler.doRun(XtextReconciler.java:457)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler$1.process(XtextReconciler.java:371)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler$1.process(XtextReconciler.java:1)
+	at org.eclipse.xtext.util.concurrent.IUnitOfWork$Void.exec(IUnitOfWork.java:38)
+	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:70)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.modify(XtextDocument.java:432)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument.internalModify(XtextDocument.java:165)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler.run(XtextReconciler.java:368)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.jdt.debug 2 0 2024-01-10 12:13:47.128
+!MESSAGE Unable to find location of java.lang.Thread.setName() in debuggee JVM, for type java.lang.Thread
+
+!ENTRY org.eclipse.jdt.debug 2 0 2024-01-10 12:18:18.477
+!MESSAGE Unable to find location of java.lang.Thread.setName() in debuggee JVM, for type java.lang.Thread
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 12:19:43.366
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Depot.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 12:19:43.382
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Depot.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 12:20:28.331
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Depot.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 12:20:28.906
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Depot.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 12:20:41.381
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Depot.sarl. Reconciliation of the editor is forced.
+
+!ENTRY org.eclipse.jdt.debug 2 0 2024-01-10 12:21:03.243
+!MESSAGE Unable to find location of java.lang.Thread.setName() in debuggee JVM, for type java.lang.Thread
+
+!ENTRY org.eclipse.jdt.debug 2 0 2024-01-10 12:22:14.485
+!MESSAGE Unable to find location of java.lang.Thread.setName() in debuggee JVM, for type java.lang.Thread
+
+!ENTRY org.apache.log4j 4 0 2024-01-10 12:25:46.537
+!MESSAGE org.eclipse.xtext.ui.editor.reconciler.XtextDocumentReconcileStrategy  - Parsing in reconciler failed.
+
+!STACK 0
+java.lang.ClassCastException: class org.eclipse.xtext.nodemodel.impl.HiddenLeafNode cannot be cast to class org.eclipse.xtext.nodemodel.impl.CompositeNode (org.eclipse.xtext.nodemodel.impl.HiddenLeafNode and org.eclipse.xtext.nodemodel.impl.CompositeNode are in unnamed module of loader org.eclipse.osgi.internal.loader.EquinoxClassLoader @28ffa527)
+	at org.eclipse.xtext.xbase.parser.LookAheadPreservingNodeModelBuilder.replaceAndTransferLookAhead(LookAheadPreservingNodeModelBuilder.java:41)
+	at org.eclipse.xtext.xbase.parser.TokenSequencePreservingPartialParsingHelper.reparse(TokenSequencePreservingPartialParsingHelper.java:135)
+	at org.eclipse.xtext.parser.antlr.AbstractAntlrParser.doReparse(AbstractAntlrParser.java:139)
+	at org.eclipse.xtext.parser.AbstractParser.reparse(AbstractParser.java:51)
+	at org.eclipse.xtext.resource.XtextResource.update(XtextResource.java:267)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextDocumentReconcileStrategy.doReconcile(XtextDocumentReconcileStrategy.java:183)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextDocumentReconcileStrategy.reconcile(XtextDocumentReconcileStrategy.java:91)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler.doRun(XtextReconciler.java:457)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler$1.process(XtextReconciler.java:371)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler$1.process(XtextReconciler.java:1)
+	at org.eclipse.xtext.util.concurrent.IUnitOfWork$Void.exec(IUnitOfWork.java:38)
+	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:70)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.modify(XtextDocument.java:432)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument.internalModify(XtextDocument.java:165)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler.run(XtextReconciler.java:368)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 4 2 2024-01-10 12:25:46.545
+!MESSAGE An internal error occurred during: "XtextReconcilerJob".
+!STACK 0
+java.lang.ClassCastException: class org.eclipse.xtext.nodemodel.impl.HiddenLeafNode cannot be cast to class org.eclipse.xtext.nodemodel.impl.CompositeNode (org.eclipse.xtext.nodemodel.impl.HiddenLeafNode and org.eclipse.xtext.nodemodel.impl.CompositeNode are in unnamed module of loader org.eclipse.osgi.internal.loader.EquinoxClassLoader @28ffa527)
+	at org.eclipse.xtext.xbase.parser.LookAheadPreservingNodeModelBuilder.replaceAndTransferLookAhead(LookAheadPreservingNodeModelBuilder.java:41)
+	at org.eclipse.xtext.xbase.parser.TokenSequencePreservingPartialParsingHelper.reparse(TokenSequencePreservingPartialParsingHelper.java:135)
+	at org.eclipse.xtext.parser.antlr.AbstractAntlrParser.doReparse(AbstractAntlrParser.java:139)
+	at org.eclipse.xtext.parser.AbstractParser.reparse(AbstractParser.java:51)
+	at org.eclipse.xtext.resource.XtextResource.update(XtextResource.java:267)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextDocumentReconcileStrategy.doReconcile(XtextDocumentReconcileStrategy.java:183)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextDocumentReconcileStrategy.reconcile(XtextDocumentReconcileStrategy.java:91)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler.doRun(XtextReconciler.java:457)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler$1.process(XtextReconciler.java:371)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler$1.process(XtextReconciler.java:1)
+	at org.eclipse.xtext.util.concurrent.IUnitOfWork$Void.exec(IUnitOfWork.java:38)
+	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:70)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.modify(XtextDocument.java:432)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument.internalModify(XtextDocument.java:165)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler.run(XtextReconciler.java:368)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.apache.log4j 4 0 2024-01-10 12:25:50.637
+!MESSAGE org.eclipse.xtext.ui.editor.reconciler.XtextDocumentReconcileStrategy  - Parsing in reconciler failed.
+
+!STACK 0
+java.lang.ClassCastException: class org.eclipse.xtext.nodemodel.impl.HiddenLeafNode cannot be cast to class org.eclipse.xtext.nodemodel.impl.CompositeNode (org.eclipse.xtext.nodemodel.impl.HiddenLeafNode and org.eclipse.xtext.nodemodel.impl.CompositeNode are in unnamed module of loader org.eclipse.osgi.internal.loader.EquinoxClassLoader @28ffa527)
+	at org.eclipse.xtext.xbase.parser.LookAheadPreservingNodeModelBuilder.replaceAndTransferLookAhead(LookAheadPreservingNodeModelBuilder.java:41)
+	at org.eclipse.xtext.xbase.parser.TokenSequencePreservingPartialParsingHelper.reparse(TokenSequencePreservingPartialParsingHelper.java:135)
+	at org.eclipse.xtext.parser.antlr.AbstractAntlrParser.doReparse(AbstractAntlrParser.java:139)
+	at org.eclipse.xtext.parser.AbstractParser.reparse(AbstractParser.java:51)
+	at org.eclipse.xtext.resource.XtextResource.update(XtextResource.java:267)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextDocumentReconcileStrategy.doReconcile(XtextDocumentReconcileStrategy.java:183)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextDocumentReconcileStrategy.reconcile(XtextDocumentReconcileStrategy.java:91)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler.doRun(XtextReconciler.java:457)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler$1.process(XtextReconciler.java:371)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler$1.process(XtextReconciler.java:1)
+	at org.eclipse.xtext.util.concurrent.IUnitOfWork$Void.exec(IUnitOfWork.java:38)
+	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:70)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.modify(XtextDocument.java:432)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument.internalModify(XtextDocument.java:165)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler.run(XtextReconciler.java:368)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 4 2 2024-01-10 12:25:50.644
+!MESSAGE An internal error occurred during: "XtextReconcilerJob".
+!STACK 0
+java.lang.ClassCastException: class org.eclipse.xtext.nodemodel.impl.HiddenLeafNode cannot be cast to class org.eclipse.xtext.nodemodel.impl.CompositeNode (org.eclipse.xtext.nodemodel.impl.HiddenLeafNode and org.eclipse.xtext.nodemodel.impl.CompositeNode are in unnamed module of loader org.eclipse.osgi.internal.loader.EquinoxClassLoader @28ffa527)
+	at org.eclipse.xtext.xbase.parser.LookAheadPreservingNodeModelBuilder.replaceAndTransferLookAhead(LookAheadPreservingNodeModelBuilder.java:41)
+	at org.eclipse.xtext.xbase.parser.TokenSequencePreservingPartialParsingHelper.reparse(TokenSequencePreservingPartialParsingHelper.java:135)
+	at org.eclipse.xtext.parser.antlr.AbstractAntlrParser.doReparse(AbstractAntlrParser.java:139)
+	at org.eclipse.xtext.parser.AbstractParser.reparse(AbstractParser.java:51)
+	at org.eclipse.xtext.resource.XtextResource.update(XtextResource.java:267)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextDocumentReconcileStrategy.doReconcile(XtextDocumentReconcileStrategy.java:183)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextDocumentReconcileStrategy.reconcile(XtextDocumentReconcileStrategy.java:91)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler.doRun(XtextReconciler.java:457)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler$1.process(XtextReconciler.java:371)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler$1.process(XtextReconciler.java:1)
+	at org.eclipse.xtext.util.concurrent.IUnitOfWork$Void.exec(IUnitOfWork.java:38)
+	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:70)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.modify(XtextDocument.java:432)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument.internalModify(XtextDocument.java:165)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler.run(XtextReconciler.java:368)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.apache.log4j 4 0 2024-01-10 12:26:02.847
+!MESSAGE org.eclipse.xtext.ui.editor.reconciler.XtextDocumentReconcileStrategy  - Parsing in reconciler failed.
+
+!STACK 0
+java.lang.ClassCastException: class org.eclipse.xtext.nodemodel.impl.HiddenLeafNode cannot be cast to class org.eclipse.xtext.nodemodel.impl.CompositeNode (org.eclipse.xtext.nodemodel.impl.HiddenLeafNode and org.eclipse.xtext.nodemodel.impl.CompositeNode are in unnamed module of loader org.eclipse.osgi.internal.loader.EquinoxClassLoader @28ffa527)
+	at org.eclipse.xtext.xbase.parser.LookAheadPreservingNodeModelBuilder.replaceAndTransferLookAhead(LookAheadPreservingNodeModelBuilder.java:41)
+	at org.eclipse.xtext.xbase.parser.TokenSequencePreservingPartialParsingHelper.reparse(TokenSequencePreservingPartialParsingHelper.java:135)
+	at org.eclipse.xtext.parser.antlr.AbstractAntlrParser.doReparse(AbstractAntlrParser.java:139)
+	at org.eclipse.xtext.parser.AbstractParser.reparse(AbstractParser.java:51)
+	at org.eclipse.xtext.resource.XtextResource.update(XtextResource.java:267)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextDocumentReconcileStrategy.doReconcile(XtextDocumentReconcileStrategy.java:183)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextDocumentReconcileStrategy.reconcile(XtextDocumentReconcileStrategy.java:91)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler.doRun(XtextReconciler.java:457)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler$1.process(XtextReconciler.java:371)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler$1.process(XtextReconciler.java:1)
+	at org.eclipse.xtext.util.concurrent.IUnitOfWork$Void.exec(IUnitOfWork.java:38)
+	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:70)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.modify(XtextDocument.java:432)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument.internalModify(XtextDocument.java:165)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler.run(XtextReconciler.java:368)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 4 2 2024-01-10 12:26:02.872
+!MESSAGE An internal error occurred during: "XtextReconcilerJob".
+!STACK 0
+java.lang.ClassCastException: class org.eclipse.xtext.nodemodel.impl.HiddenLeafNode cannot be cast to class org.eclipse.xtext.nodemodel.impl.CompositeNode (org.eclipse.xtext.nodemodel.impl.HiddenLeafNode and org.eclipse.xtext.nodemodel.impl.CompositeNode are in unnamed module of loader org.eclipse.osgi.internal.loader.EquinoxClassLoader @28ffa527)
+	at org.eclipse.xtext.xbase.parser.LookAheadPreservingNodeModelBuilder.replaceAndTransferLookAhead(LookAheadPreservingNodeModelBuilder.java:41)
+	at org.eclipse.xtext.xbase.parser.TokenSequencePreservingPartialParsingHelper.reparse(TokenSequencePreservingPartialParsingHelper.java:135)
+	at org.eclipse.xtext.parser.antlr.AbstractAntlrParser.doReparse(AbstractAntlrParser.java:139)
+	at org.eclipse.xtext.parser.AbstractParser.reparse(AbstractParser.java:51)
+	at org.eclipse.xtext.resource.XtextResource.update(XtextResource.java:267)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextDocumentReconcileStrategy.doReconcile(XtextDocumentReconcileStrategy.java:183)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextDocumentReconcileStrategy.reconcile(XtextDocumentReconcileStrategy.java:91)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler.doRun(XtextReconciler.java:457)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler$1.process(XtextReconciler.java:371)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler$1.process(XtextReconciler.java:1)
+	at org.eclipse.xtext.util.concurrent.IUnitOfWork$Void.exec(IUnitOfWork.java:38)
+	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:70)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.modify(XtextDocument.java:432)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument.internalModify(XtextDocument.java:165)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler.run(XtextReconciler.java:368)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 12:29:52.457
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 12:29:52.467
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 12:30:22.895
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 12:30:23.083
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 12:33:43.641
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 12:33:43.642
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 12:33:44.105
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneSimulation.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 12:43:00.250
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Environment.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 12:43:00.831
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Environment.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 12:43:07.798
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Environment.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 12:43:24.886
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Environment.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 12:43:25.462
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Environment.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 12:43:28.974
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Environment.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 12:43:28.982
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Environment.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 12:43:29.748
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Environment.sarl. Reconciliation of the editor is forced.
+
+!ENTRY org.eclipse.jdt.debug 2 0 2024-01-10 12:47:30.451
+!MESSAGE Unable to find location of java.lang.Thread.setName() in debuggee JVM, for type java.lang.Thread
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 12:50:48.626
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Environment.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 12:50:48.629
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 12:50:49.783
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Drone.sarl. Reconciliation of the editor is forced.
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 12:50:49.786
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/Environment.sarl. Reconciliation of the editor is forced.
+
+!ENTRY org.eclipse.jdt.debug 2 0 2024-01-10 12:52:32.893
+!MESSAGE Unable to find location of java.lang.Thread.setName() in debuggee JVM, for type java.lang.Thread
+
+!ENTRY org.eclipse.ui.workbench.texteditor 4 0 2024-01-10 13:02:42.589
+!MESSAGE Disconnected before saving. Please post stacktrace to https://bugs.eclipse.org/bugs/show_bug.cgi?id=569286 io.sarl.lang.ui.editor.SARLStandardEditor DroneDeliveryLauncher.sarl
+!STACK 0
+java.lang.IllegalStateException: Disconnected before saving. Please post stacktrace to https://bugs.eclipse.org/bugs/show_bug.cgi?id=569286 io.sarl.lang.ui.editor.SARLStandardEditor DroneDeliveryLauncher.sarl
+	at org.eclipse.ui.texteditor.AbstractTextEditor$TextEditorSavable.disconnectEditor(AbstractTextEditor.java:7148)
+	at org.eclipse.ui.texteditor.AbstractTextEditor.dispose(AbstractTextEditor.java:4329)
+	at org.eclipse.ui.texteditor.AbstractDecoratedTextEditor.dispose(AbstractDecoratedTextEditor.java:383)
+	at org.eclipse.ui.editors.text.TextEditor.dispose(TextEditor.java:94)
+	at org.eclipse.xtext.ui.editor.XtextEditor.dispose(XtextEditor.java:595)
+	at org.eclipse.ui.internal.e4.compatibility.CompatibilityPart.invalidate(CompatibilityPart.java:264)
+	at org.eclipse.ui.internal.e4.compatibility.CompatibilityPart.destroy(CompatibilityPart.java:421)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:58)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.processAnnotated(InjectorImpl.java:987)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.processAnnotated(InjectorImpl.java:952)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.uninject(InjectorImpl.java:193)
+	at org.eclipse.e4.core.internal.di.Requestor.uninject(Requestor.java:177)
+	at org.eclipse.e4.core.internal.contexts.ContextObjectSupplier$ContextInjectionListener.update(ContextObjectSupplier.java:89)
+	at org.eclipse.e4.core.internal.contexts.TrackableComputationExt.update(TrackableComputationExt.java:103)
+	at org.eclipse.e4.core.internal.contexts.EclipseContext.removeListenersTo(EclipseContext.java:487)
+	at org.eclipse.e4.core.contexts.ContextInjectionFactory.uninject(ContextInjectionFactory.java:184)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeRemoveGui(PartRenderingEngine.java:947)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.run(PartRenderingEngine.java:861)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.removeGui(PartRenderingEngine.java:845)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.subscribeTopicToBeRendered(PartRenderingEngine.java:185)
+	at jdk.internal.reflect.GeneratedMethodAccessor369.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:58)
+	at org.eclipse.e4.core.di.internal.extensions.EventObjectSupplier$DIEventHandler.handleEvent(EventObjectSupplier.java:92)
+	at org.eclipse.equinox.internal.event.EventHandlerWrapper.handleEvent(EventHandlerWrapper.java:205)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:203)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.ListenerQueue.dispatchEventSynchronous(ListenerQueue.java:151)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.dispatchEvent(EventAdminImpl.java:133)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.sendEvent(EventAdminImpl.java:75)
+	at org.eclipse.equinox.internal.event.EventComponent.sendEvent(EventComponent.java:44)
+	at org.eclipse.e4.ui.services.internal.events.EventBroker.send(EventBroker.java:55)
+	at org.eclipse.e4.ui.internal.workbench.UIEventPublisher.notifyChanged(UIEventPublisher.java:63)
+	at org.eclipse.emf.common.notify.impl.BasicNotifierImpl.eNotify(BasicNotifierImpl.java:424)
+	at org.eclipse.e4.ui.model.application.ui.impl.UIElementImpl.setToBeRendered(UIElementImpl.java:314)
+	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl.hidePart(PartServiceImpl.java:1404)
+	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl.hidePart(PartServiceImpl.java:1334)
+	at org.eclipse.e4.ui.workbench.renderers.swt.StackRenderer.closePart(StackRenderer.java:1317)
+	at org.eclipse.e4.ui.workbench.renderers.swt.StackRenderer$3.close(StackRenderer.java:1177)
+	at org.eclipse.swt.custom.CTabFolder.onMouse(CTabFolder.java:1970)
+	at org.eclipse.swt.custom.CTabFolder.lambda$0(CTabFolder.java:337)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4274)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1066)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4072)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3660)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:643)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:550)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:171)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+	Suppressed: java.lang.IllegalStateException: isDirty check after disconnect
+		at org.eclipse.ui.texteditor.AbstractTextEditor$TextEditorSavable.isDirty(AbstractTextEditor.java:7197)
+		at org.eclipse.ui.internal.Workbench.getFilteredSaveables(Workbench.java:3431)
+		at org.eclipse.ui.internal.Workbench.saveAll(Workbench.java:3404)
+		at org.eclipse.ui.ide.IDE$1.run(IDE.java:1458)
+		at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+		at org.eclipse.ui.ide.IDE.saveAllEditors(IDE.java:1446)
+		at org.eclipse.debug.internal.ui.launchConfigurations.SaveScopeResourcesHandler.doSave(SaveScopeResourcesHandler.java:228)
+		at org.eclipse.debug.internal.ui.launchConfigurations.SaveScopeResourcesHandler.handleStatus(SaveScopeResourcesHandler.java:182)
+		at org.eclipse.debug.internal.ui.sourcelookup.Prompter.lambda$0(Prompter.java:73)
+		at org.eclipse.ui.internal.PendingSyncExec.run(PendingSyncExec.java:68)
+		at org.eclipse.ui.internal.UILockListener.doPendingWork(UILockListener.java:172)
+		at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+		at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+		at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4047)
+		at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3663)
+		... 21 more
+
+!ENTRY io.sarl.lang.ui 4 0 2024-01-10 13:03:51.839
+!MESSAGE Possible inconsistency problem between the editor and the resource platform:/resource/io-sarl-drones-delivery-solver/src/main/sarl/drone_delivery/solver/DroneDeliveryLauncher.sarl. Reconciliation of the editor is forced.

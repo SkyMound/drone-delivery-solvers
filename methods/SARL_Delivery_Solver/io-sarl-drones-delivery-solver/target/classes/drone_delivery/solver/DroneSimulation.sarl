@@ -15,6 +15,7 @@ import java.util.Comparator
 import java.util.Collections
 import org.arakhne.afc.math.geometry.d2.Vector2D
 import java.util.ArrayList
+import io.sarl.api.core.Destroy
 
 class DroneSimulation implements EventListener {
 	public static val id = UUID::randomUUID
@@ -109,7 +110,7 @@ class DroneSimulation implements EventListener {
 	}
 
 	def stop : void {
-		killAllAgents
+		killAllAgent
 		isSimulationStarted = false
 	}
 
@@ -225,9 +226,10 @@ class DroneSimulation implements EventListener {
 		}
 	}
 
-	private def killAllAgents : void {
+	private def killAllAgent : void {
 		// do something if you want to
-		//TODO
+		^space.emit(UUID.randomUUID, new Die)
+		println("SystemExit")
 	}
 	
 	
@@ -280,6 +282,9 @@ class DroneSimulation implements EventListener {
 		if (^event instanceof GuiRepaint) { // event from the environment, GUI must be refreshed
 			this.myGUI.drones = scaleDronePosToGui(	^event.perceivedAgentBody) 
 			this.myGUI.repaint
+		}
+		if ( ^event instanceof GeneralSepuku){
+			killAllAgent
 		}
 	}
 }

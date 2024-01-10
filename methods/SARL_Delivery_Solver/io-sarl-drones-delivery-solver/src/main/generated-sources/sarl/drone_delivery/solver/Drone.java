@@ -97,9 +97,13 @@ public class Drone extends Agent {
     }
   }
 
-  protected boolean closeEnoughToTarget(final Vector2d v1, final Vector2d v2) {
+  private void $behaviorUnit$Die$1(final Die occurrence) {
     Logging _$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER = this.$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER();
-    _$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER.info("Le Drone est en mouvement  ");
+    _$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER.info((" is dying while " + this.objectiv));
+  }
+
+  @Pure
+  protected boolean closeEnoughToTarget(final Vector2d v1, final Vector2d v2) {
     int distanceMin = Settings.distMinLiv;
     double _x = v2.getX();
     double _x_1 = v1.getX();
@@ -111,7 +115,7 @@ public class Drone extends Agent {
     return (distance <= distanceMin);
   }
 
-  private void $behaviorUnit$UpdateAction$1(final UpdateAction occurrence) {
+  private void $behaviorUnit$UpdateAction$2(final UpdateAction occurrence) {
     PerceivedDroneBody myBody = occurrence.perceivedAgentBody.get(this.getID());
     if (((myBody != null) && Objects.equal(myBody.getOwner(), this.getID()))) {
       this.position = myBody.getPosition();
@@ -132,8 +136,7 @@ public class Drone extends Agent {
           boolean _closeEnoughToTarget = this.closeEnoughToTarget(this.position, this.targetPos);
           if (_closeEnoughToTarget) {
             Logging _$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER = this.$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER();
-            UUID _iD = this.getID();
-            _$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER.info((("Le drone " + _iD) + " est rentré au dépot et se met en charge"));
+            _$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER.info(" est rentré au dépot et se met en charge");
             this.objectiv = Objectiv.Charge;
             this.targetPos = null;
             this.battery = 0.0f;
@@ -146,7 +149,7 @@ public class Drone extends Agent {
             boolean _closeEnoughToTarget_1 = this.closeEnoughToTarget(this.position, this.targetPos);
             if (_closeEnoughToTarget_1) {
               Logging _$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER_1 = this.$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER();
-              _$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER_1.info("Le Drone est assez proche de sa cible");
+              _$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER_1.info(" est assez proche de sa cible");
               this.objectiv = Objectiv.BackLiv;
               this.targetPos = occurrence.depotPos;
               this.parcel = null;
@@ -167,7 +170,7 @@ public class Drone extends Agent {
     _$CAPACITY_USE$IO_SARL_API_CORE_SCHEDULES$CALLER.in(Settings.pause, _function);
   }
 
-  private void $behaviorUnit$AffectOrder$2(final AffectOrder occurrence) {
+  private void $behaviorUnit$AffectOrder$3(final AffectOrder occurrence) {
     this.parcel = occurrence.affectedparcel;
     this.targetPos = this.parcel.getHousePos();
     this.objectiv = Objectiv.GoLiv;
@@ -268,7 +271,7 @@ public class Drone extends Agent {
   private void $guardEvaluator$UpdateAction(final UpdateAction occurrence, final Collection<Runnable> ___SARLlocal_runnableCollection) {
     assert occurrence != null;
     assert ___SARLlocal_runnableCollection != null;
-    ___SARLlocal_runnableCollection.add(() -> $behaviorUnit$UpdateAction$1(occurrence));
+    ___SARLlocal_runnableCollection.add(() -> $behaviorUnit$UpdateAction$2(occurrence));
   }
 
   @SyntheticMember
@@ -276,7 +279,15 @@ public class Drone extends Agent {
   private void $guardEvaluator$AffectOrder(final AffectOrder occurrence, final Collection<Runnable> ___SARLlocal_runnableCollection) {
     assert occurrence != null;
     assert ___SARLlocal_runnableCollection != null;
-    ___SARLlocal_runnableCollection.add(() -> $behaviorUnit$AffectOrder$2(occurrence));
+    ___SARLlocal_runnableCollection.add(() -> $behaviorUnit$AffectOrder$3(occurrence));
+  }
+
+  @SyntheticMember
+  @PerceptGuardEvaluator
+  private void $guardEvaluator$Die(final Die occurrence, final Collection<Runnable> ___SARLlocal_runnableCollection) {
+    assert occurrence != null;
+    assert ___SARLlocal_runnableCollection != null;
+    ___SARLlocal_runnableCollection.add(() -> $behaviorUnit$Die$1(occurrence));
   }
 
   @SyntheticMember
@@ -284,6 +295,7 @@ public class Drone extends Agent {
   public void $getSupportedEvents(final Set<Class<? extends Event>> toBeFilled) {
     super.$getSupportedEvents(toBeFilled);
     toBeFilled.add(AffectOrder.class);
+    toBeFilled.add(Die.class);
     toBeFilled.add(UpdateAction.class);
     toBeFilled.add(Initialize.class);
   }
@@ -292,6 +304,9 @@ public class Drone extends Agent {
   @Override
   public boolean $isSupportedEvent(final Class<? extends Event> event) {
     if (AffectOrder.class.isAssignableFrom(event)) {
+      return true;
+    }
+    if (Die.class.isAssignableFrom(event)) {
       return true;
     }
     if (UpdateAction.class.isAssignableFrom(event)) {
@@ -310,6 +325,10 @@ public class Drone extends Agent {
     if (event instanceof AffectOrder) {
       final AffectOrder occurrence = (AffectOrder) event;
       $guardEvaluator$AffectOrder(occurrence, callbacks);
+    }
+    if (event instanceof Die) {
+      final Die occurrence = (Die) event;
+      $guardEvaluator$Die(occurrence, callbacks);
     }
     if (event instanceof UpdateAction) {
       final UpdateAction occurrence = (UpdateAction) event;

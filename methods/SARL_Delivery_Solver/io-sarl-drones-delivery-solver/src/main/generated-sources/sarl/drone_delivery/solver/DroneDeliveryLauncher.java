@@ -4,6 +4,7 @@ import io.sarl.lang.core.annotation.SarlElementType;
 import io.sarl.lang.core.annotation.SarlSpecification;
 import io.sarl.lang.core.annotation.SyntheticMember;
 import java.io.File;
+import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.Pure;
 
 @SarlSpecification("0.13")
@@ -32,6 +33,8 @@ public class DroneDeliveryLauncher {
     String parcelfilePath = DroneDeliveryLauncher.getResourcePath("src\\main\\resources\\packagesSmallCity_100.csv");
     DroneSimulation simu = new DroneSimulation(nbDrones, nbParcel, cityfilePath, parcelfilePath);
     simu.start();
+    InputOutput.<String>print(" sfd");
+    return;
   }
 
   @SyntheticMember

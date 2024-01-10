@@ -24,6 +24,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.arakhne.afc.math.geometry.d2.d.Vector2d;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import org.eclipse.xtext.xbase.lib.Exceptions;
+import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.Pure;
 
@@ -120,7 +121,7 @@ public class DroneSimulation implements EventListener {
   }
 
   public void stop() {
-    this.killAllAgents();
+    this.killAllAgent();
     this.isSimulationStarted = false;
   }
 
@@ -257,7 +258,11 @@ public class DroneSimulation implements EventListener {
     }
   }
 
-  private void killAllAgents() {
+  private void killAllAgent() {
+    UUID _randomUUID = UUID.randomUUID();
+    Die _die = new Die();
+    this.space.emit(_randomUUID, _die, null);
+    InputOutput.<String>println("SystemExit");
   }
 
   public ArrayList<Parcel> createParcelsList(final String cityfilePath, final String parcelfilePath) {
@@ -328,6 +333,9 @@ public class DroneSimulation implements EventListener {
     if ((event instanceof GuiRepaint)) {
       this.myGUI.setDrones(this.scaleDronePosToGui(((GuiRepaint)event).perceivedAgentBody));
       this.myGUI.repaint();
+    }
+    if ((event instanceof GeneralSepuku)) {
+      this.killAllAgent();
     }
   }
 

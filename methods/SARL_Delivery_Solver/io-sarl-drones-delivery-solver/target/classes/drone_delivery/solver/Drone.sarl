@@ -76,8 +76,11 @@ agent Drone {
 		
 	}
 	
+	on Die{
+		info(" is dying while " + this.objectiv)
+	}
+	
 	def closeEnoughToTarget(v1 : Vector2d, v2 : Vector2d) {
-		info("Le Drone est en mouvement  ")
 		var distanceMin = Settings::distMinLiv
 		var distance = Math.sqrt(Math.pow(v2.x - v1.x, 2) + Math.pow(v2.y - v1.y, 2));
 		return distance <= distanceMin;
@@ -104,7 +107,7 @@ agent Drone {
 			else if (this.objectiv == Objectiv.BackLiv) {
 					
 					if (closeEnoughToTarget(this.position, this.targetPos)) {
-						info("Le drone " + this.ID+" est rentré au dépot et se met en charge")
+						info(" est rentré au dépot et se met en charge")
 						this.objectiv = Objectiv.Charge
 						this.targetPos = null
 						this.battery =0.0f
@@ -116,7 +119,7 @@ agent Drone {
 			
 			else if (this.objectiv == Objectiv.GoLiv) {
 				if (closeEnoughToTarget(this.position, this.targetPos)) {
-					info("Le Drone est assez proche de sa cible")
+					info(" est assez proche de sa cible")
 					this.objectiv = Objectiv.BackLiv
 					this.targetPos = occurrence.depotPos
 					this.parcel = null

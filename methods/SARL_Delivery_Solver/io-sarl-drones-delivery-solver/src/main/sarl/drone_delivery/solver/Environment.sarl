@@ -54,6 +54,7 @@ agent Environment{
 	}
 
 	on Die {
+		info("Env Die")
 		killMe
 	}
 
@@ -66,8 +67,13 @@ agent Environment{
 				}
 				if (influences.size == this.drones.size) {
 					in(Settings::pause) [
-						time+=Settings::SecondsPerCycle
-						info(time)
+						time += Settings::SecondsPerCycle
+						var hours = time/ 3600 %24
+						var remaining_seconds = time % 3600
+						var minutes = remaining_seconds / 60
+						var seconds = remaining_seconds % 60
+						
+						info(hours + ":" + minutes + ":" + seconds)
 						new GuiRepaint(drones).emit[it.ID == DroneSimulation.id]
 						new Perception(drones,time).emit
 					]

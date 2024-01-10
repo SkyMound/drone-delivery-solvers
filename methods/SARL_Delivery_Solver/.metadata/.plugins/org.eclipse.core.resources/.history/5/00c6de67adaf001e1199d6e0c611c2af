@@ -1,0 +1,104 @@
+package drone_delivery.solver
+
+import io.sarl.api.core.Logging
+import io.sarl.api.core.Schedules
+import io.sarl.api.core.DefaultContextInteractions
+import io.sarl.api.core.Lifecycle
+import java.util.concurrent.ConcurrentHashMap
+import java.util.UUID
+import io.sarl.api.core.Initialize
+import org.arakhne.afc.math.geometry.d2.d.Vector2d
+import java.util.concurrent.ConcurrentSkipListSet
+import org.eclipse.xtend.lib.annotations.Accessors
+
+agent Environment{
+	uses Logging, Schedules, DefaultContextInteractions, Lifecycle
+
+	@Accessors
+	var width : int
+	@Accessors
+	var height : int
+
+	@Accessors
+	var drones : ConcurrentHashMap<UUID, PerceivedDroneBody>
+	@Accessors
+	var depot : Depot
+
+	@Accessors
+	var influences : ConcurrentSkipListSet<UUID>
+
+	@Accessors
+	var time : int
+	
+	on Initialize {
+		loggingName = "Environment"
+	if (occurrence.parameters.size > 1) {
+		if (occurrence.parameters.get(0) instanceof Integer) {
+			height = occurrence.parameters.get(0) as Integer
+		}
+
+		if (occurrence.parameters.get(1) instanceof Integer) {
+			width = occurrence.parameters.get(1) as Integer
+			}
+		}
+		drones = null
+		time = Settings::DeliveryStartingHour *3600
+		depot=null
+		influences = new ConcurrentSkipListSet
+	}
+	
+	on Start{
+		this.drones = occurrence.perceivedAgentBody
+		new GuiRepaint(drones).emit
+		new Perception(drones,time).emit
+	}
+
+	on Die {
+		info("Env Die")
+		killMe
+	}
+
+	on Action {
+		synchronized (drones) {
+			synchronized (influences) {
+				if (drones.containsKey(occurrence.source.ID)) {
+					influences.add(occurrence.source.ID)
+					applyForce(occurrence.influence, drones.get(occurrence.source.ID))
+				}
+				if (influences.size == this.drones.size) {
+					in(Settings::pause) [
+						time+=Settings::SecondsPerCycle
+						info(time)
+						new GuiRepaint(drones).emit[it.ID == DroneSimulation.id]
+						new Perception(drones,time).emit
+					]
+					this.influences.clear
+				}
+			}
+		}
+		
+	}
+	
+
+
+	def applyForce(speed : Vector2d, d : PerceivedDroneBody) {
+
+		var vitesse = d.vitesse
+		vitesse = speed
+
+		// updating speed
+		if (vitesse.length > Settings::DroneMaxSpeed * Settings::SecondsPerCycle) {
+			vitesse.length = Settings::DroneMaxSpeed * Settings::SecondsPerCycle
+		}
+
+		// updating the position
+		var position = d.position
+		position += vitesse
+
+		var dd = drones.get(d.owner)
+		dd.vitesse = vitesse
+		dd.position = position
+
+	}
+
+}

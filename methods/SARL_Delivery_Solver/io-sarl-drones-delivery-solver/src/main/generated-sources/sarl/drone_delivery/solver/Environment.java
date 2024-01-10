@@ -88,6 +88,8 @@ public class Environment extends Agent {
   }
 
   private void $behaviorUnit$Die$2(final Die occurrence) {
+    Logging _$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER = this.$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER();
+    _$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER.info("Env Die");
     Lifecycle _$CAPACITY_USE$IO_SARL_API_CORE_LIFECYCLE$CALLER = this.$CAPACITY_USE$IO_SARL_API_CORE_LIFECYCLE$CALLER();
     _$CAPACITY_USE$IO_SARL_API_CORE_LIFECYCLE$CALLER.killMe();
   }
@@ -107,8 +109,13 @@ public class Environment extends Agent {
           final Procedure1<Agent> _function = (Agent it) -> {
             int _time = this.time;
             this.time = (_time + Settings.SecondsPerCycle);
+            int hours = ((this.time / 3600) % 24);
+            int remaining_seconds = (this.time % 3600);
+            int minutes = (remaining_seconds / 60);
+            int seconds = (remaining_seconds % 60);
             Logging _$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER = this.$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER();
-            _$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER.info(Integer.valueOf(this.time));
+            String _plus = (Integer.valueOf(hours) + ":");
+            _$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER.info((((_plus + Integer.valueOf(minutes)) + ":") + Integer.valueOf(seconds)));
             DefaultContextInteractions _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER = this.$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER();
             class $SerializableClosureProxy implements Scope<Address> {
               

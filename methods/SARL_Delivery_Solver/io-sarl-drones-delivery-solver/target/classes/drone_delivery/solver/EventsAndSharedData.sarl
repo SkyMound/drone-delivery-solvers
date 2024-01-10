@@ -68,6 +68,7 @@ event GuiRepaint {
 
 }
 
+event GeneralSepuku
 
 class PerceivedDroneBody {
 
