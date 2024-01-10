@@ -1,3 +1,11 @@
+/**
+ * Drone simulation class
+ * This class is the main class of the simulation, it manages the simulation's GUI and the agents' launch.
+ * It also manages the communication between the GUI and the agents.
+ * It is also the class that launch the simulation.
+ * @author Martin Mickael https://github.com/Araphlen and Berne Thomas at conception
+ */
+
 package drone_delivery.solver
 
 import io.sarl.api.core.OpenEventSpace
@@ -13,12 +21,11 @@ import org.arakhne.afc.math.geometry.d2.d.Vector2d
 import drone_delivery.solver.gui.EnvironmentGui
 import java.util.Comparator
 import java.util.Collections
-import org.arakhne.afc.math.geometry.d2.Vector2D
 import java.util.ArrayList
-import io.sarl.api.core.Destroy
-import java.lang.reflect.Parameter
 
 class DroneSimulation implements EventListener {
+	//  #######   SARL context ########
+
 	public static val id = UUID::randomUUID
 
 	/** 
@@ -31,50 +38,6 @@ class DroneSimulation implements EventListener {
 	 */
 	var defaultSARLContext : AgentContext
 
-
-	var minDataX : double
-	var minDataY : double
-	
-	/** 
-	 * Identifier of the environment
-	 */
-	var environment : UUID
-
-	var width = Settings::EnvtWidth
-
-	var height = Settings::EnvtHeight
-	var guiwidth = Settings::EnvtWidth
-
-	var guiheight = Settings::EnvtHeight
-
-	/** 
-	 * Map buffering drones before launch/start
-	 */
-	var dronesToLaunch : int
-	
-	var nbParcelinSim : int
-	
-	var parcelToCreate : List<Parcel>
-	
-	
-	/** 
-	 * Map buffering drones' bodies before launch/start
-	 */
-	var droneBodies : ConcurrentHashMap<UUID, PerceivedDroneBody>
-
-	var dronesCount : int
-
-	var depotPos : Vector2d
-	
-	var housesPos : List<Vector2d>
-	
-	var deliveriesTime : List<Integer>
-
-	/** 
-	 * Boolean specifying id the simulation is started or not.
-	 */
-	var isSimulationStarted = false
-
 	/** 
 	 * the vent space used to establish communication between GUI and agents,
 	 * Especially enabling GUI to forward start event to the environment, 
@@ -83,10 +46,64 @@ class DroneSimulation implements EventListener {
 	var ^space : OpenEventSpace
 
 	/** 
+	 * Boolean specifying id the simulation is started or not.
+	 */
+	var isSimulationStarted = false
+	
+	/** 
+	 * Identifier of the environment
+	 */
+	var environment : UUID
+
+	/** 
+	 * Width and height of the environment
+	 */
+	var width = Settings::EnvtWidth
+	var height = Settings::EnvtHeight
+
+	/** 
+	 * The minimum value of the data in the city file
+	 */
+	var minDataX : double
+	var minDataY : double
+	
+	var depotPos : Vector2d
+	
+	var housesPos : List<Vector2d>
+
+	var dronesToLaunch : int
+
+	var dronesCount : int
+
+	/** 
+	 * Map buffering drones' bodies before launch/start
+	 */
+	var droneBodies : ConcurrentHashMap<UUID, PerceivedDroneBody>
+	
+	var nbParcelinSim : int
+	
+	var parcelToCreate : List<Parcel>
+	
+	var deliveriesTime : List<Integer>
+
+	/** 
 	 * The Graphical user interface
 	 */
 	var myGUI : EnvironmentGui
+	
+	/** 
+	 * Width and height of the GUI
+	 */
+	var guiwidth = Settings::EnvtWidth
+	var guiheight = Settings::EnvtHeight
 
+	/**
+	 * Constructor of the class DroneSimulation
+	 * @param nbDrones : number of drones to launch
+	 * @param nbParcel : number of parcels to deliver
+	 * @param cityfilePath : path to the city file
+	 * @param parcelfilePath : path to the parcel file
+	 */
 	new (nbDrones : int, nbParcel : int, cityfilePath : String, parcelfilePath : String) {
 		dronesCount = 0
 
@@ -94,27 +111,42 @@ class DroneSimulation implements EventListener {
 
 		dronesToLaunch = nbDrones
 		nbParcelinSim = nbParcel
+
 		housesPos = createHousePosList(cityfilePath).toList
 		parcelToCreate = createParcelsList(cityfilePath, parcelfilePath)
+
+		// resize the environment to the model
 		var newNnvBoudaries = resizeEnvToModel
+		// translate the houses and parcels positions to 0 of the environment
 		translatehousesPosTo0(minDataX, minDataY)
 		translateParcelsPosTo0(minDataX, minDataY)
 
+		// update the width and height of the environment to have a margin of 20% around the model
 		width = (newNnvBoudaries.get(0) * 1.2).toInteger
 		height = (newNnvBoudaries.get(1) * 1.2).toInteger
 		deliveriesTime = newArrayList
 		
 	}
 	
+	/**
+	 * Method that launch the simulation
+	 */
 	def start : void {
 		launchAllAgents
 		isSimulationStarted = true
 	}
 
+	/**
+	 * Method that stop the simulation
+	 */
 	def stop : void {
 		killAllAgent
 		isSimulationStarted = false
 	}
+
+	/**
+	 * Method that wait for the end of the simulation
+	 */
 	def finished : boolean{
 		while(isSimulationStarted){
 			
@@ -122,14 +154,19 @@ class DroneSimulation implements EventListener {
 		return true
 	}
 
+	/**
+	 * Method that launch all the agents
+	 */
 	private def launchAllAgents : void {
 
+		// Starting the SRE kernel
 		kernel = SRE::getBootstrap
 
+		// Starting the default SARL context
 		defaultSARLContext = kernel.startWithoutAgent
 
 		environment = UUID::randomUUID
-
+		// Starting the environment
 		kernel.startAgentWithID(typeof(Environment), environment, height, width)
 
 		launchAllDrones
@@ -138,7 +175,9 @@ class DroneSimulation implements EventListener {
 		
 		^space = defaultSARLContext.defaultSpace as OpenEventSpace
 
+		// getting the depot position in the GUI
 		var guidepotPos = new Vector2d(this.depotPos.x * guiwidth / width, depotPos.y * guiheight / height)
+		// Creating the GUI 
 		this.myGUI = new EnvironmentGui(^space, guiheight, guiwidth, scaleDronePosToGui(this.droneBodies), guidepotPos,
 			scaleHousesPosForGui(this.housesPos))
 
@@ -148,6 +187,9 @@ class DroneSimulation implements EventListener {
 		^space.emit(id, new Start(this.droneBodies))
 	}
 	
+	/**
+	 * Method that resize the environment to the model
+	 */
 	private def resizeEnvToModel() {
 		
 		var minValueX = housesPos.get(0).x
@@ -183,6 +225,10 @@ class DroneSimulation implements EventListener {
 		
 		return newboudaries
 	}
+
+	/**
+	 * Method that translate the houses and parcels positions to 0 of the environment
+	 */
 	private def translatehousesPosTo0(minX : double, minY : double){
 		var newHousesPos = new ArrayList<Vector2d>
 		for (house : housesPos) {
@@ -190,6 +236,10 @@ class DroneSimulation implements EventListener {
 		}
 		housesPos = newHousesPos
 	}
+
+	/**
+	 * Method that translate the houses and parcels positions to 0 of the environment
+	 */
 	private def translateParcelsPosTo0(minX : double, minY : double) {
 		var newParcelsToCreate = new ArrayList<Parcel>
 		for (p : parcelToCreate) {
@@ -198,7 +248,9 @@ class DroneSimulation implements EventListener {
 		parcelToCreate = newParcelsToCreate
 	}
 	
-	
+	/**
+	 * Method that launch the depot agent 
+	 */
 	private def launchDepot : void {
 		var initialPosition = new Vector2d(Settings::DepotPos.x - minDataX, Settings::DepotPos.y - minDataY)
 		this.depotPos = initialPosition
@@ -210,12 +262,19 @@ class DroneSimulation implements EventListener {
 		}
 	}
 	
+	/**
+	 * Method that launch all the drones
+	 */
 	private def launchAllDrones : void {
 		for( var i =0; i< dronesToLaunch;i++){
 			launchDrone("Drone"+i)
 		}
 	}
 	
+	/**
+	 * Method that launch a drone with default parameters
+	 * @param droneName : name of the drone to launch 
+	 */
 	private def launchDrone(droneName:String){
 		var initialPosition = new Vector2d(Settings::DepotPos.x - minDataX, Settings::DepotPos.y - minDataY)
 		var initSpeed = new Vector2d
@@ -234,13 +293,20 @@ class DroneSimulation implements EventListener {
 		}
 	}
 
+	/**
+	 * Method that kill all the agents and close the GUI
+	 */
 	private def killAllAgent : void {
 		// do something if you want to
 		^space.emit(UUID.randomUUID, new Die)
 		this.myGUI.dispose
 	}
 	
-	
+	/**
+	 * Method that create the list of parcels to deliver organized by order of command
+	 * @param cityfilePath : path to the city file
+	 * @param parcelfilePath : path to the parcel file
+	 */
 	def createParcelsList(cityfilePath : String, parcelfilePath : String) {
 		var parcelList = CustomCSVReader.getparcelsFromCSV(cityfilePath, parcelfilePath, nbParcelinSim)
 		
@@ -252,10 +318,18 @@ class DroneSimulation implements EventListener {
 		return parcelList
 	}
 	
+	/**
+	 * Method that create the list of houses positions 
+	 * @param cityfilePath : path to the city file
+	 */
 	def createHousePosList(cityfilePath : String) {
 		return CustomCSVReader.getHousesFromCSV(cityfilePath).values
 	}
 	
+	/**
+	 * Method that scale the drones positions to the GUI
+	 * @param drones : map of the drones' bodies
+	 */
 	def scaleDronePosToGui(drones : ConcurrentHashMap<UUID, PerceivedDroneBody>){
 		var guiPosDrones = new ConcurrentHashMap<UUID, PerceivedDroneBody>
 		for (droneSet : drones.entrySet){
@@ -270,7 +344,10 @@ class DroneSimulation implements EventListener {
 		return guiPosDrones
 	}
 	
-	
+	/**
+	 * Method that scale the houses positions to the GUI
+	 * @param housesPosenv : list of the houses positions
+	 */
 	def scaleHousesPosForGui(housesPosenv : List<Vector2d>) {
 		var newhp = new ArrayList<Vector2d>
 		for(hp : housesPosenv){
@@ -284,17 +361,20 @@ class DroneSimulation implements EventListener {
 	}
 
 	/** 
-	 * Methods managing event coming from agents 
+	 * event handler 
 	 */
 	override receiveEvent(^event : Event) {
-		if (^event instanceof GuiRepaint) { // event from the environment, GUI must be refreshed
+		// event from the environment, GUI must be refreshed
+		if (^event instanceof GuiRepaint) { 
 			this.myGUI.drones = scaleDronePosToGui(	^event.perceivedAgentBody) 
 
 			this.myGUI.repaint
 		}
+		// event received when the simulation is finished giving everyone the order to kill themselves
 		if ( ^event instanceof GeneralSepuku){
 			stop
 		}
+		// event received when a parcel is delivered to the house so that the GUI can update the mean delivery duration
 		if (^event instanceof ParcelDelivered) {
 
 			deliveriesTime.add(^event.deliveredDuration)

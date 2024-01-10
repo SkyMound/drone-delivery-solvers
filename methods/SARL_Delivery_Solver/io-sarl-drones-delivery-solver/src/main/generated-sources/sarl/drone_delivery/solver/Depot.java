@@ -1,3 +1,8 @@
+/**
+ * agent Depot
+ * agent responsible for the management of the drones
+ * @author Mickael Martin https://github.com/Araphlen and Berne Thomas at conception
+ */
 package drone_delivery.solver;
 
 import com.google.common.base.Objects;
@@ -162,7 +167,12 @@ public class Depot extends Agent {
     }
   }
 
-  protected void affecterDrone(final UUID id, final Parcel p) {
+  /**
+   * Affection of a drone to a parcel
+   * @param id : UUID of the drone
+   * @param p : parcel to deliver
+   */
+  private void affecterDrone(final UUID id, final Parcel p) {
     DefaultContextInteractions _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER = this.$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER();
     AffectOrder _affectOrder = new AffectOrder(p);
     class $SerializableClosureProxy implements Scope<Address> {
@@ -192,8 +202,12 @@ public class Depot extends Agent {
     _$CAPACITY_USE$IO_SARL_API_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER.emit(_affectOrder, _function);
   }
 
+  /**
+   * Get the list of drones at the depot (with the objective to charge)
+   * @return the list of drones at the depot
+   */
   @Pure
-  protected ArrayList<PerceivedDroneBody> getDronesAtDepot() {
+  private ArrayList<PerceivedDroneBody> getDronesAtDepot() {
     ArrayList<PerceivedDroneBody> dronesAvailable = new ArrayList<PerceivedDroneBody>();
     Collection<PerceivedDroneBody> _values = this.drones.values();
     for (final PerceivedDroneBody drone : _values) {
@@ -206,8 +220,14 @@ public class Depot extends Agent {
     return dronesAvailable;
   }
 
+  /**
+   * Compute the energy needed to deliver a parcel
+   * @param p : parcel to deliver
+   * @param drone : drone to use
+   * @return the energy needed to deliver the parcel
+   */
   @Pure
-  protected int energyneeded(final Parcel p, final PerceivedDroneBody drone) {
+  private int energyneeded(final Parcel p, final PerceivedDroneBody drone) {
     float _weight = drone.getWeight();
     float _weight_1 = drone.getWeight();
     float _weight_2 = p.getWeight();
@@ -283,6 +303,14 @@ public class Depot extends Agent {
     return $castSkill(Lifecycle.class, this.$CAPACITY_USE$IO_SARL_API_CORE_LIFECYCLE);
   }
 
+  /**
+   * Constructor of the agent Depot
+   * @param envt : UUID of the environment
+   * @param initialPosition : initial position of the depot
+   * @param name : name of the agent
+   * @param listparcels : list of parcels to create
+   * @param drones : list of drones perceived by the depot
+   */
   @SyntheticMember
   @PerceptGuardEvaluator
   private void $guardEvaluator$Initialize(final Initialize occurrence, final Collection<Runnable> ___SARLlocal_runnableCollection) {
@@ -291,6 +319,10 @@ public class Depot extends Agent {
     ___SARLlocal_runnableCollection.add(() -> $behaviorUnit$Initialize$0(occurrence));
   }
 
+  /**
+   * Reaction to the event Perception
+   * @param occurrence : event Perception
+   */
   @SyntheticMember
   @PerceptGuardEvaluator
   private void $guardEvaluator$Perception(final Perception occurrence, final Collection<Runnable> ___SARLlocal_runnableCollection) {
@@ -299,6 +331,9 @@ public class Depot extends Agent {
     ___SARLlocal_runnableCollection.add(() -> $behaviorUnit$Perception$2(occurrence));
   }
 
+  /**
+   * Destructor of the agent Depot
+   */
   @SyntheticMember
   @PerceptGuardEvaluator
   private void $guardEvaluator$Die(final Die occurrence, final Collection<Runnable> ___SARLlocal_runnableCollection) {

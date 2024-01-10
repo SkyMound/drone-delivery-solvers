@@ -1,3 +1,6 @@
+/**
+ * Events and shared data for the simulation
+ */
 package drone_delivery.solver;
 
 import io.sarl.lang.core.annotation.SarlElementType;
@@ -9,6 +12,9 @@ import org.arakhne.afc.math.geometry.d2.d.Vector2d;
 import org.eclipse.xtend.lib.annotations.Accessors;
 import org.eclipse.xtext.xbase.lib.Pure;
 
+/**
+ * class representing the perceived body of a drone by the environment
+ */
 @SarlSpecification("0.13")
 @SarlElementType(10)
 @SuppressWarnings("all")

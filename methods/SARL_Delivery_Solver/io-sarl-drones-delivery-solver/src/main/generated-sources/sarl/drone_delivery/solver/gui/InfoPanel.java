@@ -1,3 +1,7 @@
+/**
+ * The GUI of the Simulation
+ * @author Martin Mickael https://github.com/Araphlen  and Berne Thomas at conception
+ */
 package drone_delivery.solver.gui;
 
 import io.sarl.lang.core.annotation.SarlElementType;
@@ -7,6 +11,10 @@ import java.awt.Label;
 import java.awt.Panel;
 import org.eclipse.xtext.xbase.lib.Pure;
 
+/**
+ * Panel to display the informations about the simulation
+ * @author Martin Mickael
+ */
 @SarlSpecification("0.13")
 @SarlElementType(10)
 @SuppressWarnings("all")
@@ -31,8 +39,7 @@ class InfoPanel extends Panel {
     int remaining_seconds = (newMean % 3600);
     int minutes = (remaining_seconds / 60);
     int seconds = (remaining_seconds % 60);
-    this.meanTimeText.setText(((((((" Le temps moyen de livraison est de : " + Integer.valueOf(hours)) + " heures ") + Integer.valueOf(minutes)) + " minutes et ") + Integer.valueOf(seconds)) + 
-      " secondes"));
+    this.meanTimeText.setText(((((((" Le temps moyen de livraison est de : " + Integer.valueOf(hours)) + " heures ") + Integer.valueOf(minutes)) + " minutes et ") + Integer.valueOf(seconds)) + " secondes"));
   }
 
   @Override

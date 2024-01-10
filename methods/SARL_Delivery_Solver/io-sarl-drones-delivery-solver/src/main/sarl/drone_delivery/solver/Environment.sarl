@@ -1,3 +1,17 @@
+/**
+ * The environment of the simulation.
+ * It contains the drones, the depot and the parcels.
+ * @param width : width of the environment
+ * @param height : height of the environment
+ * @param drones : list of drones
+ * @param depot : depot of the environment
+ * @param parcels : list of parcels
+ * @param time : time of the simulation
+ * @param influences : list of influences
+ * @param name : name of the agent
+ * @author Mickael Martin https://github.com/Araphlen and Berne Thomas at conception
+ */
+
 package drone_delivery.solver
 
 import io.sarl.api.core.Logging
@@ -19,45 +33,64 @@ agent Environment{
 	@Accessors
 	var height : int
 
+	// map of drones in the environment
 	@Accessors
 	var drones : ConcurrentHashMap<UUID, PerceivedDroneBody>
 	@Accessors
 	var depot : Depot
 
+	// list of the ids of the drones that have already sent their influence
 	@Accessors
 	var influences : ConcurrentSkipListSet<UUID>
 
+	// time of the simulation
 	@Accessors
 	var time : int
 	
+	/**
+	 * Constructor of the agent Environment
+	 * @param width : width of the environment
+	 * @param height : height of the environment
+	 */
 	on Initialize {
 		loggingName = "Environment"
-	if (occurrence.parameters.size > 1) {
-		if (occurrence.parameters.get(0) instanceof Integer) {
-			height = occurrence.parameters.get(0) as Integer
-		}
-
-		if (occurrence.parameters.get(1) instanceof Integer) {
-			width = occurrence.parameters.get(1) as Integer
+		if (occurrence.parameters.size > 1) {
+			if (occurrence.parameters.get(0) instanceof Integer) {
+				height = occurrence.parameters.get(0) as Integer
 			}
+
+			if (occurrence.parameters.get(1) instanceof Integer) {
+				width = occurrence.parameters.get(1) as Integer
+				}
 		}
 		drones = null
 		time = Settings::DeliveryStartingHour *3600
 		depot=null
 		influences = new ConcurrentSkipListSet
 	}
-	
+
+	/**
+	 * environment Starting event
+	 */
 	on Start{
 		this.drones = occurrence.perceivedAgentBody
 		new GuiRepaint(drones).emit
 		new Perception(drones,time).emit
 	}
 
+	/**
+	 * environment Die event
+	 */
 	on Die {
 		info("Env Die")
 		killMe
 	}
 
+	/**
+	 * event received when a drone has sent its influence
+	 * input : perceivedAgentBody, time
+	 * 
+	 */
 	on Action {
 		synchronized (drones) {
 			synchronized (influences) {
@@ -67,16 +100,20 @@ agent Environment{
 				}
 				if (influences.size == this.drones.size) {
 					in(Settings::pause) [
+						// updating the time
 						time += Settings::SecondsPerCycle
+						// displaying the time in the console
 						var hours = time/ 3600 %24
 						var remaining_seconds = time % 3600
 						var minutes = remaining_seconds / 60
 						var seconds = remaining_seconds % 60
-						
 						info(hours + ":" + minutes + ":" + seconds)
+
+						// sending the perception to the drones and the gui to repaint
 						new GuiRepaint(drones).emit[it.ID == DroneSimulation.id]
 						new Perception(drones,time).emit
 					]
+					// clearing the influences for the next cycle
 					this.influences.clear
 				}
 			}
@@ -85,8 +122,13 @@ agent Environment{
 	}
 	
 
-
-	def applyForce(speed : Vector2d, d : PerceivedDroneBody) {
+	/**
+	 * event to update the drone's position and speed
+	 * input : perceivedAgentBody, time
+	 * 
+	 * output : Action
+	 */
+	private def applyForce(speed : Vector2d, d : PerceivedDroneBody) {
 
 		var vitesse = d.vitesse
 		vitesse = speed

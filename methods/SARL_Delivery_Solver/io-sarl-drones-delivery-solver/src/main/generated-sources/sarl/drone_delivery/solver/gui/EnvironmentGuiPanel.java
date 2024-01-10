@@ -1,3 +1,7 @@
+/**
+ * The GUI of the Simulation
+ * @author Martin Mickael https://github.com/Araphlen  and Berne Thomas at conception
+ */
 package drone_delivery.solver.gui;
 
 import drone_delivery.solver.PerceivedDroneBody;

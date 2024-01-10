@@ -1,3 +1,6 @@
+/**
+ * Events and shared data for the simulation
+ */
 package drone_delivery.solver;
 
 import io.sarl.lang.core.Event;
@@ -7,6 +10,9 @@ import io.sarl.lang.core.annotation.SyntheticMember;
 import org.eclipse.xtext.xbase.lib.Pure;
 import org.eclipse.xtext.xbase.lib.util.ToStringBuilder;
 
+/**
+ * Event sent by the environment to the drone to inform it of the new state of the environment
+ */
 @SarlSpecification("0.13")
 @SarlElementType(15)
 @SuppressWarnings("all")

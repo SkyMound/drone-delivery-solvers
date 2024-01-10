@@ -1,4 +1,7 @@
-
+/**
+ * The GUI of the Simulation
+ * @author Martin Mickael https://github.com/Araphlen  and Berne Thomas at conception
+ */
 package drone_delivery.solver.gui
 
 import io.sarl.api.core.OpenEventSpace
@@ -14,11 +17,9 @@ import java.util.Map
 import java.util.UUID
 import org.arakhne.afc.math.geometry.d2.d.Vector2d
 import drone_delivery.solver.PerceivedDroneBody
-
-import static extension java.lang.Math.*
 import java.util.List
-import java.awt.BorderLayout
 import java.awt.Label
+import static extension java.lang.Math.*
 
 class EnvironmentGui extends Frame {
 
@@ -86,6 +87,10 @@ package class Closer extends WindowAdapter {
 
 }
 
+/**
+ * Panel to display the informations about the simulation
+ * @author Martin Mickael
+ */
 package class InfoPanel extends Panel{
 	var meanTimeText : Label
 	var width : int

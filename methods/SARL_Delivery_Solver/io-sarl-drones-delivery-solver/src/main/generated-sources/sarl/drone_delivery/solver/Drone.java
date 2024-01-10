@@ -1,3 +1,12 @@
+/**
+ * Drone agent
+ * @param envt : UUID of the environment
+ * @param initialPosition : initial position of the depot
+ * @param name : name of the agent
+ * @param listparcels : list of parcels to create
+ * @param drones : list of drones perceived by the depot
+ * @author Mickael Martin https://github.com/Araphlen and Berne Thomas at conception
+ */
 package drone_delivery.solver;
 
 import com.google.common.base.Objects;
@@ -102,19 +111,6 @@ public class Drone extends Agent {
     _$CAPACITY_USE$IO_SARL_API_CORE_LOGGING$CALLER.info((" is dying while " + this.objectiv));
   }
 
-  @Pure
-  protected boolean closeEnoughToTarget(final Vector2d v1, final Vector2d v2) {
-    int distanceMin = Settings.distMinLiv;
-    double _x = v2.getX();
-    double _x_1 = v1.getX();
-    double _pow = Math.pow((_x - _x_1), 2);
-    double _y = v2.getY();
-    double _y_1 = v1.getY();
-    double _pow_1 = Math.pow((_y - _y_1), 2);
-    double distance = Math.sqrt((_pow + _pow_1));
-    return (distance <= distanceMin);
-  }
-
   private void $behaviorUnit$UpdateAction$2(final UpdateAction occurrence) {
     PerceivedDroneBody myBody = occurrence.perceivedAgentBody.get(this.getID());
     if (((myBody != null) && Objects.equal(myBody.getOwner(), this.getID()))) {
@@ -180,6 +176,30 @@ public class Drone extends Agent {
     this.objectiv = Objectiv.GoLiv;
   }
 
+  /**
+   * Method to know if the drone is close enough to its target
+   * @param v1 : position of the drone
+   * @param v2 : position of the target
+   * @return true if the drone is close enough to its target, false otherwise
+   */
+  @Pure
+  private boolean closeEnoughToTarget(final Vector2d v1, final Vector2d v2) {
+    int distanceMin = Settings.distMinLiv;
+    double _x = v2.getX();
+    double _x_1 = v1.getX();
+    double _pow = Math.pow((_x - _x_1), 2);
+    double _y = v2.getY();
+    double _y_1 = v1.getY();
+    double _pow_1 = Math.pow((_y - _y_1), 2);
+    double distance = Math.sqrt((_pow + _pow_1));
+    return (distance <= distanceMin);
+  }
+
+  /**
+   * Method to move the drone to its target
+   * @param targetPos : position of the target
+   * @return the vector of the drone's movement
+   */
   private Vector2d moveTo(final Vector2d targetPos) {
     float _battery = this.battery;
     this.battery = (_battery - (Settings.SecondsPerCycle * Settings.BatteryLostPerSec));
@@ -197,6 +217,11 @@ public class Drone extends Agent {
     return vector;
   }
 
+  /**
+   * Method to compute the norm of a vector
+   * @param vector : vector to compute the norm
+   * @return the norm of the vector
+   */
   @Pure
   private double norm(final Vector2d vector) {
     double _x = vector.getX();
@@ -262,6 +287,18 @@ public class Drone extends Agent {
     return $castSkill(Lifecycle.class, this.$CAPACITY_USE$IO_SARL_API_CORE_LIFECYCLE);
   }
 
+  /**
+   * Constructor of the agent Drone
+   * @param envt : UUID of the environment
+   * @param initialPosition : initial position of the drone
+   * @param initSpeed : initial speed of the drone
+   * @param objectiv : objective of the drone
+   * @param targetPos : position of the drone's target
+   * @param battery : battery of the drone
+   * @param name : name of the agent
+   * @param weight : weight of the drone
+   * @author Mickael Martin https://github.com/Araphlen and Berne Thomas at conception
+   */
   @SyntheticMember
   @PerceptGuardEvaluator
   private void $guardEvaluator$Initialize(final Initialize occurrence, final Collection<Runnable> ___SARLlocal_runnableCollection) {
@@ -270,6 +307,12 @@ public class Drone extends Agent {
     ___SARLlocal_runnableCollection.add(() -> $behaviorUnit$Initialize$0(occurrence));
   }
 
+  /**
+   * event to update the drone's position and speed
+   * input : perceivedAgentBody, time
+   * 
+   * output : Action
+   */
   @SyntheticMember
   @PerceptGuardEvaluator
   private void $guardEvaluator$UpdateAction(final UpdateAction occurrence, final Collection<Runnable> ___SARLlocal_runnableCollection) {
@@ -278,6 +321,10 @@ public class Drone extends Agent {
     ___SARLlocal_runnableCollection.add(() -> $behaviorUnit$UpdateAction$2(occurrence));
   }
 
+  /**
+   * event to affect a drone to a parcel
+   * input : affectedparcel
+   */
   @SyntheticMember
   @PerceptGuardEvaluator
   private void $guardEvaluator$AffectOrder(final AffectOrder occurrence, final Collection<Runnable> ___SARLlocal_runnableCollection) {
@@ -286,6 +333,9 @@ public class Drone extends Agent {
     ___SARLlocal_runnableCollection.add(() -> $behaviorUnit$AffectOrder$3(occurrence));
   }
 
+  /**
+   * Destructor of the agent Drone
+   */
   @SyntheticMember
   @PerceptGuardEvaluator
   private void $guardEvaluator$Die(final Die occurrence, final Collection<Runnable> ___SARLlocal_runnableCollection) {

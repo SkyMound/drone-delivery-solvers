@@ -1,3 +1,7 @@
+/**
+ * CustomCSVReader class is responsible for reading CSV files and extracting data.
+ * It provides methods to read houses and parcels information from CSV files.
+ */
 package drone_delivery.solver
 
 import java.io.IOException;
@@ -5,13 +9,10 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.sql.Time
 import org.arakhne.afc.math.geometry.d2.d.Vector2d
 import java.util.HashMap
 import java.io.FileReader
 import au.com.bytecode.opencsv.CSVReader
-import java.util.Date
-import java.text.DateFormat
 
 /** 
  * Simple Java program to read CSV file in Java. In this program we will read
@@ -43,6 +44,15 @@ class CustomCSVReader {
       	}
       }
 
+	/** 
+	* This method is used to read parcels from CSV file.
+	* @param cityfileName : String
+	* @param parcelfileName : String
+	* @param nbParcel : int
+	* @return ArrayList<Parcel>
+	*
+	*@author Mickael Martin https://github.com/Araphlen
+	*/
 	static def getparcelsFromCSV(cityfileName : String,parcelfileName : String, nbParcel:int){
 	    var parcelsList = new ArrayList<Parcel>();
 		var mapInfoMaison = getHousesFromCSV(cityfileName)
@@ -78,6 +88,14 @@ class CustomCSVReader {
         return parcelsList;
     }
 
+
+	/***
+	 * This method is used to create a parcel from a metadata.
+	 * @param metadaparcel : String[]
+	 * @param mapMaison : HashMap<String, Vector2d>
+	 * @return Parcel
+	 * @author Mickael Martin https://github.com/Araphlen
+	 */
     def static createParcel(metadaparcel : String[], mapMaison : HashMap<String, Vector2d>) {
 
 		

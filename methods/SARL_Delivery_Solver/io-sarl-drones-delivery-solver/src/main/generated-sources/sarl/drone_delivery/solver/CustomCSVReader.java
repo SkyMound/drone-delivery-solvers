@@ -1,3 +1,7 @@
+/**
+ * CustomCSVReader class is responsible for reading CSV files and extracting data.
+ * It provides methods to read houses and parcels information from CSV files.
+ */
 package drone_delivery.solver;
 
 import au.com.bytecode.opencsv.CSVReader;
@@ -64,6 +68,15 @@ public class CustomCSVReader {
     }
   }
 
+  /**
+   * This method is used to read parcels from CSV file.
+   * @param cityfileName : String
+   * @param parcelfileName : String
+   * @param nbParcel : int
+   * @return ArrayList<Parcel>
+   * 
+   * @author Mickael Martin https://github.com/Araphlen
+   */
   public static ArrayList<Parcel> getparcelsFromCSV(final String cityfileName, final String parcelfileName, final int nbParcel) {
     ArrayList<Parcel> parcelsList = new ArrayList<Parcel>();
     HashMap<String, Vector2d> mapInfoMaison = CustomCSVReader.getHousesFromCSV(cityfileName);
@@ -102,6 +115,13 @@ public class CustomCSVReader {
     return parcelsList;
   }
 
+  /**
+   * This method is used to create a parcel from a metadata.
+   * @param metadaparcel : String[]
+   * @param mapMaison : HashMap<String, Vector2d>
+   * @return Parcel
+   * @author Mickael Martin https://github.com/Araphlen
+   */
   public static Parcel createParcel(final String[] metadaparcel, final HashMap<String, Vector2d> mapMaison) {
     int commande = Integer.parseInt(metadaparcel[0]);
     int maison = Integer.parseInt(metadaparcel[1]);

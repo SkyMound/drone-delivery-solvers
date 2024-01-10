@@ -1,3 +1,7 @@
+/**
+ * Launcher of the simulation.
+ * @author Mickael Martin https://github.com/Araphlen and Berne Thomas at conception
+ */
 package drone_delivery.solver;
 
 import io.sarl.lang.core.annotation.SarlElementType;

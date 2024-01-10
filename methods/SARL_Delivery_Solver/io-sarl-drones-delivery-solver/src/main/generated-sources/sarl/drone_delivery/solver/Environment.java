@@ -1,3 +1,16 @@
+/**
+ * The environment of the simulation.
+ * It contains the drones, the depot and the parcels.
+ * @param width : width of the environment
+ * @param height : height of the environment
+ * @param drones : list of drones
+ * @param depot : depot of the environment
+ * @param parcels : list of parcels
+ * @param time : time of the simulation
+ * @param influences : list of influences
+ * @param name : name of the agent
+ * @author Mickael Martin https://github.com/Araphlen and Berne Thomas at conception
+ */
 package drone_delivery.solver;
 
 import com.google.common.base.Objects;
@@ -152,7 +165,13 @@ public class Environment extends Agent {
     }
   }
 
-  protected void applyForce(final Vector2d speed, final PerceivedDroneBody d) {
+  /**
+   * event to update the drone's position and speed
+   * input : perceivedAgentBody, time
+   * 
+   * output : Action
+   */
+  private void applyForce(final Vector2d speed, final PerceivedDroneBody d) {
     Vector2d vitesse = d.getVitesse();
     vitesse = speed;
     double _length = vitesse.getLength();
@@ -222,6 +241,11 @@ public class Environment extends Agent {
     return $castSkill(Lifecycle.class, this.$CAPACITY_USE$IO_SARL_API_CORE_LIFECYCLE);
   }
 
+  /**
+   * Constructor of the agent Environment
+   * @param width : width of the environment
+   * @param height : height of the environment
+   */
   @SyntheticMember
   @PerceptGuardEvaluator
   private void $guardEvaluator$Initialize(final Initialize occurrence, final Collection<Runnable> ___SARLlocal_runnableCollection) {
@@ -230,6 +254,9 @@ public class Environment extends Agent {
     ___SARLlocal_runnableCollection.add(() -> $behaviorUnit$Initialize$0(occurrence));
   }
 
+  /**
+   * environment Starting event
+   */
   @SyntheticMember
   @PerceptGuardEvaluator
   private void $guardEvaluator$Start(final Start occurrence, final Collection<Runnable> ___SARLlocal_runnableCollection) {
@@ -238,6 +265,10 @@ public class Environment extends Agent {
     ___SARLlocal_runnableCollection.add(() -> $behaviorUnit$Start$1(occurrence));
   }
 
+  /**
+   * event received when a drone has sent its influence
+   * input : perceivedAgentBody, time
+   */
   @SyntheticMember
   @PerceptGuardEvaluator
   private void $guardEvaluator$Action(final Action occurrence, final Collection<Runnable> ___SARLlocal_runnableCollection) {
@@ -246,6 +277,9 @@ public class Environment extends Agent {
     ___SARLlocal_runnableCollection.add(() -> $behaviorUnit$Action$3(occurrence));
   }
 
+  /**
+   * environment Die event
+   */
   @SyntheticMember
   @PerceptGuardEvaluator
   private void $guardEvaluator$Die(final Die occurrence, final Collection<Runnable> ___SARLlocal_runnableCollection) {

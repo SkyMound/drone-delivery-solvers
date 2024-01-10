@@ -1,3 +1,13 @@
+/**
+ * Drone agent
+ * @param envt : UUID of the environment
+ * @param initialPosition : initial position of the depot
+ * @param name : name of the agent
+ * @param listparcels : list of parcels to create
+ * @param drones : list of drones perceived by the depot
+ * @author Mickael Martin https://github.com/Araphlen and Berne Thomas at conception
+ */
+
 package drone_delivery.solver
 
 import io.sarl.api.core.DefaultContextInteractions
@@ -5,22 +15,20 @@ import io.sarl.api.core.Initialize
 import io.sarl.api.core.Lifecycle
 import io.sarl.api.core.Logging
 import io.sarl.api.core.Schedules
-import java.util.Collection
 import java.util.UUID
 import org.arakhne.afc.math.geometry.d2.d.Vector2d
-import java.util.Vector
 import org.eclipse.xtend.lib.annotations.Accessors
 
+/**
+ * Enum of the different objectives of the drone
+ */
 enum Objectiv {
 	GoLiv,
 	BackLiv,
 	Charge
 }
 
-/** 
- * 
- * 
- */
+
 agent Drone {
 	uses Logging, DefaultContextInteractions, Schedules, Lifecycle
 
@@ -31,16 +39,34 @@ agent Drone {
 	var position : Vector2d
 
 	var speed : Vector2d
+	
 	var battery : float 
+
 	@Accessors
 	var weight : float
 	
+	// position of the drone's target
 	var targetPos : Vector2d
 	
+	// objective of the drone
 	var objectiv : Objectiv
 	
+	// parcel carried by the drone
 	var parcel : Parcel
 
+	/**
+	 * Constructor of the agent Drone
+	 * @param envt : UUID of the environment
+	 * @param initialPosition : initial position of the drone
+	 * @param initSpeed : initial speed of the drone
+	 * @param objectiv : objective of the drone
+	 * @param targetPos : position of the drone's target
+	 * @param battery : battery of the drone
+	 * @param name : name of the agent
+	 * @param weight : weight of the drone
+	 * @author Mickael Martin https://github.com/Araphlen and Berne Thomas at conception
+
+	 */
 	on Initialize {
 		// Drones init parameters : UUID envt, Vector2d initialPosition, initSpeed, objectiv, targetPos, battery, String droneName
 		if (occurrence.parameters.size > 6) {
@@ -76,36 +102,40 @@ agent Drone {
 		
 	}
 	
+	/**
+	 * Destructor of the agent Drone
+	 */
 	on Die{
 		info(" is dying while " + this.objectiv)
 	}
 	
-	def closeEnoughToTarget(v1 : Vector2d, v2 : Vector2d) {
-		var distanceMin = Settings::distMinLiv
-		var distance = Math.sqrt(Math.pow(v2.x - v1.x, 2) + Math.pow(v2.y - v1.y, 2));
-		return distance <= distanceMin;
-	}
 	
+	/**
+	 * event to update the drone's position and speed
+	 * input : perceivedAgentBody, time
+	 * 
+	 * output : Action
+	 */
 	on UpdateAction {
 		var myBody = occurrence.perceivedAgentBody.get(this.ID)
 		if ((myBody !== null) && (myBody.owner == this.ID)) {
 			// Update drones' speed and position according to the new environmental data
 			this.position = myBody.position
 			this.speed = myBody.vitesse
-			//info("Le drone = " + ID + "est en " + position + " avec un vitesse de "+ speed)
 		}
 
 		in(Settings::pause) [
 			var influence = new Vector2d
-		
+			// the drone is in charge
 			if (this.objectiv == Objectiv.Charge) {
 				if(this.battery <= 100- Settings::SecondsPerCycle * Settings::ChargePerSec){
 					this.battery += Settings::SecondsPerCycle * Settings::ChargePerSec
 				}
 			}
 			
+			// the drone is going to the depot 
 			else if (this.objectiv == Objectiv.BackLiv) {
-					
+					// if the drone is close enough to the depot, it stops
 					if (closeEnoughToTarget(this.position, this.targetPos)) {
 						info(" est rentré au dépot et se met en charge")
 						this.objectiv = Objectiv.Charge
@@ -116,10 +146,12 @@ agent Drone {
 						influence = moveTo(this.targetPos)
 					}
 			} 
-			
+			// the drone is going to the parcel's house to deliver it
 			else if (this.objectiv == Objectiv.GoLiv) {
 				if (closeEnoughToTarget(this.position, this.targetPos)) {
+					// the drone is close enough to the parcel's house, it delivers the parcel
 					info(" est assez proche de sa cible")
+					//sending the parcel delivery time to the environment to compute the mean delivery time
 					emit(new ParcelDelivered(occurrence.time - this.parcel.ordertime))
 					
 					this.objectiv = Objectiv.BackLiv
@@ -131,6 +163,8 @@ agent Drone {
 					influence = moveTo(this.targetPos)
 				}
 			}
+
+			// update the drone's perceived body by the environment
 			myBody.battery=this.battery
 			myBody.objectiv = this.objectiv
 			myBody.targetPos = this.targetPos				
@@ -138,14 +172,33 @@ agent Drone {
 		]
 	}
 	
-	
+	/**
+	 * event to affect a drone to a parcel
+	 * input : affectedparcel
+	 */
 	on AffectOrder{
 		this.parcel = occurrence.affectedparcel
 		this.targetPos = parcel.getHousePos()
 		this.objectiv = Objectiv.GoLiv
 	}
 	
+	/**
+	 * Method to know if the drone is close enough to its target
+	 * @param v1 : position of the drone
+	 * @param v2 : position of the target
+	 * @return true if the drone is close enough to its target, false otherwise
+	 */
+	private def closeEnoughToTarget(v1 : Vector2d, v2 : Vector2d) {
+		var distanceMin = Settings::distMinLiv
+		var distance = Math.sqrt(Math.pow(v2.x - v1.x, 2) + Math.pow(v2.y - v1.y, 2));
+		return distance <= distanceMin;
+	}
 	
+	/**
+	 * Method to move the drone to its target
+	 * @param targetPos : position of the target
+	 * @return the vector of the drone's movement
+	 */	
 	private def moveTo(targetPos : Vector2d) {
 		this.battery -= Settings::SecondsPerCycle * Settings::BatteryLostPerSec
 		
@@ -163,6 +216,11 @@ agent Drone {
 		return vector
 	}
 	
+	/**
+	 * Method to compute the norm of a vector
+	 * @param vector : vector to compute the norm
+	 * @return the norm of the vector
+	 */
 	private def norm(vector : Vector2d) {
 		return Math.sqrt(vector.x * vector.x + vector.y * vector.y)
 	}

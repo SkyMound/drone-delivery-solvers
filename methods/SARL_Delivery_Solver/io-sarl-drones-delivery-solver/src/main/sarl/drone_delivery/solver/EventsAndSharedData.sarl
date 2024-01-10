@@ -1,4 +1,6 @@
-
+/**
+ * Events and shared data for the simulation
+ */
 package drone_delivery.solver
 
 import java.util.UUID
@@ -11,7 +13,9 @@ import org.arakhne.afc.math.geometry.d2.d.Vector2d
  */
 event Die
 
-
+/**
+ * Event sent by the drone to the environment to inform it of its action
+ */
 event Action {
 	val influence : Vector2d
 	val newDroneState : PerceivedDroneBody
@@ -21,6 +25,9 @@ event Action {
 	}
 }
 
+/**
+ * Event sent by the environment to the drone to inform it of the new state of the environment
+ */
 event ParcelDelivered{
 	val deliveredDuration : int
 	
@@ -29,6 +36,9 @@ event ParcelDelivered{
 	}
 }
 
+/**
+ * Event sent by the environment to the depot to inform it of the new state of the environment
+ */
 event Perception {
 	val perceivedAgentBody : ConcurrentHashMap<UUID, PerceivedDroneBody>
 	val time : int
@@ -38,6 +48,9 @@ event Perception {
 	}
 }
 
+/**
+ * Event sent by the environment to the depot to inform it of the new state of the environment
+ */
 event UpdateAction {
 	val perceivedAgentBody : ConcurrentHashMap<UUID, PerceivedDroneBody>
 	val depotPos : Vector2d
@@ -49,6 +62,9 @@ event UpdateAction {
 	}
 }
 
+/**
+ * Event sent by the depot to the drone chosen to deliver a parcel
+ */
 event AffectOrder{
 	val affectedparcel : Parcel
 	
@@ -57,6 +73,7 @@ event AffectOrder{
 		affectedparcel = parcel
 	}
 }
+
 
 event Start {
 	val perceivedAgentBody : ConcurrentHashMap<UUID, PerceivedDroneBody>
@@ -76,8 +93,14 @@ event GuiRepaint {
 
 }
 
+/**
+ * Event sent by the depot to the simulation to inform it of the end of the simulation
+ */
 event GeneralSepuku
 
+/**
+ * class representing the perceived body of a drone by the environment
+ */
 class PerceivedDroneBody {
 
 	// Position of the body

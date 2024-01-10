@@ -1,3 +1,11 @@
+/**
+ * class Parcel
+ * @param housPos : position of the house
+ * @param weight : weight of the parcel
+ * @param ordertime : time of the order
+ * @param idOrder : id of the order
+ * @author Martin Mickael https://github.com/Araphlen and Berne Thomas at conception
+ */
 package drone_delivery.solver
 
 import org.arakhne.afc.math.geometry.d2.d.Vector2d
@@ -12,7 +20,10 @@ class Parcel {
 	var ordertime : int 
 	var idOrder : int
 		
-	
+	/**
+	 * Constructor of the class Parcel
+	 * @param other : Parcel to copy
+	 */
 	new(other : Parcel) {
 		this.housPos = other.housPos
 		this.weight = other.weight
@@ -20,6 +31,11 @@ class Parcel {
 		this.idOrder = other.idOrder
 	}
 
+	/**
+	 * Constructor of the class Parcel
+	 * @param other : Parcel to copy
+	 * @param newPos : new position of the house
+	 */
 	new(other : Parcel, newPos : Vector2d) {
 		this.housPos = newPos
 		this.weight = other.weight
@@ -27,6 +43,13 @@ class Parcel {
 		this.idOrder = other.idOrder
 	} 
 
+	/**
+	 * Constructor of the class Parcel
+	 * @param ihousPos : position of the house
+	 * @param iweight : weight of the parcel
+	 * @param iordertime : time of the order
+	 * @param iidOrder : id of the order
+	 */
 	new(ihousPos : Vector2d, iweight : float, iordertime : int, iidOrder : int) {
 		this.housPos = ihousPos
 		this.weight = iweight
@@ -34,6 +57,9 @@ class Parcel {
 		this.idOrder = iidOrder
 	}
 	
+	/**
+	 * get the position of the house
+	 */
 	def getHousePos {
 		return this.housPos
 	}

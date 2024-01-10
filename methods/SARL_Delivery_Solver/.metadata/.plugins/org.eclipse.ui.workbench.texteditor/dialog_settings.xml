@@ -8,6 +8,7 @@
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="doLayout"/>
 			<item value="info"/>
 			<item value="guiheight"/>
 			<item value="&#x09;def setBoids(boids : Map&lt;UUID, PerceivedDroneBody&gt;) {"/>

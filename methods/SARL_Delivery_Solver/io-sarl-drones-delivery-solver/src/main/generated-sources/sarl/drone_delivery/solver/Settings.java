@@ -34,7 +34,7 @@ public interface Settings {
 
   static final double DroneMaxSpeed = 8.5;
 
-  static final int SecondsPerCycle = 30;
+  static final int SecondsPerCycle = 120;
 
   static final float ChargePerSec = 0.01f;
 

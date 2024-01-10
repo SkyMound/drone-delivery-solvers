@@ -1,3 +1,10 @@
+/**
+ * Drone simulation class
+ * This class is the main class of the simulation, it manages the simulation's GUI and the agents' launch.
+ * It also manages the communication between the GUI and the agents.
+ * It is also the class that launch the simulation.
+ * @author Martin Mickael https://github.com/Araphlen and Berne Thomas at conception
+ */
 package drone_delivery.solver;
 
 import drone_delivery.solver.gui.EnvironmentGui;
@@ -43,50 +50,6 @@ public class DroneSimulation implements EventListener {
    */
   private AgentContext defaultSARLContext;
 
-  private double minDataX;
-
-  private double minDataY;
-
-  /**
-   * Identifier of the environment
-   */
-  private UUID environment;
-
-  private int width = Settings.EnvtWidth;
-
-  private int height = Settings.EnvtHeight;
-
-  private int guiwidth = Settings.EnvtWidth;
-
-  private int guiheight = Settings.EnvtHeight;
-
-  /**
-   * Map buffering drones before launch/start
-   */
-  private int dronesToLaunch;
-
-  private int nbParcelinSim;
-
-  private List<Parcel> parcelToCreate;
-
-  /**
-   * Map buffering drones' bodies before launch/start
-   */
-  private ConcurrentHashMap<UUID, PerceivedDroneBody> droneBodies;
-
-  private int dronesCount;
-
-  private Vector2d depotPos;
-
-  private List<Vector2d> housesPos;
-
-  private List<Integer> deliveriesTime;
-
-  /**
-   * Boolean specifying id the simulation is started or not.
-   */
-  private boolean isSimulationStarted = false;
-
   /**
    * the vent space used to establish communication between GUI and agents,
    * Especially enabling GUI to forward start event to the environment,
@@ -95,10 +58,67 @@ public class DroneSimulation implements EventListener {
   private OpenEventSpace space;
 
   /**
+   * Boolean specifying id the simulation is started or not.
+   */
+  private boolean isSimulationStarted = false;
+
+  /**
+   * Identifier of the environment
+   */
+  private UUID environment;
+
+  /**
+   * Width and height of the environment
+   */
+  private int width = Settings.EnvtWidth;
+
+  private int height = Settings.EnvtHeight;
+
+  /**
+   * The minimum value of the data in the city file
+   */
+  private double minDataX;
+
+  private double minDataY;
+
+  private Vector2d depotPos;
+
+  private List<Vector2d> housesPos;
+
+  private int dronesToLaunch;
+
+  private int dronesCount;
+
+  /**
+   * Map buffering drones' bodies before launch/start
+   */
+  private ConcurrentHashMap<UUID, PerceivedDroneBody> droneBodies;
+
+  private int nbParcelinSim;
+
+  private List<Parcel> parcelToCreate;
+
+  private List<Integer> deliveriesTime;
+
+  /**
    * The Graphical user interface
    */
   private EnvironmentGui myGUI;
 
+  /**
+   * Width and height of the GUI
+   */
+  private int guiwidth = Settings.EnvtWidth;
+
+  private int guiheight = Settings.EnvtHeight;
+
+  /**
+   * Constructor of the class DroneSimulation
+   * @param nbDrones : number of drones to launch
+   * @param nbParcel : number of parcels to deliver
+   * @param cityfilePath : path to the city file
+   * @param parcelfilePath : path to the parcel file
+   */
   public DroneSimulation(final int nbDrones, final int nbParcel, final String cityfilePath, final String parcelfilePath) {
     this.dronesCount = 0;
     ConcurrentHashMap<UUID, PerceivedDroneBody> _concurrentHashMap = new ConcurrentHashMap<UUID, PerceivedDroneBody>();
@@ -117,16 +137,25 @@ public class DroneSimulation implements EventListener {
     this.deliveriesTime = CollectionLiterals.<Integer>newArrayList();
   }
 
+  /**
+   * Method that launch the simulation
+   */
   public void start() {
     this.launchAllAgents();
     this.isSimulationStarted = true;
   }
 
+  /**
+   * Method that stop the simulation
+   */
   public void stop() {
     this.killAllAgent();
     this.isSimulationStarted = false;
   }
 
+  /**
+   * Method that wait for the end of the simulation
+   */
   @Pure
   public boolean finished() {
     while (this.isSimulationStarted) {
@@ -134,6 +163,9 @@ public class DroneSimulation implements EventListener {
     return true;
   }
 
+  /**
+   * Method that launch all the agents
+   */
   private void launchAllAgents() {
     try {
       this.kernel = SRE.getBootstrap();
@@ -159,6 +191,9 @@ public class DroneSimulation implements EventListener {
     }
   }
 
+  /**
+   * Method that resize the environment to the model
+   */
   private ArrayList<Double> resizeEnvToModel() {
     double minValueX = this.housesPos.get(0).getX();
     double minValueY = this.housesPos.get(0).getY();
@@ -192,6 +227,9 @@ public class DroneSimulation implements EventListener {
     return newboudaries;
   }
 
+  /**
+   * Method that translate the houses and parcels positions to 0 of the environment
+   */
   private List<Vector2d> translatehousesPosTo0(final double minX, final double minY) {
     List<Vector2d> _xblockexpression = null;
     {
@@ -207,6 +245,9 @@ public class DroneSimulation implements EventListener {
     return _xblockexpression;
   }
 
+  /**
+   * Method that translate the houses and parcels positions to 0 of the environment
+   */
   private List<Parcel> translateParcelsPosTo0(final double minX, final double minY) {
     List<Parcel> _xblockexpression = null;
     {
@@ -223,6 +264,9 @@ public class DroneSimulation implements EventListener {
     return _xblockexpression;
   }
 
+  /**
+   * Method that launch the depot agent
+   */
   private void launchDepot() {
     try {
       double _x = Settings.DepotPos.getX();
@@ -239,12 +283,19 @@ public class DroneSimulation implements EventListener {
     }
   }
 
+  /**
+   * Method that launch all the drones
+   */
   private void launchAllDrones() {
     for (int i = 0; (i < this.dronesToLaunch); i++) {
       this.launchDrone(("Drone" + Integer.valueOf(i)));
     }
   }
 
+  /**
+   * Method that launch a drone with default parameters
+   * @param droneName : name of the drone to launch
+   */
   private void launchDrone(final String droneName) {
     try {
       double _x = Settings.DepotPos.getX();
@@ -267,6 +318,9 @@ public class DroneSimulation implements EventListener {
     }
   }
 
+  /**
+   * Method that kill all the agents and close the GUI
+   */
   private void killAllAgent() {
     UUID _randomUUID = UUID.randomUUID();
     Die _die = new Die();
@@ -274,6 +328,11 @@ public class DroneSimulation implements EventListener {
     this.myGUI.dispose();
   }
 
+  /**
+   * Method that create the list of parcels to deliver organized by order of command
+   * @param cityfilePath : path to the city file
+   * @param parcelfilePath : path to the parcel file
+   */
   public ArrayList<Parcel> createParcelsList(final String cityfilePath, final String parcelfilePath) {
     abstract class __DroneSimulation_0 implements Comparator<Parcel> {
       public abstract int compare(final Parcel p1, final Parcel p2);
@@ -290,10 +349,18 @@ public class DroneSimulation implements EventListener {
     return parcelList;
   }
 
+  /**
+   * Method that create the list of houses positions
+   * @param cityfilePath : path to the city file
+   */
   public Collection<Vector2d> createHousePosList(final String cityfilePath) {
     return CustomCSVReader.getHousesFromCSV(cityfilePath).values();
   }
 
+  /**
+   * Method that scale the drones positions to the GUI
+   * @param drones : map of the drones' bodies
+   */
   public ConcurrentHashMap<UUID, PerceivedDroneBody> scaleDronePosToGui(final ConcurrentHashMap<UUID, PerceivedDroneBody> drones) {
     ConcurrentHashMap<UUID, PerceivedDroneBody> guiPosDrones = new ConcurrentHashMap<UUID, PerceivedDroneBody>();
     Set<Map.Entry<UUID, PerceivedDroneBody>> _entrySet = drones.entrySet();
@@ -317,6 +384,10 @@ public class DroneSimulation implements EventListener {
     return guiPosDrones;
   }
 
+  /**
+   * Method that scale the houses positions to the GUI
+   * @param housesPosenv : list of the houses positions
+   */
   public ArrayList<Vector2d> scaleHousesPosForGui(final List<Vector2d> housesPosenv) {
     ArrayList<Vector2d> newhp = new ArrayList<Vector2d>();
     for (final Vector2d hp : housesPosenv) {
@@ -335,7 +406,7 @@ public class DroneSimulation implements EventListener {
   }
 
   /**
-   * Methods managing event coming from agents
+   * event handler
    */
   @Override
   public void receiveEvent(final Event event) {
@@ -369,9 +440,7 @@ public class DroneSimulation implements EventListener {
     if (getClass() != obj.getClass())
       return false;
     DroneSimulation other = (DroneSimulation) obj;
-    if (Double.doubleToLongBits(other.minDataX) != Double.doubleToLongBits(this.minDataX))
-      return false;
-    if (Double.doubleToLongBits(other.minDataY) != Double.doubleToLongBits(this.minDataY))
+    if (other.isSimulationStarted != this.isSimulationStarted)
       return false;
     if (!Objects.equals(this.environment, other.environment))
       return false;
@@ -379,17 +448,19 @@ public class DroneSimulation implements EventListener {
       return false;
     if (other.height != this.height)
       return false;
-    if (other.guiwidth != this.guiwidth)
+    if (Double.doubleToLongBits(other.minDataX) != Double.doubleToLongBits(this.minDataX))
       return false;
-    if (other.guiheight != this.guiheight)
+    if (Double.doubleToLongBits(other.minDataY) != Double.doubleToLongBits(this.minDataY))
       return false;
     if (other.dronesToLaunch != this.dronesToLaunch)
       return false;
-    if (other.nbParcelinSim != this.nbParcelinSim)
-      return false;
     if (other.dronesCount != this.dronesCount)
       return false;
-    if (other.isSimulationStarted != this.isSimulationStarted)
+    if (other.nbParcelinSim != this.nbParcelinSim)
+      return false;
+    if (other.guiwidth != this.guiwidth)
+      return false;
+    if (other.guiheight != this.guiheight)
       return false;
     return super.equals(obj);
   }
@@ -400,17 +471,17 @@ public class DroneSimulation implements EventListener {
   public int hashCode() {
     int result = super.hashCode();
     final int prime = 31;
-    result = prime * result + Double.hashCode(this.minDataX);
-    result = prime * result + Double.hashCode(this.minDataY);
+    result = prime * result + Boolean.hashCode(this.isSimulationStarted);
     result = prime * result + Objects.hashCode(this.environment);
     result = prime * result + Integer.hashCode(this.width);
     result = prime * result + Integer.hashCode(this.height);
+    result = prime * result + Double.hashCode(this.minDataX);
+    result = prime * result + Double.hashCode(this.minDataY);
+    result = prime * result + Integer.hashCode(this.dronesToLaunch);
+    result = prime * result + Integer.hashCode(this.dronesCount);
+    result = prime * result + Integer.hashCode(this.nbParcelinSim);
     result = prime * result + Integer.hashCode(this.guiwidth);
     result = prime * result + Integer.hashCode(this.guiheight);
-    result = prime * result + Integer.hashCode(this.dronesToLaunch);
-    result = prime * result + Integer.hashCode(this.nbParcelinSim);
-    result = prime * result + Integer.hashCode(this.dronesCount);
-    result = prime * result + Boolean.hashCode(this.isSimulationStarted);
     return result;
   }
 }
