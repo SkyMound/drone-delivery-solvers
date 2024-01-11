@@ -259,8 +259,8 @@ def recupCity(filePathCity):
 
 
 #filePath = "methods/glpk-solver/solver_drone_cmd_output.log"
-filePath = "methods/glpk-solver/cmd_output/solver_drone_cmd_output_40_6.log"
-filePathCity = "utils/generationColi/generationRealisticCity/generateData/smallCity_40.csv"
+filePath = "methods/glpk-solver/cmd_output/solver_drone_cmd_output_20_6.log"
+filePathCity = "utils/generationColi/generationRealisticCity/generateData/smallCity_20.csv"
 
 def recupData(filePath):
     with open(filePath, "r") as f:
@@ -328,9 +328,9 @@ for drone in range(1,int(nombreDrone) +1):
 globalCity = City("Grenoble",listDrones,listHouses,[],canvas,depot)
 time0 = time.time()
 i = 0
-while time.time() - time0 < 450 :
+while time.time() - time0 < 48 :
     globalCity.execution()
-    if i%5 == 0:
+    if i%16 == 0:
         ps = canvas.postscript(colormode='color')
         im_ = Image.open(io.BytesIO(ps.encode('utf-8')))
         image.append(im_)
@@ -344,6 +344,6 @@ import numpy as np
 image[0].save('utils/Visualisation/VisuGlpk/animation.gif',
                save_all=True,
                append_images=image[1:],
-               duration=60,
+               duration=100,
                loop=0)
 

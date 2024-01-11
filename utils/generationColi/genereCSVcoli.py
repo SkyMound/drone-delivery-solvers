@@ -105,6 +105,5 @@ def simulate_day():
     plt.show()
 
 
-genereCSV(nomberPackage)
-
-# simulate_day()
+#genereCSV(nomberPackage)
+simulate_day()

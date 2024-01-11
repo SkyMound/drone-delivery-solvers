@@ -141,7 +141,7 @@ class Drone:
             self.setUpBattery()
             if not(self.isCharging):
                 if(not(self.atSpawn())):
-                    self.battery -= 0.0567/2
+                    self.battery -= 0.0567/2.4
                 normVector = norm(self.objectif[0] - self.pos[0],self.objectif[1] - self.pos[1])/0.766
                 self.move_drone(((self.objectif[0] - self.pos[0])/normVector, (self.objectif[1] - self.pos[1])/normVector))
                 if self.isAtObjectif() and self.isDelivering:
@@ -228,12 +228,11 @@ def recupCity(filePathCity):
     return city, depot
 
 
-sol = [[(100, 3), (78, 7), (61, 15), (35, 14)], [(100, 1), (79, 8), (62, 14), (53, 15)], [(100, 1), (80, 4), (65, 8), (48, 12)], [(100, 2), (83, 10), 
-(59, 12), (34, 11)], [(100, 2), (82, 5), (70, 10), (45, 12)], [(100, 2), (82, 6), (67, 10), (45, 4), (30, 11)], [(100, 3), (78, 6), (63, 1), (42, 5), (30, 11)]]
+sol = [[(100, 2), (67, 6), (55, 20), (18, 6), (13, 8)], [(100, 2), (70, 21), (27, 10), (22, 16)], [(100, 4), (75, 16), (51, 21), (10, 10)], [(100, 4), (76, 18), (48, 9), (25, 4)], [(100, 11), (71, 18), (40, 8), (34, 9)], [(100, 5), (80, 8), (67, 20), (32, 15), (12, 12), (10, 6)]]
 
 #filePath = "methods/glpk-solver/solver_drone_cmd_output.log"
 #filePath = "utils/Visualisation/solver_drone_cmd_output.log"
-filePathCity = "utils/generationColi/generationRealisticCity/generateData/smallCity_30.csv"
+filePathCity = "utils/generationColi/generationRealisticCity/generateData/smallCity_20.csv"
 
 
 def recupData2(solution):
@@ -298,9 +297,9 @@ globalCity = City("Grenoble",listDrones,listHouses,[],canvas,depot)
 image = []
 time0 = time.time()
 i = 0
-while time.time() - time0 < 300 :
+while time.time() - time0 < 38 :
     globalCity.execution()
-    if i%5 == 0:
+    if i%16 == 0:
         ps = canvas.postscript(colormode='color')
         im_ = Image.open(io.BytesIO(ps.encode('utf-8')))
         image.append(im_)
