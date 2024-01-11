@@ -48,7 +48,7 @@ class House:
 
 
 class Drone:
-    def __init__(self, id, pos, canvas, package,depot):
+    def __init__(self, id, pos, canvas, package,depot,battery):
         self.id = id
         self.pos = pos
         self.isCharging = False
@@ -56,16 +56,16 @@ class Drone:
         self.packageHolding = None
         self.objectif = None
         self.destroy = False
+        self.listBattery = battery
         self.battery = 100
         self.depot = depot
-        print(self.depot)
-
-        self.ancPos = self.pos
         
         self.listPackage = package
+
+        self.numberPackage = len(self.listPackage)
         
         self.canvas = canvas
-        self.canvas.create_oval(self.pos[0], self.pos[1], self.pos[0]+5, self.pos[1]+5, fill="red", tags="drone"+str(self.id))
+        self.canvas.create_oval(self.pos[0], self.pos[1], self.pos[0]+5, self.pos[1]+5, fill="green", tags="drone"+str(self.id))
         print("Drone create")
 
         self.canvas.create_text(850, int(self.id)*100 - 90, text="Drone "+str(self.id), font=("Arial", 17))
@@ -126,9 +126,6 @@ class Drone:
         self.canvas.move("drone"+str(self.id), pos[0], pos[1])
         
         self.pos = (self.pos[0] + pos[0], self.pos[1] + pos[1])
-        if(self.isDelivering):
-            self.canvas.itemconfigure("drone"+str(self.id), fill="green")
-
         #self.pos = (self.pos[0]+pos[0], self.pos[1]+pos[1])
 
     def advance(self):
@@ -140,39 +137,24 @@ class Drone:
             self.canvas.itemconfigure("battery"+str(self.id), fill="grey")
             self.canvas.itemconfigure("image_drone"+str(self.id), state="hidden")
 
-
         if not(self.destroy):
             self.setUpBattery()
-            distance = norm(self.objectif[0] - self.depot[0],self.objectif[1] - self.depot[1])*6.2
-            batteryNeeded = (distance/150)*2
-
-            if(self.id == "1"):
-                
-
-                print(distance)
-                print("batteryNeeded :",batteryNeeded)
-                print("battery :",self.battery)
-                self.ancPos = self.pos
-
             if not(self.isCharging):
-                if self.battery <=batteryNeeded and self.atSpawn():
-                    self.charge()
-                else:
+                if(not(self.atSpawn())):
                     self.battery -= 0.0567/2
-                    normVector = norm(self.objectif[0] - self.pos[0],self.objectif[1] - self.pos[1])/0.766
-
-                    self.move_drone(((self.objectif[0] - self.pos[0])/normVector, (self.objectif[1] - self.pos[1])/normVector))
-                    if self.isAtObjectif() and self.isDelivering:
-                        self.removePackage()
-
-
+                normVector = norm(self.objectif[0] - self.pos[0],self.objectif[1] - self.pos[1])/0.766
+                self.move_drone(((self.objectif[0] - self.pos[0])/normVector, (self.objectif[1] - self.pos[1])/normVector))
+                if self.isAtObjectif() and self.isDelivering:
+                    self.removePackage()
+                
+                if self.numberPackage - len(self.listPackage) < len(self.listBattery) and self.battery <= self.listBattery[self.numberPackage - len(self.listPackage)] and self.atSpawn():
+                        self.charge()
 
             if self.isCharging:
                 self.battery += 0.00925925 #charging is 3 times slower than decharging
-
-            if self.battery >= batteryNeeded and self.isCharging:
+            if self.numberPackage - len(self.listPackage) < len(self.listBattery) and self.battery > self.listBattery[self.numberPackage - len(self.listPackage)] and self.isCharging:
                 self.isCharging = False
-                #self.canvas.itemconfigure("drone"+str(self.id), fill="green")
+                self.canvas.itemconfigure("drone"+str(self.id), fill="green")
                 print("Drone " + str(self.id) + " chargé")
                 self.canvas.itemconfigure("image_drone"+str(self.id), state="hidden")
 
@@ -215,24 +197,19 @@ def recupCity(filePathCity):
     
     selected_houses = ["0","83","166","249","332","415","498","581","664","747","830","913","996","1079","1162","1245","1328","1411","1494","1577","1660","1743","1826","1909","1992","2075","2158","2241","2324","2407","2490"]
     city = {}
-    # x_values = []
-    # y_values = []
-    # with open(filePathCity, "r") as file:
-    #     next(file)  # Skip the header
-    #     for line in file:
-    #         line = line.split(",")
-    #         #if line[0] in selected_houses:
-    #         x_values.append(float(line[1]))
-    #         y_values.append(float(line[2].replace("\n","")))
+    x_values = []
+    y_values = []
+    with open(filePathCity, "r") as file:
+        next(file)  # Skip the header
+        for line in file:
+            line = line.split(",")
+            #if line[0] in selected_houses:
+            x_values.append(float(line[1]))
+            y_values.append(float(line[2].replace("\n","")))
 
-    # min_x, max_x = min(x_values), max(x_values)
-    # min_y, max_y = min(y_values), max(y_values)
+    min_x, max_x = min(x_values), max(x_values)
+    min_y, max_y = min(y_values), max(y_values)
 
-    min_x, max_x = 2459408.8886362663,2464371.4307599477
-    min_y, max_y = 3982812.020560298, 3986583.9538094066
-
-
-#    exit()
     scale = max(max_x - min_x, max_y - min_y)
 
     depot = int(((2461228 - min_x) / scale) * 800), int(((3984254 - min_y) / scale) * 800)
@@ -240,55 +217,48 @@ def recupCity(filePathCity):
     i = 0
     with open(filePathCity, "r") as file:
         next(file)  # Skip the header
-        
         for line in file:
             line = line.split(",")
             #if line[0] in selected_houses:
             x = int(((float(line[1]) - min_x) / scale) * 800)
             y = int(((float(line[2].replace("\n","")) - min_y) / scale) * 800)
             city[i] = (x, y)
- 
             i += 1
-
-        print(scale)
-        #exit()
 
     return city, depot
 
 
-
+sol = [[(100, 3), (78, 7), (61, 15), (35, 14)], [(100, 1), (79, 8), (62, 14), (53, 15)], [(100, 1), (80, 4), (65, 8), (48, 12)], [(100, 2), (83, 10), 
+(59, 12), (34, 11)], [(100, 2), (82, 5), (70, 10), (45, 12)], [(100, 2), (82, 6), (67, 10), (45, 4), (30, 11)], [(100, 3), (78, 6), (63, 1), (42, 5), (30, 11)]]
 
 #filePath = "methods/glpk-solver/solver_drone_cmd_output.log"
-filePath = "methods/glpk-solver/cmd_output/solver_drone_cmd_output_20_6.log"
-filePathCity = "utils/generationColi/generationRealisticCity/generateData/smallCity_20.csv"
+#filePath = "utils/Visualisation/solver_drone_cmd_output.log"
+filePathCity = "utils/generationColi/generationRealisticCity/generateData/smallCity_30.csv"
 
-def recupData(filePath):
-    with open(filePath, "r") as f:
-        data = f.read() # read all lines at once
 
-    data = data.split("\n")
+def recupData2(solution):
     drones = []
     houses = []
+    battery = []
+    for n,i in enumerate(solution):
+        bat = []
+        for j in i:
+            drones.append(str(n+1))
+            houses.append(str(j[1]))
+            bat.append(j[0])
+        battery.append(bat)
+    return drones, houses, battery
 
-    #exemple data : The package 8 is delivered by the drone 2 to the house 2
 
-    for line in data:
-        drone = re.findall(r'drone\s\d+', line)
-        house = re.findall(r'house\s\d+', line)
-        if drone:
-            drones.append(drone[0].split(' ')[1])
-            
-        if house:
-            houses.append(house[0].split(' ')[1])
 
-    return drones, houses
-
-drones, houses = recupData(filePath)
+drones, houses, battery = recupData2(sol)
+print(battery)
 
 print("drones : ", drones) 
 print("houses : ", houses)
 
 nombreDrone = max(drones)
+print("Numbers of drone : ", nombreDrone)
 
 city,depot = recupCity(filePathCity)
 print(depot)
@@ -300,17 +270,14 @@ canvas.pack()
 canvas.create_oval(depot[0]-10, depot[1]-10, depot[0]+10, depot[1]+10, outline="black")
 canvas.create_rectangle(0, 0, 800, 800, outline="black")
 
-im = tk.PhotoImage(file = "utils/Visualisation/VisuGlpk/charge.png",master=window)
+im = tk.PhotoImage(file = "utils/Visualisation/VisuRecuit/charge.png",master=window)
 
 
 listDrones = {}
 listHouses = {}
 
-from PIL import Image, ImageSequence
-import io
-import time
 
-image = []
+import io
 
 for house in city:
     listHouses[str(int(house)+1)] = House(str(int(house)+1),city[house],canvas)
@@ -322,13 +289,16 @@ for drone in range(1,int(nombreDrone) +1):
         for j,i in enumerate(drones):
             if int(i) == drone:
                 package.append(Package(str(j)+str(k),str(drone),listHouses[houses[j]]))
-    listDrones[str(drone)] = Drone(str(drone),depot,canvas, package,depot)
+
+    listDrones[drone] = Drone(str(drone),depot,canvas, package,depot,battery[drone-1])
 
 
 globalCity = City("Grenoble",listDrones,listHouses,[],canvas,depot)
+
+image = []
 time0 = time.time()
 i = 0
-while time.time() - time0 < 450 :
+while time.time() - time0 < 300 :
     globalCity.execution()
     if i%5 == 0:
         ps = canvas.postscript(colormode='color')
@@ -341,9 +311,8 @@ window.destroy()
 import numpy as np
 
 # Create a gif from the list of images
-image[0].save('utils/Visualisation/VisuGlpk/animation.gif',
+image[0].save('utils/Visualisation/VisuRecuit/animation.gif',
                save_all=True,
                append_images=image[1:],
-               duration=60,
+               duration=100,
                loop=0)
-
