@@ -144,7 +144,7 @@ class Drone:
         if not(self.destroy):
             self.setUpBattery()
             distance = norm(self.objectif[0] - self.depot[0],self.objectif[1] - self.depot[1])*6.2
-            batteryNeeded = (distance/150)*2
+            batteryNeeded = max((distance/150)*2, 10 + (distance/150)*2)
 
             if(self.id == "1"):
                 
@@ -259,8 +259,8 @@ def recupCity(filePathCity):
 
 
 #filePath = "methods/glpk-solver/solver_drone_cmd_output.log"
-filePath = "methods/glpk-solver/cmd_output/solver_drone_cmd_output_20_6.log"
-filePathCity = "utils/generationColi/generationRealisticCity/generateData/smallCity_20.csv"
+filePath = "methods/glpk-solver/cmd_output/solver_drone_cmd_output_40_6.log"
+filePathCity = "utils/generationColi/generationRealisticCity/generateData/smallCity_40.csv"
 
 def recupData(filePath):
     with open(filePath, "r") as f:
